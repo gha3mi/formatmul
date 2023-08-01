@@ -27,7 +27,7 @@ program mat_vec
 
    sync all
 
-   if (this_image() == 1) print*,'realtive error:', norm2(w-w_co)/norm2(w)
+   if (this_image() == 1) print*,'relative error:', norm2(w-w_co)/norm2(w)
 
 end program mat_vec
 

@@ -30,7 +30,7 @@ program mat_mat
 
    sync all
 
-   if (this_image() == 1) print*,'realtive error:', norm2(C-C_co)/norm2(C)
+   if (this_image() == 1) print*,'relative error:', norm2(C-C_co)/norm2(C)
 
 end program mat_mat
 
