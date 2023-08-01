@@ -41,8 +41,16 @@ cd formatmul
 
 **Run tests:**
 
+Tested with Intel compiler: ifort (IFORT) 2021.10.0 20230609
+
 ```shell
 fpm @ifort-test
+```
+
+Tested with Intel compiler: ifx (IFX) 2023.2.0 20230622
+
+```shell
+fpm @ifx-test
 ```
 
 **Run examples:**
@@ -50,7 +58,9 @@ fpm @ifort-test
 ```shell
 fpm @ifort-example
 ```
-
+```shell
+fpm @ifx-example
+```
 Results:
 
 ```shell
@@ -70,7 +80,7 @@ Elapsed time (example4: mat_vec, coarray):  0.012 [s]
 
 The most up-to-date API documentation for the master branch is available
 [here](https://gha3mi.github.io/formatmul/).
-To generate the API documentation for the `ForMatmul` module using
+To generate the API documentation for `ForMatmul` using
 [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following
 command:
 

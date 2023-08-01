@@ -2,3 +2,7 @@
 options test --compiler ifort --flag "-Ofast -xHost -qmkl -coarray -coarray-num-images=4"
 @ifort-example
 options run --example --all --compiler ifort --flag "-Ofast -xHost -qmkl -coarray -coarray-num-images=4"
+@ifx-test
+options test --compiler ifx --flag "-Ofast -xHost -qmkl -coarray -coarray-num-images=4"
+@ifx-example
+options run --example --all --compiler ifx --flag "-Ofast -xHost -qmkl -coarray -coarray-num-images=4"
