@@ -1,0 +1,4 @@
+@ifort-test
+options test --compiler ifort --flag "-Ofast -xHost -qmkl -coarray -coarray-num-images=4"
+@ifort-example
+options run --example --all --compiler ifort --flag "-Ofast -xHost -qmkl -coarray -coarray-num-images=4"
