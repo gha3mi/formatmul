@@ -22,20 +22,17 @@ contains
       real(rk),     intent(in), contiguous :: A(:,:), B(:,:)
       character(*), intent(in)             :: method
       real(rk), allocatable                :: C(:,:)
-      integer                              :: m, o, remainder_m
-
-      m = size(A,1)
-      o = size(B,2)
 
       if (method == 'coarray') then
-
          block
-
             integer               :: i, block_size, n, im, nimg
             real(rk), allocatable :: C_block(:,:)[:]
+            integer               :: m, o, remainder_m
 
             im          = this_image()
             nimg        = num_images()
+            m           = size(A,1)
+            o           = size(B,2)      
             n           = size(A,2)
             block_size  = m/nimg
             remainder_m = m - block_size * (nimg - 1)
@@ -59,7 +56,6 @@ contains
                C((nimg-1)*block_size + 1 : m, :) = C_block(1:remainder_m, 1:o)[nimg]
             end if
             ! end critical
-
          end block
 
       else
@@ -81,14 +77,12 @@ contains
       real(rk),     intent(in), contiguous :: A(:,:), v(:)
       character(*), intent(in)             :: method
       real(rk), allocatable                :: w(:)
-      integer                              :: m, remainder_m
-
-      m = size(A, 1)
 
       if (method == 'coarray') then
          block
             integer               :: i, block_size, n, im, nimg
             real(rk), allocatable :: w_block(:)[:]
+            integer               :: m, remainder_m
 
             im          = this_image()
             nimg        = num_images()
