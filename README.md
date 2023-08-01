@@ -55,13 +55,19 @@ fpm @ifx-test
 
 **Run examples:**
 
+To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
+
+You have the option to modify the number of images in the `fpm.rsp` file by using the flag `-coarray-num-images=N`.
+
 ```shell
 fpm @ifort-example
 ```
+
 ```shell
 fpm @ifx-example
 ```
-Results:
+
+Results with `-coarray-num-images=4`:
 
 ```shell
 Elapsed time (example1: mat_mat):  1.616 [s]
@@ -69,6 +75,7 @@ Elapsed time (example2: mat_mat, coarray):  0.444 [s]
 Elapsed time (example2: mat_mat, coarray):  0.444 [s]
 Elapsed time (example2: mat_mat, coarray):  0.444 [s]
 Elapsed time (example2: mat_mat, coarray):  0.467 [s]
+
 Elapsed time (example3: mat_vec):  0.047 [s]
 Elapsed time (example4: mat_vec, coarray):  0.012 [s]
 Elapsed time (example4: mat_vec, coarray):  0.012 [s]
