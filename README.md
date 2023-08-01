@@ -68,6 +68,8 @@ Elapsed time (example4: mat_vec, coarray):  0.012 [s]
 
 ## API documentation
 
+The most up-to-date API documentation for the master branch is available
+[here](https://gha3mi.github.io/formatmul/).
 To generate the API documentation for the `ForMatmul` module using
 [ford](https://github.com/Fortran-FOSS-Programmers/ford) run the following
 command:
