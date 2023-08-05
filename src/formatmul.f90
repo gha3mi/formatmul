@@ -21,42 +21,90 @@ contains
    pure function mat_mat(A, B, method) result(C)
       real(rk),     intent(in), contiguous :: A(:,:), B(:,:)
       character(*), intent(in)             :: method
-      real(rk), allocatable                :: C(:,:)
+      ! real(rk), allocatable                :: C(:,:)
+      real(rk)                             :: C(size(A,1),size(B,2))
 
       if (method == 'coarray') then
-         block
-            integer               :: i, block_size, n, im, nimg
-            real(rk), allocatable :: C_block(:,:)[:]
-            integer               :: m, o, remainder_m
 
-            im          = this_image()
-            nimg        = num_images()
-            m           = size(A,1)
-            o           = size(B,2)      
-            n           = size(A,2)
-            block_size  = m/nimg
-            remainder_m = m - block_size * (nimg - 1)
+         if (size(A,1) >= size(B,2)) then
 
-            if ( mod(m, nimg) == 0 ) then
-               if (.not. allocated(C_block)) allocate(C_block(block_size, o)[*])
-               C_block(1:block_size, 1:o)[im] = matmul(A((im-1)*block_size + 1 : im*block_size, 1:n), B(1:n, 1:o))
-            else
-               if (.not. allocated(C_block)) allocate(C_block(remainder_m, o)[*])
-               C_block(1:remainder_m, 1:o)[im] = matmul(A((im-1)*block_size + 1 : im*block_size + remainder_m, 1:n), B(1:n, 1:o))
-            end if
+            block
+               integer               :: i, block_size, n, im, nimg
+               real(rk), allocatable :: C_block(:,:)[:]
+               integer               :: m, o, remainder_m
+               real(rk), allocatable :: A_block(:,:)
 
-            sync all
+               im          = this_image()
+               nimg        = num_images()
+               m           = size(A,1)
+               o           = size(B,2)
+               n           = size(A,2)
+               block_size  = m/nimg
 
-            ! critical
-            if (im == 1) then
-               if (.not. allocated(C)) allocate(C(m, o))
-               do i = 1, nimg - 1
-                  C((i-1)*block_size + 1 : i*block_size, :) = C_block(1:block_size, 1:o)[i]
-               end do
-               C((nimg-1)*block_size + 1 : m, :) = C_block(1:remainder_m, 1:o)[nimg]
-            end if
-            ! end critical
-         end block
+               if ( mod(m, nimg) == 0 ) then
+                  if (.not. allocated(C_block)) allocate(C_block(block_size, o)[*])
+                  A_block = A((im-1)*block_size + 1 : im*block_size, :)
+               else
+                  remainder_m = m - block_size * (nimg - 1)
+                  if (.not. allocated(C_block)) allocate(C_block(remainder_m, m)[*])
+                  A_block = A((im-1)*block_size + 1 : im*block_size + remainder_m, :)
+               end if
+               C_block(:, :)[im] = matmul(A_block, B)
+
+               sync all
+
+               ! critical
+               if (im == 1) then
+                  ! if (.not. allocated(C)) allocate(C(m, o))
+                  do i = 1, nimg - 1
+                     C((i-1)*block_size + 1 : i*block_size, :) = C_block(:,:)[i]
+                  end do
+                  C((nimg-1)*block_size + 1 : m, :) = C_block(:,:)[nimg]
+               end if
+               ! end critical
+
+            end block
+
+         else
+
+            block
+               integer               :: i, block_size, n, im, nimg
+               real(rk), allocatable :: C_block(:,:)[:]
+               integer               :: m, o, remainder_m
+               real(rk), allocatable :: B_block(:,:)
+
+               im          = this_image()
+               nimg        = num_images()
+               m           = size(A,1)
+               o           = size(B,2)
+               n           = size(A,2)
+               block_size  = o/nimg
+
+               if ( mod(o, nimg) == 0 ) then
+                  if (.not. allocated(C_block)) allocate(C_block(m, block_size)[*])
+                  B_block = B(:, (im-1)*block_size + 1 : im*block_size)
+               else
+                  remainder_m = o - block_size * (nimg - 1)
+                  if (.not. allocated(C_block)) allocate(C_block(m, remainder_m)[*])
+                  B_block = B(:, (im-1)*block_size + 1 : im*block_size + remainder_m)
+               end if
+               C_block(:, :)[im] = matmul(A, B_block)
+
+               sync all
+
+               ! critical
+               if (im == 1) then
+                  ! if (.not. allocated(C)) allocate(C(m, o))
+                  do i = 1, nimg - 1
+                     C(:, (i-1)*block_size + 1 : i*block_size) = C_block(:,:)[i]
+                  end do
+                  C(:, (nimg-1)*block_size + 1 : o) = C_block(:,:)[nimg]
+               end if
+               ! end critical
+
+            end block
+
+         end if
 
       else
 
