@@ -1,5 +1,5 @@
 [![GitHub](https://img.shields.io/badge/GitHub-ForMatmul-blue.svg?style=social&logo=github)](https://github.com/gha3mi/formatmul)
-[![Version](https://img.shields.io/github/v/tag/gha3mi/formatmul?color=blue&logo=github&style=flat)](https://github.com/gha3mi/formatmul/releases)
+[![Version](https://img.shields.io/github/release/gha3mi/formatmul.svg)](https://github.com/gha3mi/formatmul/releases/latest)
 [![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/formatmul/)
 [![License](https://img.shields.io/github/license/gha3mi/formatmul?color=green)](https://github.com/gha3mi/formatmul/blob/main/LICENSE)
 [![Build](https://github.com/gha3mi/formatmul/actions/workflows/ci.yml/badge.svg)](https://github.com/gha3mi/formatmul/actions/workflows/ci.yml)
@@ -9,6 +9,7 @@
 **ForMatmul**: A Fortran library that overloads the `matmul` function to enable efficient matrix multiplication with coarray.
 
 ## Usage
+
 ```Fortran
 use formatmul
 
@@ -70,11 +71,11 @@ fpm @ifx-example
 Results with `-coarray-num-images=4`:
 
 ```shell
-Elapsed time (example1: mat_mat):  1.616 [s]
-Elapsed time (example2: mat_mat, coarray):  0.444 [s]
-Elapsed time (example2: mat_mat, coarray):  0.444 [s]
-Elapsed time (example2: mat_mat, coarray):  0.444 [s]
-Elapsed time (example2: mat_mat, coarray):  0.467 [s]
+Elapsed time (example1: mat_mat):  1.175 [s]
+Elapsed time (example2: mat_mat, coarray):  0.269 [s]
+Elapsed time (example2: mat_mat, coarray):  0.272 [s]
+Elapsed time (example2: mat_mat, coarray):  0.274 [s]
+Elapsed time (example2: mat_mat, coarray):  0.275 [s]
 
 Elapsed time (example3: mat_vec):  0.047 [s]
 Elapsed time (example4: mat_vec, coarray):  0.012 [s]
@@ -96,4 +97,6 @@ ford ford.yml
 ```
 
 ## Contributing
-Contributions to `ForMatmul` are welcome! If you find any issues or would like to suggest improvements, please open an issue.
+
+Contributions to `ForMatmul` are welcome!
+If you find any issues or would like to suggest improvements, please open an issue.
