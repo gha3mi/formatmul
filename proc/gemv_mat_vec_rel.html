@@ -92,7 +92,6 @@
     <div class="col-lg-12">
       <div class="well well-sm">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
 
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
@@ -161,6 +160,8 @@
 </h2>
     
 
+    <p>Matrix-vector multiplication using BLAS.
+author: Seyed Ali Ghasemi</p>
 
 
     <h3>Arguments</h3>
@@ -186,7 +187,7 @@
             <td>::</td>
             <td><strong>A</strong></td>
             <td>
-                
+                <p>Input matrix A and vector x.</p>
             </td>
         </tr>
         <tr>
@@ -213,7 +214,7 @@
           real(kind=rk), dimension(size(A,1))
         </small>
       </h3>
-      
+      <p>Result vector y.</p>
     <br>
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -490,14 +491,17 @@ large graphs.</div>
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span><span class="w">   </span><span class="k">pure function </span><span class="n">gemv_mat_vec_rel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">y</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">!&gt; Input matrix A and vector x.</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:,</span><span class="w"> </span><span class="p">:),</span><span class="w"> </span><span class="k">contiguous</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(:),</span><span class="w"> </span><span class="k">contiguous</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">x</span><span class="w"></span>
+<span class="w">      </span><span class="c">!&gt; Result vector y.</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">y</span><span class="w"></span>
 <span class="w">      </span><span class="c">! real(rk), dimension(:), allocatable               :: y</span>
 <span class="w">      </span><span class="kt">integer</span><span class="w">                                           </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="w"></span>
 
-<span class="w">      </span><span class="k">interface</span>
-<span class="k">         pure subroutine </span><span class="n">dgemv</span><span class="p">(</span><span class="n">f_trans</span><span class="p">,</span><span class="w"> </span><span class="n">f_m</span><span class="p">,</span><span class="w"> </span><span class="n">f_n</span><span class="p">,</span><span class="w"> </span><span class="n">f_alpha</span><span class="p">,</span><span class="w"> </span><span class="n">f_a</span><span class="p">,</span><span class="w"> </span><span class="n">f_lda</span><span class="p">,</span><span class="w"> </span><span class="n">f_x</span><span class="p">,</span><span class="w"> </span><span class="n">f_incx</span><span class="p">,</span><span class="w"> </span><span class="n">f_beta</span><span class="p">,</span><span class="w"> </span><span class="n">f_y</span><span class="p">,</span><span class="w"> </span><span class="n">f_incy</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">interface</span><span class="w"></span>
+<span class="w">         </span><span class="c">!&gt; BLAS subroutine for matrix-vector multiplication.</span>
+<span class="w">         </span><span class="k">pure subroutine </span><span class="n">dgemv</span><span class="p">(</span><span class="n">f_trans</span><span class="p">,</span><span class="w"> </span><span class="n">f_m</span><span class="p">,</span><span class="w"> </span><span class="n">f_n</span><span class="p">,</span><span class="w"> </span><span class="n">f_alpha</span><span class="p">,</span><span class="w"> </span><span class="n">f_a</span><span class="p">,</span><span class="w"> </span><span class="n">f_lda</span><span class="p">,</span><span class="w"> </span><span class="n">f_x</span><span class="p">,</span><span class="w"> </span><span class="n">f_incx</span><span class="p">,</span><span class="w"> </span><span class="n">f_beta</span><span class="p">,</span><span class="w"> </span><span class="n">f_y</span><span class="p">,</span><span class="w"> </span><span class="n">f_incy</span><span class="p">)</span><span class="w"></span>
 <span class="w">            </span><span class="k">import </span><span class="n">rk</span><span class="w"></span>
 <span class="w">            </span><span class="kt">integer</span><span class="p">,</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">f_m</span><span class="w"></span>
 <span class="w">            </span><span class="kt">integer</span><span class="p">,</span><span class="w">   </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">f_n</span><span class="w"></span>
@@ -516,8 +520,8 @@ large graphs.</div>
 <span class="k">      </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
 
+<span class="w">      </span><span class="c">! Call BLAS dgemv subroutine for matrix-vector multiplication.</span>
 <span class="w">      </span><span class="k">call </span><span class="n">dgemv</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0.0_rk</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="c">!===============================================================================</span>
 
 <span class="w">   </span><span class="k">end function </span><span class="n">gemv_mat_vec_rel</span><span class="w"></span>
 </pre></div>
@@ -540,7 +544,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-08T10:36:22.888265             </p>
+ on 2023-08-08T12:06:45.300777             </p>
           </div>
         </div>
         <br>

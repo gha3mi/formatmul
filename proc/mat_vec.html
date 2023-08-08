@@ -92,7 +92,6 @@
     <div class="col-lg-12">
       <div class="well well-sm">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
-            <li id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
 
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
@@ -161,6 +160,8 @@
 </h2>
     
 
+    <p>Matrix-vector multiplication using coarray parallelism.
+author: Seyed Ali Ghasemi</p>
 
 
     <h3>Arguments</h3>
@@ -186,7 +187,7 @@
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-                
+                <p>Input matrix A and vector v.</p>
             </td>
         </tr>
         <tr>
@@ -201,7 +202,7 @@
             <td>::</td>
             <td><strong>v</strong>(:)</td>
             <td>
-                
+                <p>Input matrix A and vector v.</p>
             </td>
         </tr>
         <tr>
@@ -216,7 +217,7 @@
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-                
+                <p>Multiplication method ('coarray').</p>
             </td>
         </tr>
         <tr>
@@ -231,7 +232,7 @@
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-                
+                <p>Optional method-specific option.</p>
             </td>
         </tr>
     </tbody>
@@ -243,7 +244,7 @@
           real(kind=rk), allocatable, (:)
         </small>
       </h3>
-      
+      <p>Result vector w.</p>
     <br>
     <div class="panel panel-default">
       <div class="panel-heading">
@@ -561,13 +562,18 @@ large graphs.</div>
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span><span class="w">   </span><span class="k">pure function </span><span class="n">mat_vec</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">!&gt; Input matrix A and vector v.</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">     </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">contiguous</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="p">(:,:),</span><span class="w"> </span><span class="n">v</span><span class="p">(:)</span><span class="w"></span>
+<span class="w">      </span><span class="c">!&gt; Multiplication method (&#39;coarray&#39;).</span>
 <span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">method</span><span class="w"></span>
+<span class="w">      </span><span class="c">!&gt; Optional method-specific option.</span>
 <span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">option</span><span class="w"></span>
+<span class="w">      </span><span class="c">!&gt; Result vector w.</span>
 <span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w">                </span><span class="kd">::</span><span class="w"> </span><span class="n">w</span><span class="p">(:)</span><span class="w"></span>
 
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;coarray&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         block</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">method</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;coarray&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="w">         </span><span class="c">! Coarray-based parallel multiplication.</span>
+<span class="w">         </span><span class="k">block</span>
 <span class="k">            </span><span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">block_size</span><span class="p">,</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">im</span><span class="p">,</span><span class="w"> </span><span class="n">nimg</span><span class="w"></span>
 <span class="w">            </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">w_block</span><span class="p">(:)[:]</span><span class="w"></span>
 <span class="w">            </span><span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">remainder_m</span><span class="w"></span>
@@ -618,9 +624,10 @@ large graphs.</div>
 <span class="w">            </span><span class="c">! end critical</span>
 <span class="w">         </span><span class="k">end block</span>
 
-<span class="k">      else</span>
+<span class="k">      else</span><span class="w"></span>
+<span class="w">         </span><span class="c">! Unsupported multiplication method.</span>
 
-<span class="k">         error stop</span><span class="w"> </span><span class="s1">&#39;Error: The specified method is not available for matrix-vector multiplication!&#39;</span><span class="w"></span>
+<span class="w">         </span><span class="k">error stop</span><span class="w"> </span><span class="s1">&#39;Error: The specified method is not available for matrix-vector multiplication!&#39;</span><span class="w"></span>
 <span class="w">         </span><span class="c">! if (this_image() == 1) then</span>
 <span class="w">         </span><span class="c">!    ! if (.not. allocated(w)) allocate(w(m))</span>
 <span class="w">         </span><span class="c">!    w = matmul(A, v)</span>
@@ -648,7 +655,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-08T10:36:22.888265             </p>
+ on 2023-08-08T12:06:45.300777             </p>
           </div>
         </div>
         <br>

@@ -177,7 +177,8 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      
+      <p>This module provides matrix and vector multiplication functions using different methods.</p>
+<p>Use the kinds module for real(kind) type.</p>
 <br>          <div class="panel panel-default">
       <div class="panel-heading">
         <h3 class="panel-title">Uses</h3>
@@ -644,17 +645,18 @@ large graphs.</div>
       <h3>public        interface <a href='../interface/matmul.html'>matmul</a> 
       </h3>
     </div>
+      <div class="panel-body">
+        <p>Interface for matrix multiplication functions.</p>
+      </div>
     <ul class="list-group">
           <li class="list-group-item">
                 <h3>
     private pure function <a href='../proc/mat_mat.html'>mat_mat</a>(A, B, method, option) result(C)  
 
     </h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+    
+  <p>Matrix-matrix multiplication using coarray parallelism.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -679,7 +681,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-
+<p>Input matrices A and B.</p>
             </td>
         </tr>
         <tr>
@@ -694,7 +696,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>B</strong>(:,:)</td>
             <td>
-
+<p>Input matrices A and B.</p>
             </td>
         </tr>
         <tr>
@@ -709,7 +711,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>Multiplication method ('coarray').</p>
             </td>
         </tr>
         <tr>
@@ -724,7 +726,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-
+<p>Optional method-specific option.</p>
             </td>
         </tr>
     </tbody>
@@ -734,7 +736,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), (size(A,1),size(B,2))</small>
     </h4>
-    
+    <p>Result matrix C.</p>
 
           </li>
           <li class="list-group-item">
@@ -742,11 +744,9 @@ large graphs.</div>
     private pure function <a href='../proc/mat_vec.html'>mat_vec</a>(A, v, method, option) result(w)  
 
     </h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+    
+  <p>Matrix-vector multiplication using coarray parallelism.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -771,7 +771,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-
+<p>Input matrix A and vector v.</p>
             </td>
         </tr>
         <tr>
@@ -786,7 +786,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>v</strong>(:)</td>
             <td>
-
+<p>Input matrix A and vector v.</p>
             </td>
         </tr>
         <tr>
@@ -801,7 +801,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>Multiplication method ('coarray').</p>
             </td>
         </tr>
         <tr>
@@ -816,7 +816,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-
+<p>Optional method-specific option.</p>
             </td>
         </tr>
     </tbody>
@@ -826,7 +826,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), allocatable, (:)</small>
     </h4>
-    
+    <p>Result vector w.</p>
 
           </li>
     </ul>
@@ -838,17 +838,18 @@ large graphs.</div>
       <h3>public        interface <a href='../interface/matmul_blas.html'>matmul_blas</a> 
       </h3>
     </div>
+      <div class="panel-body">
+        <p>Interface for BLAS-based matrix multiplication functions.</p>
+      </div>
     <ul class="list-group">
           <li class="list-group-item">
                 <h3>
     private pure function <a href='../proc/gemm_mat_mat_rel.html'>gemm_mat_mat_rel</a>(A, B) result(C)  
 
     </h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+    
+  <p>Matrix-matrix multiplication using BLAS.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -873,7 +874,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong></td>
             <td>
-
+<p>Input matrices A and B.</p>
             </td>
         </tr>
         <tr>
@@ -898,7 +899,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), dimension(size(A,1), size(B,2))</small>
     </h4>
-    
+    <p>Result matrix C.</p>
 
           </li>
           <li class="list-group-item">
@@ -906,11 +907,9 @@ large graphs.</div>
     private pure function <a href='../proc/gemv_mat_vec_rel.html'>gemv_mat_vec_rel</a>(A, x) result(y)  
 
     </h3>
-        <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+    
+  <p>Matrix-vector multiplication using BLAS.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -935,7 +934,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong></td>
             <td>
-
+<p>Input matrix A and vector x.</p>
             </td>
         </tr>
         <tr>
@@ -960,7 +959,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), dimension(size(A,1))</small>
     </h4>
-    
+    <p>Result vector y.</p>
 
           </li>
     </ul>
@@ -977,11 +976,9 @@ large graphs.</div>
     <div class="panel-heading codesum"><span class="anchor" id="proc-mat_mat"></span><h3>private pure function <a href='../proc/mat_mat.html'>mat_mat</a>(A, B, method, option) result(C)  
 </h3></div>
     <div class="panel-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+          
+  <p>Matrix-matrix multiplication using coarray parallelism.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1006,7 +1003,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-
+<p>Input matrices A and B.</p>
             </td>
         </tr>
         <tr>
@@ -1021,7 +1018,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>B</strong>(:,:)</td>
             <td>
-
+<p>Input matrices A and B.</p>
             </td>
         </tr>
         <tr>
@@ -1036,7 +1033,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>Multiplication method ('coarray').</p>
             </td>
         </tr>
         <tr>
@@ -1051,7 +1048,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-
+<p>Optional method-specific option.</p>
             </td>
         </tr>
     </tbody>
@@ -1061,7 +1058,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), (size(A,1),size(B,2))</small>
     </h4>
-    
+    <p>Result matrix C.</p>
 
     </div>
   </div>
@@ -1070,11 +1067,9 @@ large graphs.</div>
     <div class="panel-heading codesum"><span class="anchor" id="proc-mat_vec"></span><h3>private pure function <a href='../proc/mat_vec.html'>mat_vec</a>(A, v, method, option) result(w)  
 </h3></div>
     <div class="panel-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+          
+  <p>Matrix-vector multiplication using coarray parallelism.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1099,7 +1094,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-
+<p>Input matrix A and vector v.</p>
             </td>
         </tr>
         <tr>
@@ -1114,7 +1109,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>v</strong>(:)</td>
             <td>
-
+<p>Input matrix A and vector v.</p>
             </td>
         </tr>
         <tr>
@@ -1129,7 +1124,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>method</strong></td>
             <td>
-
+<p>Multiplication method ('coarray').</p>
             </td>
         </tr>
         <tr>
@@ -1144,7 +1139,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-
+<p>Optional method-specific option.</p>
             </td>
         </tr>
     </tbody>
@@ -1154,7 +1149,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), allocatable, (:)</small>
     </h4>
-    
+    <p>Result vector w.</p>
 
     </div>
   </div>
@@ -1163,11 +1158,9 @@ large graphs.</div>
     <div class="panel-heading codesum"><span class="anchor" id="proc-gemm_mat_mat_rel"></span><h3>private pure function <a href='../proc/gemm_mat_mat_rel.html'>gemm_mat_mat_rel</a>(A, B) result(C)  
 </h3></div>
     <div class="panel-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+          
+  <p>Matrix-matrix multiplication using BLAS.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1192,7 +1185,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong></td>
             <td>
-
+<p>Input matrices A and B.</p>
             </td>
         </tr>
         <tr>
@@ -1217,7 +1210,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), dimension(size(A,1), size(B,2))</small>
     </h4>
-    
+    <p>Result matrix C.</p>
 
     </div>
   </div>
@@ -1226,11 +1219,9 @@ large graphs.</div>
     <div class="panel-heading codesum"><span class="anchor" id="proc-gemv_mat_vec_rel"></span><h3>private pure function <a href='../proc/gemv_mat_vec_rel.html'>gemv_mat_vec_rel</a>(A, x) result(y)  
 </h3></div>
     <div class="panel-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
+          
+  <p>Matrix-vector multiplication using BLAS.
+author: Seyed Ali Ghasemi</p>
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -1255,7 +1246,7 @@ large graphs.</div>
             <td>::</td>
             <td><strong>A</strong></td>
             <td>
-
+<p>Input matrix A and vector x.</p>
             </td>
         </tr>
         <tr>
@@ -1280,7 +1271,7 @@ large graphs.</div>
     Return Value
     <small>real(kind=rk), dimension(size(A,1))</small>
     </h4>
-    
+    <p>Result vector y.</p>
 
     </div>
   </div>
@@ -1306,7 +1297,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-08T10:36:22.888265             </p>
+ on 2023-08-08T12:06:45.300777             </p>
           </div>
         </div>
         <br>
