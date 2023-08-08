@@ -1,5 +1,9 @@
+!> Module: formatmul
+!! This module provides matrix and vector multiplication functions using different methods.
+
 module formatmul
 
+   !> Use the kinds module for real(kind) type.
    use kinds
 
    implicit none
@@ -7,34 +11,39 @@ module formatmul
    private
    public matmul, matmul_blas
 
-   !===============================================================================
+   !> Interface for matrix multiplication functions.
    interface matmul
       procedure :: mat_mat
       procedure :: mat_vec
    end interface
-   !===============================================================================
 
-   !===============================================================================
+   !> Interface for BLAS-based matrix multiplication functions.
    interface matmul_blas
       procedure :: gemm_mat_mat_rel
       procedure :: gemv_mat_vec_rel
    end interface
-   !===============================================================================
+
 
 contains
 
-   !===============================================================================
+   !> Matrix-matrix multiplication using coarray parallelism.
    !> author: Seyed Ali Ghasemi
    pure function mat_mat(A, B, method, option) result(C)
+      !> Input matrices A and B.
       real(rk),     intent(in), contiguous :: A(:,:), B(:,:)
+      !> Multiplication method ('coarray').
       character(*), intent(in)             :: method
+      !> Optional method-specific option.
       character(*), intent(in), optional   :: option
+      !> Result matrix C.
       ! real(rk), allocatable                :: C(:,:)
       real(rk)                             :: C(size(A,1),size(B,2))
 
       if (method == 'coarray') then
+         ! Coarray-based parallel multiplication.
 
          if (size(A,1) >= size(B,2)) then
+            ! Handle A's columns > B's rows.
 
             block
                integer               :: i, block_size, n, im, nimg
@@ -82,6 +91,7 @@ contains
             end block
 
          else
+            ! Handle B's columns > A's rows.
 
             block
                integer               :: i, block_size, n, im, nimg
@@ -131,6 +141,7 @@ contains
          end if
 
       else
+         ! Unsupported multiplication method.
 
          error stop 'Error: The specified method is not available for matrix-matrix multiplication!'
          ! if (this_image() == 1) then
@@ -140,18 +151,23 @@ contains
 
       end if
    end function mat_mat
-   !===============================================================================
 
 
-   !===============================================================================
+
+   !> Matrix-vector multiplication using coarray parallelism.
    !> author: Seyed Ali Ghasemi
    pure function mat_vec(A, v, method, option) result(w)
+      !> Input matrix A and vector v.
       real(rk),     intent(in), contiguous :: A(:,:), v(:)
+      !> Multiplication method ('coarray').
       character(*), intent(in)             :: method
+      !> Optional method-specific option.
       character(*), intent(in), optional   :: option
+      !> Result vector w.
       real(rk), allocatable                :: w(:)
 
       if (method == 'coarray') then
+         ! Coarray-based parallel multiplication.
          block
             integer               :: i, block_size, n, im, nimg
             real(rk), allocatable :: w_block(:)[:]
@@ -204,6 +220,7 @@ contains
          end block
 
       else
+         ! Unsupported multiplication method.
 
          error stop 'Error: The specified method is not available for matrix-vector multiplication!'
          ! if (this_image() == 1) then
@@ -213,19 +230,22 @@ contains
 
       end if
    end function mat_vec
-   !===============================================================================
 
 
-   !===============================================================================
+
+   !> Matrix-matrix multiplication using BLAS.
    !> author: Seyed Ali Ghasemi
    pure function gemm_mat_mat_rel(A, B) result(C)
+      !> Input matrices A and B.
       real(rk), dimension(:, :), contiguous, intent(in) :: A
       real(rk), dimension(:, :), contiguous, intent(in) :: B
+      !> Result matrix C.
       real(rk), dimension(size(A,1), size(B,2))         :: C
       ! real(rk), dimension(:,:), allocatable             :: C
       integer                                           :: m, n, k
 
       interface
+         !> BLAS subroutine for matrix-matrix multiplication.
          pure subroutine dgemm(f_transa, f_transb, f_m, f_n, f_k, f_alpha, f_a, f_lda, f_b, f_ldb, f_beta, f_c, f_ldc)
             import rk
             integer,   intent(in)    :: f_ldc
@@ -248,21 +268,24 @@ contains
       n = size(B, 2)
       k = size(A, 2)
 
+      ! Call BLAS dgemm subroutine for matrix-matrix multiplication.
       call dgemm('N', 'N', m, n, k, 1.0_rk, A, m, B, k, 0.0_rk, C, m)
 
    end function gemm_mat_mat_rel
-   !===============================================================================
 
-   !===============================================================================
+   !> Matrix-vector multiplication using BLAS.
    !> author: Seyed Ali Ghasemi
    pure function gemv_mat_vec_rel(A, x) result(y)
+      !> Input matrix A and vector x.
       real(rk), dimension(:, :), contiguous, intent(in) :: A
       real(rk), dimension(:), contiguous, intent(in)    :: x
+      !> Result vector y.
       real(rk), dimension(size(A,1))                    :: y
       ! real(rk), dimension(:), allocatable               :: y
       integer                                           :: m, n
 
       interface
+         !> BLAS subroutine for matrix-vector multiplication.
          pure subroutine dgemv(f_trans, f_m, f_n, f_alpha, f_a, f_lda, f_x, f_incx, f_beta, f_y, f_incy)
             import rk
             integer,   intent(in)    :: f_m
@@ -282,8 +305,8 @@ contains
       m = size(A, 1)
       n = size(A, 2)
 
+      ! Call BLAS dgemv subroutine for matrix-vector multiplication.
       call dgemv('N', m, n, 1.0_rk, A, m, x, 1, 0.0_rk, y , 1)
-      !===============================================================================
 
    end function gemv_mat_vec_rel
 
