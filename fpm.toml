@@ -48,7 +48,6 @@ name       = "example2"
 source-dir = "example"
 main       = "example2.f90"
 
-
 [[example]]
 name       = "example3"
 source-dir = "example"
@@ -58,3 +57,23 @@ main       = "example3.f90"
 name       = "example4"
 source-dir = "example"
 main       = "example4.f90"
+
+[[example]]
+name       = "example5"
+source-dir = "example"
+main       = "example5.f90"
+
+[[example]]
+name       = "example6"
+source-dir = "example"
+main       = "example6.f90"
+
+[[example]]
+name       = "example7"
+source-dir = "example"
+main       = "example7.f90"
+
+[[example]]
+name       = "example8"
+source-dir = "example"
+main       = "example8.f90"
