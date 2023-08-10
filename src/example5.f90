@@ -2,7 +2,7 @@ program example5
 
    use kinds,     only: rk
    use fortime,   only: timer
-   use formatmul, only: matmul_blas
+   use formatmul_opts, only: matmul_blas
 
    implicit none
 
