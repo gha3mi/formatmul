@@ -2,7 +2,8 @@ program benchmark2
 
    use kinds,     only: rk
    use fortime,   only: timer
-   use formatmul, only: matmul, matmul_blas
+   use formatmul, only: matmul
+   use formatmul_opts, only: matmul_blas
 
    implicit none
 
