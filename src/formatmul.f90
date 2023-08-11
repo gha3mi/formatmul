@@ -40,40 +40,31 @@ contains
             ! Handle A's columns > B's rows.
 
             block
-               integer               :: i, block_size, n, im, nimg
-               real(rk), allocatable :: C_block(:,:)[:]
-               integer               :: m, o, remainder_m
-               real(rk), allocatable :: A_block(:,:)
+               integer               :: i, m, n, o, im, nimg, base_value, remainder
+               integer               :: block_size(num_images())
+               integer               :: offsets(num_images())
+               real(rk), allocatable :: C_block(:,:)[:], A_block(:,:)[:]
 
-               im          = this_image()
-               nimg        = num_images()
-               m           = size(A,1)
-               o           = size(B,2)
-               n           = size(A,2)
-               block_size  = m/nimg
+               im   = this_image()
+               nimg = num_images()
+               m    = size(A,1)
+               o    = size(B,2)
+               n    = size(A,2)
 
-               if ( mod(m, nimg) == 0 ) then
-                  if (.not. allocated(C_block)) allocate(C_block(block_size, o)[*])
-                  A_block = A((im-1)*block_size + 1 : im*block_size, :)
-               else
-                  remainder_m = m - block_size * (nimg - 1)
-                  if (.not. allocated(C_block)) allocate(C_block(remainder_m, o)[*])
-                  A_block = A((im-1)*block_size + 1 : im*block_size + remainder_m, :)
-               end if
+               call calc_block_offsets(m, nimg, block_size, offsets)
 
-               C_block(:, :)[im] = matmul_opts(A_block, B, option)
+               allocate(A_block(block_size(im), n)[*])
+               allocate(C_block(block_size(im), o)[*])
+
+               A_block(:,:)[im] = A(offsets(im) : offsets(im) + block_size(im) - 1, :)
+               C_block(:,:)[im] = matmul_opts(A_block(:,:)[im], B, option)
 
                sync all
-
-               ! critical
                if (im == 1) then
-                  ! if (.not. allocated(C)) allocate(C(m, o))
-                  do i = 1, nimg - 1
-                     C((i-1)*block_size + 1 : i*block_size, :) = C_block(:,:)[i]
+                  do i = 1, nimg
+                     C(offsets(i) : offsets(i) + block_size(i) - 1, :) = C_block(:,:)[i]
                   end do
-                  C((nimg-1)*block_size + 1 : m, :) = C_block(:,:)[nimg]
                end if
-               ! end critical
 
             end block
 
@@ -81,40 +72,31 @@ contains
             ! Handle B's columns > A's rows.
 
             block
-               integer               :: i, block_size, n, im, nimg
-               real(rk), allocatable :: C_block(:,:)[:]
-               integer               :: m, o, remainder_m
-               real(rk), allocatable :: B_block(:,:)
+               integer               :: i, m, n, o, im, nimg, base_value, remainder
+               integer               :: block_size(num_images())
+               integer               :: offsets(num_images())
+               real(rk), allocatable :: C_block(:,:)[:], B_block(:,:)[:]
 
-               im          = this_image()
-               nimg        = num_images()
-               m           = size(A,1)
-               o           = size(B,2)
-               n           = size(A,2)
-               block_size  = o/nimg
+               im   = this_image()
+               nimg = num_images()
+               m    = size(A,1)
+               o    = size(B,2)
+               n    = size(A,2)
 
-               if ( mod(o, nimg) == 0 ) then
-                  if (.not. allocated(C_block)) allocate(C_block(m, block_size)[*])
-                  B_block = B(:, (im-1)*block_size + 1 : im*block_size)
-               else
-                  remainder_m = o - block_size * (nimg - 1)
-                  if (.not. allocated(C_block)) allocate(C_block(m, remainder_m)[*])
-                  B_block = B(:, (im-1)*block_size + 1 : im*block_size + remainder_m)
-               end if
+               call calc_block_offsets(o, nimg, block_size, offsets)
 
-               C_block(:, :)[im] = matmul_opts(A, B_block, option)
+               allocate(B_block(n, block_size(im))[*])
+               allocate(C_block(m, block_size(im))[*])
+
+               B_block(:,:)[im] = B(:, offsets(im) : offsets(im) + block_size(im) - 1)
+               C_block(:,:)[im] = matmul_opts(A, B_block(:,:)[im], option)
 
                sync all
-
-               ! critical
                if (im == 1) then
-                  ! if (.not. allocated(C)) allocate(C(m, o))
-                  do i = 1, nimg - 1
-                     C(:, (i-1)*block_size + 1 : i*block_size) = C_block(:,:)[i]
+                  do i = 1, nimg
+                     C(:,offsets(i) : offsets(i) + block_size(i) - 1) = C_block(:,:)[i]
                   end do
-                  C(:, (nimg-1)*block_size + 1 : o) = C_block(:,:)[nimg]
                end if
-               ! end critical
 
             end block
 
@@ -192,5 +174,18 @@ contains
 
       end if
    end function mat_vec
+
+   !> Calculate block sizes and offsets.
+   !> author: Seyed Ali Ghasemi
+   pure subroutine calc_block_offsets(d,nimg, block_size, offsets)
+      integer, intent(in)  :: d, nimg
+      integer, intent(out) :: block_size(nimg), offsets(nimg)
+      integer              :: i, base_value, remainder
+      base_value = d / nimg
+      remainder = d - base_value * nimg
+      block_size(1:nimg) = base_value
+      if (remainder > 0) block_size(1:remainder) = base_value + 1
+      offsets = [(sum(block_size(1:i-1)) + 1, i = 1, nimg)]
+   end subroutine calc_block_offsets
 
 end module formatmul
