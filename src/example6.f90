@@ -23,7 +23,7 @@ program example6
    sync all
 
    call t%timer_start()
-      C = matmul(A,B,'coarray',option='blas')
+      C = matmul(A,B,'coarray',option='m2')
    call t%timer_stop(message=' Elapsed time (example6: mat_mat, coarray with blas):')
 
 end program example6

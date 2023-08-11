@@ -44,7 +44,7 @@ program benchmark1
 
    call t%timer_start()
    do i = 1,l
-      C = matmul(A,B,'coarray','matmul')
+      C = matmul(A,B,'coarray','m1')
    end do
    write (im, "(I2)") this_image()
    call t%timer_stop(message=' Elapsed time (coarray with matmul) image='//trim(im)//':',nloops=l)
@@ -53,7 +53,7 @@ program benchmark1
 
    call t%timer_start()
    do i = 1,l
-      C = matmul(A,B,'coarray','blas')
+      C = matmul(A,B,'coarray','m2')
    end do
    call t%timer_stop(message=' Elapsed time (coarray with dgemm) image='//trim(im)//':',nloops=l)
 
