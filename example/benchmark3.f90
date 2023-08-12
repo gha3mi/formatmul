@@ -181,7 +181,7 @@ contains
       character(*),intent(in) :: filename
       integer                 :: nunit
       open (newunit = nunit, file = filename, access = 'append')
-      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",f7.3," ",f6.2)') method, nimg, s1,s2,s3,nloops, ti%elapsed_time, real(nloops, rk)*real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time
+      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') method, nimg, s1,s2,s3,nloops, ti%elapsed_time, real(nloops, rk)*real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time
       close(nunit)
    end subroutine write_benchmark
    
