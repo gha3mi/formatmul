@@ -10,10 +10,10 @@
 
 ## Usage
 
-```Fortran
+```fortran
 use formatmul
 
-c = matmul(a,b,method='coarray')
+c = matmul(a,b,method='coarray',option='m1')
 ```
 
 ## fpm dependency
