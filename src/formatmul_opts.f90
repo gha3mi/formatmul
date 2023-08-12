@@ -24,12 +24,58 @@ contains
       real(rk),     intent(in), contiguous :: A(:,:), B(:,:)
       character(*), intent(in) :: option
       real(rk)                 :: C(size(A,1),size(B,2))
+      integer                  :: m,n,k
 
       select case (option)
        case ('m1')
          C = matmul(A, B)
        case ('m2')
          C = matmul_blas(A, B)
+       case('m3')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_mnp(m, k, n, a, b, c)
+       case('m4')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_mpn(m, k, n, a, b, c)
+       case('m5')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_nmp(m, k, n, a, b, c)
+       case('m6')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_npm(m, k, n, a, b, c)
+       case('m7')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_pmn(m, k, n, a, b, c)
+       case('m8')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_pnm(m, k, n, a, b, c)
+       case('m9')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_9(m, k, n, a, b, c)
+       case('m10')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_10(m, k, n, a, b, c)
+       case('m11')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_11(m, k, n, a, b, c)
        case default
          C = matmul(A, B)
       end select
@@ -84,10 +130,9 @@ contains
       m = size(A, 1)
       n = size(B, 2)
       k = size(A, 2)
-
+      C = 0.0_rk
       ! Call BLAS dgemm subroutine for matrix-matrix multiplication.
       call dgemm('N', 'N', m, n, k, 1.0_rk, A, m, B, k, 0.0_rk, C, m)
-
    end function gemm_mat_mat_rel
 
    !> Matrix-vector multiplication using BLAS.
@@ -121,11 +166,150 @@ contains
 
       m = size(A, 1)
       n = size(A, 2)
-
+      y = 0.0_rk
       ! Call BLAS dgemv subroutine for matrix-vector multiplication.
       call dgemv('N', m, n, 1.0_rk, A, m, x, 1, 0.0_rk, y , 1)
-
    end function gemv_mat_vec_rel
+
+   !> author: @tyrandis
+   pure subroutine mm_mnp(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i=1,m
+         do j=1,n
+            do k=1,p
+               c(i,k) = c(i,k) + a(i,j)*b(j,k)
+            end do
+         end do
+      end do
+   end subroutine mm_mnp
+
+   !> author: @tyrandis
+   pure subroutine mm_mpn(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i=1,m
+         do j=1,p
+            do k=1,n
+               c(i,j) = c(i,j) + a(i,k)*b(k,j)
+            end do
+         end do
+      end do
+   end subroutine mm_mpn
+
+   !> author: @tyrandis
+   pure subroutine mm_nmp(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i=1,n
+         do j=1,m
+            do k=1,p
+               c(j,k) = c(j,k) + a(j,i)*b(i,k)
+            end do
+         end do
+      end do
+   end subroutine mm_nmp
+
+   !> author: @tyrandis
+   pure subroutine mm_npm(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i=1,n
+         do j=1,p
+            do k=1,m
+               c(k,j) = c(k,j) + a(k,i)*b(i,j)
+            end do
+         end do
+      end do
+   end subroutine mm_npm
+
+   !> author: @tyrandis
+   pure subroutine mm_pmn(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i=1,p
+         do j=1,m
+            do k=1,n
+               c(j,i) = c(j,i) + a(j,k)*b(k,i)
+            end do
+         end do
+      end do
+   end subroutine mm_pmn
+
+   !> author: @tyrandis
+   pure subroutine mm_pnm(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i=1,p
+         do j=1,n
+            do k=1,m
+               c(k,i) = c(k,i) + a(k,j)*b(j,i)
+            end do
+         end do
+      end do
+   end subroutine mm_pnm
+
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mm_9(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do i = 1, p
+         do k = 1, m
+            c(k,i) = dot_product(a(k,:), b(:,i))
+         end do
+      end do
+   end subroutine mm_9
+
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mm_10(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do concurrent (i = 1: p)
+         do k = 1, m
+            c(k,i) = dot_product(a(k,:), b(:,i))
+         end do
+      end do
+   end subroutine mm_10
+
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mm_11(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, j, k
+      c = 0.0_rk
+      do concurrent (i = 1: p)
+         do j=1,n
+            do k=1,m
+               c(k,i) = c(k,i) + a(k,j)*b(j,i)
+            end do
+         end do
+      end do
+   end subroutine mm_11
 
 end module formatmul_opts
 
