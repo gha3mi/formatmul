@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from itertools import cycle
 from collections import defaultdict
+import numpy as np
 
 # Read the data from the file
 data = []
@@ -69,6 +70,57 @@ axes[1].set_xlabel('m=n=o')
 axes[1].set_ylabel('performance [GFLOPS]')
 axes[1].set_title(f'Coarray Matmul Benchmark - Performance (number_images={number_images})')
 axes[1].legend()
+axes[1].grid(True)
+
+# Calculate average values for the 7th column
+average_values_col7 = {}
+for key, values in organized_data_col7.items():
+    y_values = [v[1] for v in values]
+    average = np.mean(y_values)
+    average_values_col7[key] = average
+
+# Calculate average values for the 8th column
+average_values_col8 = {}
+for key, values in organized_data_col8.items():
+    y_values = [v[1] for v in values]
+    average = np.mean(y_values)
+    average_values_col8[key] = average
+
+# Find the method with the highest and lowest average elapsed time
+max_elapsed_time_method = max(average_values_col7, key=average_values_col7.get)
+min_elapsed_time_method = min(average_values_col7, key=average_values_col7.get)
+
+# Find the method with the highest and lowest average performance
+max_performance_method = max(average_values_col8, key=average_values_col8.get)
+min_performance_method = min(average_values_col8, key=average_values_col8.get)
+
+# Calculate overall average values for the 7th and 8th columns
+overall_average_col7 = np.mean(list(average_values_col7.values()))
+overall_average_col8 = np.mean(list(average_values_col8.values()))
+
+# Create bar plots for average values
+fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+
+# Bar plot for average elapsed time
+bar_colors = ['green' if method == min_elapsed_time_method else 'red' if method == max_elapsed_time_method else 'blue' for method in average_values_col7.keys()]
+bars = axes[0].bar(average_values_col7.keys(), average_values_col7.values(), color=bar_colors)
+# Add overall average value to the bar plot
+axes[0].axhline(y=overall_average_col7, color='gray', linestyle='dashed', label='Overall Average')
+axes[0].set_xlabel('Methods')
+axes[0].set_ylabel('Average Elapsed Time [s]')
+axes[0].set_title(f'Coarray Matmul Benchmark - Average elapsed time (number_images={number_images})')
+axes[0].tick_params(axis='x', rotation=45)
+axes[0].grid(True)
+
+# Bar plot for average performance
+bar_colors = ['green' if method == max_performance_method else 'red' if method == min_performance_method else 'blue' for method in average_values_col8.keys()]
+bars = axes[1].bar(average_values_col8.keys(), average_values_col8.values(), color=bar_colors)
+# Add overall average value to the bar plot
+axes[1].axhline(y=overall_average_col8, color='gray', linestyle='dashed', label='Overall Average')
+axes[1].set_xlabel('Methods')
+axes[1].set_ylabel('Average Performance [GFLOPS]')
+axes[1].set_title(f'Coarray Matmul Benchmark - Average performance (number_images={number_images})')
+axes[1].tick_params(axis='x', rotation=45)
 axes[1].grid(True)
 
 plt.tight_layout()

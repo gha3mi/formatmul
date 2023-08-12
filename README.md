@@ -104,6 +104,8 @@ Results with `-coarray-num-images=4`:
 
 <img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark3.png" width="750">
 
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark3b.png" width="750">
+
 ## API documentation
 
 The most up-to-date API documentation for the master branch is available
