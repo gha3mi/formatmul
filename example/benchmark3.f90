@@ -114,6 +114,18 @@ program benchmark3
       end do
       call stop_benchmark(t,1,m,n,o,l,C,C_ref,'coarray_m11',file_name)
 
+      call start_benchmark(t,1,"C = matmul(A,B,'coarray','m12')")
+      do i = 1,l
+         C = matmul(A,B,'coarray','m12')
+      end do
+      call stop_benchmark(t,1,m,n,o,l,C,C_ref,'coarray_m12',file_name)
+
+      call start_benchmark(t,1,"C = matmul(A,B,'coarray','m13')")
+      do i = 1,l
+         C = matmul(A,B,'coarray','m13')
+      end do
+      call stop_benchmark(t,1,m,n,o,l,C,C_ref,'coarray_m13',file_name)
+
    end do
 
 contains
