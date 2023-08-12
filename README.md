@@ -84,6 +84,26 @@ Elapsed time (example4: mat_vec, coarray):  0.012 [s]
 Elapsed time (example4: mat_vec, coarray):  0.012 [s]
 ```
 
+**Benchmark:**
+
+To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
+
+```shell
+fpm run --example benchmark3 --compiler ifort --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4"
+```
+
+```shell
+fpm run --example benchmark3 --compiler ifx --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4"
+```
+
+```shell
+python benchmark3.py
+```
+
+Results with `-coarray-num-images=4`:
+
+<img alt="ForMatmul" src="benchmark3.png" width="750">
+
 ## API documentation
 
 The most up-to-date API documentation for the master branch is available
