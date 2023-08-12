@@ -95,7 +95,7 @@
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title="35.4% of total for programs.">157 statements</a>
+               title="36.9% of total for programs.">167 statements</a>
           </li>
 
             <li id="source-file">
@@ -136,12 +136,12 @@
             <a class="list-group-item" href="../program/benchmark3.html#variable-c_ref">C_ref</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-c~7">C</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-t~9">t</a>
-            <a class="list-group-item" href="../program/benchmark3.html#variable-m~18">m</a>
-            <a class="list-group-item" href="../program/benchmark3.html#variable-n~18">n</a>
+            <a class="list-group-item" href="../program/benchmark3.html#variable-m~20">m</a>
+            <a class="list-group-item" href="../program/benchmark3.html#variable-n~20">n</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-o~4">o</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-i~3">i</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-l~3">l</a>
-            <a class="list-group-item" href="../program/benchmark3.html#variable-p~10">p</a>
+            <a class="list-group-item" href="../program/benchmark3.html#variable-p~12">p</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-unit_num">unit_num</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-file_name">file_name</a>
         </div>
@@ -201,8 +201,8 @@
       <ul class="list-group">
           <li class="list-group-item">
             <ul class="list-inline">
-                <li><a href='../module/formatmul.html'>formatmul</a></li>
                 <li>fortime</li>
+                <li><a href='../module/formatmul.html'>formatmul</a></li>
                 <li>kinds</li>
             </ul>
           </li>
@@ -603,12 +603,12 @@ large graphs.</div>
             <a class="list-group-item" href="../program/benchmark3.html#variable-c_ref">C_ref</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-c~7">C</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-t~9">t</a>
-            <a class="list-group-item" href="../program/benchmark3.html#variable-m~18">m</a>
-            <a class="list-group-item" href="../program/benchmark3.html#variable-n~18">n</a>
+            <a class="list-group-item" href="../program/benchmark3.html#variable-m~20">m</a>
+            <a class="list-group-item" href="../program/benchmark3.html#variable-n~20">n</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-o~4">o</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-i~3">i</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-l~3">l</a>
-            <a class="list-group-item" href="../program/benchmark3.html#variable-p~10">p</a>
+            <a class="list-group-item" href="../program/benchmark3.html#variable-p~12">p</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-unit_num">unit_num</a>
             <a class="list-group-item" href="../program/benchmark3.html#variable-file_name">file_name</a>
         </div>
@@ -754,7 +754,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~18"></span>
+              <span class="anchor" id="variable-m~20"></span>
               integer
             </td>
             <td>
@@ -770,7 +770,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~18"></span>
+              <span class="anchor" id="variable-n~20"></span>
               integer
             </td>
             <td>
@@ -834,7 +834,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-p~10"></span>
+              <span class="anchor" id="variable-p~12"></span>
               integer
             </td>
             <td>
@@ -1634,6 +1634,18 @@ large graphs.</div>
 <span class="w">      </span><span class="k">end do</span>
 <span class="k">      call </span><span class="n">stop_benchmark</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">C_ref</span><span class="p">,</span><span class="s1">&#39;coarray_m11&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="p">)</span><span class="w"></span>
 
+<span class="w">      </span><span class="k">call </span><span class="n">start_benchmark</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;C = matmul(A,B,&#39;coarray&#39;,&#39;m12&#39;)&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">l</span><span class="w"></span>
+<span class="w">         </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="s1">&#39;coarray&#39;</span><span class="p">,</span><span class="s1">&#39;m12&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">end do</span>
+<span class="k">      call </span><span class="n">stop_benchmark</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">C_ref</span><span class="p">,</span><span class="s1">&#39;coarray_m12&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">      </span><span class="k">call </span><span class="n">start_benchmark</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;C = matmul(A,B,&#39;coarray&#39;,&#39;m13&#39;)&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">l</span><span class="w"></span>
+<span class="w">         </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="s1">&#39;coarray&#39;</span><span class="p">,</span><span class="s1">&#39;m13&#39;</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">end do</span>
+<span class="k">      call </span><span class="n">stop_benchmark</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">l</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">C_ref</span><span class="p">,</span><span class="s1">&#39;coarray_m13&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="p">)</span><span class="w"></span>
+
 <span class="w">   </span><span class="k">end do</span>
 
 <span class="k">contains</span>
@@ -1725,7 +1737,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-12T19:07:26.674296             </p>
+ on 2023-08-12T19:43:46.982143             </p>
           </div>
         </div>
         <br>

@@ -76,6 +76,16 @@ contains
          n = size(B,2)
          k = size(B,1)
          call mm_11(m, k, n, a, b, c)
+       case('m12')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_12(m, k, n, a, b, c)
+       case('m13')
+         m = size(A,1)
+         n = size(B,2)
+         k = size(B,1)
+         call mm_13(m, k, n, a, b, c)
        case default
          C = matmul(A, B)
       end select
@@ -272,7 +282,7 @@ contains
       integer, intent(in) :: m, n, p
       real(rk), intent(in) :: a(m,n), b(n,p)
       real(rk), intent(out) :: c(m,p)
-      integer :: i, j, k
+      integer :: i, k
       c = 0.0_rk
       do i = 1, p
          do k = 1, m
@@ -286,7 +296,7 @@ contains
       integer, intent(in) :: m, n, p
       real(rk), intent(in) :: a(m,n), b(n,p)
       real(rk), intent(out) :: c(m,p)
-      integer :: i, j, k
+      integer :: i, k
       c = 0.0_rk
       do concurrent (i = 1: p)
          do k = 1, m
@@ -311,5 +321,40 @@ contains
       end do
    end subroutine mm_11
 
-end module formatmul_opts
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mm_12(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, k
+      c = 0.0_rk
+      block
+         !$OMP PARALLEL DO PRIVATE(i, k)
+         do i = 1, p
+            do k = 1, m
+               c(k,i) = dot_product(a(k,:), b(:,i))
+            end do
+         end do
+         !$OMP END PARALLEL DO
+      end block
+   end subroutine mm_12
 
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mm_13(m, n, p, a, b, c)
+      integer, intent(in) :: m, n, p
+      real(rk), intent(in) :: a(m,n), b(n,p)
+      real(rk), intent(out) :: c(m,p)
+      integer :: i, k
+      c = 0.0_rk
+      block
+         !$OMP PARALLEL DO DEFAULT(NONE) PRIVATE(i, k) SHARED(m, p, a, b, c)
+         do i = 1, p
+            do k = 1, m
+               c(k,i) = dot_product(a(k,:), b(:,i))
+            end do
+         end do
+         !$OMP END PARALLEL DO
+      end block
+   end subroutine mm_13
+
+end module formatmul_opts
