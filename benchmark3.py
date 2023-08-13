@@ -32,8 +32,8 @@ fig, axes = plt.subplots(1, 2, figsize=(15, 6))
 identifier_marker_color = {}  # Dictionary to store marker and color for each identifier
 
 # Cycle through different markers and colors
-marker_cycle = cycle(['o', 'o', 's', '^', 'v', 'D', 'p', '*', '+', 'x', '<', '>'])
-color_cycle = cycle(['black', 'blue', 'green', 'red', 'purple', 'orange', 'brown', 'pink', 'gray', 'gold', 'magenta', 'olive'])
+marker_cycle = cycle(['o', 'o', 's', '^', 'v', 'D', 'p', '*', '+', 'x', '<', '>','|'])
+color_cycle = cycle(['black', 'blue', 'green', 'red', 'purple', 'orange', 'brown', 'pink', 'gray', 'gold', 'magenta', 'olive','maroon'])
 
 # Plot for the 7th column as y-value
 for key, values in organized_data_col7.items():
