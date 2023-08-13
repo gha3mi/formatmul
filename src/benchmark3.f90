@@ -151,8 +151,8 @@ contains
       character(*),intent(in)    :: filename
       integer                    :: nunit
       if (this_image() == im) then
-         call ti%timer_stop(message=' Elapsed time :',nloops=l)
-         print'(a,f6.2,a)', ' Performance  : ', real(nloops, rk)*real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time,' [GFLOPS]'
+         call ti%timer_stop(message=' Elapsed time :',nloops=nloops)
+         print'(a,f6.2,a)', ' Performance  : ', real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time,' [GFLOPS]'
          print'(a,3e13.6)', ' Relative err.: ', norm2(Mat_ref-Mat)/norm2(Mat_ref)
          print'(a)', ''
          call write_benchmark(method,s1,s2,s3,nloops,ti,num_images(),filename)
@@ -178,8 +178,8 @@ contains
       character(*),intent(in)    :: method
       character(*),intent(in)    :: filename
       if (this_image() == im) then
-         call ti%timer_stop(message=' Elapsed time :',nloops=l)
-         print'(a,f6.2,a)', ' Performance  : ', real(nloops, rk)*real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time,' [GFLOPS]'
+         call ti%timer_stop(message=' Elapsed time :',nloops=nloops)
+         print'(a,f6.2,a)', ' Performance  : ', real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time,' [GFLOPS]'
          print'(a)', ''
          call write_benchmark(method,s1,s2,s3,nloops,ti,num_images(),filename)
       end if
@@ -193,7 +193,7 @@ contains
       character(*),intent(in) :: filename
       integer                 :: nunit
       open (newunit = nunit, file = filename, access = 'append')
-      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') method, nimg, s1,s2,s3,nloops, ti%elapsed_time, real(nloops, rk)*real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time
+      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') method, nimg, s1,s2,s3,nloops, ti%elapsed_time, real(s1,rk)*real(s2,rk)*real(s3,rk)*1e-9_rk/ti%elapsed_time
       close(nunit)
    end subroutine write_benchmark
    
