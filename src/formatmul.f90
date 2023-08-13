@@ -40,7 +40,7 @@ contains
             ! Handle A's columns > B's rows.
 
             block
-               integer               :: i, m, n, o, im, nimg, base_value, remainder
+               integer               :: i, m, n, o, im, nimg
                integer               :: block_size(num_images())
                integer               :: offsets(num_images())
                real(rk), allocatable :: C_block(:,:)[:], A_block(:,:)[:]
@@ -72,7 +72,7 @@ contains
             ! Handle B's columns > A's rows.
 
             block
-               integer               :: i, m, n, o, im, nimg, base_value, remainder
+               integer               :: i, m, n, o, im, nimg
                integer               :: block_size(num_images())
                integer               :: offsets(num_images())
                real(rk), allocatable :: C_block(:,:)[:], B_block(:,:)[:]
