@@ -15,7 +15,7 @@ program benchmark3
    ! number of loops
    l = 10
 
-   file_name = "benchmark3"
+   file_name = "benchmark/benchmark3.data"
    open (newunit = unit_num, file = file_name)
    write(unit_num,'(a)') 'Coarray Matmul Benchmark'
    close(unit_num)
@@ -137,7 +137,7 @@ contains
       sync all
       if (this_image() == im) then
          print'(a)', msg
-         print'(a,i2)', ' Image        :',im
+         print'(a,i2)', ' Image        : ',im
          call ti%timer_start()
       end if
    end subroutine start_benchmark
