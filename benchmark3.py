@@ -54,6 +54,7 @@ axes[0].set_xlabel('m=n=o')
 axes[0].set_ylabel('elapsed time [s]')
 axes[0].set_title(f'Coarray Matmul Benchmark - Elapsed time (number_images={number_images})')
 axes[0].legend()
+axes[0].legend(loc='upper left', fontsize='small')  # Adjust fontsize as needed
 axes[0].grid(True)
 
 # Plot for the 8th column as y-value
@@ -70,7 +71,11 @@ axes[1].set_xlabel('m=n=o')
 axes[1].set_ylabel('performance [GFLOPS]')
 axes[1].set_title(f'Coarray Matmul Benchmark - Performance (number_images={number_images})')
 axes[1].legend()
+axes[1].legend(loc='upper left', fontsize='small')  # Adjust fontsize as needed
 axes[1].grid(True)
+
+plt.tight_layout()
+plt.savefig('benchmark3.png', dpi=300)  # Save the first set of plots as PNG
 
 # Calculate average values for the 7th column
 average_values_col7 = {}
@@ -124,4 +129,5 @@ axes[1].tick_params(axis='x', rotation=45)
 axes[1].grid(True)
 
 plt.tight_layout()
+plt.savefig('benchmark3b.png', dpi=300)  # Save the first set of plots as PNG
 plt.show()
