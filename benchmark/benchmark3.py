@@ -5,7 +5,7 @@ import numpy as np
 
 # Read the data from the file
 data = []
-with open('benchmark3', 'r') as file:
+with open('benchmark/benchmark3.data', 'r') as file:
     next(file)  # Skip the first line
     second_row = next(file).strip().split()  # Read the second row
     number_images = second_row[1]  # Use the second column of the second row
@@ -75,7 +75,7 @@ axes[1].legend(loc='upper left', fontsize='small')  # Adjust fontsize as needed
 axes[1].grid(True)
 
 plt.tight_layout()
-plt.savefig('benchmark3.png', dpi=300)  # Save the first set of plots as PNG
+plt.savefig('benchmark/benchmark3a.png', dpi=300)  # Save the first set of plots as PNG
 
 # Calculate average values for the 7th column
 average_values_col7 = {}
@@ -129,5 +129,5 @@ axes[1].tick_params(axis='x', rotation=45)
 axes[1].grid(True)
 
 plt.tight_layout()
-plt.savefig('benchmark3b.png', dpi=300)  # Save the first set of plots as PNG
+plt.savefig('benchmark/benchmark3b.png', dpi=300)  # Save the first set of plots as PNG
 plt.show()

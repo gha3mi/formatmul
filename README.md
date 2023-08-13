@@ -88,23 +88,37 @@ Elapsed time (example4: mat_vec, coarray):  0.012 [s]
 
 To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
 
+**Intel Fortran Compiler (ifort)**
+
 ```shell
 fpm run --example benchmark3 --compiler ifort --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4"
 ```
+
+**Intel Fortran Compiler (ifx)**
 
 ```shell
 fpm run --example benchmark3 --compiler ifx --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4"
 ```
 
+You can then use the provided Python script to generate visual plots for the benchmark3 data:
+
 ```shell
-python benchmark3.py
+python benchmark/benchmark3.py
 ```
 
-Results with `-coarray-num-images=4`:
+Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort (IFORT) 2021.10.0 20230609` are as follows:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark3.png" width="750">
+with `-coarray-num-images=4`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark3b.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3a_nimg4.png" width="750">
+
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3b_nimg4.png" width="750">
+
+with `-coarray-num-images=8`:
+
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3a_nimg8.png" width="750">
+
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3b_nimg8.png" width="750">
 
 ## API documentation
 
