@@ -108,17 +108,29 @@ python benchmark/benchmark3.py
 
 Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort (IFORT) 2021.10.0 20230609` are as follows:
 
-with `-coarray-num-images=4`:
+- with `-coarray-num-images=4`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3a_nimg4.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim4a.png" width="750">
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3b_nimg4.png" width="750">
+- with `-coarray-num-images=4` and Multithread:
 
-with `-coarray-num-images=8`:
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim4a.png" width="750">
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3a_nimg8.png" width="750">
+- with `-coarray-num-images=5`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/benchmark3b_nimg8.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim5a.png" width="750">
+
+- with `-coarray-num-images=5` and Multithread:
+
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim5a.png" width="750">
+
+- with `-coarray-num-images=6`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
+
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim6a.png" width="750">
+
+- with `-coarray-num-images=6` and Multithread:
+
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim6a.png" width="750">
 
 ## API documentation
 
