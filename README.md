@@ -110,27 +110,27 @@ Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort 
 
 - with `-coarray-num-images=4`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim4a.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim4.png" width="750">
 
 - with `-coarray-num-images=4` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim4a.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim4.png" width="750">
 
 - with `-coarray-num-images=5`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim5a.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim5.png" width="750">
 
 - with `-coarray-num-images=5` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim5a.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim5.png" width="750">
 
 - with `-coarray-num-images=6`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim6a.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim6.png" width="750">
 
 - with `-coarray-num-images=6` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim6a.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim6.png" width="750">
 
 ## API documentation
 
