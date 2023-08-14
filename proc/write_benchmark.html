@@ -92,21 +92,22 @@
     <div class="col-lg-12">
       <div class="well well-sm">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
 
           <li id="statements"><i class="fa fa-list-ol"></i>
             <a data-toggle="tooltip"
                data-placement="bottom" data-html="true"
-               title=" 2.4% of total for procedures.">11 statements</a>
+               title=" 2.8% of total for procedures.">13 statements</a>
           </li>
 
             <li id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/benchmark3.f90"> Source File</a>
+              <a href="../src/formatmul_benchmark.f90"> Source File</a>
             </li>
         </ul>
         <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/benchmark3.f90.html'>benchmark3.f90</a></li>
-              <li><a href='../program/benchmark3.html'>benchmark3</a></li>
+              <li><a href='../sourcefile/formatmul_benchmark.f90.html'>formatmul_benchmark.f90</a></li>
+              <li><a href='../module/formatmul_benchmark.html'>formatmul_benchmark</a></li>
           <li class="active">write_benchmark</li>
         </ol>
       </div>
@@ -156,7 +157,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2> subroutine write_benchmark(method, s1, s2, s3, nloops, ti, nimg, filename)  
+    <h2>public  subroutine write_benchmark(method, m, n, o, nloops, t, elapsed_time_average, gflops, gflops_total, filename)  
 </h2>
     
 
@@ -175,7 +176,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-method~5"></span>
+              <span class="anchor" id="variable-method~4"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -190,7 +191,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-s1~3"></span>
+              <span class="anchor" id="variable-m~14"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -198,14 +199,14 @@
               
             </td>
             <td>::</td>
-            <td><strong>s1</strong></td>
+            <td><strong>m</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-s2~3"></span>
+              <span class="anchor" id="variable-n~14"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -213,14 +214,14 @@
               
             </td>
             <td>::</td>
-            <td><strong>s2</strong></td>
+            <td><strong>n</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-s3~3"></span>
+              <span class="anchor" id="variable-o~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -228,14 +229,14 @@
               
             </td>
             <td>::</td>
-            <td><strong>s3</strong></td>
+            <td><strong>o</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nloops~3"></span>
+              <span class="anchor" id="variable-nloops~2"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -250,7 +251,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ti~5"></span>
+              <span class="anchor" id="variable-t~3"></span>
               type(timer),
             </td>
 <td>intent(in)</td>
@@ -258,29 +259,59 @@
               
             </td>
             <td>::</td>
-            <td><strong>ti</strong></td>
+            <td><strong>t</strong>[*]</td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nimg~2"></span>
-              integer,
+              <span class="anchor" id="variable-elapsed_time_average"></span>
+              real(kind=rk),
             </td>
 <td>intent(in)</td>
               <td></td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>nimg</strong></td>
+            <td><strong>elapsed_time_average</strong></td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-filename~3"></span>
+              <span class="anchor" id="variable-gflops"></span>
+              real(kind=rk)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>gflops</strong>[*]</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gflops_total"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>gflops_total</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filename~2"></span>
               character(len=*),
             </td>
 <td>intent(in)</td>
@@ -308,67 +339,46 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~write_benchmark~~CalledByGraph Pages: 1 -->
-<svg id="procwrite_benchmarkCalledByGraph" width="523pt" height="74pt"
- viewBox="0.00 0.00 523.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~write_benchmark~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<svg id="procwrite_benchmarkCalledByGraph" width="626pt" height="32pt"
+ viewBox="0.00 0.00 626.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~write_benchmark~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>proc~~write_benchmark~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 519,-70 519,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 622,-28 622,4 -4,4"/>
 <!-- proc~write_benchmark -->
 <g id="proc~~write_benchmark~~CalledByGraph_node1" class="node">
 <title>proc~write_benchmark</title>
-<polygon fill="none" stroke="black" points="515,-45 335,-45 335,-21 515,-21 515,-45"/>
-<text text-anchor="middle" x="425" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">benchmark3::write_benchmark</text>
+<polygon fill="none" stroke="black" points="618,-24 383,-24 383,0 618,0 618,-24"/>
+<text text-anchor="middle" x="500.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul_benchmark::write_benchmark</text>
 </g>
 <!-- proc~stop_benchmark -->
 <g id="proc~~write_benchmark~~CalledByGraph_node2" class="node">
 <title>proc~stop_benchmark</title>
-<g id="a_proc~~write_benchmark~~CalledByGraph_node2"><a xlink:href=".././proc/stop_benchmark.html" xlink:title="benchmark3::stop_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="295.5,-66 119.5,-66 119.5,-42 295.5,-42 295.5,-66"/>
-<text text-anchor="middle" x="207.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3::stop_benchmark</text>
+<g id="a_proc~~write_benchmark~~CalledByGraph_node2"><a xlink:href=".././proc/stop_benchmark.html" xlink:title="formatmul_benchmark::stop_benchmark">
+<polygon fill="#d9534f" stroke="#d9534f" points="347,-24 116,-24 116,0 347,0 347,-24"/>
+<text text-anchor="middle" x="231.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::stop_benchmark</text>
 </a>
 </g>
 </g>
 <!-- proc~stop_benchmark&#45;&gt;proc~write_benchmark -->
 <g id="proc~~write_benchmark~~CalledByGraph_edge1" class="edge">
 <title>proc~stop_benchmark&#45;&gt;proc~write_benchmark</title>
-<path fill="none" stroke="#255000" d="M295.53,-45.52C305.15,-44.58 315.01,-43.62 324.77,-42.67"/>
-<polygon fill="#255000" stroke="#255000" points="325.28,-46.14 334.89,-41.68 324.6,-39.17 325.28,-46.14"/>
-</g>
-<!-- proc~stop_benchmark2 -->
-<g id="proc~~write_benchmark~~CalledByGraph_node3" class="node">
-<title>proc~stop_benchmark2</title>
-<g id="a_proc~~write_benchmark~~CalledByGraph_node3"><a xlink:href=".././proc/stop_benchmark2.html" xlink:title="benchmark3::stop_benchmark2">
-<polygon fill="#d9534f" stroke="#d9534f" points="299,-24 116,-24 116,0 299,0 299,-24"/>
-<text text-anchor="middle" x="207.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3::stop_benchmark2</text>
-</a>
-</g>
-</g>
-<!-- proc~stop_benchmark2&#45;&gt;proc~write_benchmark -->
-<g id="proc~~write_benchmark~~CalledByGraph_edge2" class="edge">
-<title>proc~stop_benchmark2&#45;&gt;proc~write_benchmark</title>
-<path fill="none" stroke="#255000" d="M299.27,-20.85C307.61,-21.66 316.09,-22.48 324.5,-23.3"/>
-<polygon fill="#255000" stroke="#255000" points="324.42,-26.81 334.72,-24.3 325.1,-19.85 324.42,-26.81"/>
+<path fill="none" stroke="#255000" d="M347.28,-12C355.62,-12 364.06,-12 372.47,-12"/>
+<polygon fill="#255000" stroke="#255000" points="372.69,-15.5 382.69,-12 372.69,-8.5 372.69,-15.5"/>
 </g>
 <!-- program~benchmark3 -->
-<g id="proc~~write_benchmark~~CalledByGraph_node4" class="node">
+<g id="proc~~write_benchmark~~CalledByGraph_node3" class="node">
 <title>program~benchmark3</title>
-<g id="a_proc~~write_benchmark~~CalledByGraph_node4"><a xlink:href=".././program/benchmark3.html" xlink:title="benchmark3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="80,-45 0,-45 0,-21 80,-21 80,-45"/>
-<text text-anchor="middle" x="40" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3</text>
+<g id="a_proc~~write_benchmark~~CalledByGraph_node3"><a xlink:href=".././program/benchmark3.html" xlink:title="benchmark3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="80,-24 0,-24 0,0 80,0 80,-24"/>
+<text text-anchor="middle" x="40" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3</text>
 </a>
 </g>
 </g>
 <!-- program~benchmark3&#45;&gt;proc~stop_benchmark -->
-<g id="proc~~write_benchmark~~CalledByGraph_edge3" class="edge">
+<g id="proc~~write_benchmark~~CalledByGraph_edge2" class="edge">
 <title>program~benchmark3&#45;&gt;proc~stop_benchmark</title>
-<path fill="none" stroke="#255000" d="M80.22,-37.98C89.11,-39.1 98.94,-40.35 109.07,-41.64"/>
-<polygon fill="#255000" stroke="#255000" points="108.91,-45.15 119.27,-42.93 109.79,-38.2 108.91,-45.15"/>
-</g>
-<!-- program~benchmark3&#45;&gt;proc~stop_benchmark2 -->
-<g id="proc~~write_benchmark~~CalledByGraph_edge4" class="edge">
-<title>program~benchmark3&#45;&gt;proc~stop_benchmark2</title>
-<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M80.22,-28.02C88.22,-27.01 96.99,-25.9 106.04,-24.75"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="106.49,-28.22 115.97,-23.49 105.61,-21.27 106.49,-28.22"/>
+<path fill="none" stroke="#255000" d="M80.26,-12C88.06,-12 96.63,-12 105.61,-12"/>
+<polygon fill="#255000" stroke="#255000" points="105.89,-15.5 115.89,-12 105.89,-8.5 105.89,-15.5"/>
 </g>
 </g>
 </svg>
@@ -492,15 +502,17 @@ large graphs.</div>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="highlight"><pre><span></span><span class="w">   </span><span class="k">subroutine </span><span class="n">write_benchmark</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">,</span><span class="n">nloops</span><span class="p">,</span><span class="n">ti</span><span class="p">,</span><span class="n">nimg</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span><span class="w"></span>
+    <div class="highlight"><pre><span></span><span class="w">   </span><span class="k">subroutine </span><span class="n">write_benchmark</span><span class="p">(</span><span class="n">method</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">nloops</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">elapsed_time_average</span><span class="p">,</span><span class="n">gflops</span><span class="p">,</span><span class="n">gflops_total</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">method</span><span class="w"></span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">     </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">,</span><span class="n">nloops</span><span class="w"></span>
-<span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ti</span><span class="w"></span>
-<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">     </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">nimg</span><span class="w"></span>
+<span class="w">      </span><span class="kt">integer</span><span class="p">,</span><span class="w">     </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">nloops</span><span class="w"></span>
+<span class="w">      </span><span class="k">type</span><span class="p">(</span><span class="n">timer</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"></span>
 <span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">filename</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">    </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">elapsed_time_average</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w">    </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">gflops_total</span><span class="w"></span>
 <span class="w">      </span><span class="kt">integer</span><span class="w">                 </span><span class="kd">::</span><span class="w"> </span><span class="n">nunit</span><span class="w"></span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span><span class="w">                </span><span class="kd">::</span><span class="w"> </span><span class="n">gflops</span><span class="p">[</span><span class="o">*</span><span class="p">]</span><span class="w"></span>
 <span class="w">      </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">newunit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nunit</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">filename</span><span class="p">,</span><span class="w"> </span><span class="nb">access</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;append&#39;</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="n">nunit</span><span class="p">,</span><span class="s1">&#39;(a,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">nimg</span><span class="p">,</span><span class="w"> </span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">,</span><span class="n">s3</span><span class="p">,</span><span class="n">nloops</span><span class="p">,</span><span class="w"> </span><span class="n">ti</span><span class="p">%</span><span class="n">elapsed_time</span><span class="p">,</span><span class="w"> </span><span class="kt">real</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">rk</span><span class="p">)</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span><span class="n">rk</span><span class="p">)</span><span class="o">*</span><span class="kt">real</span><span class="p">(</span><span class="n">s3</span><span class="p">,</span><span class="n">rk</span><span class="p">)</span><span class="o">*</span><span class="mf">1e-9_rk</span><span class="o">/</span><span class="n">ti</span><span class="p">%</span><span class="n">elapsed_time</span><span class="w"></span>
+<span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="n">nunit</span><span class="p">,</span><span class="s1">&#39;(a,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0,&quot; &quot;,g0)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">method</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">o</span><span class="p">,</span><span class="n">nloops</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">[</span><span class="nb">this_image</span><span class="p">()]%</span><span class="n">elapsed_time</span><span class="p">,</span><span class="w"> </span><span class="n">gflops</span><span class="p">[</span><span class="nb">this_image</span><span class="p">()],</span><span class="w"> </span><span class="n">elapsed_time_average</span><span class="p">,</span><span class="w"> </span><span class="n">gflops_total</span><span class="w"></span>
 <span class="w">      </span><span class="k">close</span><span class="p">(</span><span class="n">nunit</span><span class="p">)</span><span class="w"></span>
 <span class="w">   </span><span class="k">end subroutine </span><span class="n">write_benchmark</span><span class="w"></span>
 </pre></div>
@@ -523,7 +535,7 @@ large graphs.</div>
             <p class="text-right">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-08-13T21:19:39.451298             </p>
+ on 2023-08-14T22:22:22.256889             </p>
           </div>
         </div>
         <br>
