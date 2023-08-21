@@ -92,3 +92,8 @@ main       = "benchmark2.f90"
 name       = "benchmark3"
 source-dir = "example"
 main       = "benchmark3.f90"
+
+[[example]]
+name       = "benchmark4"
+source-dir = "example"
+main       = "benchmark4.f90"
