@@ -67,7 +67,8 @@ contains
       integer                 :: nunit
       real(rk)                :: gflops[*]
       open (newunit = nunit, file = filename, access = 'append')
-      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') method, m,n,o,nloops, t[this_image()]%elapsed_time, gflops[this_image()], elapsed_time_average, gflops_total
+      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
+      method, m,n,o,nloops, t[this_image()]%elapsed_time, gflops[this_image()], elapsed_time_average, gflops_total
       close(nunit)
    end subroutine write_benchmark
 
