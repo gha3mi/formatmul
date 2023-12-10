@@ -24,7 +24,7 @@ program benchmark1
    call random_number(A)
    call random_number(B)
 
-#if defined(COARRY)
+#if defined(USE_COARRAY)
    sync all
 
    if (this_image() == 1) call t%timer_start()
@@ -40,7 +40,7 @@ program benchmark1
    call t%timer_stop(message=' Elapsed time (matmul):',nloops=l)
 #endif
 
-#if defined(COARRY)
+#if defined(USE_COARRAY)
    sync all
 
    if (this_image() == 1) call t%timer_start()
@@ -56,7 +56,7 @@ program benchmark1
    call t%timer_stop(message=' Elapsed time (dgemm):',nloops=l)
 #endif
 
-#if defined(COARRY)
+#if defined(USE_COARRAY)
    sync all
 
    call t%timer_start()
@@ -73,7 +73,7 @@ program benchmark1
    call t%timer_stop(message=' Elapsed time (default with matmul) image='//trim(im)//':',nloops=l)
 #endif
 
-#if defined(COARRY)
+#if defined(USE_COARRAY)
    sync all
 
    call t%timer_start()

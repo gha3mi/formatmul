@@ -19,7 +19,7 @@ program example8
    call random_number(A)
    call random_number(v)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    sync all
 
    call t%timer_start()

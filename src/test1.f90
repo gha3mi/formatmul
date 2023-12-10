@@ -20,13 +20,13 @@ program mat_mat
    call random_number(A)
    call random_number(B)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    sync all
 #endif
 
    C = matmul(A,B)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    sync all
 
    C_co = matmul(A,B,'coarray')

@@ -34,7 +34,7 @@ contains
 
 
       select case (method)
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       case ('coarray')
          ! Coarray-based parallel multiplication.
 
@@ -86,7 +86,7 @@ contains
 
          end if
 #endif
-      case default
+      case ('default')
          C = matmul_opts(A, B, option)
       end select
 
@@ -108,7 +108,7 @@ contains
 
 
       select case (method)
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       case ('coarray')
          ! Coarray-based parallel multiplication.
 
@@ -129,7 +129,7 @@ contains
             end if
          end block
 #endif
-      case default
+      case ('default')
          w = matmul_opts(A, v, option)
       end select
 

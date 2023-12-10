@@ -10,7 +10,7 @@ program benchmark3
 
    real(rk), allocatable         :: A(:,:), B(:,:)
    real(rk), allocatable         :: C_ref(:,:), C(:,:)
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    type(timer)                   :: t[*]
 #else
    type(timer)                   :: t
@@ -21,7 +21,7 @@ program benchmark3
 
    nloops = 10
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    im  = this_image()
    nim = num_images()
 
@@ -35,7 +35,7 @@ program benchmark3
    write(unit_num,'(a)') 'ForMatmul'
    write(unit_num,'(a)') compiler_version()
    write(unit_num,'(a)') compiler_options()
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    write(unit_num,"(g0,' ',g0)") im, nim
 #endif
    close(unit_num)
@@ -58,7 +58,7 @@ program benchmark3
       call random_number(A)
       call random_number(B)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C_ref = matmul(A,B)")
       do i = 1,nloops
          C_ref = matmul(A,B)
@@ -72,7 +72,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C_ref,C_ref,'Matmul',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m1')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m1')
@@ -86,7 +86,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_Matmul',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m2')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m2')
@@ -100,7 +100,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_dgemm',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m3')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m3')
@@ -114,7 +114,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m3',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m4')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m4')
@@ -128,7 +128,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m4',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m5')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m5')
@@ -142,7 +142,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m5',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m6')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m6')
@@ -157,7 +157,7 @@ program benchmark3
 #endif
 
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m7')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m7')
@@ -171,7 +171,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m7',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m8')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m8')
@@ -185,7 +185,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m8',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m9')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m9')
@@ -199,7 +199,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m9',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m10')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m10')
@@ -213,7 +213,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m10',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m11')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m11')
@@ -227,7 +227,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m11',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m12')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m12')
@@ -241,7 +241,7 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m12',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m13')")
       do i = 1,nloops
          C = matmul(A,B,'coarray','m13')

@@ -21,7 +21,7 @@ program mat_vec
 
    w = matmul(A,v)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    sync all
 
    w_co = matmul(A,v,'coarray')
