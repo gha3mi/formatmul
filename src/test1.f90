@@ -20,17 +20,21 @@ program mat_mat
    call random_number(A)
    call random_number(B)
 
+#if defined(COARRAY)
    sync all
+#endif
 
    C = matmul(A,B)
 
+#if defined(COARRAY)
    sync all
 
    C_co = matmul(A,B,'coarray')
 
    sync all
 
-   if (this_image() == 1) print*,'relative error:', norm2(C-C_co)/norm2(C)
+   if (this_image() == 1) print*,'test1: relative error:', norm2(C-C_co)/norm2(C)
+#endif
 
 end program mat_mat
 

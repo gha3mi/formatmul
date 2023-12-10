@@ -11,77 +11,52 @@
     <title>All Procedures &ndash; ForMatmul
 </title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-         <script src="../js/jquery-2.1.3.min.js"></script>
-         <script src="../js/svg-pan-zoom.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html">ForMatmul <small>0.6.0</small></a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-                 data-toggle="dropdown" role="button"
-                 aria-haspopup="true"
-                 aria-expanded="false">
-                 Contents <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="../lists/files.html">Source Files</a></li>
-                  <li><a href="../lists/modules.html">Modules</a></li>
-                  <li><a href="../lists/procedures.html">Procedures</a></li>
-                  <li><a href="../lists/programs.html">Programs</a></li>
-              </ul>
-            </li>
-                <li class="visible-xs hidden-sm visible-lg">
-                  <a href="../lists/files.html">Source Files</a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
                 </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/modules.html">Modules</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/procedures.html">Procedures</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/programs.html">Programs</a>
-              </li>
-          </ul>
-            <form action="../search.html" class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
               </div>
-              <!--
-                  <button type="submit" class="btn btn-default">Submit</button>
-                  -->
-            </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
 
     <div class="container">
       <div class="row">
@@ -130,17 +105,17 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: call~~graph~~CallGraph Pages: 1 -->
-<svg id="callgraphCallGraph" width="855pt" height="443pt"
- viewBox="0.00 0.00 855.00 443.08" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="call~~graph~~CallGraph" class="graph" transform="scale(1.64 1.64) rotate(0) translate(4 721)">
+<svg id="callgraphCallGraph" width="855pt" height="688pt"
+ viewBox="0.00 0.00 855.00 688.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="call~~graph~~CallGraph" class="graph" transform="scale(1.54 1.54) rotate(0) translate(4 1057)">
 <title>call~~graph~~CallGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-721 1395,-721 1395,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-1057 1314,-1057 1314,4 -4,4"/>
 <!-- interface~matmul -->
 <g id="call~~graph~~CallGraph_node1" class="node">
 <title>interface~matmul</title>
 <g id="a_call~~graph~~CallGraph_node1"><a xlink:href=".././interface/matmul.html" xlink:title="formatmul::matmul">
-<polygon fill="#a7506f" stroke="#a7506f" points="118,-433 0,-433 0,-409 118,-409 118,-433"/>
-<text text-anchor="middle" x="59" y="-418.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::matmul</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="118,-444 0,-444 0,-420 118,-420 118,-444"/>
+<text text-anchor="middle" x="59" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::matmul</text>
 </a>
 </g>
 </g>
@@ -148,38 +123,38 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <g id="call~~graph~~CallGraph_node7" class="node">
 <title>proc~mat_mat</title>
 <g id="a_call~~graph~~CallGraph_node7"><a xlink:href=".././proc/mat_mat.html" xlink:title="formatmul::mat_mat">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="332,-412 208,-412 208,-388 332,-388 332,-412"/>
-<text text-anchor="middle" x="270" y="-397.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="278,-423 154,-423 154,-399 278,-399 278,-423"/>
+<text text-anchor="middle" x="216" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat</text>
 </a>
 </g>
 </g>
 <!-- interface~matmul&#45;&gt;proc~mat_mat -->
 <g id="call~~graph~~CallGraph_edge1" class="edge">
 <title>interface~matmul&#45;&gt;proc~mat_mat</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.22,-415.15C142.85,-412.68 171.78,-409.77 197.68,-407.17"/>
-<polygon fill="#255000" stroke="#255000" points="198.21,-410.63 207.81,-406.15 197.51,-403.67 198.21,-410.63"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.16,-424.12C126.55,-422.98 135.27,-421.8 143.89,-420.63"/>
+<polygon fill="#255000" stroke="#255000" points="144.49,-424.09 153.93,-419.27 143.55,-417.15 144.49,-424.09"/>
 </g>
 <!-- proc~mat_vec -->
 <g id="call~~graph~~CallGraph_node8" class="node">
 <title>proc~mat_vec</title>
 <g id="a_call~~graph~~CallGraph_node8"><a xlink:href=".././proc/mat_vec.html" xlink:title="formatmul::mat_vec">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="330.5,-454 209.5,-454 209.5,-430 330.5,-430 330.5,-454"/>
-<text text-anchor="middle" x="270" y="-439.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="276.5,-465 155.5,-465 155.5,-441 276.5,-441 276.5,-465"/>
+<text text-anchor="middle" x="216" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec</text>
 </a>
 </g>
 </g>
 <!-- interface~matmul&#45;&gt;proc~mat_vec -->
 <g id="call~~graph~~CallGraph_edge2" class="edge">
 <title>interface~matmul&#45;&gt;proc~mat_vec</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.22,-426.85C143.28,-429.37 172.78,-432.33 199.02,-434.97"/>
-<polygon fill="#255000" stroke="#255000" points="198.98,-438.48 209.28,-436 199.68,-431.52 198.98,-438.48"/>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.16,-439.88C127.02,-441.08 136.24,-442.33 145.32,-443.56"/>
+<polygon fill="#255000" stroke="#255000" points="145.1,-447.06 155.48,-444.94 146.04,-440.13 145.1,-447.06"/>
 </g>
 <!-- interface~matmul_blas -->
 <g id="call~~graph~~CallGraph_node2" class="node">
 <title>interface~matmul_blas</title>
 <g id="a_call~~graph~~CallGraph_node2"><a xlink:href=".././interface/matmul_blas.html" xlink:title="formatmul_opts::matmul_blas">
-<polygon fill="#a7506f" stroke="#a7506f" points="1145,-654 973,-654 973,-630 1145,-630 1145,-654"/>
-<text text-anchor="middle" x="1059" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_blas</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="1032.5,-654 860.5,-654 860.5,-630 1032.5,-630 1032.5,-654"/>
+<text text-anchor="middle" x="946.5" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_blas</text>
 </a>
 </g>
 </g>
@@ -187,38 +162,38 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <g id="call~~graph~~CallGraph_node5" class="node">
 <title>proc~gemm_mat_mat_rel</title>
 <g id="a_call~~graph~~CallGraph_node5"><a xlink:href=".././proc/gemm_mat_mat_rel.html" xlink:title="formatmul_opts::gemm_mat_mat_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="1391,-675 1181,-675 1181,-651 1391,-651 1391,-675"/>
-<text text-anchor="middle" x="1286" y="-660.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::gemm_mat_mat_rel</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1310,-675 1100,-675 1100,-651 1310,-651 1310,-675"/>
+<text text-anchor="middle" x="1205" y="-660.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::gemm_mat_mat_rel</text>
 </a>
 </g>
 </g>
 <!-- interface~matmul_blas&#45;&gt;proc~gemm_mat_mat_rel -->
 <g id="call~~graph~~CallGraph_edge3" class="edge">
 <title>interface~matmul_blas&#45;&gt;proc~gemm_mat_mat_rel</title>
-<path fill="none" stroke="#255450" stroke-dasharray="5,2" d="M1145.06,-649.94C1153.47,-650.72 1162.1,-651.53 1170.74,-652.34"/>
-<polygon fill="#255450" stroke="#255450" points="1170.59,-655.84 1180.87,-653.28 1171.24,-648.87 1170.59,-655.84"/>
+<path fill="none" stroke="#255380" stroke-dasharray="5,2" d="M1032.55,-648.96C1050.93,-650.47 1070.65,-652.08 1089.94,-653.66"/>
+<polygon fill="#255380" stroke="#255380" points="1089.72,-657.16 1099.97,-654.48 1090.29,-650.18 1089.72,-657.16"/>
 </g>
 <!-- proc~gemv_mat_vec_rel -->
 <g id="call~~graph~~CallGraph_node6" class="node">
 <title>proc~gemv_mat_vec_rel</title>
 <g id="a_call~~graph~~CallGraph_node6"><a xlink:href=".././proc/gemv_mat_vec_rel.html" xlink:title="formatmul_opts::gemv_mat_vec_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="1387.5,-633 1184.5,-633 1184.5,-609 1387.5,-609 1387.5,-633"/>
-<text text-anchor="middle" x="1286" y="-618.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::gemv_mat_vec_rel</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="1306.5,-633 1103.5,-633 1103.5,-609 1306.5,-609 1306.5,-633"/>
+<text text-anchor="middle" x="1205" y="-618.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::gemv_mat_vec_rel</text>
 </a>
 </g>
 </g>
 <!-- interface~matmul_blas&#45;&gt;proc~gemv_mat_vec_rel -->
 <g id="call~~graph~~CallGraph_edge4" class="edge">
 <title>interface~matmul_blas&#45;&gt;proc~gemv_mat_vec_rel</title>
-<path fill="none" stroke="#255450" stroke-dasharray="5,2" d="M1145.06,-634.06C1154.58,-633.17 1164.37,-632.26 1174.14,-631.35"/>
-<polygon fill="#255450" stroke="#255450" points="1174.68,-634.81 1184.31,-630.4 1174.03,-627.84 1174.68,-634.81"/>
+<path fill="none" stroke="#255380" stroke-dasharray="5,2" d="M1032.55,-635.04C1051.89,-633.45 1072.71,-631.75 1092.95,-630.09"/>
+<polygon fill="#255380" stroke="#255380" points="1093.47,-633.56 1103.15,-629.26 1092.89,-626.58 1093.47,-633.56"/>
 </g>
 <!-- interface~matmul_opts -->
 <g id="call~~graph~~CallGraph_node3" class="node">
 <title>interface~matmul_opts</title>
 <g id="a_call~~graph~~CallGraph_node3"><a xlink:href=".././interface/matmul_opts.html" xlink:title="formatmul_opts::matmul_opts">
-<polygon fill="#a7506f" stroke="#a7506f" points="626,-412 453,-412 453,-388 626,-388 626,-412"/>
-<text text-anchor="middle" x="539.5" y="-397.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_opts</text>
+<polygon fill="#a7506f" stroke="#a7506f" points="500,-549 327,-549 327,-525 500,-525 500,-549"/>
+<text text-anchor="middle" x="413.5" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_opts</text>
 </a>
 </g>
 </g>
@@ -226,431 +201,431 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <g id="call~~graph~~CallGraph_node9" class="node">
 <title>proc~matmul_mat_mat_rel_opts</title>
 <g id="a_call~~graph~~CallGraph_node9"><a xlink:href=".././proc/matmul_mat_mat_rel_opts.html" xlink:title="formatmul_opts::matmul_mat_mat_rel_opts">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="937,-276 693,-276 693,-252 937,-252 937,-276"/>
-<text text-anchor="middle" x="815" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_mat_mat_rel_opts</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="793,-276 549,-276 549,-252 793,-252 793,-276"/>
+<text text-anchor="middle" x="671" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_mat_mat_rel_opts</text>
 </a>
 </g>
 </g>
 <!-- interface~matmul_opts&#45;&gt;proc~matmul_mat_mat_rel_opts -->
 <g id="call~~graph~~CallGraph_edge5" class="edge">
 <title>interface~matmul_opts&#45;&gt;proc~matmul_mat_mat_rel_opts</title>
-<path fill="none" stroke="#255890" stroke-dasharray="5,2" d="M626.13,-389.2C636.75,-386.52 647.27,-383.17 657,-379 712.11,-355.36 766.27,-309.22 794.3,-283.15"/>
-<polygon fill="#255890" stroke="#255890" points="796.95,-285.46 801.82,-276.05 792.14,-280.37 796.95,-285.46"/>
+<path fill="none" stroke="#255760" stroke-dasharray="5,2" d="M496.78,-524.93C502.51,-522.46 507.99,-519.52 513,-516 597.71,-456.56 646.12,-335.36 663.06,-285.83"/>
+<polygon fill="#255760" stroke="#255760" points="666.45,-286.73 666.28,-276.14 659.81,-284.52 666.45,-286.73"/>
 </g>
 <!-- proc~matmul_mat_vec_rel_opts -->
 <g id="call~~graph~~CallGraph_node10" class="node">
 <title>proc~matmul_mat_vec_rel_opts</title>
 <g id="a_call~~graph~~CallGraph_node10"><a xlink:href=".././proc/matmul_mat_vec_rel_opts.html" xlink:title="formatmul_opts::matmul_mat_vec_rel_opts">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="936,-538 694,-538 694,-514 936,-514 936,-538"/>
-<text text-anchor="middle" x="815" y="-523.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_mat_vec_rel_opts</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="792,-549 550,-549 550,-525 792,-525 792,-549"/>
+<text text-anchor="middle" x="671" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_mat_vec_rel_opts</text>
 </a>
 </g>
 </g>
 <!-- interface~matmul_opts&#45;&gt;proc~matmul_mat_vec_rel_opts -->
 <g id="call~~graph~~CallGraph_edge6" class="edge">
 <title>interface~matmul_opts&#45;&gt;proc~matmul_mat_vec_rel_opts</title>
-<path fill="none" stroke="#255890" stroke-dasharray="5,2" d="M626.28,-411.28C636.81,-413.88 647.28,-417.07 657,-421 709.85,-442.35 763.32,-483.12 792.2,-507.09"/>
-<polygon fill="#255890" stroke="#255890" points="790.1,-509.9 800.01,-513.67 794.61,-504.55 790.1,-509.9"/>
+<path fill="none" stroke="#255760" stroke-dasharray="5,2" d="M500.29,-537C513,-537 526.33,-537 539.7,-537"/>
+<polygon fill="#255760" stroke="#255760" points="539.92,-540.5 549.92,-537 539.92,-533.5 539.92,-540.5"/>
 </g>
 <!-- proc~compute_block_ranges -->
 <g id="call~~graph~~CallGraph_node4" class="node">
 <title>proc~compute_block_ranges</title>
 <g id="a_call~~graph~~CallGraph_node4"><a xlink:href=".././proc/compute_block_ranges.html" xlink:title="formatmul::compute_block_ranges">
-<polygon fill="#d9534f" stroke="#d9534f" points="639,-370 440,-370 440,-346 639,-346 639,-370"/>
-<text text-anchor="middle" x="539.5" y="-355.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::compute_block_ranges</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="513,-465 314,-465 314,-441 513,-441 513,-465"/>
+<text text-anchor="middle" x="413.5" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::compute_block_ranges</text>
 </a>
 </g>
 </g>
 <!-- proc~mat_mat&#45;&gt;interface~matmul_opts -->
 <g id="call~~graph~~CallGraph_edge12" class="edge">
 <title>proc~mat_mat&#45;&gt;interface~matmul_opts</title>
-<path fill="none" stroke="transparent" d="M332.03,-400C364.73,-400 405.77,-400 442.62,-400"/>
-<polygon fill="transparent" stroke="transparent" points="442.89,-403.5 452.89,-400 442.89,-396.5 442.89,-403.5"/>
+<path fill="none" stroke="transparent" d="M265.18,-423.13C269.84,-425.57 274.23,-428.49 278,-432 307.75,-459.65 282.62,-490.21 314,-516 315.57,-517.29 317.2,-518.51 318.88,-519.65"/>
+<polygon fill="transparent" stroke="transparent" points="317.29,-522.78 327.69,-524.83 320.84,-516.74 317.29,-522.78"/>
 </g>
 <!-- proc~mat_mat&#45;&gt;proc~compute_block_ranges -->
 <g id="call~~graph~~CallGraph_edge13" class="edge">
 <title>proc~mat_mat&#45;&gt;proc~compute_block_ranges</title>
-<path fill="none" stroke="transparent" d="M332.03,-390.42C367.42,-384.86 412.57,-377.77 451.61,-371.64"/>
-<polygon fill="transparent" stroke="transparent" points="452.59,-375.03 461.92,-370.02 451.5,-368.12 452.59,-375.03"/>
+<path fill="none" stroke="transparent" d="M272.39,-423.02C286,-425.97 300.52,-429.1 314,-432 324.41,-434.24 335.43,-436.6 346.19,-438.89"/>
+<polygon fill="transparent" stroke="transparent" points="345.47,-442.32 355.98,-440.98 346.93,-435.47 345.47,-442.32"/>
 </g>
 <!-- a_block -->
-<g id="call~~graph~~CallGraph_node35" class="node">
+<g id="call~~graph~~CallGraph_node41" class="node">
 <title>a_block</title>
-<polygon fill="#777777" stroke="#777777" points="566.5,-328 512.5,-328 512.5,-304 566.5,-304 566.5,-328"/>
-<text text-anchor="middle" x="539.5" y="-313.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">a_block</text>
+<polygon fill="#777777" stroke="#777777" points="440.5,-339 386.5,-339 386.5,-315 440.5,-315 440.5,-339"/>
+<text text-anchor="middle" x="413.5" y="-324.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">a_block</text>
 </g>
 <!-- proc~mat_mat&#45;&gt;a_block -->
 <g id="call~~graph~~CallGraph_edge7" class="edge">
 <title>proc~mat_mat&#45;&gt;a_block</title>
-<path fill="none" stroke="transparent" d="M295.25,-387.95C324.6,-373.82 375.82,-350.62 422,-337 448.33,-329.24 478.89,-323.86 502.1,-320.49"/>
-<polygon fill="transparent" stroke="transparent" points="502.79,-323.93 512.21,-319.08 501.82,-316.99 502.79,-323.93"/>
+<path fill="none" stroke="transparent" d="M231.81,-398.87C250.04,-384.57 282.47,-361.07 314,-348 333.76,-339.81 357.13,-334.65 376.15,-331.5"/>
+<polygon fill="transparent" stroke="transparent" points="376.86,-334.93 386.21,-329.94 375.8,-328.01 376.86,-334.93"/>
 </g>
 <!-- b_block -->
-<g id="call~~graph~~CallGraph_node36" class="node">
+<g id="call~~graph~~CallGraph_node42" class="node">
 <title>b_block</title>
-<polygon fill="#777777" stroke="#777777" points="566.5,-286 512.5,-286 512.5,-262 566.5,-262 566.5,-286"/>
-<text text-anchor="middle" x="539.5" y="-271.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b_block</text>
+<polygon fill="#777777" stroke="#777777" points="440.5,-297 386.5,-297 386.5,-273 440.5,-273 440.5,-297"/>
+<text text-anchor="middle" x="413.5" y="-282.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b_block</text>
 </g>
 <!-- proc~mat_mat&#45;&gt;b_block -->
 <g id="call~~graph~~CallGraph_edge8" class="edge">
 <title>proc~mat_mat&#45;&gt;b_block</title>
-<path fill="none" stroke="transparent" d="M283.98,-388C308.75,-365.8 365.37,-318.48 422,-295 447.52,-284.42 478.36,-279.16 501.89,-276.55"/>
-<polygon fill="transparent" stroke="transparent" points="502.55,-280.01 512.15,-275.53 501.85,-273.04 502.55,-280.01"/>
+<path fill="none" stroke="transparent" d="M224.62,-398.67C239.09,-376.36 272.81,-329.45 314,-306 332.93,-295.22 356.77,-289.96 376.26,-287.4"/>
+<polygon fill="transparent" stroke="transparent" points="376.74,-290.87 386.28,-286.26 375.95,-283.91 376.74,-290.87"/>
 </g>
 <!-- block_size -->
-<g id="call~~graph~~CallGraph_node37" class="node">
+<g id="call~~graph~~CallGraph_node43" class="node">
 <title>block_size</title>
-<polygon fill="#777777" stroke="#777777" points="573,-538 506,-538 506,-514 573,-514 573,-538"/>
-<text text-anchor="middle" x="539.5" y="-523.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">block_size</text>
+<polygon fill="#777777" stroke="#777777" points="447,-423 380,-423 380,-399 447,-399 447,-423"/>
+<text text-anchor="middle" x="413.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">block_size</text>
 </g>
 <!-- proc~mat_mat&#45;&gt;block_size -->
 <g id="call~~graph~~CallGraph_edge9" class="edge">
 <title>proc~mat_mat&#45;&gt;block_size</title>
-<path fill="none" stroke="transparent" d="M332.06,-400.16C351,-402.92 370.85,-408.91 386,-421 417.75,-446.33 390.22,-479.71 422,-505 442.59,-521.39 471.73,-526.63 495.72,-527.79"/>
-<polygon fill="transparent" stroke="transparent" points="495.89,-531.29 505.98,-528.05 496.08,-524.29 495.89,-531.29"/>
+<path fill="none" stroke="transparent" d="M278.05,-411C307.73,-411 342.67,-411 369.5,-411"/>
+<polygon fill="transparent" stroke="transparent" points="369.72,-414.5 379.72,-411 369.72,-407.5 369.72,-414.5"/>
 </g>
 <!-- c_block -->
-<g id="call~~graph~~CallGraph_node38" class="node">
+<g id="call~~graph~~CallGraph_node44" class="node">
 <title>c_block</title>
-<polygon fill="#777777" stroke="#777777" points="566.5,-244 512.5,-244 512.5,-220 566.5,-220 566.5,-244"/>
-<text text-anchor="middle" x="539.5" y="-229.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">c_block</text>
+<polygon fill="#777777" stroke="#777777" points="440.5,-255 386.5,-255 386.5,-231 440.5,-231 440.5,-255"/>
+<text text-anchor="middle" x="413.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">c_block</text>
 </g>
 <!-- proc~mat_mat&#45;&gt;c_block -->
 <g id="call~~graph~~CallGraph_edge10" class="edge">
 <title>proc~mat_mat&#45;&gt;c_block</title>
-<path fill="none" stroke="transparent" d="M279.55,-387.65C300.26,-358.79 356.28,-286.81 422,-253 446.83,-240.22 478.13,-235.09 502.03,-233.09"/>
-<polygon fill="transparent" stroke="transparent" points="502.37,-236.58 512.11,-232.4 501.89,-229.59 502.37,-236.58"/>
+<path fill="none" stroke="transparent" d="M221.32,-398.78C232.08,-370.21 262.98,-298.81 314,-264 332.12,-251.64 356.13,-246.35 375.92,-244.17"/>
+<polygon fill="transparent" stroke="transparent" points="376.46,-247.63 386.11,-243.27 375.84,-240.66 376.46,-247.63"/>
 </g>
 <!-- end_elem -->
-<g id="call~~graph~~CallGraph_node39" class="node">
+<g id="call~~graph~~CallGraph_node45" class="node">
 <title>end_elem</title>
-<polygon fill="#777777" stroke="#777777" points="572,-496 507,-496 507,-472 572,-472 572,-496"/>
-<text text-anchor="middle" x="539.5" y="-481.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">end_elem</text>
+<polygon fill="#777777" stroke="#777777" points="446,-381 381,-381 381,-357 446,-357 446,-381"/>
+<text text-anchor="middle" x="413.5" y="-366.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">end_elem</text>
 </g>
 <!-- proc~mat_mat&#45;&gt;end_elem -->
 <g id="call~~graph~~CallGraph_edge11" class="edge">
 <title>proc~mat_mat&#45;&gt;end_elem</title>
-<path fill="none" stroke="transparent" d="M332.18,-403.36C350.4,-406.37 369.81,-411.7 386,-421 407.32,-433.25 400.67,-450.78 422,-463 444.58,-475.93 473.32,-481.21 496.6,-483.24"/>
-<polygon fill="transparent" stroke="transparent" points="496.66,-486.75 506.88,-483.96 497.15,-479.77 496.66,-486.75"/>
+<path fill="none" stroke="transparent" d="M272.39,-398.98C286,-396.03 300.52,-392.9 314,-390 332.72,-385.98 353.45,-381.55 371.04,-377.81"/>
+<polygon fill="transparent" stroke="transparent" points="371.95,-381.19 381,-375.69 370.49,-374.35 371.95,-381.19"/>
 </g>
 <!-- start_elem -->
-<g id="call~~graph~~CallGraph_node40" class="node">
+<g id="call~~graph~~CallGraph_node46" class="node">
 <title>start_elem</title>
-<polygon fill="#777777" stroke="#777777" points="574,-454 505,-454 505,-430 574,-430 574,-454"/>
-<text text-anchor="middle" x="539.5" y="-439.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">start_elem</text>
+<polygon fill="#777777" stroke="#777777" points="448,-507 379,-507 379,-483 448,-483 448,-507"/>
+<text text-anchor="middle" x="413.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">start_elem</text>
 </g>
 <!-- proc~mat_mat&#45;&gt;start_elem -->
 <g id="call~~graph~~CallGraph_edge14" class="edge">
 <title>proc~mat_mat&#45;&gt;start_elem</title>
-<path fill="none" stroke="transparent" d="M332.03,-409.58C381.57,-417.36 450.23,-428.14 494.51,-435.09"/>
-<polygon fill="transparent" stroke="transparent" points="494.24,-438.59 504.66,-436.69 495.33,-431.68 494.24,-438.59"/>
+<path fill="none" stroke="transparent" d="M261.34,-423.11C267.18,-425.59 272.9,-428.54 278,-432 298.33,-445.82 292.86,-461.44 314,-474 330.41,-483.75 350.74,-489 368.66,-491.82"/>
+<polygon fill="transparent" stroke="transparent" points="368.22,-495.3 378.61,-493.18 369.17,-488.36 368.22,-495.3"/>
 </g>
 <!-- proc~mat_vec&#45;&gt;interface~matmul_opts -->
 <g id="call~~graph~~CallGraph_edge17" class="edge">
 <title>proc~mat_vec&#45;&gt;interface~matmul_opts</title>
-<path fill="none" stroke="transparent" d="M330.7,-432.63C366.33,-427.03 412.2,-419.83 451.77,-413.62"/>
-<polygon fill="transparent" stroke="transparent" points="452.35,-417.07 461.69,-412.06 451.26,-410.15 452.35,-417.07"/>
+<path fill="none" stroke="transparent" d="M231.81,-465.13C250.04,-479.43 282.47,-502.93 314,-516 319.43,-518.25 325.14,-520.28 330.95,-522.09"/>
+<polygon fill="transparent" stroke="transparent" points="330.22,-525.52 340.8,-524.95 332.18,-518.8 330.22,-525.52"/>
 </g>
 <!-- proc~mat_vec&#45;&gt;proc~compute_block_ranges -->
 <g id="call~~graph~~CallGraph_edge18" class="edge">
 <title>proc~mat_vec&#45;&gt;proc~compute_block_ranges</title>
-<path fill="none" stroke="transparent" d="M330.7,-438.88C349.35,-435.91 369.37,-430.55 386,-421 407.32,-408.75 400.67,-391.22 422,-379 425.27,-377.13 428.67,-375.42 432.16,-373.85"/>
-<polygon fill="transparent" stroke="transparent" points="433.63,-377.03 441.59,-370.04 431.01,-370.54 433.63,-377.03"/>
+<path fill="none" stroke="transparent" d="M276.72,-453C285.38,-453 294.51,-453 303.77,-453"/>
+<polygon fill="transparent" stroke="transparent" points="303.86,-456.5 313.86,-453 303.86,-449.5 303.86,-456.5"/>
 </g>
 <!-- proc~mat_vec&#45;&gt;block_size -->
 <g id="call~~graph~~CallGraph_edge15" class="edge">
 <title>proc~mat_vec&#45;&gt;block_size</title>
-<path fill="none" stroke="transparent" d="M295.25,-454.05C324.6,-468.18 375.82,-491.38 422,-505 445.99,-512.08 473.51,-517.17 495.77,-520.57"/>
-<polygon fill="transparent" stroke="transparent" points="495.52,-524.07 505.92,-522.06 496.53,-517.14 495.52,-524.07"/>
+<path fill="none" stroke="transparent" d="M272.39,-440.98C286,-438.03 300.52,-434.9 314,-432 332.29,-428.07 352.5,-423.76 369.83,-420.07"/>
+<polygon fill="transparent" stroke="transparent" points="370.61,-423.48 379.66,-417.97 369.15,-416.63 370.61,-423.48"/>
 </g>
 <!-- proc~mat_vec&#45;&gt;end_elem -->
 <g id="call~~graph~~CallGraph_edge16" class="edge">
 <title>proc~mat_vec&#45;&gt;end_elem</title>
-<path fill="none" stroke="transparent" d="M330.7,-451.37C381.27,-459.31 452.46,-470.49 497.02,-477.49"/>
-<polygon fill="transparent" stroke="transparent" points="496.5,-480.95 506.92,-479.04 497.58,-474.03 496.5,-480.95"/>
+<path fill="none" stroke="transparent" d="M261.34,-440.89C267.18,-438.41 272.9,-435.46 278,-432 298.33,-418.18 292.86,-402.56 314,-390 331.04,-379.87 352.31,-374.6 370.72,-371.86"/>
+<polygon fill="transparent" stroke="transparent" points="371.41,-375.3 380.89,-370.56 370.52,-368.36 371.41,-375.3"/>
 </g>
 <!-- proc~mat_vec&#45;&gt;start_elem -->
 <g id="call~~graph~~CallGraph_edge19" class="edge">
 <title>proc~mat_vec&#45;&gt;start_elem</title>
-<path fill="none" stroke="transparent" d="M330.7,-442C380.31,-442 449.76,-442 494.45,-442"/>
-<polygon fill="transparent" stroke="transparent" points="494.69,-445.5 504.69,-442 494.69,-438.5 494.69,-445.5"/>
+<path fill="none" stroke="transparent" d="M272.39,-465.02C286,-467.97 300.52,-471.1 314,-474 331.84,-477.83 351.5,-482.03 368.53,-485.66"/>
+<polygon fill="transparent" stroke="transparent" points="368.25,-489.18 378.76,-487.83 369.71,-482.33 368.25,-489.18"/>
 </g>
 <!-- w_block -->
-<g id="call~~graph~~CallGraph_node42" class="node">
+<g id="call~~graph~~CallGraph_node49" class="node">
 <title>w_block</title>
-<polygon fill="#777777" stroke="#777777" points="567,-580 512,-580 512,-556 567,-556 567,-580"/>
-<text text-anchor="middle" x="539.5" y="-565.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">w_block</text>
+<polygon fill="#777777" stroke="#777777" points="441,-843 386,-843 386,-819 441,-819 441,-843"/>
+<text text-anchor="middle" x="413.5" y="-828.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">w_block</text>
 </g>
 <!-- proc~mat_vec&#45;&gt;w_block -->
 <g id="call~~graph~~CallGraph_edge20" class="edge">
 <title>proc~mat_vec&#45;&gt;w_block</title>
-<path fill="none" stroke="transparent" d="M283.98,-454C308.75,-476.2 365.37,-523.52 422,-547 447.35,-557.51 477.96,-562.77 501.44,-565.4"/>
-<polygon fill="transparent" stroke="transparent" points="501.38,-568.91 511.68,-566.43 502.08,-561.94 501.38,-568.91"/>
+<path fill="none" stroke="transparent" d="M218.61,-465.25C226.36,-522.2 261.52,-760.34 314,-810 330.3,-825.42 355.01,-830.66 375.6,-832.05"/>
+<polygon fill="transparent" stroke="transparent" points="375.49,-835.55 385.62,-832.45 375.77,-828.55 375.49,-835.55"/>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;interface~matmul_blas -->
 <g id="call~~graph~~CallGraph_edge21" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="transparent" d="M823.04,-276.21C842.92,-311.04 900.42,-414.24 937,-505 957.18,-555.07 933.73,-583.97 973,-621 974.14,-622.08 975.33,-623.1 976.55,-624.07"/>
-<polygon fill="transparent" stroke="transparent" points="974.91,-627.18 985.18,-629.79 978.78,-621.35 974.91,-627.18"/>
+<path fill="none" stroke="transparent" d="M678.44,-276.09C697.42,-312.02 754.26,-421.47 793,-516 811.71,-561.65 791.57,-588.86 829,-621 835.5,-626.58 842.97,-630.9 850.93,-634.22"/>
+<polygon fill="transparent" stroke="transparent" points="849.87,-637.56 860.46,-637.68 852.25,-630.98 849.87,-637.56"/>
 </g>
 <!-- proc~mm_10 -->
 <g id="call~~graph~~CallGraph_node11" class="node">
 <title>proc~mm_10</title>
 <g id="a_call~~graph~~CallGraph_node11"><a xlink:href=".././proc/mm_10.html" xlink:title="formatmul_opts::mm_10">
-<polygon fill="#d9534f" stroke="#d9534f" points="1131,-276 987,-276 987,-252 1131,-252 1131,-276"/>
-<text text-anchor="middle" x="1059" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_10</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1018.5,-66 874.5,-66 874.5,-42 1018.5,-42 1018.5,-66"/>
+<text text-anchor="middle" x="946.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_10</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_10 -->
 <g id="call~~graph~~CallGraph_edge22" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_10</title>
-<path fill="none" stroke="transparent" d="M937.35,-264C950.75,-264 964.15,-264 976.88,-264"/>
-<polygon fill="transparent" stroke="transparent" points="976.94,-267.5 986.94,-264 976.94,-260.5 976.94,-267.5"/>
+<path fill="none" stroke="transparent" d="M678.15,-251.77C696.08,-217.46 751.99,-119.91 829,-75 839.79,-68.71 852.01,-64.22 864.39,-61.04"/>
+<polygon fill="transparent" stroke="transparent" points="865.37,-64.4 874.33,-58.75 863.8,-57.58 865.37,-64.4"/>
 </g>
 <!-- proc~mm_11 -->
 <g id="call~~graph~~CallGraph_node12" class="node">
 <title>proc~mm_11</title>
 <g id="a_call~~graph~~CallGraph_node12"><a xlink:href=".././proc/mm_11.html" xlink:title="formatmul_opts::mm_11">
-<polygon fill="#d9534f" stroke="#d9534f" points="1131,-234 987,-234 987,-210 1131,-210 1131,-234"/>
-<text text-anchor="middle" x="1059" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_11</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1018.5,-24 874.5,-24 874.5,0 1018.5,0 1018.5,-24"/>
+<text text-anchor="middle" x="946.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_11</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_11 -->
 <g id="call~~graph~~CallGraph_edge23" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_11</title>
-<path fill="none" stroke="transparent" d="M885.35,-251.96C914.46,-246.91 948.48,-241.01 978.59,-235.78"/>
-<polygon fill="transparent" stroke="transparent" points="979.39,-239.2 988.64,-234.04 978.19,-232.3 979.39,-239.2"/>
+<path fill="none" stroke="transparent" d="M676.26,-251.95C690.74,-212.97 741.98,-89.53 829,-33 839.61,-26.11 851.85,-21.32 864.32,-18.02"/>
+<polygon fill="transparent" stroke="transparent" points="865.41,-21.36 874.35,-15.67 863.82,-14.54 865.41,-21.36"/>
 </g>
 <!-- proc~mm_12 -->
 <g id="call~~graph~~CallGraph_node13" class="node">
 <title>proc~mm_12</title>
 <g id="a_call~~graph~~CallGraph_node13"><a xlink:href=".././proc/mm_12.html" xlink:title="formatmul_opts::mm_12">
-<polygon fill="#d9534f" stroke="#d9534f" points="1131,-192 987,-192 987,-168 1131,-168 1131,-192"/>
-<text text-anchor="middle" x="1059" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_12</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1018.5,-444 874.5,-444 874.5,-420 1018.5,-420 1018.5,-444"/>
+<text text-anchor="middle" x="946.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_12</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_12 -->
 <g id="call~~graph~~CallGraph_edge24" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_12</title>
-<path fill="none" stroke="transparent" d="M842.81,-251.91C873.73,-238.28 926.32,-216.05 973,-201 979.86,-198.79 987.1,-196.67 994.34,-194.7"/>
-<polygon fill="transparent" stroke="transparent" points="995.4,-198.04 1004.18,-192.09 993.61,-191.27 995.4,-198.04"/>
+<path fill="none" stroke="transparent" d="M681.01,-276.34C702.81,-305.19 761.6,-377.15 829,-411 840.01,-416.53 852.26,-420.62 864.56,-423.65"/>
+<polygon fill="transparent" stroke="transparent" points="863.89,-427.08 874.41,-425.85 865.41,-420.25 863.89,-427.08"/>
 </g>
 <!-- proc~mm_13 -->
 <g id="call~~graph~~CallGraph_node14" class="node">
 <title>proc~mm_13</title>
 <g id="a_call~~graph~~CallGraph_node14"><a xlink:href=".././proc/mm_13.html" xlink:title="formatmul_opts::mm_13">
-<polygon fill="#d9534f" stroke="#d9534f" points="1131,-150 987,-150 987,-126 1131,-126 1131,-150"/>
-<text text-anchor="middle" x="1059" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_13</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1018.5,-402 874.5,-402 874.5,-378 1018.5,-378 1018.5,-402"/>
+<text text-anchor="middle" x="946.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_13</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_13 -->
 <g id="call~~graph~~CallGraph_edge25" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_13</title>
-<path fill="none" stroke="transparent" d="M830.56,-251.68C857.13,-229.82 916.01,-184.17 973,-159 977.75,-156.9 982.74,-154.99 987.82,-153.26"/>
-<polygon fill="transparent" stroke="transparent" points="989.21,-156.49 997.68,-150.13 987.09,-149.82 989.21,-156.49"/>
+<path fill="none" stroke="transparent" d="M685.99,-276.33C712.12,-298.64 770.93,-345.54 829,-369 840.09,-373.48 852.16,-377.01 864.19,-379.79"/>
+<polygon fill="transparent" stroke="transparent" points="863.75,-383.27 874.26,-381.95 865.22,-376.43 863.75,-383.27"/>
 </g>
 <!-- proc~mm_9 -->
 <g id="call~~graph~~CallGraph_node15" class="node">
 <title>proc~mm_9</title>
 <g id="a_call~~graph~~CallGraph_node15"><a xlink:href=".././proc/mm_9.html" xlink:title="formatmul_opts::mm_9">
-<polygon fill="#d9534f" stroke="#d9534f" points="1127.5,-108 990.5,-108 990.5,-84 1127.5,-84 1127.5,-108"/>
-<text text-anchor="middle" x="1059" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_9</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1015,-360 878,-360 878,-336 1015,-336 1015,-360"/>
+<text text-anchor="middle" x="946.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_9</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_9 -->
 <g id="call~~graph~~CallGraph_edge26" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_9</title>
-<path fill="none" stroke="transparent" d="M825.16,-251.94C847.28,-223.71 906.71,-152.99 973,-117 976.68,-115 980.56,-113.19 984.54,-111.55"/>
-<polygon fill="transparent" stroke="transparent" points="985.85,-114.79 993.99,-108.02 983.4,-108.24 985.85,-114.79"/>
+<path fill="none" stroke="transparent" d="M697.27,-276.01C727.84,-290.09 781.16,-313.24 829,-327 841.43,-330.58 854.8,-333.66 867.88,-336.28"/>
+<polygon fill="transparent" stroke="transparent" points="867.33,-339.74 877.81,-338.2 868.66,-332.87 867.33,-339.74"/>
 </g>
 <!-- proc~mm_mnp -->
 <g id="call~~graph~~CallGraph_node16" class="node">
 <title>proc~mm_mnp</title>
 <g id="a_call~~graph~~CallGraph_node16"><a xlink:href=".././proc/mm_mnp.html" xlink:title="formatmul_opts::mm_mnp">
-<polygon fill="#d9534f" stroke="#d9534f" points="1136,-66 982,-66 982,-42 1136,-42 1136,-66"/>
-<text text-anchor="middle" x="1059" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_mnp</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1023.5,-318 869.5,-318 869.5,-294 1023.5,-294 1023.5,-318"/>
+<text text-anchor="middle" x="946.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_mnp</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mnp -->
 <g id="call~~graph~~CallGraph_edge27" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mnp</title>
-<path fill="none" stroke="transparent" d="M822.56,-251.53C841.16,-217.44 897.82,-122.12 973,-75 975.83,-73.22 978.81,-71.6 981.88,-70.11"/>
-<polygon fill="transparent" stroke="transparent" points="983.53,-73.21 991.33,-66.04 980.76,-66.78 983.53,-73.21"/>
+<path fill="none" stroke="transparent" d="M750.37,-276.04C784.42,-281.26 824.42,-287.41 859.3,-292.76"/>
+<polygon fill="transparent" stroke="transparent" points="859.06,-296.27 869.47,-294.32 860.12,-289.35 859.06,-296.27"/>
 </g>
 <!-- proc~mm_mpn -->
 <g id="call~~graph~~CallGraph_node17" class="node">
 <title>proc~mm_mpn</title>
 <g id="a_call~~graph~~CallGraph_node17"><a xlink:href=".././proc/mm_mpn.html" xlink:title="formatmul_opts::mm_mpn">
-<polygon fill="#d9534f" stroke="#d9534f" points="1136,-24 982,-24 982,0 1136,0 1136,-24"/>
-<text text-anchor="middle" x="1059" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_mpn</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1023.5,-276 869.5,-276 869.5,-252 1023.5,-252 1023.5,-276"/>
+<text text-anchor="middle" x="946.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_mpn</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mpn -->
 <g id="call~~graph~~CallGraph_edge28" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mpn</title>
-<path fill="none" stroke="transparent" d="M820.52,-251.9C835.59,-213.3 888.03,-92.14 973,-33 975.4,-31.33 977.91,-29.79 980.52,-28.38"/>
-<polygon fill="transparent" stroke="transparent" points="982.14,-31.48 989.67,-24.02 979.13,-25.16 982.14,-31.48"/>
+<path fill="none" stroke="transparent" d="M793.16,-264C815.38,-264 838.16,-264 859.11,-264"/>
+<polygon fill="transparent" stroke="transparent" points="859.24,-267.5 869.24,-264 859.24,-260.5 859.24,-267.5"/>
 </g>
 <!-- proc~mm_nmp -->
 <g id="call~~graph~~CallGraph_node18" class="node">
 <title>proc~mm_nmp</title>
 <g id="a_call~~graph~~CallGraph_node18"><a xlink:href=".././proc/mm_nmp.html" xlink:title="formatmul_opts::mm_nmp">
-<polygon fill="#d9534f" stroke="#d9534f" points="1136,-444 982,-444 982,-420 1136,-420 1136,-444"/>
-<text text-anchor="middle" x="1059" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_nmp</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1023.5,-234 869.5,-234 869.5,-210 1023.5,-210 1023.5,-234"/>
+<text text-anchor="middle" x="946.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_nmp</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_nmp -->
 <g id="call~~graph~~CallGraph_edge29" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_nmp</title>
-<path fill="none" stroke="transparent" d="M825.16,-276.06C847.28,-304.29 906.71,-375.01 973,-411 976.68,-413 980.56,-414.81 984.54,-416.45"/>
-<polygon fill="transparent" stroke="transparent" points="983.4,-419.76 993.99,-419.98 985.85,-413.21 983.4,-419.76"/>
+<path fill="none" stroke="transparent" d="M750.37,-251.96C784.42,-246.74 824.42,-240.59 859.3,-235.24"/>
+<polygon fill="transparent" stroke="transparent" points="860.12,-238.65 869.47,-233.68 859.06,-231.73 860.12,-238.65"/>
 </g>
 <!-- proc~mm_npm -->
 <g id="call~~graph~~CallGraph_node19" class="node">
 <title>proc~mm_npm</title>
 <g id="a_call~~graph~~CallGraph_node19"><a xlink:href=".././proc/mm_npm.html" xlink:title="formatmul_opts::mm_npm">
-<polygon fill="#d9534f" stroke="#d9534f" points="1136,-402 982,-402 982,-378 1136,-378 1136,-402"/>
-<text text-anchor="middle" x="1059" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_npm</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1023.5,-192 869.5,-192 869.5,-168 1023.5,-168 1023.5,-192"/>
+<text text-anchor="middle" x="946.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_npm</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_npm -->
 <g id="call~~graph~~CallGraph_edge30" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_npm</title>
-<path fill="none" stroke="transparent" d="M830.56,-276.32C857.13,-298.18 916.01,-343.83 973,-369 977.75,-371.1 982.74,-373.01 987.82,-374.74"/>
-<polygon fill="transparent" stroke="transparent" points="987.09,-378.18 997.68,-377.87 989.21,-371.51 987.09,-378.18"/>
+<path fill="none" stroke="transparent" d="M697.27,-251.99C727.84,-237.91 781.16,-214.76 829,-201 838.8,-198.18 849.19,-195.67 859.55,-193.44"/>
+<polygon fill="transparent" stroke="transparent" points="860.38,-196.85 869.47,-191.4 858.97,-189.99 860.38,-196.85"/>
 </g>
 <!-- proc~mm_pmn -->
 <g id="call~~graph~~CallGraph_node20" class="node">
 <title>proc~mm_pmn</title>
 <g id="a_call~~graph~~CallGraph_node20"><a xlink:href=".././proc/mm_pmn.html" xlink:title="formatmul_opts::mm_pmn">
-<polygon fill="#d9534f" stroke="#d9534f" points="1136,-360 982,-360 982,-336 1136,-336 1136,-360"/>
-<text text-anchor="middle" x="1059" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_pmn</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1023.5,-150 869.5,-150 869.5,-126 1023.5,-126 1023.5,-150"/>
+<text text-anchor="middle" x="946.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_pmn</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pmn -->
 <g id="call~~graph~~CallGraph_edge31" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pmn</title>
-<path fill="none" stroke="transparent" d="M842.81,-276.09C873.73,-289.72 926.32,-311.95 973,-327 979.86,-329.21 987.1,-331.33 994.34,-333.3"/>
-<polygon fill="transparent" stroke="transparent" points="993.61,-336.73 1004.18,-335.91 995.4,-329.96 993.61,-336.73"/>
+<path fill="none" stroke="transparent" d="M685.99,-251.67C712.12,-229.36 770.93,-182.46 829,-159 838.6,-155.12 848.94,-151.96 859.35,-149.37"/>
+<polygon fill="transparent" stroke="transparent" points="860.37,-152.73 869.33,-147.07 858.8,-145.91 860.37,-152.73"/>
 </g>
 <!-- proc~mm_pnm -->
 <g id="call~~graph~~CallGraph_node21" class="node">
 <title>proc~mm_pnm</title>
 <g id="a_call~~graph~~CallGraph_node21"><a xlink:href=".././proc/mm_pnm.html" xlink:title="formatmul_opts::mm_pnm">
-<polygon fill="#d9534f" stroke="#d9534f" points="1136,-318 982,-318 982,-294 1136,-294 1136,-318"/>
-<text text-anchor="middle" x="1059" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_pnm</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1023.5,-108 869.5,-108 869.5,-84 1023.5,-84 1023.5,-108"/>
+<text text-anchor="middle" x="946.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_pnm</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pnm -->
 <g id="call~~graph~~CallGraph_edge32" class="edge">
 <title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pnm</title>
-<path fill="none" stroke="transparent" d="M885.35,-276.04C914.46,-281.09 948.48,-286.99 978.59,-292.22"/>
-<polygon fill="transparent" stroke="transparent" points="978.19,-295.7 988.64,-293.96 979.39,-288.8 978.19,-295.7"/>
+<path fill="none" stroke="transparent" d="M681.01,-251.66C702.81,-222.81 761.6,-150.85 829,-117 838.56,-112.2 849.05,-108.48 859.7,-105.61"/>
+<polygon fill="transparent" stroke="transparent" points="860.62,-108.98 869.5,-103.19 858.95,-102.18 860.62,-108.98"/>
 </g>
 <!-- proc~matmul_mat_vec_rel_opts&#45;&gt;interface~matmul_blas -->
 <g id="call~~graph~~CallGraph_edge33" class="edge">
 <title>proc~matmul_mat_vec_rel_opts&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="transparent" d="M897.6,-538.07C911.67,-542.71 925.46,-549.13 937,-558 962.57,-577.65 947.27,-601.56 973,-621 974.87,-622.41 976.83,-623.73 978.85,-624.97"/>
-<polygon fill="transparent" stroke="transparent" points="977.61,-628.27 988.09,-629.82 980.87,-622.07 977.61,-628.27"/>
+<path fill="none" stroke="transparent" d="M777.05,-549.01C782.66,-551.54 788.03,-554.51 793,-558 819.4,-576.52 802.66,-602.39 829,-621 835.68,-625.72 843.1,-629.48 850.87,-632.47"/>
+<polygon fill="transparent" stroke="transparent" points="849.9,-635.83 860.5,-635.73 852.15,-629.2 849.9,-635.83"/>
 </g>
 <!-- proc~mv_3 -->
 <g id="call~~graph~~CallGraph_node22" class="node">
 <title>proc~mv_3</title>
 <g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/mv_3.html" xlink:title="formatmul_opts::mv_3">
-<polygon fill="#d9534f" stroke="#d9534f" points="1125.5,-612 992.5,-612 992.5,-588 1125.5,-588 1125.5,-612"/>
-<text text-anchor="middle" x="1059" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_3</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1013,-486 880,-486 880,-462 1013,-462 1013,-486"/>
+<text text-anchor="middle" x="946.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_3</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_3 -->
 <g id="call~~graph~~CallGraph_edge34" class="edge">
 <title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_3</title>
-<path fill="none" stroke="transparent" d="M874.29,-538.04C894.53,-543.1 917.13,-549.76 937,-558 954.11,-565.1 955.83,-572.04 973,-579 978.41,-581.2 984.12,-583.2 989.91,-585.03"/>
-<polygon fill="transparent" stroke="transparent" points="989.1,-588.45 999.68,-587.95 991.1,-581.74 989.1,-588.45"/>
+<path fill="none" stroke="transparent" d="M713.42,-524.91C744.94,-515.96 789.49,-503.83 829,-495 842.23,-492.04 856.39,-489.21 870.1,-486.65"/>
+<polygon fill="transparent" stroke="transparent" points="870.8,-490.08 880,-484.82 869.53,-483.19 870.8,-490.08"/>
 </g>
 <!-- proc~mv_4 -->
 <g id="call~~graph~~CallGraph_node23" class="node">
 <title>proc~mv_4</title>
 <g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/mv_4.html" xlink:title="formatmul_opts::mv_4">
-<polygon fill="#d9534f" stroke="#d9534f" points="1125.5,-570 992.5,-570 992.5,-546 1125.5,-546 1125.5,-570"/>
-<text text-anchor="middle" x="1059" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_4</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1013,-612 880,-612 880,-588 1013,-588 1013,-612"/>
+<text text-anchor="middle" x="946.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_4</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_4 -->
 <g id="call~~graph~~CallGraph_edge35" class="edge">
 <title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_4</title>
-<path fill="none" stroke="transparent" d="M906.8,-538.01C931.68,-541.3 958.38,-544.83 982.31,-547.99"/>
-<polygon fill="transparent" stroke="transparent" points="982.01,-551.48 992.39,-549.32 982.93,-544.54 982.01,-551.48"/>
+<path fill="none" stroke="transparent" d="M762.47,-549.04C772.91,-551.5 783.29,-554.45 793,-558 810.4,-564.35 811.62,-572.59 829,-579 841.88,-583.75 855.97,-587.45 869.76,-590.32"/>
+<polygon fill="transparent" stroke="transparent" points="869.24,-593.79 879.73,-592.27 870.58,-586.92 869.24,-593.79"/>
 </g>
 <!-- proc~mv_5 -->
 <g id="call~~graph~~CallGraph_node24" class="node">
 <title>proc~mv_5</title>
 <g id="a_call~~graph~~CallGraph_node24"><a xlink:href=".././proc/mv_5.html" xlink:title="formatmul_opts::mv_5">
-<polygon fill="#d9534f" stroke="#d9534f" points="1125.5,-528 992.5,-528 992.5,-504 1125.5,-504 1125.5,-528"/>
-<text text-anchor="middle" x="1059" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_5</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1013,-570 880,-570 880,-546 1013,-546 1013,-570"/>
+<text text-anchor="middle" x="946.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_5</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_5 -->
 <g id="call~~graph~~CallGraph_edge36" class="edge">
 <title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_5</title>
-<path fill="none" stroke="transparent" d="M936.29,-521.03C951.85,-520.39 967.43,-519.74 981.99,-519.14"/>
-<polygon fill="transparent" stroke="transparent" points="982.55,-522.62 992.4,-518.71 982.26,-515.63 982.55,-522.62"/>
+<path fill="none" stroke="transparent" d="M792.36,-546.24C818.69,-548.26 845.85,-550.35 869.85,-552.19"/>
+<polygon fill="transparent" stroke="transparent" points="869.69,-555.69 879.93,-552.97 870.22,-548.71 869.69,-555.69"/>
 </g>
 <!-- proc~mv_6 -->
 <g id="call~~graph~~CallGraph_node25" class="node">
 <title>proc~mv_6</title>
 <g id="a_call~~graph~~CallGraph_node25"><a xlink:href=".././proc/mv_6.html" xlink:title="formatmul_opts::mv_6">
-<polygon fill="#d9534f" stroke="#d9534f" points="1125.5,-486 992.5,-486 992.5,-462 1125.5,-462 1125.5,-486"/>
-<text text-anchor="middle" x="1059" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_6</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1013,-528 880,-528 880,-504 1013,-504 1013,-528"/>
+<text text-anchor="middle" x="946.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_6</text>
 </a>
 </g>
 </g>
 <!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_6 -->
 <g id="call~~graph~~CallGraph_edge37" class="edge">
 <title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_6</title>
-<path fill="none" stroke="transparent" d="M872.13,-513.94C907.89,-506.26 954.38,-496.27 991.92,-488.2"/>
-<polygon fill="transparent" stroke="transparent" points="992.72,-491.61 1001.76,-486.09 991.25,-484.76 992.72,-491.61"/>
+<path fill="none" stroke="transparent" d="M792.36,-527.76C818.69,-525.74 845.85,-523.65 869.85,-521.81"/>
+<polygon fill="transparent" stroke="transparent" points="870.22,-525.29 879.93,-521.03 869.69,-518.31 870.22,-525.29"/>
 </g>
 <!-- proc~start_benchmark -->
 <g id="call~~graph~~CallGraph_node26" class="node">
 <title>proc~start_benchmark</title>
 <g id="a_call~~graph~~CallGraph_node26"><a xlink:href=".././proc/start_benchmark.html" xlink:title="formatmul_benchmark::start_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="386,-664 154,-664 154,-640 386,-640 386,-664"/>
-<text text-anchor="middle" x="270" y="-649.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::start_benchmark</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="787,-759 555,-759 555,-735 787,-735 787,-759"/>
+<text text-anchor="middle" x="671" y="-744.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::start_benchmark</text>
 </a>
 </g>
 </g>
 <!-- timer_start -->
-<g id="call~~graph~~CallGraph_node41" class="node">
+<g id="call~~graph~~CallGraph_node47" class="node">
 <title>timer_start</title>
-<polygon fill="#777777" stroke="#777777" points="574.5,-664 504.5,-664 504.5,-640 574.5,-640 574.5,-664"/>
-<text text-anchor="middle" x="539.5" y="-649.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_start</text>
+<polygon fill="#777777" stroke="#777777" points="981.5,-801 911.5,-801 911.5,-777 981.5,-777 981.5,-801"/>
+<text text-anchor="middle" x="946.5" y="-786.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_start</text>
 </g>
 <!-- proc~start_benchmark&#45;&gt;timer_start -->
 <g id="call~~graph~~CallGraph_edge38" class="edge">
 <title>proc~start_benchmark&#45;&gt;timer_start</title>
-<path fill="none" stroke="#105025" stroke-opacity="0.019608" d="M386.38,-652C424.42,-652 464.47,-652 493.93,-652"/>
-<polygon fill="#105025" fill-opacity="0.019608" stroke="#105025" stroke-opacity="0.019608" points="494.27,-655.5 504.27,-652 494.27,-648.5 494.27,-655.5"/>
+<path fill="none" stroke="#063255" d="M750.37,-759.04C799.31,-766.55 860.52,-775.95 901.2,-782.2"/>
+<polygon fill="#063255" stroke="#063255" points="900.92,-785.7 911.34,-783.75 901.99,-778.78 900.92,-785.7"/>
 </g>
 <!-- proc~stop_benchmark -->
 <g id="call~~graph~~CallGraph_node27" class="node">
 <title>proc~stop_benchmark</title>
 <g id="a_call~~graph~~CallGraph_node27"><a xlink:href=".././proc/stop_benchmark.html" xlink:title="formatmul_benchmark::stop_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="385.5,-622 154.5,-622 154.5,-598 385.5,-598 385.5,-622"/>
-<text text-anchor="middle" x="270" y="-607.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::stop_benchmark</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="786.5,-1053 555.5,-1053 555.5,-1029 786.5,-1029 786.5,-1053"/>
+<text text-anchor="middle" x="671" y="-1038.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::stop_benchmark</text>
 </a>
 </g>
 </g>
@@ -658,118 +633,304 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <g id="call~~graph~~CallGraph_node28" class="node">
 <title>proc~write_benchmark</title>
 <g id="a_call~~graph~~CallGraph_node28"><a xlink:href=".././proc/write_benchmark.html" xlink:title="formatmul_benchmark::write_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="657,-622 422,-622 422,-598 657,-598 657,-622"/>
-<text text-anchor="middle" x="539.5" y="-607.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::write_benchmark</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="1064,-1053 829,-1053 829,-1029 1064,-1029 1064,-1053"/>
+<text text-anchor="middle" x="946.5" y="-1038.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::write_benchmark</text>
 </a>
 </g>
 </g>
 <!-- proc~stop_benchmark&#45;&gt;proc~write_benchmark -->
 <g id="call~~graph~~CallGraph_edge39" class="edge">
 <title>proc~stop_benchmark&#45;&gt;proc~write_benchmark</title>
-<path fill="none" stroke="#149025" stroke-opacity="0.019608" d="M385.61,-610C394.17,-610 402.84,-610 411.47,-610"/>
-<polygon fill="#149025" fill-opacity="0.019608" stroke="#149025" stroke-opacity="0.019608" points="411.57,-613.5 421.57,-610 411.57,-606.5 411.57,-613.5"/>
+<path fill="none" stroke="#025255" d="M786.8,-1041C797.32,-1041 808.03,-1041 818.65,-1041"/>
+<polygon fill="#025255" stroke="#025255" points="818.8,-1044.5 828.8,-1041 818.8,-1037.5 818.8,-1044.5"/>
+</g>
+<!-- timer_stop -->
+<g id="call~~graph~~CallGraph_node48" class="node">
+<title>timer_stop</title>
+<polygon fill="#777777" stroke="#777777" points="981,-843 912,-843 912,-819 981,-819 981,-843"/>
+<text text-anchor="middle" x="946.5" y="-828.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_stop</text>
+</g>
+<!-- proc~stop_benchmark&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge40" class="edge">
+<title>proc~stop_benchmark&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#025255" d="M773.99,-1028.96C780.62,-1026.47 787.03,-1023.51 793,-1020 863.01,-978.8 914.02,-892.56 934.97,-852.41"/>
+<polygon fill="#025255" stroke="#025255" points="938.22,-853.75 939.65,-843.25 931.98,-850.57 938.22,-853.75"/>
 </g>
 <!-- program~benchmark1 -->
 <g id="call~~graph~~CallGraph_node29" class="node">
 <title>program~benchmark1</title>
 <g id="a_call~~graph~~CallGraph_node29"><a xlink:href=".././program/benchmark1.html" xlink:title="benchmark1">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="855,-633 775,-633 775,-609 855,-609 855,-633"/>
-<text text-anchor="middle" x="815" y="-618.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark1</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="711,-717 631,-717 631,-693 711,-693 711,-717"/>
+<text text-anchor="middle" x="671" y="-702.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark1</text>
 </a>
 </g>
 </g>
 <!-- program~benchmark1&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge40" class="edge">
+<g id="call~~graph~~CallGraph_edge41" class="edge">
 <title>program~benchmark1&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#240025" stroke-opacity="0.019608" d="M855.15,-624.4C884.32,-626.93 925.42,-630.5 963.01,-633.76"/>
-<polygon fill="#240025" fill-opacity="0.019608" stroke="#240025" stroke-opacity="0.019608" points="962.73,-637.25 973,-634.62 963.34,-630.27 962.73,-637.25"/>
+<path fill="none" stroke="#500255" d="M711.15,-699.19C734.94,-695.42 765.85,-690.08 793,-684 827.79,-676.21 866.51,-665.52 896.23,-656.87"/>
+<polygon fill="#500255" stroke="#500255" points="897.34,-660.2 905.95,-654.03 895.37,-653.48 897.34,-660.2"/>
+</g>
+<!-- program~benchmark1&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge42" class="edge">
+<title>program~benchmark1&#45;&gt;timer_start</title>
+<path fill="none" stroke="#500255" d="M711.18,-709.58C735.12,-712.92 766.17,-718.23 793,-726 835.09,-738.18 881.32,-758.3 911.72,-772.52"/>
+<polygon fill="#500255" stroke="#500255" points="910.47,-775.8 921.01,-776.91 913.46,-769.47 910.47,-775.8"/>
+</g>
+<!-- program~benchmark1&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge43" class="edge">
+<title>program~benchmark1&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#500255" d="M711.27,-702.65C737.04,-703.15 770.08,-707.89 793,-726 824.87,-751.19 797.22,-784.71 829,-810 849.31,-826.16 877.94,-831.49 901.74,-832.74"/>
+<polygon fill="#500255" stroke="#500255" points="901.84,-836.24 911.94,-833.04 902.05,-829.24 901.84,-836.24"/>
 </g>
 <!-- program~benchmark2 -->
 <g id="call~~graph~~CallGraph_node30" class="node">
 <title>program~benchmark2</title>
 <g id="a_call~~graph~~CallGraph_node30"><a xlink:href=".././program/benchmark2.html" xlink:title="benchmark2">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="855,-591 775,-591 775,-567 855,-567 855,-591"/>
-<text text-anchor="middle" x="815" y="-576.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark2</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="711,-675 631,-675 631,-651 711,-651 711,-675"/>
+<text text-anchor="middle" x="671" y="-660.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark2</text>
 </a>
 </g>
 </g>
 <!-- program~benchmark2&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge41" class="edge">
+<g id="call~~graph~~CallGraph_edge44" class="edge">
 <title>program~benchmark2&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#255022" stroke-opacity="0.019608" d="M855.06,-582.22C879.22,-585.07 910.56,-590.35 937,-600 954.4,-606.35 955.83,-614.04 973,-621 978.41,-623.2 984.12,-625.2 989.91,-627.03"/>
-<polygon fill="#255022" fill-opacity="0.019608" stroke="#255022" stroke-opacity="0.019608" points="989.1,-630.45 999.68,-629.95 991.1,-623.74 989.1,-630.45"/>
+<path fill="none" stroke="#890255" d="M711.19,-659.99C747.38,-657.21 802.61,-652.97 850.36,-649.31"/>
+<polygon fill="#890255" stroke="#890255" points="850.72,-652.79 860.43,-648.53 850.19,-645.81 850.72,-652.79"/>
+</g>
+<!-- program~benchmark2&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge45" class="edge">
+<title>program~benchmark2&#45;&gt;timer_start</title>
+<path fill="none" stroke="#890255" d="M711.05,-665.49C735.35,-668.08 766.84,-673.33 793,-684 844.79,-705.13 896.63,-746.04 924.52,-770.09"/>
+<polygon fill="#890255" stroke="#890255" points="922.56,-773.01 932.39,-776.97 927.16,-767.75 922.56,-773.01"/>
+</g>
+<!-- program~benchmark2&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge46" class="edge">
+<title>program~benchmark2&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#890255" d="M711.19,-659.74C737.42,-659.73 771.04,-664.26 793,-684 836.32,-722.93 785.81,-770.93 829,-810 848.47,-827.61 877.52,-832.88 901.74,-833.73"/>
+<polygon fill="#890255" stroke="#890255" points="901.74,-837.23 911.78,-833.85 901.82,-830.23 901.74,-837.23"/>
 </g>
 <!-- program~benchmark3 -->
 <g id="call~~graph~~CallGraph_node31" class="node">
 <title>program~benchmark3</title>
 <g id="a_call~~graph~~CallGraph_node31"><a xlink:href=".././program/benchmark3.html" xlink:title="benchmark3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="99,-664 19,-664 19,-640 99,-640 99,-664"/>
-<text text-anchor="middle" x="59" y="-649.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="453.5,-801 373.5,-801 373.5,-777 453.5,-777 453.5,-801"/>
+<text text-anchor="middle" x="413.5" y="-786.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3</text>
 </a>
 </g>
 </g>
 <!-- program~benchmark3&#45;&gt;proc~start_benchmark -->
-<g id="call~~graph~~CallGraph_edge42" class="edge">
+<g id="call~~graph~~CallGraph_edge47" class="edge">
 <title>program~benchmark3&#45;&gt;proc~start_benchmark</title>
-<path fill="none" stroke="transparent" d="M99.31,-652C112.34,-652 127.61,-652 143.56,-652"/>
-<polygon fill="transparent" stroke="transparent" points="143.57,-655.5 153.57,-652 143.57,-648.5 143.57,-655.5"/>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M453.58,-782.58C488.93,-776.76 542.16,-768.02 586.97,-760.65"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="587.69,-764.08 596.99,-759 586.55,-757.17 587.69,-764.08"/>
 </g>
 <!-- program~benchmark3&#45;&gt;proc~stop_benchmark -->
-<g id="call~~graph~~CallGraph_edge43" class="edge">
+<g id="call~~graph~~CallGraph_edge48" class="edge">
 <title>program~benchmark3&#45;&gt;proc~stop_benchmark</title>
-<path fill="none" stroke="transparent" d="M99.26,-642.87C116.08,-639.05 135.97,-634.66 154,-631 165.73,-628.62 178.16,-626.22 190.35,-623.94"/>
-<polygon fill="transparent" stroke="transparent" points="191.31,-627.32 200.5,-622.05 190.03,-620.44 191.31,-627.32"/>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M453.59,-787.49C474.02,-788.86 497.86,-794.24 513,-810 578.6,-878.29 482.11,-952.97 549,-1020 549.95,-1020.96 550.93,-1021.88 551.94,-1022.76"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="550.01,-1025.69 560.1,-1028.93 554.23,-1020.11 550.01,-1025.69"/>
 </g>
 <!-- program~benchmark4 -->
 <g id="call~~graph~~CallGraph_node32" class="node">
 <title>program~benchmark4</title>
 <g id="a_call~~graph~~CallGraph_node32"><a xlink:href=".././program/benchmark4.html" xlink:title="benchmark4">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="99,-622 19,-622 19,-598 99,-598 99,-622"/>
-<text text-anchor="middle" x="59" y="-607.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark4</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="453.5,-759 373.5,-759 373.5,-735 453.5,-735 453.5,-759"/>
+<text text-anchor="middle" x="413.5" y="-744.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark4</text>
 </a>
 </g>
 </g>
 <!-- program~benchmark4&#45;&gt;proc~start_benchmark -->
-<g id="call~~graph~~CallGraph_edge44" class="edge">
+<g id="call~~graph~~CallGraph_edge49" class="edge">
 <title>program~benchmark4&#45;&gt;proc~start_benchmark</title>
-<path fill="none" stroke="#255013" stroke-opacity="0.015686" d="M99.26,-619.13C116.08,-622.95 135.97,-627.34 154,-631 165.73,-633.38 178.16,-635.78 190.35,-638.06"/>
-<polygon fill="#255013" fill-opacity="0.015686" stroke="#255013" stroke-opacity="0.015686" points="190.03,-641.56 200.5,-639.95 191.31,-634.68 190.03,-641.56"/>
+<path fill="none" stroke="#165025" stroke-opacity="0.019608" d="M453.58,-747C478.22,-747 511.55,-747 544.66,-747"/>
+<polygon fill="#165025" fill-opacity="0.019608" stroke="#165025" stroke-opacity="0.019608" points="544.92,-750.5 554.92,-747 544.92,-743.5 544.92,-750.5"/>
 </g>
 <!-- program~benchmark4&#45;&gt;proc~stop_benchmark -->
-<g id="call~~graph~~CallGraph_edge45" class="edge">
+<g id="call~~graph~~CallGraph_edge50" class="edge">
 <title>program~benchmark4&#45;&gt;proc~stop_benchmark</title>
-<path fill="none" stroke="#255013" stroke-opacity="0.015686" d="M99.31,-610C112.53,-610 128.07,-610 144.28,-610"/>
-<polygon fill="#255013" fill-opacity="0.015686" stroke="#255013" stroke-opacity="0.015686" points="144.45,-613.5 154.45,-610 144.45,-606.5 144.45,-613.5"/>
+<path fill="none" stroke="#165025" stroke-opacity="0.019608" d="M453.76,-745.32C474.25,-746.65 498.08,-752.03 513,-768 590.23,-850.68 470.21,-938.81 549,-1020 549.82,-1020.84 550.65,-1021.66 551.51,-1022.45"/>
+<polygon fill="#165025" fill-opacity="0.019608" stroke="#165025" stroke-opacity="0.019608" points="549.69,-1025.46 559.72,-1028.88 554,-1019.95 549.69,-1025.46"/>
+</g>
+<!-- program~example1 -->
+<g id="call~~graph~~CallGraph_node33" class="node">
+<title>program~example1</title>
+<g id="a_call~~graph~~CallGraph_node33"><a xlink:href=".././program/example1.html" xlink:title="example1">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-969 638.5,-969 638.5,-945 703.5,-945 703.5,-969"/>
+<text text-anchor="middle" x="671" y="-954.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example1</text>
+</a>
+</g>
+</g>
+<!-- program~example1&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge51" class="edge">
+<title>program~example1&#45;&gt;timer_start</title>
+<path fill="none" stroke="#204025" stroke-opacity="0.019608" d="M703.75,-960.14C730.76,-961.01 768.9,-957.66 793,-936 836.32,-897.07 785.81,-849.07 829,-810 848.34,-792.51 877.12,-787.19 901.24,-786.29"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="901.3,-789.79 911.25,-786.14 901.2,-782.79 901.3,-789.79"/>
+</g>
+<!-- program~example1&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge52" class="edge">
+<title>program~example1&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#204025" stroke-opacity="0.019608" d="M703.6,-955.24C728.63,-952.97 764.08,-947.8 793,-936 844.79,-914.87 896.63,-873.96 924.52,-849.91"/>
+<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="927.16,-852.25 932.39,-843.03 922.56,-846.99 927.16,-852.25"/>
+</g>
+<!-- program~example2 -->
+<g id="call~~graph~~CallGraph_node34" class="node">
+<title>program~example2</title>
+<g id="a_call~~graph~~CallGraph_node34"><a xlink:href=".././program/example2.html" xlink:title="example2">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-927 638.5,-927 638.5,-903 703.5,-903 703.5,-927"/>
+<text text-anchor="middle" x="671" y="-912.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example2</text>
+</a>
+</g>
+</g>
+<!-- program~example2&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge53" class="edge">
+<title>program~example2&#45;&gt;timer_start</title>
+<path fill="none" stroke="#242025" stroke-opacity="0.019608" d="M703.62,-917.38C730.18,-917.68 767.74,-913.96 793,-894 824.87,-868.81 797.22,-835.29 829,-810 849.17,-793.95 877.55,-788.59 901.24,-787.29"/>
+<polygon fill="#242025" fill-opacity="0.019608" stroke="#242025" stroke-opacity="0.019608" points="901.53,-790.78 911.41,-786.96 901.3,-783.79 901.53,-790.78"/>
+</g>
+<!-- program~example2&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge54" class="edge">
+<title>program~example2&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#242025" stroke-opacity="0.019608" d="M703.51,-911.46C728.19,-908.23 763.2,-902.63 793,-894 835.09,-881.82 881.32,-861.7 911.72,-847.48"/>
+<polygon fill="#242025" fill-opacity="0.019608" stroke="#242025" stroke-opacity="0.019608" points="913.46,-850.53 921.01,-843.09 910.47,-844.2 913.46,-850.53"/>
+</g>
+<!-- program~example3 -->
+<g id="call~~graph~~CallGraph_node35" class="node">
+<title>program~example3</title>
+<g id="a_call~~graph~~CallGraph_node35"><a xlink:href=".././program/example3.html" xlink:title="example3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-885 638.5,-885 638.5,-861 703.5,-861 703.5,-885"/>
+<text text-anchor="middle" x="671" y="-870.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example3</text>
+</a>
+</g>
+</g>
+<!-- program~example3&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge55" class="edge">
+<title>program~example3&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255022" stroke-opacity="0.035294" d="M703.53,-873.28C729.17,-872.21 765.48,-867.65 793,-852 814.37,-839.85 807.67,-822.22 829,-810 850.8,-797.51 878.36,-792.16 901.19,-789.98"/>
+<polygon fill="#255022" fill-opacity="0.035294" stroke="#255022" stroke-opacity="0.035294" points="901.62,-793.46 911.32,-789.19 901.07,-786.48 901.62,-793.46"/>
+</g>
+<!-- program~example3&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge56" class="edge">
+<title>program~example3&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255022" stroke-opacity="0.035294" d="M703.64,-868.14C752.39,-860.66 846,-846.28 901.37,-837.78"/>
+<polygon fill="#255022" fill-opacity="0.035294" stroke="#255022" stroke-opacity="0.035294" points="902.23,-841.19 911.58,-836.21 901.17,-834.27 902.23,-841.19"/>
+</g>
+<!-- program~example4 -->
+<g id="call~~graph~~CallGraph_node36" class="node">
+<title>program~example4</title>
+<g id="a_call~~graph~~CallGraph_node36"><a xlink:href=".././program/example4.html" xlink:title="example4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-843 638.5,-843 638.5,-819 703.5,-819 703.5,-843"/>
+<text text-anchor="middle" x="671" y="-828.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example4</text>
+</a>
+</g>
+</g>
+<!-- program~example4&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge57" class="edge">
+<title>program~example4&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M703.64,-826.14C752.25,-818.68 845.49,-804.36 900.92,-795.85"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="901.79,-799.25 911.15,-794.28 900.73,-792.33 901.79,-799.25"/>
+</g>
+<!-- program~example4&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge58" class="edge">
+<title>program~example4&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M703.64,-831C752.39,-831 846,-831 901.37,-831"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="901.58,-834.5 911.58,-831 901.58,-827.5 901.58,-834.5"/>
 </g>
 <!-- program~example5 -->
-<g id="call~~graph~~CallGraph_node33" class="node">
+<g id="call~~graph~~CallGraph_node37" class="node">
 <title>program~example5</title>
-<g id="a_call~~graph~~CallGraph_node33"><a xlink:href=".././program/example5.html" xlink:title="example5">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="847.5,-717 782.5,-717 782.5,-693 847.5,-693 847.5,-717"/>
-<text text-anchor="middle" x="815" y="-702.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example5</text>
+<g id="a_call~~graph~~CallGraph_node37"><a xlink:href=".././program/example5.html" xlink:title="example5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-633 638.5,-633 638.5,-609 703.5,-609 703.5,-633"/>
+<text text-anchor="middle" x="671" y="-618.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example5</text>
 </a>
 </g>
 </g>
 <!-- program~example5&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge46" class="edge">
+<g id="call~~graph~~CallGraph_edge59" class="edge">
 <title>program~example5&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#255090" d="M847.64,-700.94C872.23,-697.45 907.07,-691.74 937,-684 964.5,-676.89 994.69,-666.42 1018.03,-657.71"/>
-<polygon fill="#255090" stroke="#255090" points="1019.47,-660.91 1027.59,-654.1 1017,-654.36 1019.47,-660.91"/>
+<path fill="none" stroke="#255015" stroke-opacity="0.007843" d="M703.64,-623.43C739.3,-626.17 798.97,-630.75 850.11,-634.68"/>
+<polygon fill="#255015" fill-opacity="0.007843" stroke="#255015" stroke-opacity="0.007843" points="849.98,-638.18 860.22,-635.45 850.52,-631.2 849.98,-638.18"/>
+</g>
+<!-- program~example5&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge60" class="edge">
+<title>program~example5&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255015" stroke-opacity="0.007843" d="M703.67,-621.45C729.06,-622.97 764.95,-627.77 793,-642 853.55,-672.72 906.09,-735.59 930.67,-768.26"/>
+<polygon fill="#255015" fill-opacity="0.007843" stroke="#255015" stroke-opacity="0.007843" points="928.09,-770.66 936.85,-776.62 933.72,-766.5 928.09,-770.66"/>
+</g>
+<!-- program~example5&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge61" class="edge">
+<title>program~example5&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255015" stroke-opacity="0.007843" d="M703.58,-617.48C730.86,-616.31 769.49,-619.39 793,-642 848.05,-694.93 774.13,-756.9 829,-810 848,-828.38 877.31,-833.6 901.78,-834.23"/>
+<polygon fill="#255015" fill-opacity="0.007843" stroke="#255015" stroke-opacity="0.007843" points="901.93,-837.73 911.93,-834.25 901.94,-830.73 901.93,-837.73"/>
+</g>
+<!-- program~example6 -->
+<g id="call~~graph~~CallGraph_node38" class="node">
+<title>program~example6</title>
+<g id="a_call~~graph~~CallGraph_node38"><a xlink:href=".././program/example6.html" xlink:title="example6">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-801 638.5,-801 638.5,-777 703.5,-777 703.5,-801"/>
+<text text-anchor="middle" x="671" y="-786.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example6</text>
+</a>
+</g>
+</g>
+<!-- program~example6&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge62" class="edge">
+<title>program~example6&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255011" stroke-opacity="0.015686" d="M703.64,-789C752.25,-789 845.49,-789 900.92,-789"/>
+<polygon fill="#255011" fill-opacity="0.015686" stroke="#255011" stroke-opacity="0.015686" points="901.15,-792.5 911.15,-789 901.15,-785.5 901.15,-792.5"/>
+</g>
+<!-- program~example6&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge63" class="edge">
+<title>program~example6&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255011" stroke-opacity="0.015686" d="M703.64,-793.86C752.39,-801.34 846,-815.72 901.37,-824.22"/>
+<polygon fill="#255011" fill-opacity="0.015686" stroke="#255011" stroke-opacity="0.015686" points="901.17,-827.73 911.58,-825.79 902.23,-820.81 901.17,-827.73"/>
 </g>
 <!-- program~example7 -->
-<g id="call~~graph~~CallGraph_node34" class="node">
+<g id="call~~graph~~CallGraph_node39" class="node">
 <title>program~example7</title>
-<g id="a_call~~graph~~CallGraph_node34"><a xlink:href=".././program/example7.html" xlink:title="example7">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="847.5,-675 782.5,-675 782.5,-651 847.5,-651 847.5,-675"/>
-<text text-anchor="middle" x="815" y="-660.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example7</text>
+<g id="a_call~~graph~~CallGraph_node39"><a xlink:href=".././program/example7.html" xlink:title="example7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-591 638.5,-591 638.5,-567 703.5,-567 703.5,-591"/>
+<text text-anchor="middle" x="671" y="-576.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example7</text>
 </a>
 </g>
 </g>
 <!-- program~example7&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge47" class="edge">
+<g id="call~~graph~~CallGraph_edge64" class="edge">
 <title>program~example7&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#255045" d="M847.64,-660.25C876.93,-657.71 922.01,-653.8 962.94,-650.25"/>
-<polygon fill="#255045" stroke="#255045" points="963.31,-653.73 972.97,-649.38 962.7,-646.76 963.31,-653.73"/>
+<path fill="none" stroke="#255076" d="M703.63,-581.39C728.51,-584 763.76,-589.33 793,-600 810.4,-606.35 811.62,-614.59 829,-621 835.83,-623.52 842.99,-625.74 850.28,-627.7"/>
+<polygon fill="#255076" stroke="#255076" points="849.71,-631.17 860.26,-630.22 851.42,-624.38 849.71,-631.17"/>
+</g>
+<!-- program~example7&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge65" class="edge">
+<title>program~example7&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255076" d="M703.59,-577.37C729.78,-577.58 766.82,-581.63 793,-600 819.4,-618.52 809.93,-636.99 829,-663 859.04,-703.97 900.76,-746.27 925.27,-769.95"/>
+<polygon fill="#255076" stroke="#255076" points="922.94,-772.57 932.58,-776.96 927.78,-767.51 922.94,-772.57"/>
+</g>
+<!-- program~example7&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge66" class="edge">
+<title>program~example7&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255076" d="M703.54,-575.26C730.98,-573.9 769.88,-576.83 793,-600 859.89,-667.03 762.33,-742.75 829,-810 847.68,-828.84 877.13,-834.02 901.75,-834.52"/>
+<polygon fill="#255076" stroke="#255076" points="901.97,-838.02 911.96,-834.48 901.95,-831.02 901.97,-838.02"/>
+</g>
+<!-- program~example8 -->
+<g id="call~~graph~~CallGraph_node40" class="node">
+<title>program~example8</title>
+<g id="a_call~~graph~~CallGraph_node40"><a xlink:href=".././program/example8.html" xlink:title="example8">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="703.5,-1011 638.5,-1011 638.5,-987 703.5,-987 703.5,-1011"/>
+<text text-anchor="middle" x="671" y="-996.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example8</text>
+</a>
+</g>
+</g>
+<!-- program~example8&#45;&gt;timer_start -->
+<g id="call~~graph~~CallGraph_edge67" class="edge">
+<title>program~example8&#45;&gt;timer_start</title>
+<path fill="none" stroke="#255038" d="M703.58,-1002.52C730.86,-1003.69 769.49,-1000.61 793,-978 848.05,-925.07 774.13,-863.1 829,-810 847.87,-791.74 876.91,-786.48 901.28,-785.78"/>
+<polygon fill="#255038" stroke="#255038" points="901.41,-789.28 911.4,-785.74 901.38,-782.28 901.41,-789.28"/>
+</g>
+<!-- program~example8&#45;&gt;timer_stop -->
+<g id="call~~graph~~CallGraph_edge68" class="edge">
+<title>program~example8&#45;&gt;timer_stop</title>
+<path fill="none" stroke="#255038" d="M703.67,-998.55C729.06,-997.03 764.95,-992.23 793,-978 853.55,-947.28 906.09,-884.41 930.67,-851.74"/>
+<polygon fill="#255038" stroke="#255038" points="933.72,-853.5 936.85,-843.38 928.09,-849.34 933.72,-853.5"/>
 </g>
 </g>
 </svg>
@@ -777,8 +938,8 @@ author: Seyed Ali Ghasemi</p></td></tr>
                   var pancallgraphCallGraph = svgPanZoom('#callgraphCallGraph',
                     {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
                   );
-                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallGraph-help-text">Help</a></div>
+          <div class="modal fade" id="CallGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -795,11 +956,11 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="597pt" height="32pt"
- viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
@@ -818,23 +979,29 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
 <text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
-<!-- Unknown Procedure Type -->
+<!-- Type Bound Procedure -->
 <g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
-<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node">
+<g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
-<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
-<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -856,32 +1023,27 @@ large graphs.</div>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-md-6"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+        <div class="row justify-content-between">
+          <div class="col"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
 </p>
           </div>
-          <div class="col-xs-6 col-md-6">
-            <p class="text-right">
+          <div class="col">
+            <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-09-30T17:35:19.229793             </p>
+ on 2023-12-10T14:13:04.181369             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-         ================================================== -->
-         <!-- Placed at the end of the document so the pages load faster -->
-    <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        -->
-        <script src="../js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
-        <!-- MathJax JavaScript
+    <!-- MathJax JavaScript
              ================================================== -->
              <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/x-mathjax-config">
