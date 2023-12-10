@@ -1,0 +1,45 @@
+name: test
+on: [push]
+jobs:
+
+  Build:
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        toolchain:
+          - {compiler: intel-classic}
+        exclude:
+          - os: windows-latest
+            toolchain: {compiler: intel-classic}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        submodules: recursive
+
+    - name: Setup Fortran Package Manager (fpm)
+      uses: fortran-lang/setup-fpm@v5
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Fortran Compiler
+      uses: fortran-lang/setup-fortran@v1
+      id: setup-fortran
+      with:
+        compiler: ${{ matrix.toolchain.compiler }}
+        version: ${{ matrix.toolchain.version }}
+
+    # - name: Run Tests
+    #   run: fpm test @${{ env.FC}}-test
+    #   env:
+    #     FC: ${{ steps.setup-fortran.outputs.fc }}
+
+    # - name: Run Tests (USE_COARRAY)
+    #   run: fpm test @${{ env.FC}}-test-coarray
+    #   env:
+    #     FC: ${{ steps.setup-fortran.outputs.fc }}
