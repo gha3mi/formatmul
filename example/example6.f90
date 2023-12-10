@@ -20,7 +20,7 @@ program example6
    call random_number(A)
    call random_number(B)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    sync all
 
    call t%timer_start()

@@ -16,7 +16,7 @@ contains
       character(*),intent(in)  :: msg
       integer,     intent(in)  :: m,n,o
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       sync all
       if (this_image() == 1) then
          print"(a,', m=',g0,', n=',g0,', o=',g0)", msg, m, n, o
@@ -31,7 +31,7 @@ contains
    !> author: Seyed Ali Ghasemi
    subroutine stop_benchmark(t,m,n,o,nloops,Mat,Mat_ref,method,filename)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       type(timer), intent(inout) :: t[*]
 #else
       type(timer), intent(inout) :: t
@@ -42,14 +42,14 @@ contains
       character(*),intent(in)    :: filename
       integer                    :: nunit, i
       real(rk)                   :: elapsed_time_average
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       real(rk), allocatable      :: gflops[:]
 #else
       real(rk)                   :: gflops
 #endif
       real(rk)                   :: gflops_total
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       allocate(gflops[*])
       call t[this_image()]%timer_stop(message=' Elapsed time :',nloops=nloops)
       gflops[this_image()] = real(m,rk)*real(n,rk)*real(o,rk)*1e-9_rk/t[this_image()]%elapsed_time
@@ -87,7 +87,7 @@ contains
    subroutine write_benchmark(method,m,n,o,nloops,t,elapsed_time_average,gflops,gflops_total,filename)
       character(*),intent(in) :: method
       integer,     intent(in) :: m,n,o,nloops
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       type(timer), intent(in) :: t[*]
 #else
       type(timer), intent(in) :: t
@@ -96,13 +96,13 @@ contains
       real(rk),    intent(in) :: elapsed_time_average
       real(rk),    intent(in) :: gflops_total
       integer                 :: nunit
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       real(rk)                :: gflops[*]
 #else
       real(rk)                :: gflops
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       open (newunit = nunit, file = filename, access = 'append')
       write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
       method, m,n,o,nloops, t[this_image()]%elapsed_time, gflops[this_image()], elapsed_time_average, gflops_total

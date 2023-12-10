@@ -20,7 +20,7 @@ program example5
    call random_number(A)
    call random_number(B)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    sync all
 
    if (this_image() == 1) call t%timer_start()

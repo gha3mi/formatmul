@@ -10,7 +10,7 @@ program benchmark4
 
    real(rk), allocatable         :: A(:,:), v(:)
    real(rk), allocatable         :: w_ref(:), w(:)
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    type(timer)                   :: t[*]
 #else
    type(timer)                   :: t
@@ -21,7 +21,7 @@ program benchmark4
 
    nloops = 10
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    im  = this_image()
    nim = num_images()
 
@@ -35,7 +35,7 @@ program benchmark4
    write(unit_num,'(a)') 'ForMatmul'
    write(unit_num,'(a)') compiler_version()
    write(unit_num,'(a)') compiler_options()
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
    write(unit_num,"(g0,' ',g0)") im, nim
 #endif
    close(unit_num)
@@ -57,7 +57,7 @@ program benchmark4
       call random_number(A)
       call random_number(v)
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w_ref = matmul(A,v)")
       do i = 1,nloops
          w_ref = matmul(A,v)
@@ -71,7 +71,7 @@ program benchmark4
       call stop_benchmark(t,m,n,1,nloops,w_ref,w_ref,'Matmul',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m1')")
       do i = 1,nloops
          w = matmul(A,v,'coarray','m1')
@@ -85,7 +85,7 @@ program benchmark4
       call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_Matmul',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m2')")
       do i = 1,nloops
          w = matmul(A,v,'coarray','m2')
@@ -99,7 +99,7 @@ program benchmark4
       call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_dgemm',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m3')")
       do i = 1,nloops
          w = matmul(A,v,'coarray','m3')
@@ -113,7 +113,7 @@ program benchmark4
       call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_m3',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m4')")
       do i = 1,nloops
          w = matmul(A,v,'coarray','m4')
@@ -127,7 +127,7 @@ program benchmark4
       call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_m4',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m5')")
       do i = 1,nloops
          w = matmul(A,v,'coarray','m5')
@@ -141,7 +141,7 @@ program benchmark4
       call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_m5',file_name)
 #endif
 
-#if defined(COARRAY)
+#if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m6')")
       do i = 1,nloops
          w = matmul(A,v,'coarray','m6')

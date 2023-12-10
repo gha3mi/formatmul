@@ -7,7 +7,7 @@ license    = "LICENSE"
 
 [preprocess]
 [preprocess.cpp]
-macros = ['COARRAY']
+macros = []
 
 [dependencies]
 kinds   = {git="https://github.com/gha3mi/kinds.git"}
