@@ -48,10 +48,18 @@ Tested with Intel compiler: ifort (IFORT) 2021.10.0 20230609
 fpm @ifort-test
 ```
 
+```shell
+fpm @ifort-test-coarray
+```
+
 Tested with Intel compiler: ifx (IFX) 2023.2.0 20230622
 
 ```shell
 fpm @ifx-test
+```
+
+```shell
+fpm @ifx-test-coarray
 ```
 
 **Run examples:**
@@ -65,7 +73,15 @@ fpm @ifort-example
 ```
 
 ```shell
+fpm @ifort-example-coarray
+```
+
+```shell
 fpm @ifx-example
+```
+
+```shell
+fpm @ifx-example-coarray
 ```
 
 Results with `-coarray-num-images=4`:
@@ -91,13 +107,13 @@ To set the stack size to unlimited, use the following command: `ulimit -s unlimi
 **Intel Fortran Compiler (ifort)**
 
 ```shell
-fpm run --example benchmark3 --compiler ifort --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4"
+fpm run --example benchmark3 --compiler ifort --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
 ```
 
 **Intel Fortran Compiler (ifx)**
 
 ```shell
-fpm run --example benchmark3 --compiler ifx --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4"
+fpm run --example benchmark3 --compiler ifx --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
 ```
 
 You can then use the provided Python script to generate visual plots for the benchmark3 data:
