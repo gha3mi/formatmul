@@ -2,7 +2,7 @@
 [![Version](https://img.shields.io/github/release/gha3mi/formatmul.svg)](https://github.com/gha3mi/formatmul/releases/latest)
 [![Documentation](https://img.shields.io/badge/ford-Documentation%20-blueviolet.svg)](https://gha3mi.github.io/formatmul/)
 [![License](https://img.shields.io/github/license/gha3mi/formatmul?color=green)](https://github.com/gha3mi/formatmul/blob/main/LICENSE)
-[![Build](https://github.com/gha3mi/formatmul/actions/workflows/ci.yml/badge.svg)](https://github.com/gha3mi/formatmul/actions/workflows/ci.yml)
+[![Build](https://github.com/gha3mi/formatmul/actions/workflows/CI_test.yml/badge.svg)](https://github.com/gha3mi/formatmul/actions/workflows/CI_test.yml)
 
 <img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/media/logo.png" width="750">
 
