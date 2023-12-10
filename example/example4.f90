@@ -19,11 +19,17 @@ program example4
    call random_number(A)
    call random_number(v)
 
+#if defined(COARRAY)
    sync all
 
    call t%timer_start()
       w = matmul(A,v,'coarray')
    call t%timer_stop(message=' Elapsed time (example4: mat_vec, coarray):')
+#else
+   call t%timer_start()
+      w = matmul(A,v)
+   call t%timer_stop(message=' Elapsed time (example4: mat_vec):')
+#endif
 
 end program example4
 

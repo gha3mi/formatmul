@@ -23,6 +23,7 @@ program benchmark2
    call random_number(A)
    call random_number(v)
 
+#if defined(COARRY)
    sync all
 
    if (this_image() == 1) call t%timer_start()
@@ -30,7 +31,15 @@ program benchmark2
       w = matmul(A,v)
    end do
    if (this_image() == 1) call t%timer_stop(message=' Elapsed time (matmul):',nloops=l)
+#else
+   call t%timer_start()
+   do i = 1,l
+      w = matmul(A,v)
+   end do
+   call t%timer_stop(message=' Elapsed time (matmul):',nloops=l)
+#endif
 
+#if defined(COARRY)
    sync all
 
    if (this_image() == 1) call t%timer_start()
@@ -38,7 +47,15 @@ program benchmark2
       w = matmul_blas(A,v)
    end do
    if (this_image() == 1) call t%timer_stop(message=' Elapsed time (dgemv):',nloops=l)
+#else
+   call t%timer_start()
+   do i = 1,l
+      w = matmul_blas(A,v)
+   end do
+   call t%timer_stop(message=' Elapsed time (dgemv):',nloops=l)
+#endif
 
+#if defined(COARRY)
    sync all
 
    call t%timer_start()
@@ -47,7 +64,15 @@ program benchmark2
    end do
    write (im, "(I2)") this_image()
    call t%timer_stop(message=' Elapsed time (coarray with matmul) image='//trim(im)//':',nloops=l)
+#else
+   call t%timer_start()
+   do i = 1,l
+      w = matmul(A,v,'default','m1')
+   end do
+   call t%timer_stop(message=' Elapsed time (default with matmul) image='//trim(im)//':',nloops=l)
+#endif
 
+#if defined(COARRY)
    sync all
 
    call t%timer_start()
@@ -56,5 +81,12 @@ program benchmark2
    end do
    write (im, "(I2)") this_image()
    call t%timer_stop(message=' Elapsed time (coarray with dgemv) image='//trim(im)//':',nloops=l)
+#else
+   call t%timer_start()
+   do i = 1,l
+      w = matmul(A,v,'default','m2')
+   end do
+   call t%timer_stop(message=' Elapsed time (default with dgemv) image='//trim(im)//':',nloops=l)
+#endif
 
 end program benchmark2

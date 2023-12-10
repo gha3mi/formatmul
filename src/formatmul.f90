@@ -32,7 +32,10 @@ contains
       !> Result matrix C.
       real(rk)                             :: C(size(A,1),size(B,2))
 
-      if (method == 'coarray') then
+
+      select case (method)
+#if defined(COARRAY)
+      case ('coarray')
          ! Coarray-based parallel multiplication.
 
          if (size(A,1) >= size(B,2)) then
@@ -82,11 +85,11 @@ contains
             end block
 
          end if
+#endif
+      case default
+         C = matmul_opts(A, B, option)
+      end select
 
-      else
-         ! Unsupported multiplication method.
-         error stop 'Error: The specified method is not available for matrix-matrix multiplication!'
-      end if
    end function mat_mat
 
 
@@ -103,7 +106,10 @@ contains
       !> Result vector w.
       real(rk)                             :: w(size(A,1))
 
-      if (method == 'coarray') then
+
+      select case (method)
+#if defined(COARRAY)
+      case ('coarray')
          ! Coarray-based parallel multiplication.
 
          block
@@ -122,11 +128,11 @@ contains
                end do
             end if
          end block
+#endif
+      case default
+         w = matmul_opts(A, v, option)
+      end select
 
-      else
-         ! Unsupported multiplication method.
-         error stop 'Error: The specified method is not available for matrix-vector multiplication!'
-      end if
    end function mat_vec
 
    !> Calculate block sizes and ranges.

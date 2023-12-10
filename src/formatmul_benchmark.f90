@@ -15,24 +15,41 @@ contains
       type(timer), intent(out) :: t
       character(*),intent(in)  :: msg
       integer,     intent(in)  :: m,n,o
+
+#if defined(COARRAY)
       sync all
       if (this_image() == 1) then
          print"(a,', m=',g0,', n=',g0,', o=',g0)", msg, m, n, o
       end if
       call t%timer_start()
+#else
+      print"(a,', m=',g0,', n=',g0,', o=',g0)", msg, m, n, o
+      call t%timer_start()
+#endif
    end subroutine start_benchmark
 
    !> author: Seyed Ali Ghasemi
    subroutine stop_benchmark(t,m,n,o,nloops,Mat,Mat_ref,method,filename)
+
+#if defined(COARRAY)
       type(timer), intent(inout) :: t[*]
+#else
+      type(timer), intent(inout) :: t
+#endif
       integer,     intent(in)    :: m,n,o,nloops
       real(rk),    intent(in)    :: Mat(m,o), Mat_ref(m,o)
       character(*),intent(in)    :: method
       character(*),intent(in)    :: filename
       integer                    :: nunit, i
       real(rk)                   :: elapsed_time_average
+#if defined(COARRAY)
       real(rk), allocatable      :: gflops[:]
+#else
+      real(rk)                   :: gflops
+#endif
       real(rk)                   :: gflops_total
+
+#if defined(COARRAY)
       allocate(gflops[*])
       call t[this_image()]%timer_stop(message=' Elapsed time :',nloops=nloops)
       gflops[this_image()] = real(m,rk)*real(n,rk)*real(o,rk)*1e-9_rk/t[this_image()]%elapsed_time
@@ -54,22 +71,48 @@ contains
       call co_broadcast(elapsed_time_average, 1)
       call co_broadcast(gflops_total, 1)
       call write_benchmark(method,m,n,o,nloops,t,elapsed_time_average,gflops,gflops_total,filename)
+#else
+      call t%timer_stop(message=' Elapsed time :',nloops=nloops)
+      gflops = real(m,rk)*real(n,rk)*real(o,rk)*1e-9_rk/t%elapsed_time
+      print'(a,f6.2,a)', ' Performance  : ', gflops,' [GFLOPS]'
+      print'(a,3e13.6)', ' Relative err.: ', norm2(Mat_ref-Mat)/norm2(Mat_ref)
+      print'(a,f7.3,a)', ' Elapsed time :', t%elapsed_time,' [s]'
+      print'(a,f6.2,a)', ' Performance  : ', gflops, ' [GFLOPS]'
+      print'(a)', ''
+      call write_benchmark(method,m,n,o,nloops,t,elapsed_time_average,gflops,gflops_total,filename)
+#endif
    end subroutine stop_benchmark
 
    !> author: Seyed Ali Ghasemi
    subroutine write_benchmark(method,m,n,o,nloops,t,elapsed_time_average,gflops,gflops_total,filename)
       character(*),intent(in) :: method
       integer,     intent(in) :: m,n,o,nloops
+#if defined(COARRAY)
       type(timer), intent(in) :: t[*]
+#else
+      type(timer), intent(in) :: t
+#endif
       character(*),intent(in) :: filename
       real(rk),    intent(in) :: elapsed_time_average
       real(rk),    intent(in) :: gflops_total
       integer                 :: nunit
+#if defined(COARRAY)
       real(rk)                :: gflops[*]
+#else
+      real(rk)                :: gflops
+#endif
+
+#if defined(COARRAY)
       open (newunit = nunit, file = filename, access = 'append')
       write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
       method, m,n,o,nloops, t[this_image()]%elapsed_time, gflops[this_image()], elapsed_time_average, gflops_total
       close(nunit)
+#else
+      open (newunit = nunit, file = filename, access = 'append')
+      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
+      method, m,n,o,nloops, t%elapsed_time, gflops, elapsed_time_average, gflops_total
+      close(nunit)
+#endif
    end subroutine write_benchmark
 
 end module formatmul_benchmark

@@ -21,13 +21,15 @@ program mat_vec
 
    w = matmul(A,v)
 
+#if defined(COARRAY)
    sync all
 
    w_co = matmul(A,v,'coarray')
 
    sync all
 
-   if (this_image() == 1) print*,'relative error:', norm2(w-w_co)/norm2(w)
+   if (this_image() == 1) print*,'test2: relative error:', norm2(w-w_co)/norm2(w)
+#endif
 
 end program mat_vec
 

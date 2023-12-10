@@ -20,11 +20,17 @@ program example2
    call random_number(A)
    call random_number(B)
 
+#if defined(COARRAY)
    sync all
 
    call t%timer_start()
       C = matmul(A,B,'coarray')
    call t%timer_stop(message=' Elapsed time (example2: mat_mat, coarray):')
+#else
+   call t%timer_start()
+      C = matmul(A,B)
+   call t%timer_stop(message=' Elapsed time (example2: mat_mat):')
+#endif
 
 end program example2
 

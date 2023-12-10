@@ -19,11 +19,17 @@ program example7
    call random_number(A)
    call random_number(v)
    
+#if defined(COARRAY)
    sync all
 
    if (this_image() == 1) call t%timer_start()
       w = matmul_blas(A,v)
    if (this_image() == 1) call t%timer_stop(message=' Elapsed time (example7: mat_vec with blas):')
+#else
+   call t%timer_start()
+      w = matmul_blas(A,v)
+   call t%timer_stop(message=' Elapsed time (example7: mat_vec with blas):')
+#endif
 
 end program example7
 

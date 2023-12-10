@@ -20,11 +20,17 @@ program example5
    call random_number(A)
    call random_number(B)
 
+#if defined(COARRAY)
    sync all
 
    if (this_image() == 1) call t%timer_start()
       C = matmul_blas(A,B)
    if (this_image() == 1) call t%timer_stop(message=' Elapsed time (example5: mat_mat with blas):')
+#else
+   call t%timer_start()
+      C = matmul_blas(A,B)
+   call t%timer_stop(message=' Elapsed time (example5: mat_mat with blas):')
+#endif
 
 end program example5
 
