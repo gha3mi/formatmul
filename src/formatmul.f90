@@ -150,6 +150,8 @@ contains
          start_elem(i) = start_elem(i - 1) + block_size(i - 1)
          end_elem(i) = start_elem(i) + block_size(i) - 1
       end do
+      ! Check if the block sizes are valid.
+      if (minval(block_size) <= 0) error stop 'ForMatmul: reduce the number of images of coarray.'
    end subroutine compute_block_ranges
 
 end module formatmul
