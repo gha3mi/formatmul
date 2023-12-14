@@ -76,7 +76,7 @@
 <a href="https://github.com/gha3mi/formatmul/blob/main/LICENSE"><img alt="License" src="https://img.shields.io/github/license/gha3mi/formatmul?color=green"></a>
 <a href="https://github.com/gha3mi/formatmul/actions/workflows/CI_test.yml"><img alt="Build" src="https://github.com/gha3mi/formatmul/actions/workflows/CI_test.yml/badge.svg"></a></p>
 <p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/media/logo.png" width="750"></p>
-<p><strong>ForMatmul</strong>: A Fortran library that overloads the <code>matmul</code> function to enable efficient matrix multiplication with coarray.</p>
+<p><strong>ForMatmul</strong>: A Fortran library that overloads the <code>matmul</code> function to enable efficient matrix multiplication with/without coarray.</p>
 <h2>Usage</h2>
 <div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">formatmul</span>
 
@@ -153,42 +153,38 @@ Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </sp
 <p><strong>Benchmark:</strong></p>
 <p>To set the stack size to unlimited, use the following command: <code>ulimit -s unlimited</code>.</p>
 <p><strong>Intel Fortran Compiler (ifort)</strong></p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>benchmark3<span class="w"> </span>--compiler<span class="w"> </span>ifort<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY&quot;</span>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>benchmark3<span class="w"> </span>--compiler<span class="w"> </span>ifort<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY&quot;</span>
 </code></pre></div>
 
 <p><strong>Intel Fortran Compiler (ifx)</strong></p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>benchmark3<span class="w"> </span>--compiler<span class="w"> </span>ifx<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY&quot;</span>
+<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>--all<span class="w"> </span>--compiler<span class="w"> </span>ifx<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY&quot;</span>
 </code></pre></div>
 
 <p>You can then use the provided Python script to generate visual plots for the benchmark3 data:</p>
 <div class="codehilite"><pre><span></span><code>python<span class="w"> </span>benchmark/benchmark3_co.py
 </code></pre></div>
 
-<p>Results obtained on an <code>Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz</code> using <code>ifort (IFORT) 2021.10.0 20230609</code> are as follows:</p>
+<p>Results obtained on an <code>Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz</code> using <code>ifort (IFORT) 2021.11.0 20231010</code> are as follows:</p>
 <ul>
 <li>with <code>-coarray-num-images=4</code>, <code>MKL_NUM_THREADS=1</code> and <code>OMP_NUM_THREADS=1</code>:</li>
 </ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim4.png" width="750"></p>
+<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim4.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim4.png" width="350"></p>
 <ul>
 <li>with <code>-coarray-num-images=4</code> and Multithread:</li>
 </ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim4.png" width="750"></p>
+<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim4.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim4.png" width="350"></p>
 <ul>
 <li>with <code>-coarray-num-images=5</code>, <code>MKL_NUM_THREADS=1</code> and <code>OMP_NUM_THREADS=1</code>:</li>
 </ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim5.png" width="750"></p>
+<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim5.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim5.png" width="350"></p>
 <ul>
 <li>with <code>-coarray-num-images=5</code> and Multithread:</li>
 </ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim5.png" width="750"></p>
-<ul>
-<li>with <code>-coarray-num-images=6</code>, <code>MKL_NUM_THREADS=1</code> and <code>OMP_NUM_THREADS=1</code>:</li>
-</ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim6.png" width="750"></p>
-<ul>
-<li>with <code>-coarray-num-images=6</code> and Multithread:</li>
-</ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim6.png" width="750"></p>
+<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim5.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim5.png" width="350"></p>
 <h2>API documentation</h2>
 <p>The most up-to-date API documentation for the master branch is available
 <a href="https://gha3mi.github.io/formatmul/">here</a>.
@@ -262,7 +258,7 @@ If you find any issues or would like to suggest improvements, please open an iss
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-14T18:07:25.398471             </p>
+ on 2023-12-14T18:50:46.650924             </p>
           </div>
         </div>
         <br>
