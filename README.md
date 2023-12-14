@@ -130,7 +130,7 @@ fpm run --example benchmark3 --compiler ifx --flag "-Ofast -xHost -qopenmp -qmkl
 You can then use the provided Python script to generate visual plots for the benchmark3 data:
 
 ```shell
-python benchmark/benchmark3.py
+python benchmark/benchmark3_co.py
 ```
 
 Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort (IFORT) 2021.10.0 20230609` are as follows:
