@@ -156,7 +156,6 @@ program benchmark3
       call stop_benchmark(t,m,n,o,nloops,C,C_ref,'default_m6',file_name)
 #endif
 
-
 #if defined(USE_COARRAY)
       call start_benchmark(t[im],m,n,o,"C = matmul(A,B,'coarray','m7')")
       do i = 1,nloops

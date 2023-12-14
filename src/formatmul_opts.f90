@@ -298,17 +298,17 @@ contains
       integer, intent(in) :: m, n, p
       real(rk), intent(in) :: a(m,n), b(n,p)
       real(rk), intent(out) :: c(m,p)
-      integer :: i, k
-      c = 0.0_rk
-      block
-         !$OMP PARALLEL DO PRIVATE(i, k)
-         do i = 1, p
-            do k = 1, m
-               c(k,i) = dot_product(a(k,:), b(:,i))
-            end do
-         end do
-         !$OMP END PARALLEL DO
-      end block
+
+      interface
+         pure subroutine impure_mm_12(f_m, f_n, f_p, f_a, f_b, f_c)
+            import rk
+            integer, intent(in) :: f_m, f_n, f_p
+            real(rk), intent(in) :: f_a(f_m,f_n), f_b(f_n,f_p)
+            real(rk), intent(out) :: f_c(f_m,f_p)
+         end subroutine impure_mm_12
+      end interface
+
+      call impure_mm_12(m, n, p, a, b, c)
    end subroutine mm_12
 
    !> author: Seyed Ali Ghasemi
@@ -317,16 +317,17 @@ contains
       real(rk), intent(in) :: a(m,n), b(n,p)
       real(rk), intent(out) :: c(m,p)
       integer :: i, k
-      c = 0.0_rk
-      block
-         !$OMP PARALLEL DO DEFAULT(NONE) PRIVATE(i, k) SHARED(m, p, a, b, c)
-         do i = 1, p
-            do k = 1, m
-               c(k,i) = dot_product(a(k,:), b(:,i))
-            end do
-         end do
-         !$OMP END PARALLEL DO
-      end block
+
+      interface
+         pure subroutine impure_mm_13(f_m, f_n, f_p, f_a, f_b, f_c)
+            import rk
+            integer, intent(in) :: f_m, f_n, f_p
+            real(rk), intent(in) :: f_a(f_m,f_n), f_b(f_n,f_p)
+            real(rk), intent(out) :: f_c(f_m,f_p)
+         end subroutine impure_mm_13
+      end interface
+
+      call impure_mm_13(m, n, p, a, b, c)
    end subroutine mm_13
 
    !> author: Seyed Ali Ghasemi
@@ -382,3 +383,43 @@ contains
    end subroutine mv_6
 
 end module formatmul_opts
+
+
+
+
+
+!> author: Seyed Ali Ghasemi
+impure subroutine impure_mm_12(m, n, p, a, b, c)
+   use kinds, only: rk
+   implicit none
+   integer, intent(in) :: m, n, p
+   real(rk), intent(in) :: a(m,n), b(n,p)
+   real(rk), intent(out) :: c(m,p)
+   integer :: i, k
+   c = 0.0_rk
+   !$OMP PARALLEL DO PRIVATE(i, k)
+   do i = 1, p
+      do k = 1, m
+         c(k,i) = dot_product(a(k,:), b(:,i))
+      end do
+   end do
+   !$OMP END PARALLEL DO
+end subroutine impure_mm_12
+
+!> author: Seyed Ali Ghasemi
+impure subroutine impure_mm_13(m, n, p, a, b, c)
+   use kinds, only: rk
+   implicit none
+   integer, intent(in) :: m, n, p
+   real(rk), intent(in) :: a(m,n), b(n,p)
+   real(rk), intent(out) :: c(m,p)
+   integer :: i, k
+   c = 0.0_rk
+   !$OMP PARALLEL DO DEFAULT(NONE) PRIVATE(i, k) SHARED(m, p, a, b, c)
+   do i = 1, p
+      do k = 1, m
+         c(k,i) = dot_product(a(k,:), b(:,i))
+      end do
+   end do
+   !$OMP END PARALLEL DO
+end subroutine impure_mm_13

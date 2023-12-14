@@ -22,7 +22,11 @@ contains
 
    !> Matrix-matrix multiplication using coarray parallelism.
    !> author: Seyed Ali Ghasemi
+#if defined(USE_COARRAY)
+   impure function mat_mat(A, B, method, option) result(C)
+#else
    pure function mat_mat(A, B, method, option) result(C)
+#endif
       !> Input matrices A and B.
       real(rk),     intent(in), contiguous :: A(:,:), B(:,:)
       !> Multiplication method ('coarray').
@@ -96,7 +100,11 @@ contains
 
    !> Matrix-vector multiplication using coarray parallelism.
    !> author: Seyed Ali Ghasemi
+#if defined(USE_COARRAY)
+   impure function mat_vec(A, v, method, option) result(w)
+#else
    pure function mat_vec(A, v, method, option) result(w)
+#endif
       !> Input matrix A and vector v.
       real(rk),     intent(in), contiguous :: A(:,:), v(:)
       !> Multiplication method ('coarray').
