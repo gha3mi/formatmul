@@ -137,23 +137,19 @@ Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort 
 
 - with `-coarray-num-images=4`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim4.png" width="350">
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim4.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim4.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim4.png" width="350">
 
 - with `-coarray-num-images=4` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim4.png" width="350">
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim4.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim4.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim4.png" width="350">
 
 - with `-coarray-num-images=5`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim5.png" width="350">
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim5.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim5.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim5.png" width="350">
 
 - with `-coarray-num-images=5` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim5.png" width="350">
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim5.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim5.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim5.png" width="350">
 
 ## API documentation
 
