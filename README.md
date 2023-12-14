@@ -62,10 +62,10 @@ fpm @ifx-test
 fpm @ifx-test-coarray
 ```
 
-Tested with GNU compiler: GNU Fortran (GCC) 13.1.0
+Tested with NVIDIA compiler: nvfortran 23.11-0 64-bit target on x86-64 Linux
 
 ```shell
-fpm @gfortran-test
+fpm @nvfortran-test
 ```
 
 **Run examples:**
@@ -90,8 +90,9 @@ fpm @ifx-example
 fpm @ifx-example-coarray
 ```
 
+
 ```shell
-fpm @gfortran-example
+fpm @nvfortran-example
 ```
 
 Results with `-coarray-num-images=4`:
