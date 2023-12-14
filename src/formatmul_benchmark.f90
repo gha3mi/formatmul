@@ -79,40 +79,42 @@ contains
       print'(a,f7.3,a)', ' Elapsed time :', t%elapsed_time,' [s]'
       print'(a,f6.2,a)', ' Performance  : ', gflops, ' [GFLOPS]'
       print'(a)', ''
-      call write_benchmark(method,m,n,o,nloops,t,elapsed_time_average,gflops,gflops_total,filename)
+      call write_benchmark(method,m,n,o,nloops,t,gflops,filename)
 #endif
    end subroutine stop_benchmark
 
+#if defined(USE_COARRAY)
    !> author: Seyed Ali Ghasemi
    subroutine write_benchmark(method,m,n,o,nloops,t,elapsed_time_average,gflops,gflops_total,filename)
       character(*),intent(in) :: method
       integer,     intent(in) :: m,n,o,nloops
-#if defined(USE_COARRAY)
       type(timer), intent(in) :: t[*]
-#else
-      type(timer), intent(in) :: t
-#endif
       character(*),intent(in) :: filename
       real(rk),    intent(in) :: elapsed_time_average
       real(rk),    intent(in) :: gflops_total
       integer                 :: nunit
-#if defined(USE_COARRAY)
       real(rk)                :: gflops[*]
-#else
-      real(rk)                :: gflops
-#endif
 
-#if defined(USE_COARRAY)
       open (newunit = nunit, file = filename, access = 'append')
       write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
-      method, m,n,o,nloops, t[this_image()]%elapsed_time, gflops[this_image()], elapsed_time_average, gflops_total
+         method, m,n,o,nloops, t[this_image()]%elapsed_time, gflops[this_image()], elapsed_time_average, gflops_total
       close(nunit)
-#else
-      open (newunit = nunit, file = filename, access = 'append')
-      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
-      method, m,n,o,nloops, t%elapsed_time, gflops, elapsed_time_average, gflops_total
-      close(nunit)
-#endif
    end subroutine write_benchmark
+#else
+   !> author: Seyed Ali Ghasemi
+   subroutine write_benchmark(method,m,n,o,nloops,t,gflops,filename)
+      character(*),intent(in) :: method
+      integer,     intent(in) :: m,n,o,nloops
+      type(timer), intent(in) :: t
+      character(*),intent(in) :: filename
+      integer                 :: nunit
+      real(rk)                :: gflops
+
+      open (newunit = nunit, file = filename, access = 'append')
+      write(nunit,'(a," ",g0," ",g0," ",g0," ",g0," ",g0," ",g0)') &
+         method, m,n,o,nloops, t%elapsed_time, gflops
+      close(nunit)
+   end subroutine write_benchmark
+#endif
 
 end module formatmul_benchmark

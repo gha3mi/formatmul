@@ -71,7 +71,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="15.8% of total for modules and submodules.">80 statements</a>
+                 title="16.8% of total for modules and submodules.">86 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -123,6 +123,7 @@
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/formatmul_benchmark.html#proc-start_benchmark">start_benchmark</a>
             <a class="list-group-item" href="../module/formatmul_benchmark.html#proc-stop_benchmark">stop_benchmark</a>
+            <a class="list-group-item" href="../module/formatmul_benchmark.html#proc-write_benchmark~2">write_benchmark</a>
             <a class="list-group-item" href="../module/formatmul_benchmark.html#proc-write_benchmark">write_benchmark</a>
         </div>
       </div>
@@ -149,8 +150,8 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">kinds</li>
                   <li class="list-inline-item">fortime</li>
+                  <li class="list-inline-item">kinds</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -454,7 +455,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~18"></span>
+              <span class="anchor" id="variable-m~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -469,7 +470,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~18"></span>
+              <span class="anchor" id="variable-n~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -557,7 +558,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~19"></span>
+              <span class="anchor" id="variable-m~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -572,7 +573,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~19"></span>
+              <span class="anchor" id="variable-n~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -683,7 +684,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-write_benchmark"></span><h3>public  subroutine <a href='../proc/write_benchmark.html'>write_benchmark</a>(method, m, n, o, nloops, t, elapsed_time_average, gflops, gflops_total, filename)  
+    <div class="card-header codesum"><span class="anchor" id="proc-write_benchmark~2"></span><h3>public  subroutine <a href='../proc/write_benchmark~2.html'>write_benchmark</a>(method, m, n, o, nloops, t, elapsed_time_average, gflops, gflops_total, filename)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -720,7 +721,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~20"></span>
+              <span class="anchor" id="variable-m~5"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -735,7 +736,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~20"></span>
+              <span class="anchor" id="variable-n~5"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -860,6 +861,154 @@ large graphs.</div>
     </div>
   </div>
 
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-write_benchmark"></span><h3>private  subroutine <a href='../proc/write_benchmark.html'>write_benchmark</a>(method, m, n, o, nloops, t, gflops, filename)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-method~5"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>method</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~6"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~6"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>n</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-o~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>o</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nloops~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nloops</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~4"></span>
+              type(timer),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>t</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-gflops~2"></span>
+              real(kind=rk)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>gflops</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-filename~3"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>filename</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
         </section>
         <br>
 
@@ -880,7 +1029,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-14T13:07:06.678917             </p>
+ on 2023-12-14T18:07:25.398471             </p>
           </div>
         </div>
         <br>
