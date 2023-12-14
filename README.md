@@ -62,6 +62,12 @@ fpm @ifx-test
 fpm @ifx-test-coarray
 ```
 
+Tested with GNU compiler: GNU Fortran (GCC) 13.1.0
+
+```shell
+fpm @gfortran-test
+```
+
 **Run examples:**
 
 To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
@@ -82,6 +88,10 @@ fpm @ifx-example
 
 ```shell
 fpm @ifx-example-coarray
+```
+
+```shell
+fpm @gfortran-example
 ```
 
 Results with `-coarray-num-images=4`:
