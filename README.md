@@ -6,7 +6,7 @@
 
 <img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/media/logo.png" width="750">
 
-**ForMatmul**: A Fortran library that overloads the `matmul` function to enable efficient matrix multiplication with coarray.
+**ForMatmul**: A Fortran library that overloads the `matmul` function to enable efficient matrix multiplication with/without coarray.
 
 ## Usage
 
@@ -118,13 +118,13 @@ To set the stack size to unlimited, use the following command: `ulimit -s unlimi
 **Intel Fortran Compiler (ifort)**
 
 ```shell
-fpm run --example benchmark3 --compiler ifort --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
+fpm run --example benchmark3 --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY"
 ```
 
 **Intel Fortran Compiler (ifx)**
 
 ```shell
-fpm run --example benchmark3 --compiler ifx --flag "-Ofast -xHost -qopenmp -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
+fpm run --example --all --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
 ```
 
 You can then use the provided Python script to generate visual plots for the benchmark3 data:
@@ -133,31 +133,27 @@ You can then use the provided Python script to generate visual plots for the ben
 python benchmark/benchmark3_co.py
 ```
 
-Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort (IFORT) 2021.10.0 20230609` are as follows:
+Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort (IFORT) 2021.11.0 20231010` are as follows:
 
 - with `-coarray-num-images=4`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim4.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim4.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim4.png" width="350">
 
 - with `-coarray-num-images=4` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim4.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim4.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim4.png" width="350">
 
 - with `-coarray-num-images=5`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim5.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim5.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim5.png" width="350">
 
 - with `-coarray-num-images=5` and Multithread:
 
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim5.png" width="750">
-
-- with `-coarray-num-images=6`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
-
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3a_nim6.png" width="750">
-
-- with `-coarray-num-images=6` and Multithread:
-
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3a_nim6.png" width="750">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim5.png" width="350">
+<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim5.png" width="350">
 
 ## API documentation
 

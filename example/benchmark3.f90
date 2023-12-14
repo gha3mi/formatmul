@@ -40,7 +40,7 @@ program benchmark3
 #endif
    close(unit_num)
 
-   do p = 250,4000,250
+   do p = 250,1500,250
 
       ! C(m,o) = A(m,n).B(n,o)
       m = p
