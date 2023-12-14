@@ -1,23 +1,32 @@
+@gfortran-test
+options test --compiler gfortran --flag "-Ofast -march=native -llapack -lblas -fopenmp"
+
+@gfortran-example
+options run --example --all --compiler gfortran --flag "-Ofast -march=native -llapack -lblas -fopenmp"
+
+
 @ifort-test
-options test --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl"
+options test --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp"
 
 @ifort-test-coarray
-options test --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options test --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
 
 @ifort-example
-options run --example --all --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl"
+options run --example --all --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp"
 
 @ifort-example-coarray
-options run --example --all --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options run --example --all --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
+
+
 
 @ifx-test
-options test --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl"
+options test --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp"
 
 @ifx-test-coarray
-options test --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options test --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
 
 @ifx-example
-options run --example --all --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl"
+options run --example --all --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp"
 
 @ifx-example-coarray
-options run --example --all --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options run --example --all --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
