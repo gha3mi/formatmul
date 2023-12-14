@@ -270,7 +270,7 @@ contains
       real(rk), intent(out) :: c(m,p)
       integer :: i, k
       c = 0.0_rk
-      do concurrent (i = 1: p)
+      do concurrent (i = 1: p) shared(m, n, p) ! check shared variables
          do k = 1, m
             c(k,i) = dot_product(a(k,:), b(:,i))
          end do
@@ -284,7 +284,7 @@ contains
       real(rk), intent(out) :: c(m,p)
       integer :: i, j, k
       c = 0.0_rk
-      do concurrent (i = 1: p)
+      do concurrent (i = 1: p) shared(m, n, p) ! check shared variables
          do j=1,n
             do k=1,m
                c(k,i) = c(k,i) + a(k,j)*b(j,i)
