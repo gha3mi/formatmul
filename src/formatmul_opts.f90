@@ -75,6 +75,10 @@ contains
          call mv_5(size(A,1), size(A,2), A, v, w)
        case('m6')
          call mv_6(size(A,1), size(A,2), A, v, w)
+       case('m7')
+         call mv_7(size(A,1), size(A,2), A, v, w)
+       case('m8')
+         call mv_8(size(A,1), size(A,2), A, v, w)
        case default
          w = matmul(A, v)
       end select
@@ -381,6 +385,32 @@ contains
          c(:) = c(:) + a(:,k)*b(k)
       end do
    end subroutine mv_6
+
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mv_7(m, n, a, b, c)
+      integer, intent(in) :: m, n
+      real(rk), intent(in) :: a(m,n), b(n)
+      real(rk), intent(out) :: c(m)
+      integer :: k
+      c = 0.0_rk
+      do concurrent (k = 1: m) shared(m,n,a,b) ! check shared variables
+         c(k) = dot_product(a(k,:), b(:))
+      end do
+   end subroutine mv_7
+
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mv_8(m, n, a, b, c)
+      integer, intent(in) :: m, n
+      real(rk), intent(in) :: a(m,n), b(n)
+      real(rk), intent(out) :: c(m)
+      integer :: i, j
+      c = 0.0_rk
+      do concurrent(i=1:m) shared(m, n, a, b) ! check shared variables
+         do j=1,n
+            c(i) = c(i) + a(i,j)*b(j)
+         end do
+      end do
+   end subroutine mv_8
 
 end module formatmul_opts
 
