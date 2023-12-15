@@ -90,13 +90,13 @@ program benchmark4
       do i = 1,nloops
          w = matmul(A,v,'coarray','m2')
       end do
-      call stop_benchmark(t[im],m,n,1,nloops,w,w_ref,'coarray_dgemm',file_name)
+      call stop_benchmark(t[im],m,n,1,nloops,w,w_ref,'coarray_dgemv',file_name)
 #else
       call start_benchmark(t,m,n,1,"w = matmul(A,v,'default','m2')")
       do i = 1,nloops
          w = matmul(A,v,'default','m2')
       end do
-      call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_dgemm',file_name)
+      call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_dgemv',file_name)
 #endif
 
 #if defined(USE_COARRAY)
@@ -153,6 +153,34 @@ program benchmark4
          w = matmul(A,v,'default','m6')
       end do
       call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_m6',file_name)
+#endif
+
+#if defined(USE_COARRAY)
+      call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m7')")
+      do i = 1,nloops
+         w = matmul(A,v,'coarray','m7')
+      end do
+      call stop_benchmark(t[im],m,n,1,nloops,w,w_ref,'coarray_m7',file_name)
+#else
+      call start_benchmark(t,m,n,1,"w = matmul(A,v,'default','m7')")
+      do i = 1,nloops
+         w = matmul(A,v,'default','m7')
+      end do
+      call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_m7',file_name)
+#endif
+
+#if defined(USE_COARRAY)
+      call start_benchmark(t[im],m,n,1,"w = matmul(A,v,'coarray','m8')")
+      do i = 1,nloops
+         w = matmul(A,v,'coarray','m8')
+      end do
+      call stop_benchmark(t[im],m,n,1,nloops,w,w_ref,'coarray_m8',file_name)
+#else
+      call start_benchmark(t,m,n,1,"w = matmul(A,v,'default','m8')")
+      do i = 1,nloops
+         w = matmul(A,v,'default','m8')
+      end do
+      call stop_benchmark(t,m,n,1,nloops,w,w_ref,'default_m8',file_name)
 #endif
 
    end do
