@@ -1,148 +1,291 @@
- !> Module: formatmul
- !! This module provides matrix and vector multiplication functions using different methods.
-
 module formatmul
 
-   !> Use the kinds module for real(kind) type.
    use kinds
    use formatmul_opts
 
    implicit none
 
    private
+
    public matmul
 
-   !> Interface for matrix multiplication functions.
    interface matmul
-      procedure :: mat_mat
-      procedure :: mat_vec
-   end interface
+      procedure :: mat_mat_rel
+      procedure :: mat_mat_block_rel
+      procedure :: mat_mat_coarray_rel
+
+      procedure :: mat_vec_rel
+      procedure :: mat_vec_block_rel
+      procedure :: mat_vec_coarray_rel
+
+      !   procedure :: vec_mat_rel ! Ambiguous interface
+   end interface matmul
 
 contains
 
-   !> Matrix-matrix multiplication using coarray parallelism.
+   !===============================================================================
    !> author: Seyed Ali Ghasemi
-#if defined(USE_COARRAY)
-   impure function mat_mat(A, B, method, option) result(C)
-#else
-   pure function mat_mat(A, B, method, option) result(C)
-#endif
-      !> Input matrices A and B.
-      real(rk),     intent(in), contiguous :: A(:,:), B(:,:)
-      !> Multiplication method ('coarray').
-      character(*), intent(in)             :: method
-      !> Optional method-specific option.
-      character(*), intent(in), optional   :: option
-      !> Result matrix C.
-      real(rk)                             :: C(size(A,1),size(B,2))
+   impure function mat_mat_coarray_rel(a, b, transA, transB, option, coarray) result(c)
+      real(rk), intent(in), contiguous :: a(:,:), b(:,:)
+      character(*), intent(in), optional :: option
+      logical, intent(in), optional :: transA, transB
+      real(rk), allocatable :: c(:,:)
+      logical, intent(in)   :: coarray
+#if defined (USE_COARRAY)
+      integer               :: i, im, nimg, n, m
+      integer               :: block_size(num_images()), start_elem(num_images()), end_elem(num_images())
+      real(rk), allocatable :: C_block(:,:)[:], B_block(:,:)[:], A_block(:,:)[:]
 
-
-      select case (method)
-#if defined(USE_COARRAY)
-      case ('coarray')
-         ! Coarray-based parallel multiplication.
-
-         if (size(A,1) >= size(B,2)) then
-            ! Handle A's columns > B's rows.
-
-            block
-               integer               :: i, im, nimg, n, o
-               integer               :: block_size(num_images()), start_elem(num_images()), end_elem(num_images())
-               real(rk), allocatable :: C_block(:,:)[:], A_block(:,:)[:]
+      if (present(transA) .and. present(transB)) then
+         if (.not.transA .and. .not.transB) then
+            ! AB
+            allocate(C(size(A,1), size(B,2)), source=0.0_rk)
+            im   = this_image()
+            nimg = num_images()
+            m    = size(A,1)
+            n    = size(A,2)
+            call compute_block_ranges(size(B,2), nimg, block_size, start_elem, end_elem)
+            allocate(B_block(n, block_size(im))[*], C_block(m, block_size(im))[*])
+            B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
+            C_block(:,:)[im] = matmul(A, B_block(:,:)[im], transA, transB, option)
+            sync all
+            if (im == 1) then
+               do i = 1, nimg
+                  C(:,start_elem(i):end_elem(i)) = C_block(:,:)[i]
+               end do
+            end if
+         else if (transA .and. transB) then
+            ! ATBT
+            allocate(C(size(A,2), size(B,1)), source=0.0_rk)
+            im   = this_image()
+            nimg = num_images()
+            m    = size(A,1)
+            n    = size(A,2)
+            call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+            allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,1))[*])
+            A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+            C_block(:,:)[im] = matmul(A_block(:,:)[im], B, transA, transB, option)
+            sync all
+            if (im == 1) then
+               do i = 1, nimg
+                  C(start_elem(i):end_elem(i), :) = C_block(:,:)[i]
+               end do
+            end if
+         else if (transA .and. .not.transB) then
+            ! ATB
+            allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+            im   = this_image()
+            nimg = num_images()
+            m    = size(A,1)
+            n    = size(A,2)
+            call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+            allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,2))[*])
+            A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+            C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA, transB, option)
+            sync all
+            if (im == 1) then
+               do i = 1, nimg
+                  C(start_elem(i):end_elem(i), :) = C_block(:,:)[i]
+               end do
+            end if
+         else if (.not.transA .and. transB) then
+            ! ABT
+            allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+            im   = this_image()
+            nimg = num_images()
+            m    = size(A,1)
+            n    = size(A,2)
+            call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+            allocate(A_block(m, block_size(im))[*], B_block(size(B,1), block_size(im))[*])
+            allocate(C_block(m, size(B,1))[*])
+            A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+            B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
+            C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA, transB, option)
+            sync all
+            if (im == 1) then
+               do i = 1, nimg
+                  C(:, :) = C(:, :) + C_block(:,:)[i]
+               end do
+            end if
+         end if
+      else if (present(transA) .or. present(transB)) then
+         if (present(transA)) then
+            if (transA) then
+               ! ATB
+               allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                im   = this_image()
                nimg = num_images()
+               m    = size(A,1)
                n    = size(A,2)
-               o    = size(B,2)
-               call compute_block_ranges(size(A,1), nimg, block_size, start_elem, end_elem)
-               allocate(A_block(block_size(im), n)[*], C_block(block_size(im), o)[*])
-               A_block(:,:)[im] = A(start_elem(im):end_elem(im), :)
-               C_block(:,:)[im] = matmul_opts(A_block(:,:)[im], B, option)
+               call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+               allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,2))[*])
+               A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+               C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA, transB, option)
                sync all
                if (im == 1) then
                   do i = 1, nimg
                      C(start_elem(i):end_elem(i), :) = C_block(:,:)[i]
                   end do
                end if
-            end block
-
-         else
-            ! Handle B's columns > A's rows.
-
-            block
-               integer               :: i, im, nimg, n, m
-               integer               :: block_size(num_images()), start_elem(num_images()), end_elem(num_images())
-               real(rk), allocatable :: C_block(:,:)[:], B_block(:,:)[:]
+            else if (.not.transA) then
+               ! ABT
+               allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                im   = this_image()
                nimg = num_images()
-               n    = size(A,2)
                m    = size(A,1)
-               call compute_block_ranges(size(B,2), nimg, block_size, start_elem, end_elem)
-               allocate(B_block(n, block_size(im))[*], C_block(m, block_size(im))[*])
+               n    = size(A,2)
+               call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+               allocate(A_block(m, block_size(im))[*], B_block(size(B,1), block_size(im))[*])
+               allocate(C_block(m, size(B,1))[*])
+               A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
                B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
-               C_block(:,:)[im] = matmul_opts(A, B_block(:,:)[im], option)
+               C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA, transB, option)
                sync all
                if (im == 1) then
                   do i = 1, nimg
-                     C(:,start_elem(i):end_elem(i)) = C_block(:,:)[i]
+                     C(:, :) = C(:, :) + C_block(:,:)[i]
                   end do
                end if
-            end block
-
+            end if
+         else if (present(transB)) then
+            if (transB) then
+               ! ABT
+               allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+               im   = this_image()
+               nimg = num_images()
+               m    = size(A,1)
+               n    = size(A,2)
+               call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+               allocate(A_block(m, block_size(im))[*], B_block(size(B,1), block_size(im))[*])
+               allocate(C_block(m, size(B,1))[*])
+               A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+               B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
+               C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA, transB, option)
+               sync all
+               if (im == 1) then
+                  do i = 1, nimg
+                     C(:, :) = C(:, :) + C_block(:,:)[i]
+                  end do
+               end if
+            else if (.not.transB) then
+               ! ATB
+               allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+               im   = this_image()
+               nimg = num_images()
+               m    = size(A,1)
+               n    = size(A,2)
+               call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+               allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,2))[*])
+               A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+               C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA, transB, option)
+               sync all
+               if (im == 1) then
+                  do i = 1, nimg
+                     C(start_elem(i):end_elem(i), :) = C_block(:,:)[i]
+                  end do
+               end if
+            end if
          end if
-#endif
-      case ('default')
-         C = matmul_opts(A, B, option)
-      end select
+      else if (.not.present(transA) .and. .not.present(transB)) then
+         ! AB
+         allocate(C(size(A,1), size(B,2)), source=0.0_rk)
+         im   = this_image()
+         nimg = num_images()
+         m    = size(A,1)
+         n    = size(A,2)
+         call compute_block_ranges(size(B,2), nimg, block_size, start_elem, end_elem)
+         allocate(B_block(n, block_size(im))[*], C_block(m, block_size(im))[*])
+         B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
+         C_block(:,:)[im] = matmul(A, B_block(:,:)[im], transA, transB, option)
+         sync all
+         if (im == 1) then
+            do i = 1, nimg
+               C(:,start_elem(i):end_elem(i)) = C_block(:,:)[i]
+            end do
+         end if
+      end if
 
-   end function mat_mat
-
-
-
-   !> Matrix-vector multiplication using coarray parallelism.
-   !> author: Seyed Ali Ghasemi
-#if defined(USE_COARRAY)
-   impure function mat_vec(A, v, method, option) result(w)
 #else
-   pure function mat_vec(A, v, method, option) result(w)
+      C = matmul(A, B, transA, transB, option)
 #endif
-      !> Input matrix A and vector v.
-      real(rk),     intent(in), contiguous :: A(:,:), v(:)
-      !> Multiplication method ('coarray').
-      character(*), intent(in)             :: method
-      !> Optional method-specific option.
-      character(*), intent(in), optional   :: option
-      !> Result vector w.
-      real(rk)                             :: w(size(A,1))
+
+   end function mat_mat_coarray_rel
+   !===============================================================================
 
 
-      select case (method)
-#if defined(USE_COARRAY)
-      case ('coarray')
-         ! Coarray-based parallel multiplication.
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   impure function mat_vec_coarray_rel(A, v, transA, option, coarray) result(w)
+      real(rk), intent(in), contiguous :: A(:,:), v(:)
+      character(*), intent(in), optional :: option
+      logical, intent(in), optional :: transA
+      real(rk), allocatable :: w(:)
+      logical, intent(in)   :: coarray
+#if defined (USE_COARRAY)
+      integer               :: i, im, nimg, n, m
+      integer               :: block_size(num_images()), start_elem(num_images()), end_elem(num_images())
+      real(rk), allocatable :: w_block(:)[:], v_block(:)[:], A_block(:,:)[:]
 
-         block
-            integer               :: i, im, nimg
-            integer               :: block_size(num_images()), start_elem(num_images()), end_elem(num_images())
-            real(rk), allocatable :: w_block(:)[:]
+      if (present(transA)) then
+         if (transA) then
+            ! ATv
+            allocate(w(size(A,2)), source=0.0_rk)
             im   = this_image()
             nimg = num_images()
-            call compute_block_ranges(size(A,1), nimg, block_size, start_elem, end_elem)
-            allocate(w_block(block_size(im))[*])
-            w_block(:)[im] = matmul_opts(A(start_elem(im):end_elem(im), :), v, option)
+            call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+            allocate(w_block(block_size(im))[*], A_block(size(A,1), block_size(im))[*])
+            A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+            w_block(:)[im] = matmul(A_block(:, :)[im], v, transA, option)
             sync all
             if (im == 1) then
                do i = 1, nimg
                   w(start_elem(i):end_elem(i)) = w_block(:)[i]
                end do
             end if
-         end block
+         else if (.not. transA) then
+            ! Av
+            allocate(w(size(A,1)), source=0.0_rk)
+            im   = this_image()
+            nimg = num_images()
+            call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+            allocate(w_block(size(A,1))[*], v_block(block_size(im))[*], A_block(size(A,1), block_size(im))[*])
+            A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+            v_block(:)[im]   = v(start_elem(im):end_elem(im))
+            w_block(:)[im]   = matmul(A_block(:,:)[im], v_block(:)[im], transA, option)
+            sync all
+            if (im == 1) then
+               do i = 1, nimg
+                  w(:) = w(:) + w_block(:)[i]
+               end do
+            end if
+         end if
+      else if (.not. present(transA)) then
+         ! Av
+         allocate(w(size(A,1)), source=0.0_rk)
+         im   = this_image()
+         nimg = num_images()
+         call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
+         allocate(w_block(size(A,1))[*], v_block(block_size(im))[*], A_block(size(A,1), block_size(im))[*])
+         A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
+         v_block(:)[im]   = v(start_elem(im):end_elem(im))
+         w_block(:)[im]   = matmul(A_block(:,:)[im], v_block(:)[im], transA, option)
+         sync all
+         if (im == 1) then
+            do i = 1, nimg
+               w(:) = w(:) + w_block(:)[i]
+            end do
+         end if
+      end if
+
+#else
+      w = matmul(A, v, transA, option)
 #endif
-      case ('default')
-         w = matmul_opts(A, v, option)
-      end select
 
-   end function mat_vec
+   end function mat_vec_coarray_rel
+   !===============================================================================
 
+
+   !===============================================================================
    !> Calculate block sizes and ranges.
    !> author: Seyed Ali Ghasemi
    pure subroutine compute_block_ranges(d, nimg, block_size, start_elem, end_elem)
@@ -161,5 +304,461 @@ contains
       ! Check if the block sizes are valid.
       if (minval(block_size) <= 0) error stop 'ForMatmul: reduce the number of images of coarray.'
    end subroutine compute_block_ranges
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure function mat_mat_block_rel(a, b, transA, transB, option, nblock) result(c)
+      real(rk), intent(in), contiguous :: a(:,:), b(:,:)
+      character(*), intent(in), optional :: option
+      logical, intent(in), optional :: transA, transB
+      real(rk), allocatable :: c(:,:)
+      integer               :: ib
+      integer, intent(in)   :: nblock
+      integer :: block_size(nblock), start_elem(nblock), end_elem(nblock)
+
+      if (present(transA) .and. present(transB)) then
+         if (.not.transA .and. .not.transB) then
+            ! AB
+            allocate(C(size(A,1), size(B,2)), source=0.0_rk)
+            call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
+            c = 0.0_rk
+            do ib = 1, nblock
+               C(:, start_elem(ib):end_elem(ib)) = &
+                  C(:, start_elem(ib):end_elem(ib)) + matmul(A, B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+            end do
+         else if (transA .and. transB) then
+            ! ATBT
+            allocate(C(size(A,2), size(B,1)), source=0.0_rk)
+            call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+            c = 0.0_rk
+            do ib = 1, nblock
+               C(start_elem(ib):end_elem(ib), :) = &
+                  C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+            end do
+         else if (transA .and. .not.transB) then
+            ! ATB
+            allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+            call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+            c = 0.0_rk
+            do ib = 1, nblock
+               C(start_elem(ib):end_elem(ib), :) = &
+                  C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+            end do
+         else if (.not.transA .and. transB) then
+            ! ABT
+            allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+            call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+            c = 0.0_rk
+            do ib = 1, nblock
+               C(:, :) = C(:, :) + &
+                  matmul(A(:, start_elem(ib):end_elem(ib)), B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+            end do
+         end if
+      else if (present(transA) .or. present(transB)) then
+         if (present(transA)) then
+            if (transA) then
+               ! ATB
+               allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+               call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+               c = 0.0_rk
+               do ib = 1, nblock
+                  C(start_elem(ib):end_elem(ib), :) = &
+                     C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+               end do
+            else if (.not.transA) then
+               ! ABT
+               allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+               call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+               c = 0.0_rk
+               do ib = 1, nblock
+                  C(:, :) = C(:, :) + &
+                     matmul(A(:, start_elem(ib):end_elem(ib)), B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+               end do
+            end if
+         else if (present(transB)) then
+            if (transB) then
+               ! ABT
+               allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+               call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+               c = 0.0_rk
+               do ib = 1, nblock
+                  C(:, :) = C(:, :) + &
+                     matmul(A(:, start_elem(ib):end_elem(ib)), B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+               end do
+            else if (.not.transB) then
+               ! ATB
+               allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+               call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+               c = 0.0_rk
+               do ib = 1, nblock
+                  C(start_elem(ib):end_elem(ib), :) = &
+                     C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+               end do
+            end if
+         end if
+      else if (.not.present(transA) .and. .not.present(transB)) then
+         ! AB
+         allocate(C(size(A,1), size(B,2)), source=0.0_rk)
+         call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
+         c = 0.0_rk
+         do ib = 1, nblock
+            C(:, start_elem(ib):end_elem(ib)) = &
+               C(:, start_elem(ib):end_elem(ib)) + matmul(A, B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+         end do
+      end if
+
+   end function mat_mat_block_rel
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure function mat_vec_block_rel(A, v, transA, option, nblock) result(w)
+      real(rk), intent(in), contiguous :: A(:,:), v(:)
+      character(*), intent(in), optional :: option
+      logical, intent(in), optional :: transA
+      real(rk), allocatable :: w(:)
+      integer               :: ib
+      integer, intent(in)   :: nblock
+      integer :: block_size(nblock), start_elem(nblock), end_elem(nblock)
+
+
+      if (present(transA)) then
+         if (transA) then
+            ! ATv
+            allocate(w(size(A,2)), source=0.0_rk)
+            call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+            w = 0.0_rk
+            do ib = 1, nblock
+               w(start_elem(ib):end_elem(ib)) = &
+                  w(start_elem(ib):end_elem(ib)) + matmul(A(:,start_elem(ib):end_elem(ib)), v, transA, option)
+            end do
+         else if (.not. transA) then
+            ! Av
+            allocate(w(size(A,1)), source=0.0_rk)
+            call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+            w = 0.0_rk
+            do ib = 1, nblock
+               w(:) = &
+                  w(:) + matmul(A(:,start_elem(ib):end_elem(ib)), v(start_elem(ib):end_elem(ib)), transA, option)
+            end do
+         end if
+      else if (.not. present(transA)) then
+         ! Av
+         allocate(w(size(A,1)), source=0.0_rk)
+         call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+         w = 0.0_rk
+         do ib = 1, nblock
+            w(:) = &
+               w(:) + matmul(A(:,start_elem(ib):end_elem(ib)), v(start_elem(ib):end_elem(ib)), transA, option)
+         end do
+      end if
+
+   end function mat_vec_block_rel
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure function mat_mat_rel(A, B, transA, transB, option) result(C)
+      real(rk), intent(in), contiguous :: A(:,:), B(:,:)
+      real(rk), allocatable :: C(:,:)
+      character(*), intent(in), optional :: option
+      logical, intent(in), optional :: transA, transB
+
+      if (present(transA) .and. present(transB)) then
+         if (.not.transA .and. .not.transB) then
+            ! AB
+            allocate(C(size(A,1), size(B,2)), source=0.0_rk)
+            call mat_mat_rel_AB(A, B, C, option)
+         else if (transA .and. transB) then
+            ! ATBT
+            allocate(C(size(A,2), size(B,1)), source=0.0_rk)
+            call mat_mat_rel_ATBT(A, B, C, option)
+         else if (transA .and. .not.transB) then
+            ! ATB
+            allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+            call mat_mat_rel_ATB(A, B, C, option)
+         else if (.not.transA .and. transB) then
+            ! ABT
+            allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+            call mat_mat_rel_ABT(A, B, C, option)
+         end if
+      else if (present(transA) .or. present(transB)) then
+         if (present(transA)) then
+            if (transA) then
+               ! ATB
+               allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+               call mat_mat_rel_ATB(A, B, C, option)
+            else if (.not.transA) then
+               ! ABT
+               allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+               call mat_mat_rel_ABT(A, B, C, option)
+            end if
+         else if (present(transB)) then
+            if (transB) then
+               ! ABT
+               allocate(C(size(A,1), size(B,1)), source=0.0_rk)
+               call mat_mat_rel_ABT(A, B, C, option)
+            else if (.not.transB) then
+               ! ATB
+               allocate(C(size(A,2), size(B,2)), source=0.0_rk)
+               call mat_mat_rel_ATB(A, B, C, option)
+            end if
+         end if
+      else if (.not.present(transA) .and. .not.present(transB)) then
+         ! AB
+         allocate(C(size(A,1), size(B,2)), source=0.0_rk)
+         call mat_mat_rel_AB(A, B, C, option)
+      end if
+   end function mat_mat_rel
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure function mat_vec_rel(A, v, transA, option) result(w)
+      real(rk), intent(in), contiguous :: A(:,:), v(:)
+      real(rk), allocatable :: w(:)
+      character(*), intent(in), optional :: option
+      logical, intent(in), optional :: transA
+
+      if (present(transA)) then
+         if (transA) then
+            ! ATv
+            allocate(w(size(A,2)), source=0.0_rk)
+            call mat_vec_rel_ATv(A, v , w, option)
+         else if (.not. transA) then
+            ! Av
+            allocate(w(size(A,1)), source=0.0_rk)
+            call mat_vec_rel_Av(A, v, w, option)
+         end if
+      else if (.not. present(transA)) then
+         ! Av
+         allocate(w(size(A,1)), source=0.0_rk)
+         call mat_vec_rel_Av(A, v, w, option)
+      end if
+
+   end function mat_vec_rel
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mat_mat_rel_AB(A, B, C, option)
+      real(rk), intent(in), contiguous :: A(:,:), B(:,:)
+      real(rk), intent(inout), contiguous :: C(:,:)
+      character(*), intent(in), optional :: option
+
+      if (present(option)) then
+         call mat_mat_rel_AB_opt(A, B, C, option)
+      else
+         call mat_mat_rel_AB_opt(A, B, C, 'm2')
+      end if
+   end subroutine mat_mat_rel_AB
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mat_mat_rel_ATB(A, B, C, option)
+      real(rk), intent(in), contiguous :: A(:,:), B(:,:)
+      real(rk), intent(inout), contiguous :: C(:,:)
+      character(*), intent(in), optional :: option
+
+      if (present(option)) then
+         call mat_mat_rel_ATB_opt(A, B, C, option)
+      else
+         call mat_mat_rel_ATB_opt(A, B, C, 'm2')
+      end if
+   end subroutine mat_mat_rel_ATB
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mat_mat_rel_ABT(A, B, C, option)
+      real(rk), intent(in), contiguous :: A(:,:), B(:,:)
+      real(rk), intent(inout), contiguous :: C(:,:)
+      character(*), intent(in), optional :: option
+
+      if (present(option)) then
+         call mat_mat_rel_ABT_opt(A, B, C, option)
+      else
+         call mat_mat_rel_ABT_opt(A, B, C, 'm2')
+      end if
+   end subroutine mat_mat_rel_ABT
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mat_mat_rel_ATBT(A, B, C, option)
+      real(rk), intent(in), contiguous :: A(:,:), B(:,:)
+      real(rk), intent(inout), contiguous :: C(:,:)
+      character(*), intent(in), optional :: option
+
+      if (present(option)) then
+         call mat_mat_rel_ATBT_opt(A, B, C, option)
+      else
+         call mat_mat_rel_ATBT_opt(A, B, C, 'm2')
+      end if
+   end subroutine mat_mat_rel_ATBT
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mat_vec_rel_Av(A, v, w, option)
+      real(rk), intent(in), contiguous :: A(:,:), v(:)
+      real(rk), intent(inout), contiguous :: w(:)
+      character(*), intent(in), optional :: option
+
+      if (present(option)) then
+         call mat_vec_rel_Av_opt(A, v, w, option)
+      else
+         call mat_vec_rel_Av_opt(A, v, w, 'm2')
+      end if
+   end subroutine mat_vec_rel_Av
+   !===============================================================================
+
+
+   !===============================================================================
+   !> author: Seyed Ali Ghasemi
+   pure subroutine mat_vec_rel_ATv(A, v, w, option)
+      real(rk), intent(in), contiguous :: A(:,:), v(:)
+      real(rk), intent(inout), contiguous :: w(:)
+      character(*), intent(in), optional :: option
+
+      if (present(option)) then
+         call mat_vec_rel_ATv_opt(A, v, w, option)
+      else
+         call mat_vec_rel_ATv_opt(A, v, w, 'm2')
+      end if
+   end subroutine mat_vec_rel_ATv
+   !===============================================================================
+
+
+   !    ! Ambiguous interface
+   !    !===============================================================================
+   !    !> author: Seyed Ali Ghasemi
+   !    pure function vec_mat_rel(v, A, transA, option) result(w)
+   !       real(rk), intent(in), contiguous :: v(:), A(:,:)
+   !       real(rk), allocatable :: w(:)
+   !       character(*), intent(in), optional :: option
+   !       logical, intent(in), optional :: transA
+
+   !       if (present(transA)) then
+   !          if (transA) then
+   !             ! ATv
+   !             allocate(w(size(A,1)), source=0.0_rk)
+   !             call vec_mat_rel_ATv(v, A, w, option)
+   !          else if (.not. transA) then
+   !             ! Av
+   !             allocate(w(size(A,2)), source=0.0_rk)
+   !             call vec_mat_rel_Av(v, A, w, option)
+   !          end if
+   !       else if (.not. present(transA)) then
+   !          ! Av
+   !          allocate(w(size(A,2)), source=0.0_rk)
+   !          call vec_mat_rel_Av(v, A, w, option)
+   !       end if
+
+   !    end function vec_mat_rel
+   !    !===============================================================================
+
+
+   !    !===============================================================================
+   !    !> author: Seyed Ali Ghasemi
+   !    pure subroutine vec_mat_rel_Av(v, A, w, option)
+   !       real(rk), intent(in), contiguous :: A(:,:), v(:)
+   !       real(rk), intent(inout), contiguous :: w(:)
+   !       character(*), intent(in), optional :: option
+
+   !       if (present(option)) then
+   !          call vec_mat_rel_Av_opt(v, A, w, option)
+   !       else
+   !          call vec_mat_rel_Av_opt(v, A, w, 'm2')
+   !       end if
+   !    end subroutine vec_mat_rel_Av
+   !    !===============================================================================
+
+
+   !    !===============================================================================
+   !    !> author: Seyed Ali Ghasemi
+   !    pure subroutine vec_mat_rel_ATv(v, A, w, option)
+   !       real(rk), intent(in), contiguous :: A(:,:), v(:)
+   !       real(rk), intent(inout), contiguous :: w(:)
+   !       character(*), intent(in), optional :: option
+
+   !       if (present(option)) then
+   !          call vec_mat_rel_ATv_opt(v, A, w, option)
+   !       else
+   !          call vec_mat_rel_ATv_opt(v, A, w, 'm2')
+   !       end if
+   !    end subroutine vec_mat_rel_ATv
+   !    !===============================================================================
+
+
+   !    !===============================================================================
+   !    !> author: Seyed Ali Ghasemi
+   !    pure subroutine vec_mat_rel_Av_opt(v, A, w, option)
+   !       real(rk), intent(in), contiguous :: A(:,:), v(:)
+   !       real(rk), intent(inout), contiguous :: w(:)
+   !       character(*), intent(in) :: option
+
+   !       !   select case (option)
+   !       !    case ('m1')
+   !       !      call vm_vA_1(v, A, w)
+   !       !    case ('m2')
+   !       !      call vm_vA_2(v, A, w)
+   !       !    case ('m3')
+   !       !      call vm_vA_3(v, A, w)
+   !       !    case ('m4')
+   !       !      call vm_vA_4(v, A, w)
+   !       !    case ('m5')
+   !       !      call vm_vA_5(v, A, w)
+   !       !    case ('m6')
+   !       !      call vm_vA_6(v, A, w)
+   !       !    case ('m7')
+   !       !      call vm_vA_7(v, A, w)
+   !       !    case ('m8')
+   !       !      call vm_vA_8(v, A, w)
+   !       !   end select
+
+   !    end subroutine vec_mat_rel_Av_opt
+   !    !===============================================================================
+
+
+   !    !===============================================================================
+   !    !> author: Seyed Ali Ghasemi
+   !    pure subroutine vec_mat_rel_ATv_opt(v, A, w, option)
+   !       real(rk), intent(in), contiguous :: A(:,:), v(:)
+   !       real(rk), intent(inout), contiguous :: w(:)
+   !       character(*), intent(in) :: option
+
+   !       !   select case (option)
+   !       !    case ('m1')
+   !       !      call vm_vAT_1(v, A, w)
+   !       !    case ('m2')
+   !       !      call vm_vAT_2(v, A, w)
+   !       !    case ('m3')
+   !       !      call vm_vAT_3(v, A, w)
+   !       !    case ('m4')
+   !       !      call vm_vAT_4(v, A, w)
+   !       !    case ('m5')
+   !       !      call vm_vAT_5(v, A, w)
+   !       !    case ('m6')
+   !       !      call vm_vAT_6(v, A, w)
+   !       !    case ('m7')
+   !       !      call vm_vAT_7(v, A, w)
+   !       !    case ('m8')
+   !       !      call vm_vAT_8(v, A, w)
+   !       !   end select
+
+   !    end subroutine vec_mat_rel_ATv_opt
+   !    !===============================================================================
 
 end module formatmul

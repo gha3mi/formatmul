@@ -13,7 +13,7 @@
 ```fortran
 use formatmul
 
-c = matmul(a,b,method='coarray',option='m1')
+c = matmul(a,b, option='m1', transA=.true., transB=.true., coarray=.true.)
 ```
 
 ## fpm dependency
@@ -26,7 +26,7 @@ you can easily include it by adding the following line to your `fpm.toml` file:
 formatmul = {git="https://github.com/gha3mi/formatmul.git"}
 ```
 
-## How to run tests and examples
+## How to run tests
 
 **Clone the repository:**
 
@@ -39,8 +39,6 @@ git clone https://github.com/gha3mi/formatmul.git
 ```shell
 cd formatmul
 ```
-
-**Run tests:**
 
 Tested with Intel compiler: ifort (IFORT) 2021.10.0 20230609
 
@@ -68,88 +66,8 @@ Tested with NVIDIA compiler: nvfortran 23.11-0 64-bit target on x86-64 Linux
 fpm @nvfortran-test
 ```
 
-**Run examples:**
-
-To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
-
-You have the option to modify the number of images in the `fpm.rsp` file by using the flag `-coarray-num-images=N`.
-
-```shell
-fpm @ifort-example
-```
-
-```shell
-fpm @ifort-example-coarray
-```
-
-```shell
-fpm @ifx-example
-```
-
-```shell
-fpm @ifx-example-coarray
-```
-
-
-```shell
-fpm @nvfortran-example
-```
-
-Results with `-coarray-num-images=4`:
-
-```shell
-Elapsed time (example1: mat_mat):  1.175 [s]
-Elapsed time (example2: mat_mat, coarray):  0.269 [s]
-Elapsed time (example2: mat_mat, coarray):  0.272 [s]
-Elapsed time (example2: mat_mat, coarray):  0.274 [s]
-Elapsed time (example2: mat_mat, coarray):  0.275 [s]
-
-Elapsed time (example3: mat_vec):  0.047 [s]
-Elapsed time (example4: mat_vec, coarray):  0.012 [s]
-Elapsed time (example4: mat_vec, coarray):  0.012 [s]
-Elapsed time (example4: mat_vec, coarray):  0.012 [s]
-Elapsed time (example4: mat_vec, coarray):  0.012 [s]
-```
-
-**Benchmark:**
-
-To set the stack size to unlimited, use the following command: `ulimit -s unlimited`.
-
-**Intel Fortran Compiler (ifort)**
-
-```shell
-fpm run --example benchmark3 --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY"
-```
-
-**Intel Fortran Compiler (ifx)**
-
-```shell
-fpm run --example --all --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
-```
-
-You can then use the provided Python script to generate visual plots for the benchmark3 data:
-
-```shell
-python benchmark/benchmark3_co.py
-```
-
-Results obtained on an `Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz` using `ifort (IFORT) 2021.11.0 20231010` are as follows:
-
-- with `-coarray-num-images=4`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
-
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim4.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim4.png" width="350">
-
-- with `-coarray-num-images=4` and Multithread:
-
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim4.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim4.png" width="350">
-
-- with `-coarray-num-images=5`, `MKL_NUM_THREADS=1` and `OMP_NUM_THREADS=1`:
-
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim5.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim5.png" width="350">
-
-- with `-coarray-num-images=5` and Multithread:
-
-<img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim5.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim5.png" width="350">
+## Benchmarks
+You can find benchmark results on [ForBenchmark](https://github.com/gha3mi/forbenchmark).
 
 ## API documentation
 
