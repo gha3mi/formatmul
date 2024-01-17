@@ -250,7 +250,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    pure subroutine mm_AB_2(A, B, C)
-      use external_interfaces
+      use external_interfaces_matmul
 
       real(rk), intent(in), contiguous :: A(:,:), B(:,:)
       real(rk), intent(inout), contiguous :: C(:,:)
@@ -540,7 +540,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    pure subroutine mm_ATB_2(A, B, C)
-      use external_interfaces
+      use external_interfaces_matmul
 
       real(rk), intent(in), contiguous :: A(:,:), B(:,:)
       real(rk), intent(inout), contiguous :: C(:,:)
@@ -830,7 +830,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    pure subroutine mm_ABT_2(A, B, C)
-      use external_interfaces
+      use external_interfaces_matmul
 
       real(rk), intent(in), contiguous :: A(:,:), B(:,:)
       real(rk), intent(inout), contiguous :: C(:,:)
@@ -1119,7 +1119,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    pure subroutine mm_ATBT_2(A, B, C)
-      use external_interfaces
+      use external_interfaces_matmul
 
       real(rk), intent(in), contiguous :: A(:,:), B(:,:)
       real(rk), intent(inout), contiguous :: C(:,:)
@@ -1411,7 +1411,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    pure subroutine mv_Av_2(A, v, w)
-      use external_interfaces
+      use external_interfaces_matmul
 
       real(rk), intent(in), contiguous :: A(:,:), v(:)
       real(rk), intent(inout), contiguous :: w(:)
@@ -1567,7 +1567,7 @@ contains
    !===============================================================================
    !> author: Seyed Ali Ghasemi
    pure subroutine mv_ATv_2(A, v, w)
-      use external_interfaces
+      use external_interfaces_matmul
 
       real(rk), intent(in), contiguous :: A(:,:), v(:)
       real(rk), intent(inout), contiguous :: w(:)

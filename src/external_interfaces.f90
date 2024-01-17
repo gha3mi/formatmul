@@ -1,4 +1,4 @@
-module external_interfaces
+module external_interfaces_matmul
 
    use kinds
 
@@ -108,4 +108,4 @@ module external_interfaces
 #endif
    end interface
 
-end module external_interfaces
+end module external_interfaces_matmul
