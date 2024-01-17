@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +20,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -27,7 +30,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.7.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.8.0</small></a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -65,44 +68,595 @@
 			 <table class="table table-striped">
 			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
 			 <tbody>
-			   <tr><td><a href='../proc/compute_block_ranges.html'>compute_block_ranges</a></td><td><a href='../module/formatmul.html'>formatmul</a></td><td>Subroutine</td><td><p>Calculate block sizes and ranges.
-author: Seyed Ali Ghasemi</p></td></tr>
-			   <tr><td><a href='../proc/gemm_mat_mat_rel.html'>gemm_mat_mat_rel</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Function</td><td><p>Matrix-matrix multiplication using BLAS.
-author: Seyed Ali Ghasemi</p></td></tr>
-			   <tr><td><a href='../proc/gemv_mat_vec_rel.html'>gemv_mat_vec_rel</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Function</td><td><p>Matrix-vector multiplication using BLAS.
-author: Seyed Ali Ghasemi</p></td></tr>
-			   <tr><td><a href='../proc/impure_mm_12.html'>impure_mm_12</a></td><td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/impure_mm_13.html'>impure_mm_13</a></td><td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mat_mat.html'>mat_mat</a></td><td><a href='../module/formatmul.html'>formatmul</a></td><td>Function</td><td><p>Matrix-matrix multiplication using coarray parallelism.
-author: Seyed Ali Ghasemi</p></td></tr>
-			   <tr><td><a href='../proc/mat_vec.html'>mat_vec</a></td><td><a href='../module/formatmul.html'>formatmul</a></td><td>Function</td><td><p>Matrix-vector multiplication using coarray parallelism.
-author: Seyed Ali Ghasemi</p></td></tr>
-			   <tr><td><a href='../interface/matmul.html'>matmul</a></td><td><a href='../module/formatmul.html'>formatmul</a></td><td>Interface</td><td><p>Interface for matrix multiplication functions.</p></td></tr>
-			   <tr><td><a href='../interface/matmul_blas.html'>matmul_blas</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Interface</td><td><p>Interface for BLAS-based matrix multiplication functions.</p></td></tr>
-			   <tr><td><a href='../proc/matmul_mat_mat_rel_opts.html'>matmul_mat_mat_rel_opts</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Function</td><td></td></tr>
-			   <tr><td><a href='../proc/matmul_mat_vec_rel_opts.html'>matmul_mat_vec_rel_opts</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Function</td><td></td></tr>
-			   <tr><td><a href='../interface/matmul_opts.html'>matmul_opts</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Interface</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_10.html'>mm_10</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_11.html'>mm_11</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_12.html'>mm_12</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_13.html'>mm_13</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_9.html'>mm_9</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_mnp.html'>mm_mnp</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_mpn.html'>mm_mpn</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_nmp.html'>mm_nmp</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_npm.html'>mm_npm</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_pmn.html'>mm_pmn</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mm_pnm.html'>mm_pnm</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mv_3.html'>mv_3</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mv_4.html'>mv_4</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mv_5.html'>mv_5</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mv_6.html'>mv_6</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mv_7.html'>mv_7</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/mv_8.html'>mv_8</a></td><td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/start_benchmark.html'>start_benchmark</a></td><td><a href='../module/formatmul_benchmark.html'>formatmul_benchmark</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/stop_benchmark.html'>stop_benchmark</a></td><td><a href='../module/formatmul_benchmark.html'>formatmul_benchmark</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/write_benchmark~2.html'>write_benchmark</a></td><td><a href='../module/formatmul_benchmark.html'>formatmul_benchmark</a></td><td>Subroutine</td><td></td></tr>
-			   <tr><td><a href='../proc/write_benchmark.html'>write_benchmark</a></td><td><a href='../module/formatmul_benchmark.html'>formatmul_benchmark</a></td><td>Subroutine</td><td></td></tr>
+			   <tr>
+                 <td><a href='../proc/compute_block_ranges.html'>compute_block_ranges</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td><p>Calculate block sizes and ranges.
+author: Seyed Ali Ghasemi</p></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/gemm.html'>gemm</a></td>
+                 <td><a href='../module/external_interfaces.html'>external_interfaces</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/gemv.html'>gemv</a></td>
+                 <td><a href='../module/external_interfaces.html'>external_interfaces</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_ab_12.html'>impure_mm_AB_12</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_ab_13.html'>impure_mm_AB_13</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_abt_12.html'>impure_mm_ABT_12</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_abt_13.html'>impure_mm_ABT_13</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_atb_12.html'>impure_mm_ATB_12</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_atb_13.html'>impure_mm_ATB_13</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_atbt_12.html'>impure_mm_ATBT_12</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/impure_mm_atbt_13.html'>impure_mm_ATBT_13</a></td>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_block_rel.html'>mat_mat_block_rel</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_coarray_rel.html'>mat_mat_coarray_rel</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel.html'>mat_mat_rel</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_ab.html'>mat_mat_rel_AB</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_ab_opt.html'>mat_mat_rel_AB_opt</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_abt.html'>mat_mat_rel_ABT</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_abt_opt.html'>mat_mat_rel_ABT_opt</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_atb.html'>mat_mat_rel_ATB</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_atb_opt.html'>mat_mat_rel_ATB_opt</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_atbt.html'>mat_mat_rel_ATBT</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_mat_rel_atbt_opt.html'>mat_mat_rel_ATBT_opt</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_block_rel.html'>mat_vec_block_rel</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_coarray_rel.html'>mat_vec_coarray_rel</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_rel.html'>mat_vec_rel</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Function</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_rel_atv.html'>mat_vec_rel_ATv</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_rel_atv_opt.html'>mat_vec_rel_ATv_opt</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_rel_av.html'>mat_vec_rel_Av</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mat_vec_rel_av_opt.html'>mat_vec_rel_Av_opt</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../interface/matmul.html'>matmul</a></td>
+                 <td><a href='../module/formatmul.html'>formatmul</a></td>
+                 <td>Interface</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_1.html'>mm_AB_1</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_10.html'>mm_AB_10</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_11.html'>mm_AB_11</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_12.html'>mm_AB_12</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_13.html'>mm_AB_13</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_2.html'>mm_AB_2</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_3.html'>mm_AB_3</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_4.html'>mm_AB_4</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_5.html'>mm_AB_5</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_6.html'>mm_AB_6</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_7.html'>mm_AB_7</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_8.html'>mm_AB_8</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_ab_9.html'>mm_AB_9</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_1.html'>mm_ABT_1</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_10.html'>mm_ABT_10</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_11.html'>mm_ABT_11</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_12.html'>mm_ABT_12</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_13.html'>mm_ABT_13</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_2.html'>mm_ABT_2</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_3.html'>mm_ABT_3</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_4.html'>mm_ABT_4</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_5.html'>mm_ABT_5</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_6.html'>mm_ABT_6</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_7.html'>mm_ABT_7</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_8.html'>mm_ABT_8</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_abt_9.html'>mm_ABT_9</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_1.html'>mm_ATB_1</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_10.html'>mm_ATB_10</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_11.html'>mm_ATB_11</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_12.html'>mm_ATB_12</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_13.html'>mm_ATB_13</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_2.html'>mm_ATB_2</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_3.html'>mm_ATB_3</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_4.html'>mm_ATB_4</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_5.html'>mm_ATB_5</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_6.html'>mm_ATB_6</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_7.html'>mm_ATB_7</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_8.html'>mm_ATB_8</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atb_9.html'>mm_ATB_9</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_1.html'>mm_ATBT_1</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_10.html'>mm_ATBT_10</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_11.html'>mm_ATBT_11</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_12.html'>mm_ATBT_12</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_13.html'>mm_ATBT_13</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_2.html'>mm_ATBT_2</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_3.html'>mm_ATBT_3</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_4.html'>mm_ATBT_4</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_5.html'>mm_ATBT_5</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_6.html'>mm_ATBT_6</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_7.html'>mm_ATBT_7</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_8.html'>mm_ATBT_8</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mm_atbt_9.html'>mm_ATBT_9</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_1.html'>mv_ATv_1</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_2.html'>mv_ATv_2</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_3.html'>mv_ATv_3</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_4.html'>mv_ATv_4</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_5.html'>mv_ATv_5</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_6.html'>mv_ATv_6</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_7.html'>mv_ATv_7</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_atv_8.html'>mv_ATv_8</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_1.html'>mv_Av_1</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_2.html'>mv_Av_2</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_3.html'>mv_Av_3</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_4.html'>mv_Av_4</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_5.html'>mv_Av_5</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_6.html'>mv_Av_6</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_7.html'>mv_Av_7</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../proc/mv_av_8.html'>mv_Av_8</a></td>
+                 <td><a href='../module/formatmul_opts.html'>formatmul_opts</a></td>
+                 <td>Subroutine</td>
+                 <td></td>
+               </tr>
 			 </tbody></table>
              <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -110,919 +664,1669 @@ author: Seyed Ali Ghasemi</p></td></tr>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: call~~graph~~CallGraph Pages: 1 -->
-<svg id="callgraphCallGraph" width="855pt" height="670pt"
- viewBox="0.00 0.00 855.00 669.70" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="call~~graph~~CallGraph" class="graph" transform="scale(1.68 1.68) rotate(0) translate(4 1120)">
+<svg id="callgraphCallGraph" width="855pt" height="1772pt"
+ viewBox="0.00 0.00 855.00 1772.27" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="call~~graph~~CallGraph" class="graph" transform="scale(1.61 1.61) rotate(0) translate(4 2842)">
 <title>call~~graph~~CallGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-1120 1431,-1120 1431,4 -4,4"/>
-<!-- interface~matmul -->
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-2842 1369,-2842 1369,4 -4,4"/>
+<!-- interface~gemm -->
 <g id="call~~graph~~CallGraph_node1" class="node">
-<title>interface~matmul</title>
-<g id="a_call~~graph~~CallGraph_node1"><a xlink:href=".././interface/matmul.html" xlink:title="formatmul::matmul">
-<polygon fill="#a7506f" stroke="#a7506f" points="176.5,-507 58.5,-507 58.5,-483 176.5,-483 176.5,-507"/>
-<text text-anchor="middle" x="117.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::matmul</text>
+<title>interface~gemm</title>
+<g id="a_call~~graph~~CallGraph_node1"><a xlink:href="../interface/gemm.html" xlink:title="external_interfaces::gemm">
+<polygon fill="#a7506f" stroke="#a7506f" points="1365,-1809 1208,-1809 1208,-1785 1365,-1785 1365,-1809"/>
+<text text-anchor="middle" x="1286.5" y="-1794.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces::gemm</text>
 </a>
 </g>
 </g>
-<!-- proc~mat_mat -->
-<g id="call~~graph~~CallGraph_node9" class="node">
-<title>proc~mat_mat</title>
-<g id="a_call~~graph~~CallGraph_node9"><a xlink:href=".././proc/mat_mat.html" xlink:title="formatmul::mat_mat">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="395,-486 271,-486 271,-462 395,-462 395,-486"/>
-<text text-anchor="middle" x="333" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat</text>
-</a>
-</g>
-</g>
-<!-- interface~matmul&#45;&gt;proc~mat_mat -->
-<g id="call~~graph~~CallGraph_edge1" class="edge">
-<title>interface~matmul&#45;&gt;proc~mat_mat</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M176.56,-489.29C202.51,-486.74 233.34,-483.7 260.68,-481.02"/>
-<polygon fill="#255000" stroke="#255000" points="261.36,-484.47 270.97,-480 260.68,-477.5 261.36,-484.47"/>
-</g>
-<!-- proc~mat_vec -->
-<g id="call~~graph~~CallGraph_node10" class="node">
-<title>proc~mat_vec</title>
-<g id="a_call~~graph~~CallGraph_node10"><a xlink:href=".././proc/mat_vec.html" xlink:title="formatmul::mat_vec">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="393.5,-528 272.5,-528 272.5,-504 393.5,-504 393.5,-528"/>
-<text text-anchor="middle" x="333" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec</text>
-</a>
-</g>
-</g>
-<!-- interface~matmul&#45;&gt;proc~mat_vec -->
-<g id="call~~graph~~CallGraph_edge2" class="edge">
-<title>interface~matmul&#45;&gt;proc~mat_vec</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M176.56,-500.71C203.06,-503.32 234.66,-506.43 262.43,-509.16"/>
-<polygon fill="#255000" stroke="#255000" points="262.17,-512.65 272.47,-510.14 262.86,-505.68 262.17,-512.65"/>
-</g>
-<!-- interface~matmul_blas -->
+<!-- interface~gemv -->
 <g id="call~~graph~~CallGraph_node2" class="node">
-<title>interface~matmul_blas</title>
-<g id="a_call~~graph~~CallGraph_node2"><a xlink:href=".././interface/matmul_blas.html" xlink:title="formatmul_opts::matmul_blas">
-<polygon fill="#a7506f" stroke="#a7506f" points="1149.5,-738 977.5,-738 977.5,-714 1149.5,-714 1149.5,-738"/>
-<text text-anchor="middle" x="1063.5" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_blas</text>
+<title>interface~gemv</title>
+<g id="a_call~~graph~~CallGraph_node2"><a xlink:href="../interface/gemv.html" xlink:title="external_interfaces::gemv">
+<polygon fill="#a7506f" stroke="#a7506f" points="1362.5,-444 1210.5,-444 1210.5,-420 1362.5,-420 1362.5,-444"/>
+<text text-anchor="middle" x="1286.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces::gemv</text>
 </a>
 </g>
 </g>
-<!-- proc~gemm_mat_mat_rel -->
-<g id="call~~graph~~CallGraph_node5" class="node">
-<title>proc~gemm_mat_mat_rel</title>
-<g id="a_call~~graph~~CallGraph_node5"><a xlink:href=".././proc/gemm_mat_mat_rel.html" xlink:title="formatmul_opts::gemm_mat_mat_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="1427,-717 1217,-717 1217,-693 1427,-693 1427,-717"/>
-<text text-anchor="middle" x="1322" y="-702.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::gemm_mat_mat_rel</text>
-</a>
-</g>
-</g>
-<!-- interface~matmul_blas&#45;&gt;proc~gemm_mat_mat_rel -->
-<g id="call~~graph~~CallGraph_edge3" class="edge">
-<title>interface~matmul_blas&#45;&gt;proc~gemm_mat_mat_rel</title>
-<path fill="none" stroke="#255330" stroke-dasharray="5,2" d="M1149.55,-719.04C1167.93,-717.53 1187.65,-715.92 1206.94,-714.34"/>
-<polygon fill="#255330" stroke="#255330" points="1207.29,-717.82 1216.97,-713.52 1206.72,-710.84 1207.29,-717.82"/>
-</g>
-<!-- proc~gemv_mat_vec_rel -->
-<g id="call~~graph~~CallGraph_node6" class="node">
-<title>proc~gemv_mat_vec_rel</title>
-<g id="a_call~~graph~~CallGraph_node6"><a xlink:href=".././proc/gemv_mat_vec_rel.html" xlink:title="formatmul_opts::gemv_mat_vec_rel">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="1423.5,-759 1220.5,-759 1220.5,-735 1423.5,-735 1423.5,-759"/>
-<text text-anchor="middle" x="1322" y="-744.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::gemv_mat_vec_rel</text>
-</a>
-</g>
-</g>
-<!-- interface~matmul_blas&#45;&gt;proc~gemv_mat_vec_rel -->
-<g id="call~~graph~~CallGraph_edge4" class="edge">
-<title>interface~matmul_blas&#45;&gt;proc~gemv_mat_vec_rel</title>
-<path fill="none" stroke="#255330" stroke-dasharray="5,2" d="M1149.55,-732.96C1168.89,-734.55 1189.71,-736.25 1209.95,-737.91"/>
-<polygon fill="#255330" stroke="#255330" points="1209.89,-741.42 1220.15,-738.74 1210.47,-734.44 1209.89,-741.42"/>
-</g>
-<!-- interface~matmul_opts -->
+<!-- interface~matmul -->
 <g id="call~~graph~~CallGraph_node3" class="node">
-<title>interface~matmul_opts</title>
-<g id="a_call~~graph~~CallGraph_node3"><a xlink:href=".././interface/matmul_opts.html" xlink:title="formatmul_opts::matmul_opts">
-<polygon fill="#a7506f" stroke="#a7506f" points="617,-612 444,-612 444,-588 617,-588 617,-612"/>
-<text text-anchor="middle" x="530.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_opts</text>
+<title>interface~matmul</title>
+<g id="a_call~~graph~~CallGraph_node3"><a xlink:href="../interface/matmul.html" xlink:title="formatmul::matmul">
+<polygon fill="#a7506f" stroke="#a7506f" points="178.5,-1557 60.5,-1557 60.5,-1533 178.5,-1533 178.5,-1557"/>
+<text text-anchor="middle" x="119.5" y="-1542.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::matmul</text>
 </a>
 </g>
 </g>
-<!-- proc~matmul_mat_mat_rel_opts -->
-<g id="call~~graph~~CallGraph_node11" class="node">
-<title>proc~matmul_mat_mat_rel_opts</title>
-<g id="a_call~~graph~~CallGraph_node11"><a xlink:href=".././proc/matmul_mat_mat_rel_opts.html" xlink:title="formatmul_opts::matmul_mat_mat_rel_opts">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="910,-276 666,-276 666,-252 910,-252 910,-276"/>
-<text text-anchor="middle" x="788" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_mat_mat_rel_opts</text>
+<!-- proc~mat_mat_block_rel -->
+<g id="call~~graph~~CallGraph_node13" class="node">
+<title>proc~mat_mat_block_rel</title>
+<g id="a_call~~graph~~CallGraph_node13"><a xlink:href="../proc/mat_mat_block_rel.html" xlink:title="formatmul::mat_mat_block_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="457.5,-1662 281.5,-1662 281.5,-1638 457.5,-1638 457.5,-1662"/>
+<text text-anchor="middle" x="369.5" y="-1647.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_block_rel</text>
 </a>
 </g>
 </g>
-<!-- interface~matmul_opts&#45;&gt;proc~matmul_mat_mat_rel_opts -->
+<!-- interface~matmul&#45;&gt;proc~mat_mat_block_rel -->
+<g id="call~~graph~~CallGraph_edge1" class="edge">
+<title>interface~matmul&#45;&gt;proc~mat_mat_block_rel</title>
+<path fill="none" stroke="#255270" stroke-dasharray="5,2" d="M178.64,-1545.33C199.22,-1547.9 221.58,-1553.73 239,-1566 265.37,-1584.57 249.06,-1609.84 275,-1629 276.9,-1630.41 278.88,-1631.72 280.92,-1632.95"/>
+<polygon fill="#255270" stroke="#255270" points="279.75,-1636.28 290.24,-1637.81 282.99,-1630.08 279.75,-1636.28"/>
+</g>
+<!-- proc~mat_mat_coarray_rel -->
+<g id="call~~graph~~CallGraph_node14" class="node">
+<title>proc~mat_mat_coarray_rel</title>
+<g id="a_call~~graph~~CallGraph_node14"><a xlink:href="../proc/mat_mat_coarray_rel.html" xlink:title="formatmul::mat_mat_coarray_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="464,-1620 275,-1620 275,-1596 464,-1596 464,-1620"/>
+<text text-anchor="middle" x="369.5" y="-1605.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_coarray_rel</text>
+</a>
+</g>
+</g>
+<!-- interface~matmul&#45;&gt;proc~mat_mat_coarray_rel -->
+<g id="call~~graph~~CallGraph_edge2" class="edge">
+<title>interface~matmul&#45;&gt;proc~mat_mat_coarray_rel</title>
+<path fill="none" stroke="#255270" stroke-dasharray="5,2" d="M178.53,-1551.11C198.13,-1554.26 219.88,-1558.98 239,-1566 256.39,-1572.38 257.76,-1580.22 275,-1587 280.79,-1589.28 286.89,-1591.34 293.07,-1593.19"/>
+<polygon fill="#255270" stroke="#255270" points="292.27,-1596.6 302.84,-1595.95 294.17,-1589.87 292.27,-1596.6"/>
+</g>
+<!-- proc~mat_mat_rel -->
+<g id="call~~graph~~CallGraph_node15" class="node">
+<title>proc~mat_mat_rel</title>
+<g id="a_call~~graph~~CallGraph_node15"><a xlink:href="../proc/mat_mat_rel.html" xlink:title="formatmul::mat_mat_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="440.5,-1494 298.5,-1494 298.5,-1470 440.5,-1470 440.5,-1494"/>
+<text text-anchor="middle" x="369.5" y="-1479.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel</text>
+</a>
+</g>
+</g>
+<!-- interface~matmul&#45;&gt;proc~mat_mat_rel -->
+<g id="call~~graph~~CallGraph_edge3" class="edge">
+<title>interface~matmul&#45;&gt;proc~mat_mat_rel</title>
+<path fill="none" stroke="#255270" stroke-dasharray="5,2" d="M162.66,-1532.99C193.65,-1524.3 236.83,-1512.47 275,-1503 284.11,-1500.74 293.74,-1498.46 303.23,-1496.27"/>
+<polygon fill="#255270" stroke="#255270" points="304.06,-1499.67 313.03,-1494.03 302.5,-1492.85 304.06,-1499.67"/>
+</g>
+<!-- proc~mat_vec_block_rel -->
+<g id="call~~graph~~CallGraph_node24" class="node">
+<title>proc~mat_vec_block_rel</title>
+<g id="a_call~~graph~~CallGraph_node24"><a xlink:href="../proc/mat_vec_block_rel.html" xlink:title="formatmul::mat_vec_block_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="456.5,-1578 282.5,-1578 282.5,-1554 456.5,-1554 456.5,-1578"/>
+<text text-anchor="middle" x="369.5" y="-1563.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_block_rel</text>
+</a>
+</g>
+</g>
+<!-- interface~matmul&#45;&gt;proc~mat_vec_block_rel -->
+<g id="call~~graph~~CallGraph_edge4" class="edge">
+<title>interface~matmul&#45;&gt;proc~mat_vec_block_rel</title>
+<path fill="none" stroke="#255270" stroke-dasharray="5,2" d="M178.64,-1549.92C206.42,-1552.28 240.4,-1555.15 271.91,-1557.82"/>
+<polygon fill="#255270" stroke="#255270" points="271.78,-1561.32 282.04,-1558.68 272.37,-1554.35 271.78,-1561.32"/>
+</g>
+<!-- proc~mat_vec_coarray_rel -->
+<g id="call~~graph~~CallGraph_node25" class="node">
+<title>proc~mat_vec_coarray_rel</title>
+<g id="a_call~~graph~~CallGraph_node25"><a xlink:href="../proc/mat_vec_coarray_rel.html" xlink:title="formatmul::mat_vec_coarray_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="463,-1536 276,-1536 276,-1512 463,-1512 463,-1536"/>
+<text text-anchor="middle" x="369.5" y="-1521.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_coarray_rel</text>
+</a>
+</g>
+</g>
+<!-- interface~matmul&#45;&gt;proc~mat_vec_coarray_rel -->
 <g id="call~~graph~~CallGraph_edge5" class="edge">
-<title>interface~matmul_opts&#45;&gt;proc~matmul_mat_mat_rel_opts</title>
-<path fill="none" stroke="#255670" stroke-dasharray="5,2" d="M615.61,-587.77C620.72,-585.33 625.58,-582.43 630,-579 729.83,-501.65 770.8,-343.88 782.88,-285.96"/>
-<polygon fill="#255670" stroke="#255670" points="786.33,-286.54 784.86,-276.05 779.47,-285.17 786.33,-286.54"/>
+<title>interface~matmul&#45;&gt;proc~mat_vec_coarray_rel</title>
+<path fill="none" stroke="#255270" stroke-dasharray="5,2" d="M178.64,-1540.08C204.63,-1537.88 236.04,-1535.22 265.78,-1532.7"/>
+<polygon fill="#255270" stroke="#255270" points="266.12,-1536.18 275.79,-1531.85 265.53,-1529.21 266.12,-1536.18"/>
 </g>
-<!-- proc~matmul_mat_vec_rel_opts -->
-<g id="call~~graph~~CallGraph_node12" class="node">
-<title>proc~matmul_mat_vec_rel_opts</title>
-<g id="a_call~~graph~~CallGraph_node12"><a xlink:href=".././proc/matmul_mat_vec_rel_opts.html" xlink:title="formatmul_opts::matmul_mat_vec_rel_opts">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="909,-612 667,-612 667,-588 909,-588 909,-612"/>
-<text text-anchor="middle" x="788" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::matmul_mat_vec_rel_opts</text>
+<!-- proc~mat_vec_rel -->
+<g id="call~~graph~~CallGraph_node26" class="node">
+<title>proc~mat_vec_rel</title>
+<g id="a_call~~graph~~CallGraph_node26"><a xlink:href="../proc/mat_vec_rel.html" xlink:title="formatmul::mat_vec_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="439.5,-507 299.5,-507 299.5,-483 439.5,-483 439.5,-507"/>
+<text text-anchor="middle" x="369.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_rel</text>
 </a>
 </g>
 </g>
-<!-- interface~matmul_opts&#45;&gt;proc~matmul_mat_vec_rel_opts -->
+<!-- interface~matmul&#45;&gt;proc~mat_vec_rel -->
 <g id="call~~graph~~CallGraph_edge6" class="edge">
-<title>interface~matmul_opts&#45;&gt;proc~matmul_mat_vec_rel_opts</title>
-<path fill="none" stroke="#255670" stroke-dasharray="5,2" d="M617.29,-600C630,-600 643.33,-600 656.7,-600"/>
-<polygon fill="#255670" stroke="#255670" points="656.92,-603.5 666.92,-600 656.92,-596.5 656.92,-603.5"/>
+<title>interface~matmul&#45;&gt;proc~mat_vec_rel</title>
+<path fill="none" stroke="#255270" stroke-dasharray="5,2" d="M123.37,-1532.84C148.45,-1426.68 330.1,-657.6 363.3,-517.03"/>
+<polygon fill="#255270" stroke="#255270" points="366.77,-517.55 365.66,-507.02 359.96,-515.94 366.77,-517.55"/>
 </g>
 <!-- proc~compute_block_ranges -->
 <g id="call~~graph~~CallGraph_node4" class="node">
 <title>proc~compute_block_ranges</title>
-<g id="a_call~~graph~~CallGraph_node4"><a xlink:href=".././proc/compute_block_ranges.html" xlink:title="formatmul::compute_block_ranges">
-<polygon fill="#d9534f" stroke="#d9534f" points="630,-528 431,-528 431,-504 630,-504 630,-528"/>
-<text text-anchor="middle" x="530.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::compute_block_ranges</text>
+<g id="a_call~~graph~~CallGraph_node4"><a xlink:href="../proc/compute_block_ranges.html" xlink:title="formatmul::compute_block_ranges">
+<polygon fill="#d9534f" stroke="#d9534f" points="699,-1620 500,-1620 500,-1596 699,-1596 699,-1620"/>
+<text text-anchor="middle" x="599.5" y="-1605.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::compute_block_ranges</text>
 </a>
 </g>
 </g>
-<!-- proc~impure_mm_12 -->
+<!-- proc~impure_mm_ab_12 -->
+<g id="call~~graph~~CallGraph_node5" class="node">
+<title>proc~impure_mm_ab_12</title>
+<g id="a_call~~graph~~CallGraph_node5"><a xlink:href="../proc/impure_mm_ab_12.html" xlink:title="formatmul_opts.f90::impure_mm_AB_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="233,-1599 6,-1599 6,-1575 233,-1575 233,-1599"/>
+<text text-anchor="middle" x="119.5" y="-1584.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_AB_12</text>
+</a>
+</g>
+</g>
+<!-- proc~impure_mm_ab_13 -->
+<g id="call~~graph~~CallGraph_node6" class="node">
+<title>proc~impure_mm_ab_13</title>
+<g id="a_call~~graph~~CallGraph_node6"><a xlink:href="../proc/impure_mm_ab_13.html" xlink:title="formatmul_opts.f90::impure_mm_AB_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="233,-1641 6,-1641 6,-1617 233,-1617 233,-1641"/>
+<text text-anchor="middle" x="119.5" y="-1626.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_AB_13</text>
+</a>
+</g>
+</g>
+<!-- proc~impure_mm_abt_12 -->
 <g id="call~~graph~~CallGraph_node7" class="node">
-<title>proc~impure_mm_12</title>
-<g id="a_call~~graph~~CallGraph_node7"><a xlink:href=".././proc/impure_mm_12.html" xlink:title="formatmul_opts.f90::impure_mm_12">
-<polygon fill="#d9534f" stroke="#d9534f" points="221,-549 14,-549 14,-525 221,-525 221,-549"/>
-<text text-anchor="middle" x="117.5" y="-534.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_12</text>
+<title>proc~impure_mm_abt_12</title>
+<g id="a_call~~graph~~CallGraph_node7"><a xlink:href="../proc/impure_mm_abt_12.html" xlink:title="formatmul_opts.f90::impure_mm_ABT_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="236.5,-1683 2.5,-1683 2.5,-1659 236.5,-1659 236.5,-1683"/>
+<text text-anchor="middle" x="119.5" y="-1668.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_ABT_12</text>
 </a>
 </g>
 </g>
-<!-- proc~impure_mm_13 -->
+<!-- proc~impure_mm_abt_13 -->
 <g id="call~~graph~~CallGraph_node8" class="node">
-<title>proc~impure_mm_13</title>
-<g id="a_call~~graph~~CallGraph_node8"><a xlink:href=".././proc/impure_mm_13.html" xlink:title="formatmul_opts.f90::impure_mm_13">
-<polygon fill="#d9534f" stroke="#d9534f" points="221,-591 14,-591 14,-567 221,-567 221,-591"/>
-<text text-anchor="middle" x="117.5" y="-576.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_13</text>
+<title>proc~impure_mm_abt_13</title>
+<g id="a_call~~graph~~CallGraph_node8"><a xlink:href="../proc/impure_mm_abt_13.html" xlink:title="formatmul_opts.f90::impure_mm_ABT_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="236.5,-1725 2.5,-1725 2.5,-1701 236.5,-1701 236.5,-1725"/>
+<text text-anchor="middle" x="119.5" y="-1710.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_ABT_13</text>
 </a>
 </g>
 </g>
-<!-- proc~mat_mat&#45;&gt;interface~matmul_opts -->
-<g id="call~~graph~~CallGraph_edge12" class="edge">
-<title>proc~mat_mat&#45;&gt;interface~matmul_opts</title>
-<path fill="none" stroke="transparent" d="M382.18,-486.13C386.84,-488.57 391.23,-491.49 395,-495 424.75,-522.65 399.62,-553.21 431,-579 432.57,-580.29 434.2,-581.51 435.88,-582.65"/>
-<polygon fill="transparent" stroke="transparent" points="434.29,-585.78 444.69,-587.83 437.84,-579.74 434.29,-585.78"/>
+<!-- proc~impure_mm_atb_12 -->
+<g id="call~~graph~~CallGraph_node9" class="node">
+<title>proc~impure_mm_atb_12</title>
+<g id="a_call~~graph~~CallGraph_node9"><a xlink:href="../proc/impure_mm_atb_12.html" xlink:title="formatmul_opts.f90::impure_mm_ATB_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="235.5,-1767 3.5,-1767 3.5,-1743 235.5,-1743 235.5,-1767"/>
+<text text-anchor="middle" x="119.5" y="-1752.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_ATB_12</text>
+</a>
 </g>
-<!-- proc~mat_mat&#45;&gt;proc~compute_block_ranges -->
-<g id="call~~graph~~CallGraph_edge13" class="edge">
-<title>proc~mat_mat&#45;&gt;proc~compute_block_ranges</title>
-<path fill="none" stroke="transparent" d="M389.39,-486.02C403,-488.97 417.52,-492.1 431,-495 441.41,-497.24 452.43,-499.6 463.19,-501.89"/>
-<polygon fill="transparent" stroke="transparent" points="462.47,-505.32 472.98,-503.98 463.93,-498.47 462.47,-505.32"/>
 </g>
-<!-- a_block -->
-<g id="call~~graph~~CallGraph_node46" class="node">
-<title>a_block</title>
-<polygon fill="#777777" stroke="#777777" points="557.5,-402 503.5,-402 503.5,-378 557.5,-378 557.5,-402"/>
-<text text-anchor="middle" x="530.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">a_block</text>
+<!-- proc~impure_mm_atb_13 -->
+<g id="call~~graph~~CallGraph_node10" class="node">
+<title>proc~impure_mm_atb_13</title>
+<g id="a_call~~graph~~CallGraph_node10"><a xlink:href="../proc/impure_mm_atb_13.html" xlink:title="formatmul_opts.f90::impure_mm_ATB_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="235.5,-1809 3.5,-1809 3.5,-1785 235.5,-1785 235.5,-1809"/>
+<text text-anchor="middle" x="119.5" y="-1794.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_ATB_13</text>
+</a>
 </g>
-<!-- proc~mat_mat&#45;&gt;a_block -->
+</g>
+<!-- proc~impure_mm_atbt_12 -->
+<g id="call~~graph~~CallGraph_node11" class="node">
+<title>proc~impure_mm_atbt_12</title>
+<g id="a_call~~graph~~CallGraph_node11"><a xlink:href="../proc/impure_mm_atbt_12.html" xlink:title="formatmul_opts.f90::impure_mm_ATBT_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="239,-1851 0,-1851 0,-1827 239,-1827 239,-1851"/>
+<text text-anchor="middle" x="119.5" y="-1836.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_ATBT_12</text>
+</a>
+</g>
+</g>
+<!-- proc~impure_mm_atbt_13 -->
+<g id="call~~graph~~CallGraph_node12" class="node">
+<title>proc~impure_mm_atbt_13</title>
+<g id="a_call~~graph~~CallGraph_node12"><a xlink:href="../proc/impure_mm_atbt_13.html" xlink:title="formatmul_opts.f90::impure_mm_ATBT_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="239,-1893 0,-1893 0,-1869 239,-1869 239,-1893"/>
+<text text-anchor="middle" x="119.5" y="-1878.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90::impure_mm_ATBT_13</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_block_rel&#45;&gt;proc~compute_block_ranges -->
 <g id="call~~graph~~CallGraph_edge7" class="edge">
-<title>proc~mat_mat&#45;&gt;a_block</title>
-<path fill="none" stroke="transparent" d="M348.81,-461.87C367.04,-447.57 399.47,-424.07 431,-411 450.76,-402.81 474.13,-397.65 493.15,-394.5"/>
-<polygon fill="transparent" stroke="transparent" points="493.86,-397.93 503.21,-392.94 492.8,-391.01 493.86,-397.93"/>
+<title>proc~mat_mat_block_rel&#45;&gt;proc~compute_block_ranges</title>
+<path fill="none" stroke="transparent" d="M435.84,-1637.96C463.14,-1632.93 495.04,-1627.06 523.32,-1621.85"/>
+<polygon fill="transparent" stroke="transparent" points="523.95,-1625.29 533.15,-1620.04 522.69,-1618.41 523.95,-1625.29"/>
 </g>
-<!-- b_block -->
-<g id="call~~graph~~CallGraph_node47" class="node">
-<title>b_block</title>
-<polygon fill="#777777" stroke="#777777" points="557.5,-360 503.5,-360 503.5,-336 557.5,-336 557.5,-360"/>
-<text text-anchor="middle" x="530.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b_block</text>
-</g>
-<!-- proc~mat_mat&#45;&gt;b_block -->
+<!-- proc~mat_mat_coarray_rel&#45;&gt;proc~compute_block_ranges -->
 <g id="call~~graph~~CallGraph_edge8" class="edge">
-<title>proc~mat_mat&#45;&gt;b_block</title>
-<path fill="none" stroke="transparent" d="M341.62,-461.67C356.09,-439.36 389.81,-392.45 431,-369 449.93,-358.22 473.77,-352.96 493.26,-350.4"/>
-<polygon fill="transparent" stroke="transparent" points="493.74,-353.87 503.28,-349.26 492.95,-346.91 493.74,-353.87"/>
+<title>proc~mat_mat_coarray_rel&#45;&gt;proc~compute_block_ranges</title>
+<path fill="none" stroke="transparent" d="M464.22,-1608C472.7,-1608 481.33,-1608 489.92,-1608"/>
+<polygon fill="transparent" stroke="transparent" points="489.97,-1611.5 499.97,-1608 489.97,-1604.5 489.97,-1611.5"/>
 </g>
-<!-- block_size -->
-<g id="call~~graph~~CallGraph_node48" class="node">
-<title>block_size</title>
-<polygon fill="#777777" stroke="#777777" points="564,-486 497,-486 497,-462 564,-462 564,-486"/>
-<text text-anchor="middle" x="530.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">block_size</text>
-</g>
-<!-- proc~mat_mat&#45;&gt;block_size -->
-<g id="call~~graph~~CallGraph_edge9" class="edge">
-<title>proc~mat_mat&#45;&gt;block_size</title>
-<path fill="none" stroke="transparent" d="M395.05,-474C424.73,-474 459.67,-474 486.5,-474"/>
-<polygon fill="transparent" stroke="transparent" points="486.72,-477.5 496.72,-474 486.72,-470.5 486.72,-477.5"/>
-</g>
-<!-- c_block -->
-<g id="call~~graph~~CallGraph_node49" class="node">
-<title>c_block</title>
-<polygon fill="#777777" stroke="#777777" points="557.5,-318 503.5,-318 503.5,-294 557.5,-294 557.5,-318"/>
-<text text-anchor="middle" x="530.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">c_block</text>
-</g>
-<!-- proc~mat_mat&#45;&gt;c_block -->
-<g id="call~~graph~~CallGraph_edge10" class="edge">
-<title>proc~mat_mat&#45;&gt;c_block</title>
-<path fill="none" stroke="transparent" d="M338.32,-461.78C349.08,-433.21 379.98,-361.81 431,-327 449.12,-314.64 473.13,-309.35 492.92,-307.17"/>
-<polygon fill="transparent" stroke="transparent" points="493.46,-310.63 503.11,-306.27 492.84,-303.66 493.46,-310.63"/>
-</g>
-<!-- end_elem -->
-<g id="call~~graph~~CallGraph_node50" class="node">
-<title>end_elem</title>
-<polygon fill="#777777" stroke="#777777" points="563,-444 498,-444 498,-420 563,-420 563,-444"/>
-<text text-anchor="middle" x="530.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">end_elem</text>
-</g>
-<!-- proc~mat_mat&#45;&gt;end_elem -->
-<g id="call~~graph~~CallGraph_edge11" class="edge">
-<title>proc~mat_mat&#45;&gt;end_elem</title>
-<path fill="none" stroke="transparent" d="M389.39,-461.98C403,-459.03 417.52,-455.9 431,-453 449.72,-448.98 470.45,-444.55 488.04,-440.81"/>
-<polygon fill="transparent" stroke="transparent" points="488.95,-444.19 498,-438.69 487.49,-437.35 488.95,-444.19"/>
-</g>
-<!-- start_elem -->
-<g id="call~~graph~~CallGraph_node52" class="node">
-<title>start_elem</title>
-<polygon fill="#777777" stroke="#777777" points="565,-570 496,-570 496,-546 565,-546 565,-570"/>
-<text text-anchor="middle" x="530.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">start_elem</text>
-</g>
-<!-- proc~mat_mat&#45;&gt;start_elem -->
-<g id="call~~graph~~CallGraph_edge14" class="edge">
-<title>proc~mat_mat&#45;&gt;start_elem</title>
-<path fill="none" stroke="transparent" d="M378.34,-486.11C384.18,-488.59 389.9,-491.54 395,-495 415.33,-508.82 409.86,-524.44 431,-537 447.41,-546.75 467.74,-552 485.66,-554.82"/>
-<polygon fill="transparent" stroke="transparent" points="485.22,-558.3 495.61,-556.18 486.17,-551.36 485.22,-558.3"/>
-</g>
-<!-- proc~mat_vec&#45;&gt;interface~matmul_opts -->
-<g id="call~~graph~~CallGraph_edge17" class="edge">
-<title>proc~mat_vec&#45;&gt;interface~matmul_opts</title>
-<path fill="none" stroke="transparent" d="M348.81,-528.13C367.04,-542.43 399.47,-565.93 431,-579 436.43,-581.25 442.14,-583.28 447.95,-585.09"/>
-<polygon fill="transparent" stroke="transparent" points="447.22,-588.52 457.8,-587.95 449.18,-581.8 447.22,-588.52"/>
-</g>
-<!-- proc~mat_vec&#45;&gt;proc~compute_block_ranges -->
-<g id="call~~graph~~CallGraph_edge18" class="edge">
-<title>proc~mat_vec&#45;&gt;proc~compute_block_ranges</title>
-<path fill="none" stroke="transparent" d="M393.72,-516C402.38,-516 411.51,-516 420.77,-516"/>
-<polygon fill="transparent" stroke="transparent" points="420.86,-519.5 430.86,-516 420.86,-512.5 420.86,-519.5"/>
-</g>
-<!-- proc~mat_vec&#45;&gt;block_size -->
-<g id="call~~graph~~CallGraph_edge15" class="edge">
-<title>proc~mat_vec&#45;&gt;block_size</title>
-<path fill="none" stroke="transparent" d="M389.39,-503.98C403,-501.03 417.52,-497.9 431,-495 449.29,-491.07 469.5,-486.76 486.83,-483.07"/>
-<polygon fill="transparent" stroke="transparent" points="487.61,-486.48 496.66,-480.97 486.15,-479.63 487.61,-486.48"/>
-</g>
-<!-- proc~mat_vec&#45;&gt;end_elem -->
-<g id="call~~graph~~CallGraph_edge16" class="edge">
-<title>proc~mat_vec&#45;&gt;end_elem</title>
-<path fill="none" stroke="transparent" d="M378.34,-503.89C384.18,-501.41 389.9,-498.46 395,-495 415.33,-481.18 409.86,-465.56 431,-453 448.04,-442.87 469.31,-437.6 487.72,-434.86"/>
-<polygon fill="transparent" stroke="transparent" points="488.41,-438.3 497.89,-433.56 487.52,-431.36 488.41,-438.3"/>
-</g>
-<!-- proc~mat_vec&#45;&gt;start_elem -->
-<g id="call~~graph~~CallGraph_edge19" class="edge">
-<title>proc~mat_vec&#45;&gt;start_elem</title>
-<path fill="none" stroke="transparent" d="M389.39,-528.02C403,-530.97 417.52,-534.1 431,-537 448.84,-540.83 468.5,-545.03 485.53,-548.66"/>
-<polygon fill="transparent" stroke="transparent" points="485.25,-552.18 495.76,-550.83 486.71,-545.33 485.25,-552.18"/>
-</g>
-<!-- w_block -->
-<g id="call~~graph~~CallGraph_node55" class="node">
-<title>w_block</title>
-<polygon fill="#777777" stroke="#777777" points="558,-906 503,-906 503,-882 558,-882 558,-906"/>
-<text text-anchor="middle" x="530.5" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">w_block</text>
-</g>
-<!-- proc~mat_vec&#45;&gt;w_block -->
-<g id="call~~graph~~CallGraph_edge20" class="edge">
-<title>proc~mat_vec&#45;&gt;w_block</title>
-<path fill="none" stroke="transparent" d="M335.61,-528.25C343.36,-585.2 378.52,-823.34 431,-873 447.3,-888.42 472.01,-893.66 492.6,-895.05"/>
-<polygon fill="transparent" stroke="transparent" points="492.49,-898.55 502.62,-895.45 492.77,-891.55 492.49,-898.55"/>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge21" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="transparent" d="M794.12,-276.17C811.6,-317.9 869.98,-459.26 910,-579 928.46,-634.24 902.81,-665.93 946,-705 952.41,-710.8 959.85,-715.26 967.82,-718.66"/>
-<polygon fill="transparent" stroke="transparent" points="966.8,-722.01 977.39,-722.19 969.22,-715.45 966.8,-722.01"/>
-</g>
-<!-- proc~mm_10 -->
-<g id="call~~graph~~CallGraph_node13" class="node">
-<title>proc~mm_10</title>
-<g id="a_call~~graph~~CallGraph_node13"><a xlink:href=".././proc/mm_10.html" xlink:title="formatmul_opts::mm_10">
-<polygon fill="#d9534f" stroke="#d9534f" points="1135.5,-444 991.5,-444 991.5,-420 1135.5,-420 1135.5,-444"/>
-<text text-anchor="middle" x="1063.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_10</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_10 -->
-<g id="call~~graph~~CallGraph_edge22" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_10</title>
-<path fill="none" stroke="transparent" d="M798.01,-276.34C819.81,-305.19 878.6,-377.15 946,-411 957.01,-416.53 969.26,-420.62 981.56,-423.65"/>
-<polygon fill="transparent" stroke="transparent" points="980.89,-427.08 991.41,-425.85 982.41,-420.25 980.89,-427.08"/>
-</g>
-<!-- proc~mm_11 -->
-<g id="call~~graph~~CallGraph_node14" class="node">
-<title>proc~mm_11</title>
-<g id="a_call~~graph~~CallGraph_node14"><a xlink:href=".././proc/mm_11.html" xlink:title="formatmul_opts::mm_11">
-<polygon fill="#d9534f" stroke="#d9534f" points="1135.5,-24 991.5,-24 991.5,0 1135.5,0 1135.5,-24"/>
-<text text-anchor="middle" x="1063.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_11</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_11 -->
-<g id="call~~graph~~CallGraph_edge23" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_11</title>
-<path fill="none" stroke="transparent" d="M793.26,-251.95C807.74,-212.97 858.98,-89.53 946,-33 956.61,-26.11 968.85,-21.32 981.32,-18.02"/>
-<polygon fill="transparent" stroke="transparent" points="982.41,-21.36 991.35,-15.67 980.82,-14.54 982.41,-21.36"/>
-</g>
-<!-- proc~mm_12 -->
-<g id="call~~graph~~CallGraph_node15" class="node">
-<title>proc~mm_12</title>
-<g id="a_call~~graph~~CallGraph_node15"><a xlink:href=".././proc/mm_12.html" xlink:title="formatmul_opts::mm_12">
-<polygon fill="#d9534f" stroke="#d9534f" points="1135.5,-192 991.5,-192 991.5,-168 1135.5,-168 1135.5,-192"/>
-<text text-anchor="middle" x="1063.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_12</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_12 -->
-<g id="call~~graph~~CallGraph_edge24" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_12</title>
-<path fill="none" stroke="transparent" d="M814.27,-251.99C844.84,-237.91 898.16,-214.76 946,-201 957.34,-197.74 969.46,-194.88 981.43,-192.42"/>
-<polygon fill="transparent" stroke="transparent" points="982.3,-195.81 991.43,-190.44 980.94,-188.95 982.3,-195.81"/>
-</g>
-<!-- proc~mm_13 -->
+<!-- proc~mat_mat_rel_ab -->
 <g id="call~~graph~~CallGraph_node16" class="node">
-<title>proc~mm_13</title>
-<g id="a_call~~graph~~CallGraph_node16"><a xlink:href=".././proc/mm_13.html" xlink:title="formatmul_opts::mm_13">
-<polygon fill="#d9534f" stroke="#d9534f" points="1135.5,-150 991.5,-150 991.5,-126 1135.5,-126 1135.5,-150"/>
-<text text-anchor="middle" x="1063.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_13</text>
+<title>proc~mat_mat_rel_ab</title>
+<g id="a_call~~graph~~CallGraph_node16"><a xlink:href="../proc/mat_mat_rel_ab.html" xlink:title="formatmul::mat_mat_rel_AB">
+<polygon fill="#d9534f" stroke="#d9534f" points="681,-1578 518,-1578 518,-1554 681,-1554 681,-1578"/>
+<text text-anchor="middle" x="599.5" y="-1563.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel_AB</text>
 </a>
 </g>
 </g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_13 -->
-<g id="call~~graph~~CallGraph_edge25" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_13</title>
-<path fill="none" stroke="transparent" d="M802.99,-251.67C829.12,-229.36 887.93,-182.46 946,-159 957.09,-154.52 969.16,-150.99 981.19,-148.21"/>
-<polygon fill="transparent" stroke="transparent" points="982.22,-151.57 991.26,-146.05 980.75,-144.73 982.22,-151.57"/>
+<!-- proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_ab -->
+<g id="call~~graph~~CallGraph_edge9" class="edge">
+<title>proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_ab</title>
+<path fill="none" stroke="transparent" d="M440.85,-1492.58C448.96,-1495.3 456.87,-1498.71 464,-1503 485.07,-1515.67 478.86,-1532.44 500,-1545 503.06,-1546.82 506.26,-1548.48 509.55,-1550"/>
+<polygon fill="transparent" stroke="transparent" points="508.47,-1553.34 519.05,-1553.92 511.14,-1546.87 508.47,-1553.34"/>
 </g>
-<!-- proc~mm_9 -->
-<g id="call~~graph~~CallGraph_node17" class="node">
-<title>proc~mm_9</title>
-<g id="a_call~~graph~~CallGraph_node17"><a xlink:href=".././proc/mm_9.html" xlink:title="formatmul_opts::mm_9">
-<polygon fill="#d9534f" stroke="#d9534f" points="1132,-108 995,-108 995,-84 1132,-84 1132,-108"/>
-<text text-anchor="middle" x="1063.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_9</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_9 -->
-<g id="call~~graph~~CallGraph_edge26" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_9</title>
-<path fill="none" stroke="transparent" d="M798.01,-251.66C819.81,-222.81 878.6,-150.85 946,-117 957.93,-111.01 971.3,-106.71 984.62,-103.62"/>
-<polygon fill="transparent" stroke="transparent" points="985.7,-106.97 994.77,-101.49 984.26,-100.12 985.7,-106.97"/>
-</g>
-<!-- proc~mm_mnp -->
+<!-- proc~mat_mat_rel_abt -->
 <g id="call~~graph~~CallGraph_node18" class="node">
-<title>proc~mm_mnp</title>
-<g id="a_call~~graph~~CallGraph_node18"><a xlink:href=".././proc/mm_mnp.html" xlink:title="formatmul_opts::mm_mnp">
-<polygon fill="#d9534f" stroke="#d9534f" points="1140.5,-66 986.5,-66 986.5,-42 1140.5,-42 1140.5,-66"/>
-<text text-anchor="middle" x="1063.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_mnp</text>
+<title>proc~mat_mat_rel_abt</title>
+<g id="a_call~~graph~~CallGraph_node18"><a xlink:href="../proc/mat_mat_rel_abt.html" xlink:title="formatmul::mat_mat_rel_ABT">
+<polygon fill="#d9534f" stroke="#d9534f" points="684,-1536 515,-1536 515,-1512 684,-1512 684,-1536"/>
+<text text-anchor="middle" x="599.5" y="-1521.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel_ABT</text>
 </a>
 </g>
 </g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mnp -->
-<g id="call~~graph~~CallGraph_edge27" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mnp</title>
-<path fill="none" stroke="transparent" d="M795.15,-251.77C813.08,-217.46 868.99,-119.91 946,-75 955.38,-69.53 965.85,-65.42 976.56,-62.35"/>
-<polygon fill="transparent" stroke="transparent" points="977.62,-65.69 986.44,-59.81 975.88,-58.91 977.62,-65.69"/>
+<!-- proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_abt -->
+<g id="call~~graph~~CallGraph_edge10" class="edge">
+<title>proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_abt</title>
+<path fill="none" stroke="transparent" d="M435.84,-1494.04C463.14,-1499.07 495.04,-1504.94 523.32,-1510.15"/>
+<polygon fill="transparent" stroke="transparent" points="522.69,-1513.59 533.15,-1511.96 523.95,-1506.71 522.69,-1513.59"/>
 </g>
-<!-- proc~mm_mpn -->
-<g id="call~~graph~~CallGraph_node19" class="node">
-<title>proc~mm_mpn</title>
-<g id="a_call~~graph~~CallGraph_node19"><a xlink:href=".././proc/mm_mpn.html" xlink:title="formatmul_opts::mm_mpn">
-<polygon fill="#d9534f" stroke="#d9534f" points="1140.5,-402 986.5,-402 986.5,-378 1140.5,-378 1140.5,-402"/>
-<text text-anchor="middle" x="1063.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_mpn</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mpn -->
-<g id="call~~graph~~CallGraph_edge28" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_mpn</title>
-<path fill="none" stroke="transparent" d="M802.99,-276.33C829.12,-298.64 887.93,-345.54 946,-369 955.6,-372.88 965.94,-376.04 976.35,-378.63"/>
-<polygon fill="transparent" stroke="transparent" points="975.8,-382.09 986.33,-380.93 977.37,-375.27 975.8,-382.09"/>
-</g>
-<!-- proc~mm_nmp -->
+<!-- proc~mat_mat_rel_atb -->
 <g id="call~~graph~~CallGraph_node20" class="node">
-<title>proc~mm_nmp</title>
-<g id="a_call~~graph~~CallGraph_node20"><a xlink:href=".././proc/mm_nmp.html" xlink:title="formatmul_opts::mm_nmp">
-<polygon fill="#d9534f" stroke="#d9534f" points="1140.5,-360 986.5,-360 986.5,-336 1140.5,-336 1140.5,-360"/>
-<text text-anchor="middle" x="1063.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_nmp</text>
+<title>proc~mat_mat_rel_atb</title>
+<g id="a_call~~graph~~CallGraph_node20"><a xlink:href="../proc/mat_mat_rel_atb.html" xlink:title="formatmul::mat_mat_rel_ATB">
+<polygon fill="#d9534f" stroke="#d9534f" points="683.5,-1494 515.5,-1494 515.5,-1470 683.5,-1470 683.5,-1494"/>
+<text text-anchor="middle" x="599.5" y="-1479.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel_ATB</text>
 </a>
 </g>
 </g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_nmp -->
-<g id="call~~graph~~CallGraph_edge29" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_nmp</title>
-<path fill="none" stroke="transparent" d="M814.27,-276.01C844.84,-290.09 898.16,-313.24 946,-327 955.8,-329.82 966.19,-332.33 976.55,-334.56"/>
-<polygon fill="transparent" stroke="transparent" points="975.97,-338.01 986.47,-336.6 977.38,-331.15 975.97,-338.01"/>
+<!-- proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_atb -->
+<g id="call~~graph~~CallGraph_edge11" class="edge">
+<title>proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_atb</title>
+<path fill="none" stroke="transparent" d="M440.77,-1482C461.1,-1482 483.62,-1482 505.13,-1482"/>
+<polygon fill="transparent" stroke="transparent" points="505.25,-1485.5 515.25,-1482 505.25,-1478.5 505.25,-1485.5"/>
 </g>
-<!-- proc~mm_npm -->
-<g id="call~~graph~~CallGraph_node21" class="node">
-<title>proc~mm_npm</title>
-<g id="a_call~~graph~~CallGraph_node21"><a xlink:href=".././proc/mm_npm.html" xlink:title="formatmul_opts::mm_npm">
-<polygon fill="#d9534f" stroke="#d9534f" points="1140.5,-318 986.5,-318 986.5,-294 1140.5,-294 1140.5,-318"/>
-<text text-anchor="middle" x="1063.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_npm</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_npm -->
-<g id="call~~graph~~CallGraph_edge30" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_npm</title>
-<path fill="none" stroke="transparent" d="M867.37,-276.04C901.42,-281.26 941.42,-287.41 976.3,-292.76"/>
-<polygon fill="transparent" stroke="transparent" points="976.06,-296.27 986.47,-294.32 977.12,-289.35 976.06,-296.27"/>
-</g>
-<!-- proc~mm_pmn -->
+<!-- proc~mat_mat_rel_atbt -->
 <g id="call~~graph~~CallGraph_node22" class="node">
-<title>proc~mm_pmn</title>
-<g id="a_call~~graph~~CallGraph_node22"><a xlink:href=".././proc/mm_pmn.html" xlink:title="formatmul_opts::mm_pmn">
-<polygon fill="#d9534f" stroke="#d9534f" points="1140.5,-276 986.5,-276 986.5,-252 1140.5,-252 1140.5,-276"/>
-<text text-anchor="middle" x="1063.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_pmn</text>
+<title>proc~mat_mat_rel_atbt</title>
+<g id="a_call~~graph~~CallGraph_node22"><a xlink:href="../proc/mat_mat_rel_atbt.html" xlink:title="formatmul::mat_mat_rel_ATBT">
+<polygon fill="#d9534f" stroke="#d9534f" points="687,-1200 512,-1200 512,-1176 687,-1176 687,-1200"/>
+<text text-anchor="middle" x="599.5" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel_ATBT</text>
 </a>
 </g>
 </g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pmn -->
-<g id="call~~graph~~CallGraph_edge31" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pmn</title>
-<path fill="none" stroke="transparent" d="M910.16,-264C932.38,-264 955.16,-264 976.11,-264"/>
-<polygon fill="transparent" stroke="transparent" points="976.24,-267.5 986.24,-264 976.24,-260.5 976.24,-267.5"/>
+<!-- proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_atbt -->
+<g id="call~~graph~~CallGraph_edge12" class="edge">
+<title>proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_atbt</title>
+<path fill="none" stroke="transparent" d="M380.01,-1469.74C415.21,-1424.35 538.37,-1265.54 582.56,-1208.55"/>
+<polygon fill="transparent" stroke="transparent" points="585.59,-1210.36 588.95,-1200.31 580.06,-1206.07 585.59,-1210.36"/>
 </g>
-<!-- proc~mm_pnm -->
-<g id="call~~graph~~CallGraph_node23" class="node">
-<title>proc~mm_pnm</title>
-<g id="a_call~~graph~~CallGraph_node23"><a xlink:href=".././proc/mm_pnm.html" xlink:title="formatmul_opts::mm_pnm">
-<polygon fill="#d9534f" stroke="#d9534f" points="1140.5,-234 986.5,-234 986.5,-210 1140.5,-210 1140.5,-234"/>
-<text text-anchor="middle" x="1063.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_pnm</text>
+<!-- proc~mat_mat_rel_ab_opt -->
+<g id="call~~graph~~CallGraph_node17" class="node">
+<title>proc~mat_mat_rel_ab_opt</title>
+<g id="a_call~~graph~~CallGraph_node17"><a xlink:href="../proc/mat_mat_rel_ab_opt.html" xlink:title="formatmul_opts::mat_mat_rel_AB_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="954,-2565 741,-2565 741,-2541 954,-2541 954,-2565"/>
+<text text-anchor="middle" x="847.5" y="-2550.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_mat_rel_AB_opt</text>
 </a>
 </g>
 </g>
-<!-- proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pnm -->
-<g id="call~~graph~~CallGraph_edge32" class="edge">
-<title>proc~matmul_mat_mat_rel_opts&#45;&gt;proc~mm_pnm</title>
-<path fill="none" stroke="transparent" d="M867.37,-251.96C901.42,-246.74 941.42,-240.59 976.3,-235.24"/>
-<polygon fill="transparent" stroke="transparent" points="977.12,-238.65 986.47,-233.68 976.06,-231.73 977.12,-238.65"/>
+<!-- proc~mat_mat_rel_ab&#45;&gt;proc~mat_mat_rel_ab_opt -->
+<g id="call~~graph~~CallGraph_edge13" class="edge">
+<title>proc~mat_mat_rel_ab&#45;&gt;proc~mat_mat_rel_ab_opt</title>
+<path fill="none" stroke="transparent" d="M681.29,-1573.69C687.96,-1577.01 694.04,-1581.35 699,-1587 731.46,-1623.93 727.88,-1979.36 735,-2028 763.89,-2225.31 822.4,-2459.63 840.82,-2531.19"/>
+<polygon fill="transparent" stroke="transparent" points="837.43,-2532.09 843.33,-2540.89 844.21,-2530.34 837.43,-2532.09"/>
 </g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge33" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="transparent" d="M895.98,-612.07C900.94,-614.61 905.65,-617.56 910,-621 941.87,-646.19 914.22,-679.71 946,-705 952.59,-710.24 960.05,-714.34 967.94,-717.54"/>
-<polygon fill="transparent" stroke="transparent" points="966.78,-720.84 977.37,-720.88 969.12,-714.24 966.78,-720.84"/>
-</g>
-<!-- proc~mv_3 -->
-<g id="call~~graph~~CallGraph_node24" class="node">
-<title>proc~mv_3</title>
-<g id="a_call~~graph~~CallGraph_node24"><a xlink:href=".././proc/mv_3.html" xlink:title="formatmul_opts::mv_3">
-<polygon fill="#d9534f" stroke="#d9534f" points="1130,-528 997,-528 997,-504 1130,-504 1130,-528"/>
-<text text-anchor="middle" x="1063.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_3</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_3 -->
-<g id="call~~graph~~CallGraph_edge34" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_3</title>
-<path fill="none" stroke="transparent" d="M814.27,-587.99C844.84,-573.91 898.16,-550.76 946,-537 959.11,-533.23 973.26,-530 987.02,-527.29"/>
-<polygon fill="transparent" stroke="transparent" points="987.78,-530.71 996.95,-525.41 986.48,-523.83 987.78,-530.71"/>
-</g>
-<!-- proc~mv_4 -->
-<g id="call~~graph~~CallGraph_node25" class="node">
-<title>proc~mv_4</title>
-<g id="a_call~~graph~~CallGraph_node25"><a xlink:href=".././proc/mv_4.html" xlink:title="formatmul_opts::mv_4">
-<polygon fill="#d9534f" stroke="#d9534f" points="1130,-696 997,-696 997,-672 1130,-672 1130,-696"/>
-<text text-anchor="middle" x="1063.5" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_4</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_4 -->
-<g id="call~~graph~~CallGraph_edge35" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_4</title>
-<path fill="none" stroke="transparent" d="M890.26,-612.01C897.13,-614.5 903.79,-617.47 910,-621 931.37,-633.15 924.67,-650.78 946,-663 958.46,-670.14 972.8,-674.94 987.06,-678.16"/>
-<polygon fill="transparent" stroke="transparent" points="986.4,-681.6 996.9,-680.14 987.79,-674.74 986.4,-681.6"/>
-</g>
-<!-- proc~mv_5 -->
-<g id="call~~graph~~CallGraph_node26" class="node">
-<title>proc~mv_5</title>
-<g id="a_call~~graph~~CallGraph_node26"><a xlink:href=".././proc/mv_5.html" xlink:title="formatmul_opts::mv_5">
-<polygon fill="#d9534f" stroke="#d9534f" points="1130,-654 997,-654 997,-630 1130,-630 1130,-654"/>
-<text text-anchor="middle" x="1063.5" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_5</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_5 -->
-<g id="call~~graph~~CallGraph_edge36" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_5</title>
-<path fill="none" stroke="transparent" d="M867.37,-612.04C904.74,-617.77 949.27,-624.61 986.35,-630.31"/>
-<polygon fill="transparent" stroke="transparent" points="986.18,-633.82 996.6,-631.88 987.25,-626.9 986.18,-633.82"/>
-</g>
-<!-- proc~mv_6 -->
-<g id="call~~graph~~CallGraph_node27" class="node">
-<title>proc~mv_6</title>
-<g id="a_call~~graph~~CallGraph_node27"><a xlink:href=".././proc/mv_6.html" xlink:title="formatmul_opts::mv_6">
-<polygon fill="#d9534f" stroke="#d9534f" points="1130,-612 997,-612 997,-588 1130,-588 1130,-612"/>
-<text text-anchor="middle" x="1063.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_6</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_6 -->
-<g id="call~~graph~~CallGraph_edge37" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_6</title>
-<path fill="none" stroke="transparent" d="M909.36,-600C935.69,-600 962.85,-600 986.85,-600"/>
-<polygon fill="transparent" stroke="transparent" points="986.93,-603.5 996.93,-600 986.93,-596.5 986.93,-603.5"/>
-</g>
-<!-- proc~mv_7 -->
-<g id="call~~graph~~CallGraph_node28" class="node">
-<title>proc~mv_7</title>
-<g id="a_call~~graph~~CallGraph_node28"><a xlink:href=".././proc/mv_7.html" xlink:title="formatmul_opts::mv_7">
-<polygon fill="#d9534f" stroke="#d9534f" points="1130,-570 997,-570 997,-546 1130,-546 1130,-570"/>
-<text text-anchor="middle" x="1063.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_7</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_7 -->
-<g id="call~~graph~~CallGraph_edge38" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_7</title>
-<path fill="none" stroke="transparent" d="M867.37,-587.96C904.74,-582.23 949.27,-575.39 986.35,-569.69"/>
-<polygon fill="transparent" stroke="transparent" points="987.25,-573.1 996.6,-568.12 986.18,-566.18 987.25,-573.1"/>
-</g>
-<!-- proc~mv_8 -->
-<g id="call~~graph~~CallGraph_node29" class="node">
-<title>proc~mv_8</title>
-<g id="a_call~~graph~~CallGraph_node29"><a xlink:href=".././proc/mv_8.html" xlink:title="formatmul_opts::mv_8">
-<polygon fill="#d9534f" stroke="#d9534f" points="1130,-486 997,-486 997,-462 1130,-462 1130,-486"/>
-<text text-anchor="middle" x="1063.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_8</text>
-</a>
-</g>
-</g>
-<!-- proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_8 -->
-<g id="call~~graph~~CallGraph_edge39" class="edge">
-<title>proc~matmul_mat_vec_rel_opts&#45;&gt;proc~mv_8</title>
-<path fill="none" stroke="transparent" d="M802.99,-587.67C829.12,-565.36 887.93,-518.46 946,-495 958.8,-489.83 972.91,-485.92 986.76,-482.98"/>
-<polygon fill="transparent" stroke="transparent" points="987.64,-486.37 996.77,-481 986.28,-479.51 987.64,-486.37"/>
-</g>
-<!-- shared -->
-<g id="call~~graph~~CallGraph_node51" class="node">
-<title>shared</title>
-<polygon fill="#777777" stroke="#777777" points="1349,-465 1295,-465 1295,-441 1349,-441 1349,-465"/>
-<text text-anchor="middle" x="1322" y="-450.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">shared</text>
-</g>
-<!-- proc~mm_10&#45;&gt;shared -->
-<g id="call~~graph~~CallGraph_edge40" class="edge">
-<title>proc~mm_10&#45;&gt;shared</title>
-<path fill="none" stroke="transparent" d="M1135.61,-437.82C1183.99,-441.78 1246.01,-446.86 1284.63,-450.02"/>
-<polygon fill="transparent" stroke="transparent" points="1284.62,-453.53 1294.87,-450.86 1285.19,-446.56 1284.62,-453.53"/>
-</g>
-<!-- proc~mm_11&#45;&gt;shared -->
-<g id="call~~graph~~CallGraph_edge41" class="edge">
-<title>proc~mm_11&#45;&gt;shared</title>
-<path fill="none" stroke="#682550" d="M1135.75,-12.75C1152.13,-16 1168.42,-22.1 1181,-33 1304.84,-140.24 1319.51,-360.04 1320.96,-430.64"/>
-<polygon fill="#682550" stroke="#682550" points="1317.46,-431.04 1321.09,-441 1324.46,-430.95 1317.46,-431.04"/>
-</g>
-<!-- proc~mv_7&#45;&gt;shared -->
-<g id="call~~graph~~CallGraph_edge42" class="edge">
-<title>proc~mv_7&#45;&gt;shared</title>
-<path fill="none" stroke="#010225" stroke-opacity="0.019608" d="M1130.02,-550.47C1146.96,-547.37 1164.94,-543.04 1181,-537 1224.63,-520.61 1269.96,-490.62 1296.82,-471.27"/>
-<polygon fill="#010225" fill-opacity="0.019608" stroke="#010225" stroke-opacity="0.019608" points="1299.18,-473.87 1305.19,-465.15 1295.05,-468.22 1299.18,-473.87"/>
-</g>
-<!-- proc~mv_8&#45;&gt;shared -->
-<g id="call~~graph~~CallGraph_edge43" class="edge">
-<title>proc~mv_8&#45;&gt;shared</title>
-<path fill="none" stroke="#067255" d="M1130.22,-468.62C1179.41,-464.59 1244.85,-459.23 1284.89,-455.96"/>
-<polygon fill="#067255" stroke="#067255" points="1285.31,-459.43 1294.99,-455.13 1284.74,-452.46 1285.31,-459.43"/>
-</g>
-<!-- proc~start_benchmark -->
-<g id="call~~graph~~CallGraph_node30" class="node">
-<title>proc~start_benchmark</title>
-<g id="a_call~~graph~~CallGraph_node30"><a xlink:href=".././proc/start_benchmark.html" xlink:title="formatmul_benchmark::start_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="904,-822 672,-822 672,-798 904,-798 904,-822"/>
-<text text-anchor="middle" x="788" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::start_benchmark</text>
-</a>
-</g>
-</g>
-<!-- timer_start -->
-<g id="call~~graph~~CallGraph_node53" class="node">
-<title>timer_start</title>
-<polygon fill="#777777" stroke="#777777" points="1098.5,-864 1028.5,-864 1028.5,-840 1098.5,-840 1098.5,-864"/>
-<text text-anchor="middle" x="1063.5" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_start</text>
-</g>
-<!-- proc~start_benchmark&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge44" class="edge">
-<title>proc~start_benchmark&#45;&gt;timer_start</title>
-<path fill="none" stroke="#033255" d="M867.37,-822.04C916.31,-829.55 977.52,-838.95 1018.2,-845.2"/>
-<polygon fill="#033255" stroke="#033255" points="1017.92,-848.7 1028.34,-846.75 1018.99,-841.78 1017.92,-848.7"/>
-</g>
-<!-- proc~stop_benchmark -->
+<!-- proc~mm_ab_1 -->
 <g id="call~~graph~~CallGraph_node31" class="node">
-<title>proc~stop_benchmark</title>
-<g id="a_call~~graph~~CallGraph_node31"><a xlink:href=".././proc/stop_benchmark.html" xlink:title="formatmul_benchmark::stop_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="903.5,-1116 672.5,-1116 672.5,-1092 903.5,-1092 903.5,-1116"/>
-<text text-anchor="middle" x="788" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::stop_benchmark</text>
+<title>proc~mm_ab_1</title>
+<g id="a_call~~graph~~CallGraph_node31"><a xlink:href="../proc/mm_ab_1.html" xlink:title="formatmul_opts::mm_AB_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2838 1005.5,-2838 1005.5,-2814 1162.5,-2814 1162.5,-2838"/>
+<text text-anchor="middle" x="1084" y="-2823.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_1</text>
 </a>
 </g>
 </g>
-<!-- proc~write_benchmark -->
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_1 -->
+<g id="call~~graph~~CallGraph_edge14" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_1</title>
+<path fill="none" stroke="transparent" d="M851.82,-2565.03C863.73,-2605.81 908.31,-2739.84 996,-2805 998.07,-2806.54 1000.24,-2807.97 1002.49,-2809.3"/>
+<polygon fill="transparent" stroke="transparent" points="1001,-2812.46 1011.49,-2813.91 1004.19,-2806.23 1001,-2812.46"/>
+</g>
+<!-- proc~mm_ab_10 -->
 <g id="call~~graph~~CallGraph_node32" class="node">
-<title>proc~write_benchmark</title>
-<g id="a_call~~graph~~CallGraph_node32"><a xlink:href=".././proc/write_benchmark.html" xlink:title="formatmul_benchmark::write_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="1181,-1116 946,-1116 946,-1092 1181,-1092 1181,-1116"/>
-<text text-anchor="middle" x="1063.5" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::write_benchmark</text>
+<title>proc~mm_ab_10</title>
+<g id="a_call~~graph~~CallGraph_node32"><a xlink:href="../proc/mm_ab_10.html" xlink:title="formatmul_opts::mm_AB_10">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2796 1002,-2796 1002,-2772 1166,-2772 1166,-2796"/>
+<text text-anchor="middle" x="1084" y="-2781.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_10</text>
 </a>
 </g>
 </g>
-<!-- proc~stop_benchmark&#45;&gt;proc~write_benchmark -->
-<g id="call~~graph~~CallGraph_edge45" class="edge">
-<title>proc~stop_benchmark&#45;&gt;proc~write_benchmark</title>
-<path fill="none" stroke="#002505" d="M903.8,-1104C914.32,-1104 925.03,-1104 935.65,-1104"/>
-<polygon fill="#002505" stroke="#002505" points="935.8,-1107.5 945.8,-1104 935.8,-1100.5 935.8,-1107.5"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_10 -->
+<g id="call~~graph~~CallGraph_edge15" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_10</title>
+<path fill="none" stroke="transparent" d="M853.26,-2565.02C868.24,-2601.23 918.1,-2709.98 996,-2763 998.41,-2764.64 1000.93,-2766.15 1003.54,-2767.55"/>
+<polygon fill="transparent" stroke="transparent" points="1002.14,-2770.76 1012.68,-2771.85 1005.12,-2764.42 1002.14,-2770.76"/>
 </g>
-<!-- timer_stop -->
-<g id="call~~graph~~CallGraph_node54" class="node">
-<title>timer_stop</title>
-<polygon fill="#777777" stroke="#777777" points="1098,-906 1029,-906 1029,-882 1098,-882 1098,-906"/>
-<text text-anchor="middle" x="1063.5" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">timer_stop</text>
-</g>
-<!-- proc~stop_benchmark&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge46" class="edge">
-<title>proc~stop_benchmark&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#002505" d="M890.99,-1091.96C897.62,-1089.47 904.03,-1086.51 910,-1083 980.01,-1041.8 1031.02,-955.56 1051.97,-915.41"/>
-<polygon fill="#002505" stroke="#002505" points="1055.22,-916.75 1056.65,-906.25 1048.98,-913.57 1055.22,-916.75"/>
-</g>
-<!-- proc~write_benchmark~2 -->
+<!-- proc~mm_ab_11 -->
 <g id="call~~graph~~CallGraph_node33" class="node">
-<title>proc~write_benchmark~2</title>
-<g id="a_call~~graph~~CallGraph_node33"><a xlink:href=".././proc/write_benchmark~2.html" xlink:title="formatmul_benchmark::write_benchmark">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-633 0,-633 0,-609 235,-609 235,-633"/>
-<text text-anchor="middle" x="117.5" y="-618.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark::write_benchmark</text>
+<title>proc~mm_ab_11</title>
+<g id="a_call~~graph~~CallGraph_node33"><a xlink:href="../proc/mm_ab_11.html" xlink:title="formatmul_opts::mm_AB_11">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2754 1002,-2754 1002,-2730 1166,-2730 1166,-2754"/>
+<text text-anchor="middle" x="1084" y="-2739.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_11</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark1 -->
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_11 -->
+<g id="call~~graph~~CallGraph_edge16" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_11</title>
+<path fill="none" stroke="transparent" d="M855.62,-2565.45C874.28,-2596.87 927.9,-2679.85 996,-2721 999.02,-2722.82 1002.18,-2724.49 1005.45,-2726.01"/>
+<polygon fill="transparent" stroke="transparent" points="1004.29,-2729.32 1014.87,-2729.92 1006.97,-2722.85 1004.29,-2729.32"/>
+</g>
+<!-- proc~mm_ab_12 -->
 <g id="call~~graph~~CallGraph_node34" class="node">
-<title>program~benchmark1</title>
-<g id="a_call~~graph~~CallGraph_node34"><a xlink:href=".././program/benchmark1.html" xlink:title="benchmark1">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="828,-780 748,-780 748,-756 828,-756 828,-780"/>
-<text text-anchor="middle" x="788" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark1</text>
+<title>proc~mm_ab_12</title>
+<g id="a_call~~graph~~CallGraph_node34"><a xlink:href="../proc/mm_ab_12.html" xlink:title="formatmul_opts::mm_AB_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2712 1002,-2712 1002,-2688 1166,-2688 1166,-2712"/>
+<text text-anchor="middle" x="1084" y="-2697.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_12</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark1&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge47" class="edge">
-<title>program~benchmark1&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#101025" stroke-opacity="0.019608" d="M828.19,-761.98C866.12,-756.16 924.95,-747.12 974.17,-739.56"/>
-<polygon fill="#101025" fill-opacity="0.019608" stroke="#101025" stroke-opacity="0.019608" points="974.84,-743 984.19,-738.03 973.78,-736.08 974.84,-743"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_12 -->
+<g id="call~~graph~~CallGraph_edge17" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_12</title>
+<path fill="none" stroke="transparent" d="M858.98,-2565.19C881.41,-2590.48 936.9,-2648.84 996,-2679 1000,-2681.04 1004.21,-2682.89 1008.52,-2684.56"/>
+<polygon fill="transparent" stroke="transparent" points="1007.51,-2687.92 1018.1,-2687.95 1009.84,-2681.32 1007.51,-2687.92"/>
 </g>
-<!-- program~benchmark1&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge48" class="edge">
-<title>program~benchmark1&#45;&gt;timer_start</title>
-<path fill="none" stroke="#101025" stroke-opacity="0.019608" d="M828.18,-772.58C852.12,-775.92 883.17,-781.23 910,-789 952.09,-801.18 998.32,-821.3 1028.72,-835.52"/>
-<polygon fill="#101025" fill-opacity="0.019608" stroke="#101025" stroke-opacity="0.019608" points="1027.47,-838.8 1038.01,-839.91 1030.46,-832.47 1027.47,-838.8"/>
-</g>
-<!-- program~benchmark1&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge49" class="edge">
-<title>program~benchmark1&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#101025" stroke-opacity="0.019608" d="M828.27,-765.65C854.04,-766.15 887.08,-770.89 910,-789 941.87,-814.19 914.22,-847.71 946,-873 966.31,-889.16 994.94,-894.49 1018.74,-895.74"/>
-<polygon fill="#101025" fill-opacity="0.019608" stroke="#101025" stroke-opacity="0.019608" points="1018.84,-899.24 1028.94,-896.04 1019.05,-892.24 1018.84,-899.24"/>
-</g>
-<!-- program~benchmark2 -->
+<!-- proc~mm_ab_13 -->
 <g id="call~~graph~~CallGraph_node35" class="node">
-<title>program~benchmark2</title>
-<g id="a_call~~graph~~CallGraph_node35"><a xlink:href=".././program/benchmark2.html" xlink:title="benchmark2">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="828,-738 748,-738 748,-714 828,-714 828,-738"/>
-<text text-anchor="middle" x="788" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark2</text>
+<title>proc~mm_ab_13</title>
+<g id="a_call~~graph~~CallGraph_node35"><a xlink:href="../proc/mm_ab_13.html" xlink:title="formatmul_opts::mm_AB_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2670 1002,-2670 1002,-2646 1166,-2646 1166,-2670"/>
+<text text-anchor="middle" x="1084" y="-2655.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_13</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark2&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge50" class="edge">
-<title>program~benchmark2&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#135025" stroke-opacity="0.019608" d="M828.19,-726C864.38,-726 919.61,-726 967.36,-726"/>
-<polygon fill="#135025" fill-opacity="0.019608" stroke="#135025" stroke-opacity="0.019608" points="967.43,-729.5 977.43,-726 967.43,-722.5 967.43,-729.5"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_13 -->
+<g id="call~~graph~~CallGraph_edge18" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_13</title>
+<path fill="none" stroke="transparent" d="M865.85,-2565.05C892.62,-2583.12 946.14,-2617.24 996,-2637 1001.55,-2639.2 1007.4,-2641.21 1013.33,-2643.05"/>
+<polygon fill="transparent" stroke="transparent" points="1012.76,-2646.53 1023.34,-2645.96 1014.72,-2639.8 1012.76,-2646.53"/>
 </g>
-<!-- program~benchmark2&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge51" class="edge">
-<title>program~benchmark2&#45;&gt;timer_start</title>
-<path fill="none" stroke="#135025" stroke-opacity="0.019608" d="M828.05,-728.49C852.35,-731.08 883.84,-736.33 910,-747 961.79,-768.13 1013.63,-809.04 1041.52,-833.09"/>
-<polygon fill="#135025" fill-opacity="0.019608" stroke="#135025" stroke-opacity="0.019608" points="1039.56,-836.01 1049.39,-839.97 1044.16,-830.75 1039.56,-836.01"/>
-</g>
-<!-- program~benchmark2&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge52" class="edge">
-<title>program~benchmark2&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#135025" stroke-opacity="0.019608" d="M828.19,-722.74C854.42,-722.73 888.04,-727.26 910,-747 953.32,-785.93 902.81,-833.93 946,-873 965.47,-890.61 994.52,-895.88 1018.74,-896.73"/>
-<polygon fill="#135025" fill-opacity="0.019608" stroke="#135025" stroke-opacity="0.019608" points="1018.74,-900.23 1028.78,-896.85 1018.82,-893.23 1018.74,-900.23"/>
-</g>
-<!-- program~benchmark3 -->
+<!-- proc~mm_ab_2 -->
 <g id="call~~graph~~CallGraph_node36" class="node">
-<title>program~benchmark3</title>
-<g id="a_call~~graph~~CallGraph_node36"><a xlink:href=".././program/benchmark3.html" xlink:title="benchmark3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="570.5,-864 490.5,-864 490.5,-840 570.5,-840 570.5,-864"/>
-<text text-anchor="middle" x="530.5" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3</text>
+<title>proc~mm_ab_2</title>
+<g id="a_call~~graph~~CallGraph_node36"><a xlink:href="../proc/mm_ab_2.html" xlink:title="formatmul_opts::mm_AB_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2628 1005.5,-2628 1005.5,-2604 1162.5,-2604 1162.5,-2628"/>
+<text text-anchor="middle" x="1084" y="-2613.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_2</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark3&#45;&gt;proc~start_benchmark -->
-<g id="call~~graph~~CallGraph_edge53" class="edge">
-<title>program~benchmark3&#45;&gt;proc~start_benchmark</title>
-<path fill="none" stroke="#170025" stroke-opacity="0.019608" d="M570.58,-845.58C605.93,-839.76 659.16,-831.02 703.97,-823.65"/>
-<polygon fill="#170025" fill-opacity="0.019608" stroke="#170025" stroke-opacity="0.019608" points="704.69,-827.08 713.99,-822 703.55,-820.17 704.69,-827.08"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_2 -->
+<g id="call~~graph~~CallGraph_edge19" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_2</title>
+<path fill="none" stroke="transparent" d="M889.07,-2565.03C918.63,-2573.68 959.69,-2585.45 996,-2595 1004.21,-2597.16 1012.88,-2599.35 1021.43,-2601.47"/>
+<polygon fill="transparent" stroke="transparent" points="1020.84,-2604.93 1031.39,-2603.91 1022.51,-2598.13 1020.84,-2604.93"/>
 </g>
-<!-- program~benchmark3&#45;&gt;proc~stop_benchmark -->
-<g id="call~~graph~~CallGraph_edge54" class="edge">
-<title>program~benchmark3&#45;&gt;proc~stop_benchmark</title>
-<path fill="none" stroke="#170025" stroke-opacity="0.019608" d="M570.59,-850.49C591.02,-851.86 614.86,-857.24 630,-873 695.6,-941.29 599.11,-1015.97 666,-1083 666.95,-1083.96 667.93,-1084.88 668.94,-1085.76"/>
-<polygon fill="#170025" fill-opacity="0.019608" stroke="#170025" stroke-opacity="0.019608" points="667.01,-1088.69 677.1,-1091.93 671.23,-1083.11 667.01,-1088.69"/>
-</g>
-<!-- program~benchmark4 -->
+<!-- proc~mm_ab_3 -->
 <g id="call~~graph~~CallGraph_node37" class="node">
-<title>program~benchmark4</title>
-<g id="a_call~~graph~~CallGraph_node37"><a xlink:href=".././program/benchmark4.html" xlink:title="benchmark4">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="570.5,-822 490.5,-822 490.5,-798 570.5,-798 570.5,-822"/>
-<text text-anchor="middle" x="530.5" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark4</text>
+<title>proc~mm_ab_3</title>
+<g id="a_call~~graph~~CallGraph_node37"><a xlink:href="../proc/mm_ab_3.html" xlink:title="formatmul_opts::mm_AB_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2586 1005.5,-2586 1005.5,-2562 1162.5,-2562 1162.5,-2586"/>
+<text text-anchor="middle" x="1084" y="-2571.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_3</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark4&#45;&gt;proc~start_benchmark -->
-<g id="call~~graph~~CallGraph_edge55" class="edge">
-<title>program~benchmark4&#45;&gt;proc~start_benchmark</title>
-<path fill="none" stroke="#204025" stroke-opacity="0.019608" d="M570.58,-810C595.22,-810 628.55,-810 661.66,-810"/>
-<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="661.92,-813.5 671.92,-810 661.92,-806.5 661.92,-813.5"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_3 -->
+<g id="call~~graph~~CallGraph_edge20" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_3</title>
+<path fill="none" stroke="transparent" d="M954.09,-2562.46C967.84,-2563.69 981.82,-2564.94 995.24,-2566.14"/>
+<polygon fill="transparent" stroke="transparent" points="995.11,-2569.64 1005.38,-2567.05 995.73,-2562.67 995.11,-2569.64"/>
 </g>
-<!-- program~benchmark4&#45;&gt;proc~stop_benchmark -->
-<g id="call~~graph~~CallGraph_edge56" class="edge">
-<title>program~benchmark4&#45;&gt;proc~stop_benchmark</title>
-<path fill="none" stroke="#204025" stroke-opacity="0.019608" d="M570.76,-808.32C591.25,-809.65 615.08,-815.03 630,-831 707.23,-913.68 587.21,-1001.81 666,-1083 666.82,-1083.84 667.65,-1084.66 668.51,-1085.45"/>
-<polygon fill="#204025" fill-opacity="0.019608" stroke="#204025" stroke-opacity="0.019608" points="666.69,-1088.46 676.72,-1091.88 671,-1082.95 666.69,-1088.46"/>
-</g>
-<!-- program~example1 -->
+<!-- proc~mm_ab_4 -->
 <g id="call~~graph~~CallGraph_node38" class="node">
-<title>program~example1</title>
-<g id="a_call~~graph~~CallGraph_node38"><a xlink:href=".././program/example1.html" xlink:title="example1">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-1032 755.5,-1032 755.5,-1008 820.5,-1008 820.5,-1032"/>
-<text text-anchor="middle" x="788" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example1</text>
+<title>proc~mm_ab_4</title>
+<g id="a_call~~graph~~CallGraph_node38"><a xlink:href="../proc/mm_ab_4.html" xlink:title="formatmul_opts::mm_AB_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2544 1005.5,-2544 1005.5,-2520 1162.5,-2520 1162.5,-2544"/>
+<text text-anchor="middle" x="1084" y="-2529.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_4</text>
 </a>
 </g>
 </g>
-<!-- program~example1&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge57" class="edge">
-<title>program~example1&#45;&gt;timer_start</title>
-<path fill="none" stroke="#238025" stroke-opacity="0.019608" d="M820.75,-1023.14C847.76,-1024.01 885.9,-1020.66 910,-999 953.32,-960.07 902.81,-912.07 946,-873 965.34,-855.51 994.12,-850.19 1018.24,-849.29"/>
-<polygon fill="#238025" fill-opacity="0.019608" stroke="#238025" stroke-opacity="0.019608" points="1018.3,-852.79 1028.25,-849.14 1018.2,-845.79 1018.3,-852.79"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_4 -->
+<g id="call~~graph~~CallGraph_edge21" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_4</title>
+<path fill="none" stroke="transparent" d="M954.09,-2543.54C967.84,-2542.31 981.82,-2541.06 995.24,-2539.86"/>
+<polygon fill="transparent" stroke="transparent" points="995.73,-2543.33 1005.38,-2538.95 995.11,-2536.36 995.73,-2543.33"/>
 </g>
-<!-- program~example1&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge58" class="edge">
-<title>program~example1&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#238025" stroke-opacity="0.019608" d="M820.6,-1018.24C845.63,-1015.97 881.08,-1010.8 910,-999 961.79,-977.87 1013.63,-936.96 1041.52,-912.91"/>
-<polygon fill="#238025" fill-opacity="0.019608" stroke="#238025" stroke-opacity="0.019608" points="1044.16,-915.25 1049.39,-906.03 1039.56,-909.99 1044.16,-915.25"/>
-</g>
-<!-- program~example2 -->
+<!-- proc~mm_ab_5 -->
 <g id="call~~graph~~CallGraph_node39" class="node">
-<title>program~example2</title>
-<g id="a_call~~graph~~CallGraph_node39"><a xlink:href=".././program/example2.html" xlink:title="example2">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-990 755.5,-990 755.5,-966 820.5,-966 820.5,-990"/>
-<text text-anchor="middle" x="788" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example2</text>
+<title>proc~mm_ab_5</title>
+<g id="a_call~~graph~~CallGraph_node39"><a xlink:href="../proc/mm_ab_5.html" xlink:title="formatmul_opts::mm_AB_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2502 1005.5,-2502 1005.5,-2478 1162.5,-2478 1162.5,-2502"/>
+<text text-anchor="middle" x="1084" y="-2487.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_5</text>
 </a>
 </g>
 </g>
-<!-- program~example2&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge59" class="edge">
-<title>program~example2&#45;&gt;timer_start</title>
-<path fill="none" stroke="#255023" stroke-opacity="0.031373" d="M820.62,-980.38C847.18,-980.68 884.74,-976.96 910,-957 941.87,-931.81 914.22,-898.29 946,-873 966.17,-856.95 994.55,-851.59 1018.24,-850.29"/>
-<polygon fill="#255023" fill-opacity="0.031373" stroke="#255023" stroke-opacity="0.031373" points="1018.53,-853.78 1028.41,-849.96 1018.3,-846.79 1018.53,-853.78"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_5 -->
+<g id="call~~graph~~CallGraph_edge22" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_5</title>
+<path fill="none" stroke="transparent" d="M889.07,-2540.97C918.63,-2532.32 959.69,-2520.55 996,-2511 1004.21,-2508.84 1012.88,-2506.65 1021.43,-2504.53"/>
+<polygon fill="transparent" stroke="transparent" points="1022.51,-2507.87 1031.39,-2502.09 1020.84,-2501.07 1022.51,-2507.87"/>
 </g>
-<!-- program~example2&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge60" class="edge">
-<title>program~example2&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#255023" stroke-opacity="0.031373" d="M820.51,-974.46C845.19,-971.23 880.2,-965.63 910,-957 952.09,-944.82 998.32,-924.7 1028.72,-910.48"/>
-<polygon fill="#255023" fill-opacity="0.031373" stroke="#255023" stroke-opacity="0.031373" points="1030.46,-913.53 1038.01,-906.09 1027.47,-907.2 1030.46,-913.53"/>
-</g>
-<!-- program~example3 -->
+<!-- proc~mm_ab_6 -->
 <g id="call~~graph~~CallGraph_node40" class="node">
-<title>program~example3</title>
-<g id="a_call~~graph~~CallGraph_node40"><a xlink:href=".././program/example3.html" xlink:title="example3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-948 755.5,-948 755.5,-924 820.5,-924 820.5,-948"/>
-<text text-anchor="middle" x="788" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example3</text>
+<title>proc~mm_ab_6</title>
+<g id="a_call~~graph~~CallGraph_node40"><a xlink:href="../proc/mm_ab_6.html" xlink:title="formatmul_opts::mm_AB_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2460 1005.5,-2460 1005.5,-2436 1162.5,-2436 1162.5,-2460"/>
+<text text-anchor="middle" x="1084" y="-2445.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_6</text>
 </a>
 </g>
 </g>
-<!-- program~example3&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge61" class="edge">
-<title>program~example3&#45;&gt;timer_start</title>
-<path fill="none" stroke="#255020" stroke-opacity="0.011765" d="M820.53,-936.28C846.17,-935.21 882.48,-930.65 910,-915 931.37,-902.85 924.67,-885.22 946,-873 967.8,-860.51 995.36,-855.16 1018.19,-852.98"/>
-<polygon fill="#255020" fill-opacity="0.011765" stroke="#255020" stroke-opacity="0.011765" points="1018.62,-856.46 1028.32,-852.19 1018.07,-849.48 1018.62,-856.46"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_6 -->
+<g id="call~~graph~~CallGraph_edge23" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_6</title>
+<path fill="none" stroke="transparent" d="M865.85,-2540.95C892.62,-2522.88 946.14,-2488.76 996,-2469 1001.55,-2466.8 1007.4,-2464.79 1013.33,-2462.95"/>
+<polygon fill="transparent" stroke="transparent" points="1014.72,-2466.2 1023.34,-2460.04 1012.76,-2459.47 1014.72,-2466.2"/>
 </g>
-<!-- program~example3&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge62" class="edge">
-<title>program~example3&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#255020" stroke-opacity="0.011765" d="M820.64,-931.14C869.39,-923.66 963,-909.28 1018.37,-900.78"/>
-<polygon fill="#255020" fill-opacity="0.011765" stroke="#255020" stroke-opacity="0.011765" points="1019.23,-904.19 1028.58,-899.21 1018.17,-897.27 1019.23,-904.19"/>
-</g>
-<!-- program~example4 -->
+<!-- proc~mm_ab_7 -->
 <g id="call~~graph~~CallGraph_node41" class="node">
-<title>program~example4</title>
-<g id="a_call~~graph~~CallGraph_node41"><a xlink:href=".././program/example4.html" xlink:title="example4">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-906 755.5,-906 755.5,-882 820.5,-882 820.5,-906"/>
-<text text-anchor="middle" x="788" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example4</text>
+<title>proc~mm_ab_7</title>
+<g id="a_call~~graph~~CallGraph_node41"><a xlink:href="../proc/mm_ab_7.html" xlink:title="formatmul_opts::mm_AB_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2418 1005.5,-2418 1005.5,-2394 1162.5,-2394 1162.5,-2418"/>
+<text text-anchor="middle" x="1084" y="-2403.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_7</text>
 </a>
 </g>
 </g>
-<!-- program~example4&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge63" class="edge">
-<title>program~example4&#45;&gt;timer_start</title>
-<path fill="none" stroke="transparent" d="M820.64,-889.14C869.25,-881.68 962.49,-867.36 1017.92,-858.85"/>
-<polygon fill="transparent" stroke="transparent" points="1018.79,-862.25 1028.15,-857.28 1017.73,-855.33 1018.79,-862.25"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_7 -->
+<g id="call~~graph~~CallGraph_edge24" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_7</title>
+<path fill="none" stroke="transparent" d="M858.98,-2540.81C881.41,-2515.52 936.9,-2457.16 996,-2427 1000,-2424.96 1004.21,-2423.11 1008.52,-2421.44"/>
+<polygon fill="transparent" stroke="transparent" points="1009.84,-2424.68 1018.1,-2418.05 1007.51,-2418.08 1009.84,-2424.68"/>
 </g>
-<!-- program~example4&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge64" class="edge">
-<title>program~example4&#45;&gt;timer_stop</title>
-<path fill="none" stroke="transparent" d="M820.64,-894C869.39,-894 963,-894 1018.37,-894"/>
-<polygon fill="transparent" stroke="transparent" points="1018.58,-897.5 1028.58,-894 1018.58,-890.5 1018.58,-897.5"/>
-</g>
-<!-- program~example5 -->
+<!-- proc~mm_ab_8 -->
 <g id="call~~graph~~CallGraph_node42" class="node">
-<title>program~example5</title>
-<g id="a_call~~graph~~CallGraph_node42"><a xlink:href=".././program/example5.html" xlink:title="example5">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-696 755.5,-696 755.5,-672 820.5,-672 820.5,-696"/>
-<text text-anchor="middle" x="788" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example5</text>
+<title>proc~mm_ab_8</title>
+<g id="a_call~~graph~~CallGraph_node42"><a xlink:href="../proc/mm_ab_8.html" xlink:title="formatmul_opts::mm_AB_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2376 1005.5,-2376 1005.5,-2352 1162.5,-2352 1162.5,-2376"/>
+<text text-anchor="middle" x="1084" y="-2361.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_8</text>
 </a>
 </g>
 </g>
-<!-- program~example5&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge65" class="edge">
-<title>program~example5&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#255013" stroke-opacity="0.019608" d="M820.64,-688.86C857.96,-694.59 921.57,-704.36 974.2,-712.44"/>
-<polygon fill="#255013" fill-opacity="0.019608" stroke="#255013" stroke-opacity="0.019608" points="973.81,-715.92 984.22,-713.98 974.87,-709 973.81,-715.92"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_8 -->
+<g id="call~~graph~~CallGraph_edge25" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_8</title>
+<path fill="none" stroke="transparent" d="M855.62,-2540.55C874.28,-2509.13 927.9,-2426.15 996,-2385 999.02,-2383.18 1002.18,-2381.51 1005.45,-2379.99"/>
+<polygon fill="transparent" stroke="transparent" points="1006.97,-2383.15 1014.87,-2376.08 1004.29,-2376.68 1006.97,-2383.15"/>
 </g>
-<!-- program~example5&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge66" class="edge">
-<title>program~example5&#45;&gt;timer_start</title>
-<path fill="none" stroke="#255013" stroke-opacity="0.019608" d="M820.53,-683.72C846.17,-684.79 882.48,-689.35 910,-705 931.37,-717.15 928.83,-729.4 946,-747 977.12,-778.91 1016.08,-812.94 1040.12,-833.34"/>
-<polygon fill="#255013" fill-opacity="0.019608" stroke="#255013" stroke-opacity="0.019608" points="1038.07,-836.18 1047.97,-839.96 1042.58,-830.83 1038.07,-836.18"/>
-</g>
-<!-- program~example5&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge67" class="edge">
-<title>program~example5&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#255013" stroke-opacity="0.019608" d="M820.58,-680.48C847.86,-679.31 886.49,-682.39 910,-705 965.05,-757.93 891.13,-819.9 946,-873 965,-891.38 994.31,-896.6 1018.78,-897.23"/>
-<polygon fill="#255013" fill-opacity="0.019608" stroke="#255013" stroke-opacity="0.019608" points="1018.93,-900.73 1028.93,-897.25 1018.94,-893.73 1018.93,-900.73"/>
-</g>
-<!-- program~example6 -->
+<!-- proc~mm_ab_9 -->
 <g id="call~~graph~~CallGraph_node43" class="node">
-<title>program~example6</title>
-<g id="a_call~~graph~~CallGraph_node43"><a xlink:href=".././program/example6.html" xlink:title="example6">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-864 755.5,-864 755.5,-840 820.5,-840 820.5,-864"/>
-<text text-anchor="middle" x="788" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example6</text>
+<title>proc~mm_ab_9</title>
+<g id="a_call~~graph~~CallGraph_node43"><a xlink:href="../proc/mm_ab_9.html" xlink:title="formatmul_opts::mm_AB_9">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-2334 1005.5,-2334 1005.5,-2310 1162.5,-2310 1162.5,-2334"/>
+<text text-anchor="middle" x="1084" y="-2319.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_9</text>
 </a>
 </g>
 </g>
-<!-- program~example6&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge68" class="edge">
-<title>program~example6&#45;&gt;timer_start</title>
-<path fill="none" stroke="#255010" stroke-opacity="0.007843" d="M820.64,-852C869.25,-852 962.49,-852 1017.92,-852"/>
-<polygon fill="#255010" fill-opacity="0.007843" stroke="#255010" stroke-opacity="0.007843" points="1018.15,-855.5 1028.15,-852 1018.15,-848.5 1018.15,-855.5"/>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_9 -->
+<g id="call~~graph~~CallGraph_edge26" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_9</title>
+<path fill="none" stroke="transparent" d="M853.26,-2540.98C868.24,-2504.77 918.1,-2396.02 996,-2343 998.41,-2341.36 1000.93,-2339.85 1003.54,-2338.45"/>
+<polygon fill="transparent" stroke="transparent" points="1005.12,-2341.58 1012.68,-2334.15 1002.14,-2335.24 1005.12,-2341.58"/>
 </g>
-<!-- program~example6&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge69" class="edge">
-<title>program~example6&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#255010" stroke-opacity="0.007843" d="M820.64,-856.86C869.39,-864.34 963,-878.72 1018.37,-887.22"/>
-<polygon fill="#255010" fill-opacity="0.007843" stroke="#255010" stroke-opacity="0.007843" points="1018.17,-890.73 1028.58,-888.79 1019.23,-883.81 1018.17,-890.73"/>
+<!-- proc~mat_mat_rel_abt_opt -->
+<g id="call~~graph~~CallGraph_node19" class="node">
+<title>proc~mat_mat_rel_abt_opt</title>
+<g id="a_call~~graph~~CallGraph_node19"><a xlink:href="../proc/mat_mat_rel_abt_opt.html" xlink:title="formatmul_opts::mat_mat_rel_ABT_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="957.5,-2019 737.5,-2019 737.5,-1995 957.5,-1995 957.5,-2019"/>
+<text text-anchor="middle" x="847.5" y="-2004.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_mat_rel_ABT_opt</text>
+</a>
 </g>
-<!-- program~example7 -->
+</g>
+<!-- proc~mat_mat_rel_abt&#45;&gt;proc~mat_mat_rel_abt_opt -->
+<g id="call~~graph~~CallGraph_edge27" class="edge">
+<title>proc~mat_mat_rel_abt&#45;&gt;proc~mat_mat_rel_abt_opt</title>
+<path fill="none" stroke="transparent" d="M684.31,-1534.98C689.62,-1537.71 694.59,-1541.01 699,-1545 833.16,-1666.49 846.01,-1909.71 846.69,-1984.56"/>
+<polygon fill="transparent" stroke="transparent" points="843.19,-1984.72 846.71,-1994.72 850.19,-1984.71 843.19,-1984.72"/>
+</g>
+<!-- proc~mm_abt_1 -->
 <g id="call~~graph~~CallGraph_node44" class="node">
-<title>program~example7</title>
-<g id="a_call~~graph~~CallGraph_node44"><a xlink:href=".././program/example7.html" xlink:title="example7">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-654 755.5,-654 755.5,-630 820.5,-630 820.5,-654"/>
-<text text-anchor="middle" x="788" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example7</text>
+<title>proc~mm_abt_1</title>
+<g id="a_call~~graph~~CallGraph_node44"><a xlink:href="../proc/mm_abt_1.html" xlink:title="formatmul_opts::mm_ABT_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2292 1002,-2292 1002,-2268 1166,-2268 1166,-2292"/>
+<text text-anchor="middle" x="1084" y="-2277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_1</text>
 </a>
 </g>
 </g>
-<!-- program~example7&#45;&gt;interface~matmul_blas -->
-<g id="call~~graph~~CallGraph_edge70" class="edge">
-<title>program~example7&#45;&gt;interface~matmul_blas</title>
-<path fill="none" stroke="#255067" d="M820.53,-641.72C846.17,-642.79 882.48,-647.35 910,-663 931.37,-675.15 924.67,-692.78 946,-705 952.77,-708.88 960.1,-712.07 967.66,-714.69"/>
-<polygon fill="#255067" stroke="#255067" points="966.76,-718.08 977.35,-717.71 968.85,-711.39 966.76,-718.08"/>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_1 -->
+<g id="call~~graph~~CallGraph_edge28" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_1</title>
+<path fill="none" stroke="transparent" d="M851.82,-2019.03C863.73,-2059.81 908.31,-2193.84 996,-2259 998.07,-2260.54 1000.24,-2261.97 1002.49,-2263.3"/>
+<polygon fill="transparent" stroke="transparent" points="1001,-2266.46 1011.49,-2267.91 1004.19,-2260.23 1001,-2266.46"/>
 </g>
-<!-- program~example7&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge71" class="edge">
-<title>program~example7&#45;&gt;timer_start</title>
-<path fill="none" stroke="#255067" d="M820.62,-639.62C847.18,-639.32 884.74,-643.04 910,-663 941.87,-688.19 922.36,-713.97 946,-747 971.48,-782.61 1010.92,-814.92 1036.73,-834.02"/>
-<polygon fill="#255067" stroke="#255067" points="1034.77,-836.92 1044.92,-839.97 1038.89,-831.26 1034.77,-836.92"/>
-</g>
-<!-- program~example7&#45;&gt;timer_stop -->
-<g id="call~~graph~~CallGraph_edge72" class="edge">
-<title>program~example7&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#255067" d="M820.54,-638.26C847.98,-636.9 886.88,-639.83 910,-663 976.89,-730.03 879.33,-805.75 946,-873 964.68,-891.84 994.13,-897.02 1018.75,-897.52"/>
-<polygon fill="#255067" stroke="#255067" points="1018.97,-901.02 1028.96,-897.48 1018.95,-894.02 1018.97,-901.02"/>
-</g>
-<!-- program~example8 -->
+<!-- proc~mm_abt_10 -->
 <g id="call~~graph~~CallGraph_node45" class="node">
-<title>program~example8</title>
-<g id="a_call~~graph~~CallGraph_node45"><a xlink:href=".././program/example8.html" xlink:title="example8">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="820.5,-1074 755.5,-1074 755.5,-1050 820.5,-1050 820.5,-1074"/>
-<text text-anchor="middle" x="788" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example8</text>
+<title>proc~mm_abt_10</title>
+<g id="a_call~~graph~~CallGraph_node45"><a xlink:href="../proc/mm_abt_10.html" xlink:title="formatmul_opts::mm_ABT_10">
+<polygon fill="#d9534f" stroke="#d9534f" points="1169.5,-2250 998.5,-2250 998.5,-2226 1169.5,-2226 1169.5,-2250"/>
+<text text-anchor="middle" x="1084" y="-2235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_10</text>
 </a>
 </g>
 </g>
-<!-- program~example8&#45;&gt;timer_start -->
-<g id="call~~graph~~CallGraph_edge73" class="edge">
-<title>program~example8&#45;&gt;timer_start</title>
-<path fill="none" stroke="#255034" d="M820.58,-1065.52C847.86,-1066.69 886.49,-1063.61 910,-1041 965.05,-988.07 891.13,-926.1 946,-873 964.87,-854.74 993.91,-849.48 1018.28,-848.78"/>
-<polygon fill="#255034" stroke="#255034" points="1018.41,-852.28 1028.4,-848.74 1018.38,-845.28 1018.41,-852.28"/>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_10 -->
+<g id="call~~graph~~CallGraph_edge29" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_10</title>
+<path fill="none" stroke="transparent" d="M853.26,-2019.02C868.24,-2055.23 918.1,-2163.98 996,-2217 998.41,-2218.64 1000.93,-2220.15 1003.54,-2221.55"/>
+<polygon fill="transparent" stroke="transparent" points="1002.14,-2224.76 1012.68,-2225.85 1005.12,-2218.42 1002.14,-2224.76"/>
 </g>
-<!-- program~example8&#45;&gt;timer_stop -->
+<!-- proc~mm_abt_11 -->
+<g id="call~~graph~~CallGraph_node46" class="node">
+<title>proc~mm_abt_11</title>
+<g id="a_call~~graph~~CallGraph_node46"><a xlink:href="../proc/mm_abt_11.html" xlink:title="formatmul_opts::mm_ABT_11">
+<polygon fill="#d9534f" stroke="#d9534f" points="1169.5,-2208 998.5,-2208 998.5,-2184 1169.5,-2184 1169.5,-2208"/>
+<text text-anchor="middle" x="1084" y="-2193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_11</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_11 -->
+<g id="call~~graph~~CallGraph_edge30" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_11</title>
+<path fill="none" stroke="transparent" d="M855.62,-2019.45C874.28,-2050.87 927.9,-2133.85 996,-2175 999.02,-2176.82 1002.18,-2178.49 1005.45,-2180.01"/>
+<polygon fill="transparent" stroke="transparent" points="1004.29,-2183.32 1014.87,-2183.92 1006.97,-2176.85 1004.29,-2183.32"/>
+</g>
+<!-- proc~mm_abt_12 -->
+<g id="call~~graph~~CallGraph_node47" class="node">
+<title>proc~mm_abt_12</title>
+<g id="a_call~~graph~~CallGraph_node47"><a xlink:href="../proc/mm_abt_12.html" xlink:title="formatmul_opts::mm_ABT_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="1169.5,-2166 998.5,-2166 998.5,-2142 1169.5,-2142 1169.5,-2166"/>
+<text text-anchor="middle" x="1084" y="-2151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_12</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_12 -->
+<g id="call~~graph~~CallGraph_edge31" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_12</title>
+<path fill="none" stroke="transparent" d="M858.98,-2019.19C881.41,-2044.48 936.9,-2102.84 996,-2133 1000,-2135.04 1004.21,-2136.89 1008.52,-2138.56"/>
+<polygon fill="transparent" stroke="transparent" points="1007.51,-2141.92 1018.1,-2141.95 1009.84,-2135.32 1007.51,-2141.92"/>
+</g>
+<!-- proc~mm_abt_13 -->
+<g id="call~~graph~~CallGraph_node48" class="node">
+<title>proc~mm_abt_13</title>
+<g id="a_call~~graph~~CallGraph_node48"><a xlink:href="../proc/mm_abt_13.html" xlink:title="formatmul_opts::mm_ABT_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="1169.5,-2124 998.5,-2124 998.5,-2100 1169.5,-2100 1169.5,-2124"/>
+<text text-anchor="middle" x="1084" y="-2109.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_13</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_13 -->
+<g id="call~~graph~~CallGraph_edge32" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_13</title>
+<path fill="none" stroke="transparent" d="M865.85,-2019.05C892.62,-2037.12 946.14,-2071.24 996,-2091 1001.55,-2093.2 1007.4,-2095.21 1013.33,-2097.05"/>
+<polygon fill="transparent" stroke="transparent" points="1012.76,-2100.53 1023.34,-2099.96 1014.72,-2093.8 1012.76,-2100.53"/>
+</g>
+<!-- proc~mm_abt_2 -->
+<g id="call~~graph~~CallGraph_node49" class="node">
+<title>proc~mm_abt_2</title>
+<g id="a_call~~graph~~CallGraph_node49"><a xlink:href="../proc/mm_abt_2.html" xlink:title="formatmul_opts::mm_ABT_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2082 1002,-2082 1002,-2058 1166,-2058 1166,-2082"/>
+<text text-anchor="middle" x="1084" y="-2067.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_2 -->
+<g id="call~~graph~~CallGraph_edge33" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_2</title>
+<path fill="none" stroke="transparent" d="M889.07,-2019.03C918.63,-2027.68 959.69,-2039.45 996,-2049 1004.21,-2051.16 1012.88,-2053.35 1021.43,-2055.47"/>
+<polygon fill="transparent" stroke="transparent" points="1020.84,-2058.93 1031.39,-2057.91 1022.51,-2052.13 1020.84,-2058.93"/>
+</g>
+<!-- proc~mm_abt_3 -->
+<g id="call~~graph~~CallGraph_node50" class="node">
+<title>proc~mm_abt_3</title>
+<g id="a_call~~graph~~CallGraph_node50"><a xlink:href="../proc/mm_abt_3.html" xlink:title="formatmul_opts::mm_ABT_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-2040 1002,-2040 1002,-2016 1166,-2016 1166,-2040"/>
+<text text-anchor="middle" x="1084" y="-2025.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_3 -->
+<g id="call~~graph~~CallGraph_edge34" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_3</title>
+<path fill="none" stroke="transparent" d="M957.51,-2016.76C968.96,-2017.79 980.51,-2018.82 991.73,-2019.83"/>
+<polygon fill="transparent" stroke="transparent" points="991.65,-2023.33 1001.92,-2020.74 992.28,-2016.36 991.65,-2023.33"/>
+</g>
+<!-- proc~mm_abt_4 -->
+<g id="call~~graph~~CallGraph_node51" class="node">
+<title>proc~mm_abt_4</title>
+<g id="a_call~~graph~~CallGraph_node51"><a xlink:href="../proc/mm_abt_4.html" xlink:title="formatmul_opts::mm_ABT_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-1998 1002,-1998 1002,-1974 1166,-1974 1166,-1998"/>
+<text text-anchor="middle" x="1084" y="-1983.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_4 -->
+<g id="call~~graph~~CallGraph_edge35" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_4</title>
+<path fill="none" stroke="transparent" d="M957.51,-1997.24C968.96,-1996.21 980.51,-1995.18 991.73,-1994.17"/>
+<polygon fill="transparent" stroke="transparent" points="992.28,-1997.64 1001.92,-1993.26 991.65,-1990.67 992.28,-1997.64"/>
+</g>
+<!-- proc~mm_abt_5 -->
+<g id="call~~graph~~CallGraph_node52" class="node">
+<title>proc~mm_abt_5</title>
+<g id="a_call~~graph~~CallGraph_node52"><a xlink:href="../proc/mm_abt_5.html" xlink:title="formatmul_opts::mm_ABT_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-1956 1002,-1956 1002,-1932 1166,-1932 1166,-1956"/>
+<text text-anchor="middle" x="1084" y="-1941.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_5 -->
+<g id="call~~graph~~CallGraph_edge36" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_5</title>
+<path fill="none" stroke="transparent" d="M889.07,-1994.97C918.63,-1986.32 959.69,-1974.55 996,-1965 1004.21,-1962.84 1012.88,-1960.65 1021.43,-1958.53"/>
+<polygon fill="transparent" stroke="transparent" points="1022.51,-1961.87 1031.39,-1956.09 1020.84,-1955.07 1022.51,-1961.87"/>
+</g>
+<!-- proc~mm_abt_6 -->
+<g id="call~~graph~~CallGraph_node53" class="node">
+<title>proc~mm_abt_6</title>
+<g id="a_call~~graph~~CallGraph_node53"><a xlink:href="../proc/mm_abt_6.html" xlink:title="formatmul_opts::mm_ABT_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-1914 1002,-1914 1002,-1890 1166,-1890 1166,-1914"/>
+<text text-anchor="middle" x="1084" y="-1899.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_6 -->
+<g id="call~~graph~~CallGraph_edge37" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_6</title>
+<path fill="none" stroke="transparent" d="M865.85,-1994.95C892.62,-1976.88 946.14,-1942.76 996,-1923 1001.55,-1920.8 1007.4,-1918.79 1013.33,-1916.95"/>
+<polygon fill="transparent" stroke="transparent" points="1014.72,-1920.2 1023.34,-1914.04 1012.76,-1913.47 1014.72,-1920.2"/>
+</g>
+<!-- proc~mm_abt_7 -->
+<g id="call~~graph~~CallGraph_node54" class="node">
+<title>proc~mm_abt_7</title>
+<g id="a_call~~graph~~CallGraph_node54"><a xlink:href="../proc/mm_abt_7.html" xlink:title="formatmul_opts::mm_ABT_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-1872 1002,-1872 1002,-1848 1166,-1848 1166,-1872"/>
+<text text-anchor="middle" x="1084" y="-1857.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_7 -->
+<g id="call~~graph~~CallGraph_edge38" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_7</title>
+<path fill="none" stroke="transparent" d="M858.98,-1994.81C881.41,-1969.52 936.9,-1911.16 996,-1881 1000,-1878.96 1004.21,-1877.11 1008.52,-1875.44"/>
+<polygon fill="transparent" stroke="transparent" points="1009.84,-1878.68 1018.1,-1872.05 1007.51,-1872.08 1009.84,-1878.68"/>
+</g>
+<!-- proc~mm_abt_8 -->
+<g id="call~~graph~~CallGraph_node55" class="node">
+<title>proc~mm_abt_8</title>
+<g id="a_call~~graph~~CallGraph_node55"><a xlink:href="../proc/mm_abt_8.html" xlink:title="formatmul_opts::mm_ABT_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-1830 1002,-1830 1002,-1806 1166,-1806 1166,-1830"/>
+<text text-anchor="middle" x="1084" y="-1815.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_8 -->
+<g id="call~~graph~~CallGraph_edge39" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_8</title>
+<path fill="none" stroke="transparent" d="M855.62,-1994.55C874.28,-1963.13 927.9,-1880.15 996,-1839 999.02,-1837.18 1002.18,-1835.51 1005.45,-1833.99"/>
+<polygon fill="transparent" stroke="transparent" points="1006.97,-1837.15 1014.87,-1830.08 1004.29,-1830.68 1006.97,-1837.15"/>
+</g>
+<!-- proc~mm_abt_9 -->
+<g id="call~~graph~~CallGraph_node56" class="node">
+<title>proc~mm_abt_9</title>
+<g id="a_call~~graph~~CallGraph_node56"><a xlink:href="../proc/mm_abt_9.html" xlink:title="formatmul_opts::mm_ABT_9">
+<polygon fill="#d9534f" stroke="#d9534f" points="1166,-1788 1002,-1788 1002,-1764 1166,-1764 1166,-1788"/>
+<text text-anchor="middle" x="1084" y="-1773.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ABT_9</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_9 -->
+<g id="call~~graph~~CallGraph_edge40" class="edge">
+<title>proc~mat_mat_rel_abt_opt&#45;&gt;proc~mm_abt_9</title>
+<path fill="none" stroke="transparent" d="M853.26,-1994.98C868.24,-1958.77 918.1,-1850.02 996,-1797 998.41,-1795.36 1000.93,-1793.85 1003.54,-1792.45"/>
+<polygon fill="transparent" stroke="transparent" points="1005.12,-1795.58 1012.68,-1788.15 1002.14,-1789.24 1005.12,-1795.58"/>
+</g>
+<!-- proc~mat_mat_rel_atb_opt -->
+<g id="call~~graph~~CallGraph_node21" class="node">
+<title>proc~mat_mat_rel_atb_opt</title>
+<g id="a_call~~graph~~CallGraph_node21"><a xlink:href="../proc/mat_mat_rel_atb_opt.html" xlink:title="formatmul_opts::mat_mat_rel_ATB_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="956.5,-1494 738.5,-1494 738.5,-1470 956.5,-1470 956.5,-1494"/>
+<text text-anchor="middle" x="847.5" y="-1479.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_mat_rel_ATB_opt</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb&#45;&gt;proc~mat_mat_rel_atb_opt -->
+<g id="call~~graph~~CallGraph_edge41" class="edge">
+<title>proc~mat_mat_rel_atb&#45;&gt;proc~mat_mat_rel_atb_opt</title>
+<path fill="none" stroke="transparent" d="M683.78,-1482C698.05,-1482 713.12,-1482 728.1,-1482"/>
+<polygon fill="transparent" stroke="transparent" points="728.44,-1485.5 738.44,-1482 728.44,-1478.5 728.44,-1485.5"/>
+</g>
+<!-- proc~mm_atb_1 -->
+<g id="call~~graph~~CallGraph_node57" class="node">
+<title>proc~mm_atb_1</title>
+<g id="a_call~~graph~~CallGraph_node57"><a xlink:href="../proc/mm_atb_1.html" xlink:title="formatmul_opts::mm_ATB_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1746 1002.5,-1746 1002.5,-1722 1165.5,-1722 1165.5,-1746"/>
+<text text-anchor="middle" x="1084" y="-1731.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_1 -->
+<g id="call~~graph~~CallGraph_edge42" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_1</title>
+<path fill="none" stroke="transparent" d="M852.51,-1494.11C865.95,-1532.74 913.3,-1654 996,-1713 998.24,-1714.59 1000.58,-1716.07 1003,-1717.43"/>
+<polygon fill="transparent" stroke="transparent" points="1001.56,-1720.62 1012.08,-1721.9 1004.65,-1714.34 1001.56,-1720.62"/>
+</g>
+<!-- proc~mm_atb_10 -->
+<g id="call~~graph~~CallGraph_node58" class="node">
+<title>proc~mm_atb_10</title>
+<g id="a_call~~graph~~CallGraph_node58"><a xlink:href="../proc/mm_atb_10.html" xlink:title="formatmul_opts::mm_ATB_10">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-1704 999.5,-1704 999.5,-1680 1168.5,-1680 1168.5,-1704"/>
+<text text-anchor="middle" x="1084" y="-1689.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_10</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_10 -->
+<g id="call~~graph~~CallGraph_edge43" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_10</title>
+<path fill="none" stroke="transparent" d="M854.2,-1494.01C870.84,-1527.72 922.88,-1623.88 996,-1671 998.74,-1672.77 1001.62,-1674.39 1004.59,-1675.87"/>
+<polygon fill="transparent" stroke="transparent" points="1003.2,-1679.08 1013.76,-1679.92 1006.03,-1672.68 1003.2,-1679.08"/>
+</g>
+<!-- proc~mm_atb_11 -->
+<g id="call~~graph~~CallGraph_node59" class="node">
+<title>proc~mm_atb_11</title>
+<g id="a_call~~graph~~CallGraph_node59"><a xlink:href="../proc/mm_atb_11.html" xlink:title="formatmul_opts::mm_ATB_11">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-1662 999.5,-1662 999.5,-1638 1168.5,-1638 1168.5,-1662"/>
+<text text-anchor="middle" x="1084" y="-1647.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_11</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_11 -->
+<g id="call~~graph~~CallGraph_edge44" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_11</title>
+<path fill="none" stroke="transparent" d="M856.91,-1494.1C877.28,-1522.43 932.27,-1593.33 996,-1629 999.48,-1630.95 1003.15,-1632.72 1006.92,-1634.33"/>
+<polygon fill="transparent" stroke="transparent" points="1005.87,-1637.68 1016.46,-1638 1008.38,-1631.14 1005.87,-1637.68"/>
+</g>
+<!-- proc~mm_atb_12 -->
+<g id="call~~graph~~CallGraph_node60" class="node">
+<title>proc~mm_atb_12</title>
+<g id="a_call~~graph~~CallGraph_node60"><a xlink:href="../proc/mm_atb_12.html" xlink:title="formatmul_opts::mm_ATB_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-1620 999.5,-1620 999.5,-1596 1168.5,-1596 1168.5,-1620"/>
+<text text-anchor="middle" x="1084" y="-1605.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_12</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_12 -->
+<g id="call~~graph~~CallGraph_edge45" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_12</title>
+<path fill="none" stroke="transparent" d="M861.63,-1494.05C886.15,-1515.9 941.37,-1562.1 996,-1587 1000.65,-1589.12 1005.55,-1591.04 1010.54,-1592.78"/>
+<polygon fill="transparent" stroke="transparent" points="1009.65,-1596.17 1020.24,-1595.91 1011.8,-1589.51 1009.65,-1596.17"/>
+</g>
+<!-- proc~mm_atb_13 -->
+<g id="call~~graph~~CallGraph_node61" class="node">
+<title>proc~mm_atb_13</title>
+<g id="a_call~~graph~~CallGraph_node61"><a xlink:href="../proc/mm_atb_13.html" xlink:title="formatmul_opts::mm_ATB_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-1578 999.5,-1578 999.5,-1554 1168.5,-1554 1168.5,-1578"/>
+<text text-anchor="middle" x="1084" y="-1563.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_13</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_13 -->
+<g id="call~~graph~~CallGraph_edge46" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_13</title>
+<path fill="none" stroke="transparent" d="M873.32,-1494.12C902.25,-1507.88 951.73,-1530.32 996,-1545 1002.79,-1547.25 1009.96,-1549.38 1017.14,-1551.34"/>
+<polygon fill="transparent" stroke="transparent" points="1016.35,-1554.75 1026.92,-1553.92 1018.14,-1547.98 1016.35,-1554.75"/>
+</g>
+<!-- proc~mm_atb_2 -->
+<g id="call~~graph~~CallGraph_node62" class="node">
+<title>proc~mm_atb_2</title>
+<g id="a_call~~graph~~CallGraph_node62"><a xlink:href="../proc/mm_atb_2.html" xlink:title="formatmul_opts::mm_ATB_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1536 1002.5,-1536 1002.5,-1512 1165.5,-1512 1165.5,-1536"/>
+<text text-anchor="middle" x="1084" y="-1521.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_2 -->
+<g id="call~~graph~~CallGraph_edge47" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_2</title>
+<path fill="none" stroke="transparent" d="M915.7,-1494.04C943.79,-1499.07 976.59,-1504.94 1005.67,-1510.15"/>
+<polygon fill="transparent" stroke="transparent" points="1005.33,-1513.64 1015.79,-1511.96 1006.57,-1506.75 1005.33,-1513.64"/>
+</g>
+<!-- proc~mm_atb_3 -->
+<g id="call~~graph~~CallGraph_node63" class="node">
+<title>proc~mm_atb_3</title>
+<g id="a_call~~graph~~CallGraph_node63"><a xlink:href="../proc/mm_atb_3.html" xlink:title="formatmul_opts::mm_ATB_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1494 1002.5,-1494 1002.5,-1470 1165.5,-1470 1165.5,-1494"/>
+<text text-anchor="middle" x="1084" y="-1479.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_3 -->
+<g id="call~~graph~~CallGraph_edge48" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_3</title>
+<path fill="none" stroke="transparent" d="M956.83,-1482C968.71,-1482 980.71,-1482 992.35,-1482"/>
+<polygon fill="transparent" stroke="transparent" points="992.46,-1485.5 1002.46,-1482 992.46,-1478.5 992.46,-1485.5"/>
+</g>
+<!-- proc~mm_atb_4 -->
+<g id="call~~graph~~CallGraph_node64" class="node">
+<title>proc~mm_atb_4</title>
+<g id="a_call~~graph~~CallGraph_node64"><a xlink:href="../proc/mm_atb_4.html" xlink:title="formatmul_opts::mm_ATB_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1452 1002.5,-1452 1002.5,-1428 1165.5,-1428 1165.5,-1452"/>
+<text text-anchor="middle" x="1084" y="-1437.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_4 -->
+<g id="call~~graph~~CallGraph_edge49" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_4</title>
+<path fill="none" stroke="transparent" d="M915.7,-1469.96C943.79,-1464.93 976.59,-1459.06 1005.67,-1453.85"/>
+<polygon fill="transparent" stroke="transparent" points="1006.57,-1457.25 1015.79,-1452.04 1005.33,-1450.36 1006.57,-1457.25"/>
+</g>
+<!-- proc~mm_atb_5 -->
+<g id="call~~graph~~CallGraph_node65" class="node">
+<title>proc~mm_atb_5</title>
+<g id="a_call~~graph~~CallGraph_node65"><a xlink:href="../proc/mm_atb_5.html" xlink:title="formatmul_opts::mm_ATB_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1410 1002.5,-1410 1002.5,-1386 1165.5,-1386 1165.5,-1410"/>
+<text text-anchor="middle" x="1084" y="-1395.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_5 -->
+<g id="call~~graph~~CallGraph_edge50" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_5</title>
+<path fill="none" stroke="transparent" d="M873.32,-1469.88C902.25,-1456.12 951.73,-1433.68 996,-1419 1002.79,-1416.75 1009.96,-1414.62 1017.14,-1412.66"/>
+<polygon fill="transparent" stroke="transparent" points="1018.14,-1416.02 1026.92,-1410.08 1016.35,-1409.25 1018.14,-1416.02"/>
+</g>
+<!-- proc~mm_atb_6 -->
+<g id="call~~graph~~CallGraph_node66" class="node">
+<title>proc~mm_atb_6</title>
+<g id="a_call~~graph~~CallGraph_node66"><a xlink:href="../proc/mm_atb_6.html" xlink:title="formatmul_opts::mm_ATB_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1368 1002.5,-1368 1002.5,-1344 1165.5,-1344 1165.5,-1368"/>
+<text text-anchor="middle" x="1084" y="-1353.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_6 -->
+<g id="call~~graph~~CallGraph_edge51" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_6</title>
+<path fill="none" stroke="transparent" d="M861.63,-1469.95C886.15,-1448.1 941.37,-1401.9 996,-1377 1000.65,-1374.88 1005.55,-1372.96 1010.54,-1371.22"/>
+<polygon fill="transparent" stroke="transparent" points="1011.8,-1374.49 1020.24,-1368.09 1009.65,-1367.83 1011.8,-1374.49"/>
+</g>
+<!-- proc~mm_atb_7 -->
+<g id="call~~graph~~CallGraph_node67" class="node">
+<title>proc~mm_atb_7</title>
+<g id="a_call~~graph~~CallGraph_node67"><a xlink:href="../proc/mm_atb_7.html" xlink:title="formatmul_opts::mm_ATB_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1326 1002.5,-1326 1002.5,-1302 1165.5,-1302 1165.5,-1326"/>
+<text text-anchor="middle" x="1084" y="-1311.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_7 -->
+<g id="call~~graph~~CallGraph_edge52" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_7</title>
+<path fill="none" stroke="transparent" d="M856.91,-1469.9C877.28,-1441.57 932.27,-1370.67 996,-1335 999.48,-1333.05 1003.15,-1331.28 1006.92,-1329.67"/>
+<polygon fill="transparent" stroke="transparent" points="1008.38,-1332.86 1016.46,-1326 1005.87,-1326.32 1008.38,-1332.86"/>
+</g>
+<!-- proc~mm_atb_8 -->
+<g id="call~~graph~~CallGraph_node68" class="node">
+<title>proc~mm_atb_8</title>
+<g id="a_call~~graph~~CallGraph_node68"><a xlink:href="../proc/mm_atb_8.html" xlink:title="formatmul_opts::mm_ATB_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1284 1002.5,-1284 1002.5,-1260 1165.5,-1260 1165.5,-1284"/>
+<text text-anchor="middle" x="1084" y="-1269.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_8 -->
+<g id="call~~graph~~CallGraph_edge53" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_8</title>
+<path fill="none" stroke="transparent" d="M854.2,-1469.99C870.84,-1436.28 922.88,-1340.12 996,-1293 998.74,-1291.23 1001.62,-1289.61 1004.59,-1288.13"/>
+<polygon fill="transparent" stroke="transparent" points="1006.03,-1291.32 1013.76,-1284.08 1003.2,-1284.92 1006.03,-1291.32"/>
+</g>
+<!-- proc~mm_atb_9 -->
+<g id="call~~graph~~CallGraph_node69" class="node">
+<title>proc~mm_atb_9</title>
+<g id="a_call~~graph~~CallGraph_node69"><a xlink:href="../proc/mm_atb_9.html" xlink:title="formatmul_opts::mm_ATB_9">
+<polygon fill="#d9534f" stroke="#d9534f" points="1165.5,-1242 1002.5,-1242 1002.5,-1218 1165.5,-1218 1165.5,-1242"/>
+<text text-anchor="middle" x="1084" y="-1227.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATB_9</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_9 -->
+<g id="call~~graph~~CallGraph_edge54" class="edge">
+<title>proc~mat_mat_rel_atb_opt&#45;&gt;proc~mm_atb_9</title>
+<path fill="none" stroke="transparent" d="M852.51,-1469.89C865.95,-1431.26 913.3,-1310 996,-1251 998.24,-1249.41 1000.58,-1247.93 1003,-1246.57"/>
+<polygon fill="transparent" stroke="transparent" points="1004.65,-1249.66 1012.08,-1242.1 1001.56,-1243.38 1004.65,-1249.66"/>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt -->
+<g id="call~~graph~~CallGraph_node23" class="node">
+<title>proc~mat_mat_rel_atbt_opt</title>
+<g id="a_call~~graph~~CallGraph_node23"><a xlink:href="../proc/mat_mat_rel_atbt_opt.html" xlink:title="formatmul_opts::mat_mat_rel_ATBT_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="960,-969 735,-969 735,-945 960,-945 960,-969"/>
+<text text-anchor="middle" x="847.5" y="-954.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_mat_rel_ATBT_opt</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt&#45;&gt;proc~mat_mat_rel_atbt_opt -->
+<g id="call~~graph~~CallGraph_edge55" class="edge">
+<title>proc~mat_mat_rel_atbt&#45;&gt;proc~mat_mat_rel_atbt_opt</title>
+<path fill="none" stroke="transparent" d="M613.38,-1175.91C653.55,-1138.18 776.81,-1022.44 825.96,-976.29"/>
+<polygon fill="transparent" stroke="transparent" points="828.56,-978.65 833.45,-969.25 823.77,-973.55 828.56,-978.65"/>
+</g>
+<!-- proc~mm_atbt_1 -->
+<g id="call~~graph~~CallGraph_node70" class="node">
+<title>proc~mm_atbt_1</title>
+<g id="a_call~~graph~~CallGraph_node70"><a xlink:href="../proc/mm_atbt_1.html" xlink:title="formatmul_opts::mm_ATBT_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-1200 999.5,-1200 999.5,-1176 1168.5,-1176 1168.5,-1200"/>
+<text text-anchor="middle" x="1084" y="-1185.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_1 -->
+<g id="call~~graph~~CallGraph_edge56" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_1</title>
+<path fill="none" stroke="transparent" d="M853.26,-969.02C868.24,-1005.23 918.1,-1113.98 996,-1167 998.41,-1168.64 1000.93,-1170.15 1003.54,-1171.55"/>
+<polygon fill="transparent" stroke="transparent" points="1002.14,-1174.76 1012.68,-1175.85 1005.12,-1168.42 1002.14,-1174.76"/>
+</g>
+<!-- proc~mm_atbt_10 -->
+<g id="call~~graph~~CallGraph_node71" class="node">
+<title>proc~mm_atbt_10</title>
+<g id="a_call~~graph~~CallGraph_node71"><a xlink:href="../proc/mm_atbt_10.html" xlink:title="formatmul_opts::mm_ATBT_10">
+<polygon fill="#d9534f" stroke="#d9534f" points="1172,-1158 996,-1158 996,-1134 1172,-1134 1172,-1158"/>
+<text text-anchor="middle" x="1084" y="-1143.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_10</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_10 -->
+<g id="call~~graph~~CallGraph_edge57" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_10</title>
+<path fill="none" stroke="transparent" d="M855.62,-969.45C874.28,-1000.87 927.9,-1083.85 996,-1125 999.02,-1126.82 1002.18,-1128.49 1005.45,-1130.01"/>
+<polygon fill="transparent" stroke="transparent" points="1004.29,-1133.32 1014.87,-1133.92 1006.97,-1126.85 1004.29,-1133.32"/>
+</g>
+<!-- proc~mm_atbt_11 -->
+<g id="call~~graph~~CallGraph_node72" class="node">
+<title>proc~mm_atbt_11</title>
+<g id="a_call~~graph~~CallGraph_node72"><a xlink:href="../proc/mm_atbt_11.html" xlink:title="formatmul_opts::mm_ATBT_11">
+<polygon fill="#d9534f" stroke="#d9534f" points="1172,-1116 996,-1116 996,-1092 1172,-1092 1172,-1116"/>
+<text text-anchor="middle" x="1084" y="-1101.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_11</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_11 -->
+<g id="call~~graph~~CallGraph_edge58" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_11</title>
+<path fill="none" stroke="transparent" d="M858.98,-969.19C881.41,-994.48 936.9,-1052.84 996,-1083 1000,-1085.04 1004.21,-1086.89 1008.52,-1088.56"/>
+<polygon fill="transparent" stroke="transparent" points="1007.51,-1091.92 1018.1,-1091.95 1009.84,-1085.32 1007.51,-1091.92"/>
+</g>
+<!-- proc~mm_atbt_12 -->
+<g id="call~~graph~~CallGraph_node73" class="node">
+<title>proc~mm_atbt_12</title>
+<g id="a_call~~graph~~CallGraph_node73"><a xlink:href="../proc/mm_atbt_12.html" xlink:title="formatmul_opts::mm_ATBT_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="1172,-1074 996,-1074 996,-1050 1172,-1050 1172,-1074"/>
+<text text-anchor="middle" x="1084" y="-1059.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_12</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_12 -->
+<g id="call~~graph~~CallGraph_edge59" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_12</title>
+<path fill="none" stroke="transparent" d="M865.85,-969.05C892.62,-987.12 946.14,-1021.24 996,-1041 1001.55,-1043.2 1007.4,-1045.21 1013.33,-1047.05"/>
+<polygon fill="transparent" stroke="transparent" points="1012.76,-1050.53 1023.34,-1049.96 1014.72,-1043.8 1012.76,-1050.53"/>
+</g>
+<!-- proc~mm_atbt_13 -->
+<g id="call~~graph~~CallGraph_node74" class="node">
+<title>proc~mm_atbt_13</title>
+<g id="a_call~~graph~~CallGraph_node74"><a xlink:href="../proc/mm_atbt_13.html" xlink:title="formatmul_opts::mm_ATBT_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="1172,-1032 996,-1032 996,-1008 1172,-1008 1172,-1032"/>
+<text text-anchor="middle" x="1084" y="-1017.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_13</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_13 -->
+<g id="call~~graph~~CallGraph_edge60" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_13</title>
+<path fill="none" stroke="transparent" d="M889.07,-969.03C918.63,-977.68 959.69,-989.45 996,-999 1004.21,-1001.16 1012.88,-1003.35 1021.43,-1005.47"/>
+<polygon fill="transparent" stroke="transparent" points="1020.84,-1008.93 1031.39,-1007.91 1022.51,-1002.13 1020.84,-1008.93"/>
+</g>
+<!-- proc~mm_atbt_2 -->
+<g id="call~~graph~~CallGraph_node75" class="node">
+<title>proc~mm_atbt_2</title>
+<g id="a_call~~graph~~CallGraph_node75"><a xlink:href="../proc/mm_atbt_2.html" xlink:title="formatmul_opts::mm_ATBT_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-990 999.5,-990 999.5,-966 1168.5,-966 1168.5,-990"/>
+<text text-anchor="middle" x="1084" y="-975.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_2 -->
+<g id="call~~graph~~CallGraph_edge61" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_2</title>
+<path fill="none" stroke="transparent" d="M960.26,-967.01C969.96,-967.88 979.71,-968.75 989.25,-969.6"/>
+<polygon fill="transparent" stroke="transparent" points="989.23,-973.12 999.5,-970.52 989.85,-966.14 989.23,-973.12"/>
+</g>
+<!-- proc~mm_atbt_3 -->
+<g id="call~~graph~~CallGraph_node76" class="node">
+<title>proc~mm_atbt_3</title>
+<g id="a_call~~graph~~CallGraph_node76"><a xlink:href="../proc/mm_atbt_3.html" xlink:title="formatmul_opts::mm_ATBT_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-948 999.5,-948 999.5,-924 1168.5,-924 1168.5,-948"/>
+<text text-anchor="middle" x="1084" y="-933.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_3 -->
+<g id="call~~graph~~CallGraph_edge62" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_3</title>
+<path fill="none" stroke="transparent" d="M960.26,-946.99C969.96,-946.12 979.71,-945.25 989.25,-944.4"/>
+<polygon fill="transparent" stroke="transparent" points="989.85,-947.86 999.5,-943.48 989.23,-940.88 989.85,-947.86"/>
+</g>
+<!-- proc~mm_atbt_4 -->
+<g id="call~~graph~~CallGraph_node77" class="node">
+<title>proc~mm_atbt_4</title>
+<g id="a_call~~graph~~CallGraph_node77"><a xlink:href="../proc/mm_atbt_4.html" xlink:title="formatmul_opts::mm_ATBT_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-906 999.5,-906 999.5,-882 1168.5,-882 1168.5,-906"/>
+<text text-anchor="middle" x="1084" y="-891.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_4 -->
+<g id="call~~graph~~CallGraph_edge63" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_4</title>
+<path fill="none" stroke="transparent" d="M889.07,-944.97C918.63,-936.32 959.69,-924.55 996,-915 1004.21,-912.84 1012.88,-910.65 1021.43,-908.53"/>
+<polygon fill="transparent" stroke="transparent" points="1022.51,-911.87 1031.39,-906.09 1020.84,-905.07 1022.51,-911.87"/>
+</g>
+<!-- proc~mm_atbt_5 -->
+<g id="call~~graph~~CallGraph_node78" class="node">
+<title>proc~mm_atbt_5</title>
+<g id="a_call~~graph~~CallGraph_node78"><a xlink:href="../proc/mm_atbt_5.html" xlink:title="formatmul_opts::mm_ATBT_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-864 999.5,-864 999.5,-840 1168.5,-840 1168.5,-864"/>
+<text text-anchor="middle" x="1084" y="-849.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_5 -->
+<g id="call~~graph~~CallGraph_edge64" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_5</title>
+<path fill="none" stroke="transparent" d="M865.85,-944.95C892.62,-926.88 946.14,-892.76 996,-873 1001.55,-870.8 1007.4,-868.79 1013.33,-866.95"/>
+<polygon fill="transparent" stroke="transparent" points="1014.72,-870.2 1023.34,-864.04 1012.76,-863.47 1014.72,-870.2"/>
+</g>
+<!-- proc~mm_atbt_6 -->
+<g id="call~~graph~~CallGraph_node79" class="node">
+<title>proc~mm_atbt_6</title>
+<g id="a_call~~graph~~CallGraph_node79"><a xlink:href="../proc/mm_atbt_6.html" xlink:title="formatmul_opts::mm_ATBT_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-822 999.5,-822 999.5,-798 1168.5,-798 1168.5,-822"/>
+<text text-anchor="middle" x="1084" y="-807.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_6 -->
+<g id="call~~graph~~CallGraph_edge65" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_6</title>
+<path fill="none" stroke="transparent" d="M858.98,-944.81C881.41,-919.52 936.9,-861.16 996,-831 1000,-828.96 1004.21,-827.11 1008.52,-825.44"/>
+<polygon fill="transparent" stroke="transparent" points="1009.84,-828.68 1018.1,-822.05 1007.51,-822.08 1009.84,-828.68"/>
+</g>
+<!-- proc~mm_atbt_7 -->
+<g id="call~~graph~~CallGraph_node80" class="node">
+<title>proc~mm_atbt_7</title>
+<g id="a_call~~graph~~CallGraph_node80"><a xlink:href="../proc/mm_atbt_7.html" xlink:title="formatmul_opts::mm_ATBT_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-780 999.5,-780 999.5,-756 1168.5,-756 1168.5,-780"/>
+<text text-anchor="middle" x="1084" y="-765.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_7 -->
+<g id="call~~graph~~CallGraph_edge66" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_7</title>
+<path fill="none" stroke="transparent" d="M855.62,-944.55C874.28,-913.13 927.9,-830.15 996,-789 999.02,-787.18 1002.18,-785.51 1005.45,-783.99"/>
+<polygon fill="transparent" stroke="transparent" points="1006.97,-787.15 1014.87,-780.08 1004.29,-780.68 1006.97,-787.15"/>
+</g>
+<!-- proc~mm_atbt_8 -->
+<g id="call~~graph~~CallGraph_node81" class="node">
+<title>proc~mm_atbt_8</title>
+<g id="a_call~~graph~~CallGraph_node81"><a xlink:href="../proc/mm_atbt_8.html" xlink:title="formatmul_opts::mm_ATBT_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-738 999.5,-738 999.5,-714 1168.5,-714 1168.5,-738"/>
+<text text-anchor="middle" x="1084" y="-723.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_8 -->
+<g id="call~~graph~~CallGraph_edge67" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_8</title>
+<path fill="none" stroke="transparent" d="M853.26,-944.98C868.24,-908.77 918.1,-800.02 996,-747 998.41,-745.36 1000.93,-743.85 1003.54,-742.45"/>
+<polygon fill="transparent" stroke="transparent" points="1005.12,-745.58 1012.68,-738.15 1002.14,-739.24 1005.12,-745.58"/>
+</g>
+<!-- proc~mm_atbt_9 -->
+<g id="call~~graph~~CallGraph_node82" class="node">
+<title>proc~mm_atbt_9</title>
+<g id="a_call~~graph~~CallGraph_node82"><a xlink:href="../proc/mm_atbt_9.html" xlink:title="formatmul_opts::mm_ATBT_9">
+<polygon fill="#d9534f" stroke="#d9534f" points="1168.5,-696 999.5,-696 999.5,-672 1168.5,-672 1168.5,-696"/>
+<text text-anchor="middle" x="1084" y="-681.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_ATBT_9</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_9 -->
+<g id="call~~graph~~CallGraph_edge68" class="edge">
+<title>proc~mat_mat_rel_atbt_opt&#45;&gt;proc~mm_atbt_9</title>
+<path fill="none" stroke="transparent" d="M851.82,-944.97C863.73,-904.19 908.31,-770.16 996,-705 998.07,-703.46 1000.24,-702.03 1002.49,-700.7"/>
+<polygon fill="transparent" stroke="transparent" points="1004.19,-703.77 1011.49,-696.09 1001,-697.54 1004.19,-703.77"/>
+</g>
+<!-- proc~mat_vec_block_rel&#45;&gt;proc~compute_block_ranges -->
+<g id="call~~graph~~CallGraph_edge69" class="edge">
+<title>proc~mat_vec_block_rel&#45;&gt;proc~compute_block_ranges</title>
+<path fill="none" stroke="transparent" d="M435.84,-1578.04C463.14,-1583.07 495.04,-1588.94 523.32,-1594.15"/>
+<polygon fill="transparent" stroke="transparent" points="522.69,-1597.59 533.15,-1595.96 523.95,-1590.71 522.69,-1597.59"/>
+</g>
+<!-- proc~mat_vec_coarray_rel&#45;&gt;proc~compute_block_ranges -->
+<g id="call~~graph~~CallGraph_edge70" class="edge">
+<title>proc~mat_vec_coarray_rel&#45;&gt;proc~compute_block_ranges</title>
+<path fill="none" stroke="transparent" d="M445.2,-1536.12C451.78,-1538.56 458.15,-1541.48 464,-1545 485.07,-1557.67 478.86,-1574.44 500,-1587 503.06,-1588.82 506.26,-1590.48 509.55,-1592"/>
+<polygon fill="transparent" stroke="transparent" points="508.47,-1595.34 519.05,-1595.92 511.14,-1588.87 508.47,-1595.34"/>
+</g>
+<!-- proc~mat_vec_rel_atv -->
+<g id="call~~graph~~CallGraph_node27" class="node">
+<title>proc~mat_vec_rel_atv</title>
+<g id="a_call~~graph~~CallGraph_node27"><a xlink:href="../proc/mat_vec_rel_atv.html" xlink:title="formatmul::mat_vec_rel_ATv">
+<polygon fill="#d9534f" stroke="#d9534f" points="681.5,-507 517.5,-507 517.5,-483 681.5,-483 681.5,-507"/>
+<text text-anchor="middle" x="599.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_rel_ATv</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_atv -->
+<g id="call~~graph~~CallGraph_edge71" class="edge">
+<title>proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_atv</title>
+<path fill="none" stroke="transparent" d="M439.53,-495C460.78,-495 484.52,-495 507.04,-495"/>
+<polygon fill="transparent" stroke="transparent" points="507.28,-498.5 517.28,-495 507.28,-491.5 507.28,-498.5"/>
+</g>
+<!-- proc~mat_vec_rel_av -->
+<g id="call~~graph~~CallGraph_node29" class="node">
+<title>proc~mat_vec_rel_av</title>
+<g id="a_call~~graph~~CallGraph_node29"><a xlink:href="../proc/mat_vec_rel_av.html" xlink:title="formatmul::mat_vec_rel_Av">
+<polygon fill="#d9534f" stroke="#d9534f" points="678.5,-318 520.5,-318 520.5,-294 678.5,-294 678.5,-318"/>
+<text text-anchor="middle" x="599.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_rel_Av</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_av -->
+<g id="call~~graph~~CallGraph_edge72" class="edge">
+<title>proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_av</title>
+<path fill="none" stroke="transparent" d="M385.11,-482.89C423.88,-450.75 529.56,-363.14 576.05,-324.61"/>
+<polygon fill="transparent" stroke="transparent" points="578.55,-327.09 584.01,-318.01 574.08,-321.7 578.55,-327.09"/>
+</g>
+<!-- proc~mat_vec_rel_atv_opt -->
+<g id="call~~graph~~CallGraph_node28" class="node">
+<title>proc~mat_vec_rel_atv_opt</title>
+<g id="a_call~~graph~~CallGraph_node28"><a xlink:href="../proc/mat_vec_rel_atv_opt.html" xlink:title="formatmul_opts::mat_vec_rel_ATv_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="954.5,-507 740.5,-507 740.5,-483 954.5,-483 954.5,-507"/>
+<text text-anchor="middle" x="847.5" y="-492.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_vec_rel_ATv_opt</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv&#45;&gt;proc~mat_vec_rel_atv_opt -->
+<g id="call~~graph~~CallGraph_edge73" class="edge">
+<title>proc~mat_vec_rel_atv&#45;&gt;proc~mat_vec_rel_atv_opt</title>
+<path fill="none" stroke="transparent" d="M681.73,-495C697.26,-495 713.8,-495 730.18,-495"/>
+<polygon fill="transparent" stroke="transparent" points="730.35,-498.5 740.35,-495 730.35,-491.5 730.35,-498.5"/>
+</g>
+<!-- proc~mv_atv_1 -->
+<g id="call~~graph~~CallGraph_node83" class="node">
+<title>proc~mv_atv_1</title>
+<g id="a_call~~graph~~CallGraph_node83"><a xlink:href="../proc/mv_atv_1.html" xlink:title="formatmul_opts::mv_ATv_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-654 1005.5,-654 1005.5,-630 1162.5,-630 1162.5,-654"/>
+<text text-anchor="middle" x="1084" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_1 -->
 <g id="call~~graph~~CallGraph_edge74" class="edge">
-<title>program~example8&#45;&gt;timer_stop</title>
-<path fill="none" stroke="#255034" d="M820.67,-1061.55C846.06,-1060.03 881.95,-1055.23 910,-1041 970.55,-1010.28 1023.09,-947.41 1047.67,-914.74"/>
-<polygon fill="#255034" stroke="#255034" points="1050.72,-916.5 1053.85,-906.38 1045.09,-912.34 1050.72,-916.5"/>
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_1</title>
+<path fill="none" stroke="transparent" d="M858.98,-507.19C881.41,-532.48 936.9,-590.84 996,-621 1000,-623.04 1004.21,-624.89 1008.52,-626.56"/>
+<polygon fill="transparent" stroke="transparent" points="1007.51,-629.92 1018.1,-629.95 1009.84,-623.32 1007.51,-629.92"/>
+</g>
+<!-- proc~mv_atv_2 -->
+<g id="call~~graph~~CallGraph_node84" class="node">
+<title>proc~mv_atv_2</title>
+<g id="a_call~~graph~~CallGraph_node84"><a xlink:href="../proc/mv_atv_2.html" xlink:title="formatmul_opts::mv_ATv_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-612 1005.5,-612 1005.5,-588 1162.5,-588 1162.5,-612"/>
+<text text-anchor="middle" x="1084" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_2 -->
+<g id="call~~graph~~CallGraph_edge75" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_2</title>
+<path fill="none" stroke="transparent" d="M865.85,-507.05C892.62,-525.12 946.14,-559.24 996,-579 1001.55,-581.2 1007.4,-583.21 1013.33,-585.05"/>
+<polygon fill="transparent" stroke="transparent" points="1012.76,-588.53 1023.34,-587.96 1014.72,-581.8 1012.76,-588.53"/>
+</g>
+<!-- proc~mv_atv_3 -->
+<g id="call~~graph~~CallGraph_node85" class="node">
+<title>proc~mv_atv_3</title>
+<g id="a_call~~graph~~CallGraph_node85"><a xlink:href="../proc/mv_atv_3.html" xlink:title="formatmul_opts::mv_ATv_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-570 1005.5,-570 1005.5,-546 1162.5,-546 1162.5,-570"/>
+<text text-anchor="middle" x="1084" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_3 -->
+<g id="call~~graph~~CallGraph_edge76" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_3</title>
+<path fill="none" stroke="transparent" d="M889.07,-507.03C918.63,-515.68 959.69,-527.45 996,-537 1004.21,-539.16 1012.88,-541.35 1021.43,-543.47"/>
+<polygon fill="transparent" stroke="transparent" points="1020.84,-546.93 1031.39,-545.91 1022.51,-540.13 1020.84,-546.93"/>
+</g>
+<!-- proc~mv_atv_4 -->
+<g id="call~~graph~~CallGraph_node86" class="node">
+<title>proc~mv_atv_4</title>
+<g id="a_call~~graph~~CallGraph_node86"><a xlink:href="../proc/mv_atv_4.html" xlink:title="formatmul_opts::mv_ATv_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-528 1005.5,-528 1005.5,-504 1162.5,-504 1162.5,-528"/>
+<text text-anchor="middle" x="1084" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_4 -->
+<g id="call~~graph~~CallGraph_edge77" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_4</title>
+<path fill="none" stroke="transparent" d="M954.77,-504.52C968.29,-505.73 982.01,-506.96 995.19,-508.14"/>
+<polygon fill="transparent" stroke="transparent" points="994.89,-511.62 1005.16,-509.03 995.51,-504.65 994.89,-511.62"/>
+</g>
+<!-- proc~mv_atv_5 -->
+<g id="call~~graph~~CallGraph_node87" class="node">
+<title>proc~mv_atv_5</title>
+<g id="a_call~~graph~~CallGraph_node87"><a xlink:href="../proc/mv_atv_5.html" xlink:title="formatmul_opts::mv_ATv_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-486 1005.5,-486 1005.5,-462 1162.5,-462 1162.5,-486"/>
+<text text-anchor="middle" x="1084" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_5 -->
+<g id="call~~graph~~CallGraph_edge78" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_5</title>
+<path fill="none" stroke="transparent" d="M954.77,-485.48C968.29,-484.27 982.01,-483.04 995.19,-481.86"/>
+<polygon fill="transparent" stroke="transparent" points="995.51,-485.35 1005.16,-480.97 994.89,-478.38 995.51,-485.35"/>
+</g>
+<!-- proc~mv_atv_6 -->
+<g id="call~~graph~~CallGraph_node88" class="node">
+<title>proc~mv_atv_6</title>
+<g id="a_call~~graph~~CallGraph_node88"><a xlink:href="../proc/mv_atv_6.html" xlink:title="formatmul_opts::mv_ATv_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-444 1005.5,-444 1005.5,-420 1162.5,-420 1162.5,-444"/>
+<text text-anchor="middle" x="1084" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_6 -->
+<g id="call~~graph~~CallGraph_edge79" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_6</title>
+<path fill="none" stroke="transparent" d="M889.07,-482.97C918.63,-474.32 959.69,-462.55 996,-453 1004.21,-450.84 1012.88,-448.65 1021.43,-446.53"/>
+<polygon fill="transparent" stroke="transparent" points="1022.51,-449.87 1031.39,-444.09 1020.84,-443.07 1022.51,-449.87"/>
+</g>
+<!-- proc~mv_atv_7 -->
+<g id="call~~graph~~CallGraph_node89" class="node">
+<title>proc~mv_atv_7</title>
+<g id="a_call~~graph~~CallGraph_node89"><a xlink:href="../proc/mv_atv_7.html" xlink:title="formatmul_opts::mv_ATv_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-402 1005.5,-402 1005.5,-378 1162.5,-378 1162.5,-402"/>
+<text text-anchor="middle" x="1084" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_7 -->
+<g id="call~~graph~~CallGraph_edge80" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_7</title>
+<path fill="none" stroke="transparent" d="M865.85,-482.95C892.62,-464.88 946.14,-430.76 996,-411 1001.55,-408.8 1007.4,-406.79 1013.33,-404.95"/>
+<polygon fill="transparent" stroke="transparent" points="1014.72,-408.2 1023.34,-402.04 1012.76,-401.47 1014.72,-408.2"/>
+</g>
+<!-- proc~mv_atv_8 -->
+<g id="call~~graph~~CallGraph_node90" class="node">
+<title>proc~mv_atv_8</title>
+<g id="a_call~~graph~~CallGraph_node90"><a xlink:href="../proc/mv_atv_8.html" xlink:title="formatmul_opts::mv_ATv_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="1162.5,-360 1005.5,-360 1005.5,-336 1162.5,-336 1162.5,-360"/>
+<text text-anchor="middle" x="1084" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_8 -->
+<g id="call~~graph~~CallGraph_edge81" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_8</title>
+<path fill="none" stroke="transparent" d="M858.98,-482.81C881.41,-457.52 936.9,-399.16 996,-369 1000,-366.96 1004.21,-365.11 1008.52,-363.44"/>
+<polygon fill="transparent" stroke="transparent" points="1009.84,-366.68 1018.1,-360.05 1007.51,-360.08 1009.84,-366.68"/>
+</g>
+<!-- proc~mat_vec_rel_av_opt -->
+<g id="call~~graph~~CallGraph_node30" class="node">
+<title>proc~mat_vec_rel_av_opt</title>
+<g id="a_call~~graph~~CallGraph_node30"><a xlink:href="../proc/mat_vec_rel_av_opt.html" xlink:title="formatmul_opts::mat_vec_rel_Av_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="951.5,-192 743.5,-192 743.5,-168 951.5,-168 951.5,-192"/>
+<text text-anchor="middle" x="847.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_vec_rel_Av_opt</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av&#45;&gt;proc~mat_vec_rel_av_opt -->
+<g id="call~~graph~~CallGraph_edge82" class="edge">
+<title>proc~mat_vec_rel_av&#45;&gt;proc~mat_vec_rel_av_opt</title>
+<path fill="none" stroke="transparent" d="M624.09,-293.92C668.26,-271.29 763.53,-222.5 813.84,-196.73"/>
+<polygon fill="transparent" stroke="transparent" points="815.68,-199.72 822.98,-192.04 812.49,-193.49 815.68,-199.72"/>
+</g>
+<!-- proc~mv_av_1 -->
+<g id="call~~graph~~CallGraph_node91" class="node">
+<title>proc~mv_av_1</title>
+<g id="a_call~~graph~~CallGraph_node91"><a xlink:href="../proc/mv_av_1.html" xlink:title="formatmul_opts::mv_Av_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-318 1008.5,-318 1008.5,-294 1159.5,-294 1159.5,-318"/>
+<text text-anchor="middle" x="1084" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_1 -->
+<g id="call~~graph~~CallGraph_edge83" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_1</title>
+<path fill="none" stroke="transparent" d="M861.63,-192.05C886.15,-213.9 941.37,-260.1 996,-285 1000.65,-287.12 1005.55,-289.04 1010.54,-290.78"/>
+<polygon fill="transparent" stroke="transparent" points="1009.65,-294.17 1020.24,-293.91 1011.8,-287.51 1009.65,-294.17"/>
+</g>
+<!-- proc~mv_av_2 -->
+<g id="call~~graph~~CallGraph_node92" class="node">
+<title>proc~mv_av_2</title>
+<g id="a_call~~graph~~CallGraph_node92"><a xlink:href="../proc/mv_av_2.html" xlink:title="formatmul_opts::mv_Av_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-276 1008.5,-276 1008.5,-252 1159.5,-252 1159.5,-276"/>
+<text text-anchor="middle" x="1084" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_2 -->
+<g id="call~~graph~~CallGraph_edge84" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_2</title>
+<path fill="none" stroke="transparent" d="M873.32,-192.12C902.25,-205.88 951.73,-228.32 996,-243 1002.79,-245.25 1009.96,-247.38 1017.14,-249.34"/>
+<polygon fill="transparent" stroke="transparent" points="1016.35,-252.75 1026.92,-251.92 1018.14,-245.98 1016.35,-252.75"/>
+</g>
+<!-- proc~mv_av_3 -->
+<g id="call~~graph~~CallGraph_node93" class="node">
+<title>proc~mv_av_3</title>
+<g id="a_call~~graph~~CallGraph_node93"><a xlink:href="../proc/mv_av_3.html" xlink:title="formatmul_opts::mv_Av_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-234 1008.5,-234 1008.5,-210 1159.5,-210 1159.5,-234"/>
+<text text-anchor="middle" x="1084" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_3 -->
+<g id="call~~graph~~CallGraph_edge85" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_3</title>
+<path fill="none" stroke="transparent" d="M915.7,-192.04C943.79,-197.07 976.59,-202.94 1005.67,-208.15"/>
+<polygon fill="transparent" stroke="transparent" points="1005.33,-211.64 1015.79,-209.96 1006.57,-204.75 1005.33,-211.64"/>
+</g>
+<!-- proc~mv_av_4 -->
+<g id="call~~graph~~CallGraph_node94" class="node">
+<title>proc~mv_av_4</title>
+<g id="a_call~~graph~~CallGraph_node94"><a xlink:href="../proc/mv_av_4.html" xlink:title="formatmul_opts::mv_Av_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-192 1008.5,-192 1008.5,-168 1159.5,-168 1159.5,-192"/>
+<text text-anchor="middle" x="1084" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_4 -->
+<g id="call~~graph~~CallGraph_edge86" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_4</title>
+<path fill="none" stroke="transparent" d="M951.7,-180C967.17,-180 982.98,-180 998.02,-180"/>
+<polygon fill="transparent" stroke="transparent" points="998.29,-183.5 1008.29,-180 998.29,-176.5 998.29,-183.5"/>
+</g>
+<!-- proc~mv_av_5 -->
+<g id="call~~graph~~CallGraph_node95" class="node">
+<title>proc~mv_av_5</title>
+<g id="a_call~~graph~~CallGraph_node95"><a xlink:href="../proc/mv_av_5.html" xlink:title="formatmul_opts::mv_Av_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-150 1008.5,-150 1008.5,-126 1159.5,-126 1159.5,-150"/>
+<text text-anchor="middle" x="1084" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_5 -->
+<g id="call~~graph~~CallGraph_edge87" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_5</title>
+<path fill="none" stroke="transparent" d="M915.7,-167.96C943.79,-162.93 976.59,-157.06 1005.67,-151.85"/>
+<polygon fill="transparent" stroke="transparent" points="1006.57,-155.25 1015.79,-150.04 1005.33,-148.36 1006.57,-155.25"/>
+</g>
+<!-- proc~mv_av_6 -->
+<g id="call~~graph~~CallGraph_node96" class="node">
+<title>proc~mv_av_6</title>
+<g id="a_call~~graph~~CallGraph_node96"><a xlink:href="../proc/mv_av_6.html" xlink:title="formatmul_opts::mv_Av_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-108 1008.5,-108 1008.5,-84 1159.5,-84 1159.5,-108"/>
+<text text-anchor="middle" x="1084" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_6 -->
+<g id="call~~graph~~CallGraph_edge88" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_6</title>
+<path fill="none" stroke="transparent" d="M873.32,-167.88C902.25,-154.12 951.73,-131.68 996,-117 1002.79,-114.75 1009.96,-112.62 1017.14,-110.66"/>
+<polygon fill="transparent" stroke="transparent" points="1018.14,-114.02 1026.92,-108.08 1016.35,-107.25 1018.14,-114.02"/>
+</g>
+<!-- proc~mv_av_7 -->
+<g id="call~~graph~~CallGraph_node97" class="node">
+<title>proc~mv_av_7</title>
+<g id="a_call~~graph~~CallGraph_node97"><a xlink:href="../proc/mv_av_7.html" xlink:title="formatmul_opts::mv_Av_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-66 1008.5,-66 1008.5,-42 1159.5,-42 1159.5,-66"/>
+<text text-anchor="middle" x="1084" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_7 -->
+<g id="call~~graph~~CallGraph_edge89" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_7</title>
+<path fill="none" stroke="transparent" d="M861.63,-167.95C886.15,-146.1 941.37,-99.9 996,-75 1000.65,-72.88 1005.55,-70.96 1010.54,-69.22"/>
+<polygon fill="transparent" stroke="transparent" points="1011.8,-72.49 1020.24,-66.09 1009.65,-65.83 1011.8,-72.49"/>
+</g>
+<!-- proc~mv_av_8 -->
+<g id="call~~graph~~CallGraph_node98" class="node">
+<title>proc~mv_av_8</title>
+<g id="a_call~~graph~~CallGraph_node98"><a xlink:href="../proc/mv_av_8.html" xlink:title="formatmul_opts::mv_Av_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="1159.5,-24 1008.5,-24 1008.5,0 1159.5,0 1159.5,-24"/>
+<text text-anchor="middle" x="1084" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_8 -->
+<g id="call~~graph~~CallGraph_edge90" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_8</title>
+<path fill="none" stroke="transparent" d="M856.91,-167.9C877.28,-139.57 932.27,-68.67 996,-33 999.48,-31.05 1003.15,-29.28 1006.92,-27.67"/>
+<polygon fill="transparent" stroke="transparent" points="1008.38,-30.86 1016.46,-24 1005.87,-24.32 1008.38,-30.86"/>
+</g>
+<!-- proc~mm_ab_2&#45;&gt;interface~gemm -->
+<g id="call~~graph~~CallGraph_edge91" class="edge">
+<title>proc~mm_ab_2&#45;&gt;interface~gemm</title>
+<path fill="none" stroke="#272550" d="M1161.37,-2603.86C1165.27,-2601.38 1168.87,-2598.45 1172,-2595 1279.24,-2476.98 1285.49,-1936.61 1285.57,-1819.45"/>
+<polygon fill="#272550" stroke="#272550" points="1289.07,-1819.18 1285.56,-1809.19 1282.07,-1819.19 1289.07,-1819.18"/>
+</g>
+<!-- proc~mm_abt_2&#45;&gt;interface~gemm -->
+<g id="call~~graph~~CallGraph_edge92" class="edge">
+<title>proc~mm_abt_2&#45;&gt;interface~gemm</title>
+<path fill="none" stroke="#025515" stroke-opacity="0.003922" d="M1158.21,-2057.83C1163.15,-2055.39 1167.81,-2052.47 1172,-2049 1245.83,-1987.79 1273.56,-1868.53 1282.17,-1819.19"/>
+<polygon fill="#025515" fill-opacity="0.003922" stroke="#025515" stroke-opacity="0.003922" points="1285.64,-1819.69 1283.81,-1809.25 1278.73,-1818.55 1285.64,-1819.69"/>
+</g>
+<!-- proc~mm_atb_2&#45;&gt;interface~gemm -->
+<g id="call~~graph~~CallGraph_edge93" class="edge">
+<title>proc~mm_atb_2&#45;&gt;interface~gemm</title>
+<path fill="none" stroke="#017925" stroke-opacity="0.019608" d="M1158.21,-1536.17C1163.15,-1538.61 1167.81,-1541.53 1172,-1545 1245.83,-1606.21 1273.56,-1725.47 1282.17,-1774.81"/>
+<polygon fill="#017925" fill-opacity="0.019608" stroke="#017925" stroke-opacity="0.019608" points="1278.73,-1775.45 1283.81,-1784.75 1285.64,-1774.31 1278.73,-1775.45"/>
+</g>
+<!-- proc~mm_atbt_2&#45;&gt;interface~gemm -->
+<g id="call~~graph~~CallGraph_edge94" class="edge">
+<title>proc~mm_atbt_2&#45;&gt;interface~gemm</title>
+<path fill="none" stroke="#002505" d="M1161.37,-990.14C1165.27,-992.62 1168.87,-995.55 1172,-999 1279.24,-1117.02 1285.49,-1657.39 1285.57,-1774.55"/>
+<polygon fill="#002505" stroke="#002505" points="1282.07,-1774.81 1285.56,-1784.81 1289.07,-1774.82 1282.07,-1774.81"/>
+</g>
+<!-- proc~mv_atv_2&#45;&gt;interface~gemv -->
+<g id="call~~graph~~CallGraph_edge95" class="edge">
+<title>proc~mv_atv_2&#45;&gt;interface~gemv</title>
+<path fill="none" stroke="#124025" stroke-opacity="0.019608" d="M1154.26,-587.95C1160.5,-585.5 1166.52,-582.55 1172,-579 1221.53,-546.9 1258.26,-485.54 1275.17,-453.18"/>
+<polygon fill="#124025" fill-opacity="0.019608" stroke="#124025" stroke-opacity="0.019608" points="1278.36,-454.63 1279.78,-444.13 1272.12,-451.46 1278.36,-454.63"/>
+</g>
+<!-- proc~mv_av_2&#45;&gt;interface~gemv -->
+<g id="call~~graph~~CallGraph_edge96" class="edge">
+<title>proc~mv_av_2&#45;&gt;interface~gemv</title>
+<path fill="none" stroke="#234025" stroke-opacity="0.019608" d="M1154.26,-276.05C1160.5,-278.5 1166.52,-281.45 1172,-285 1221.53,-317.1 1258.26,-378.46 1275.17,-410.82"/>
+<polygon fill="#234025" fill-opacity="0.019608" stroke="#234025" stroke-opacity="0.019608" points="1272.12,-412.54 1279.78,-419.87 1278.36,-409.37 1272.12,-412.54"/>
+</g>
+<!-- program~test_matmul10 -->
+<g id="call~~graph~~CallGraph_node99" class="node">
+<title>program~test_matmul10</title>
+<g id="a_call~~graph~~CallGraph_node99"><a xlink:href="../program/test_matmul10.html" xlink:title="test_matmul10">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="165.5,-2439 73.5,-2439 73.5,-2415 165.5,-2415 165.5,-2439"/>
+<text text-anchor="middle" x="119.5" y="-2424.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul10</text>
+</a>
+</g>
+</g>
+<!-- check -->
+<g id="call~~graph~~CallGraph_node112" class="node">
+<title>check</title>
+<polygon fill="#777777" stroke="#777777" points="396.5,-2187 342.5,-2187 342.5,-2163 396.5,-2163 396.5,-2187"/>
+<text text-anchor="middle" x="369.5" y="-2172.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">check</text>
+</g>
+<!-- program~test_matmul10&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge97" class="edge">
+<title>program~test_matmul10&#45;&gt;check</title>
+<path fill="none" stroke="#255017" stroke-opacity="0.035294" d="M165.68,-2427.97C189.42,-2426.4 217.88,-2421 239,-2406 313.42,-2353.14 350.3,-2243.34 363.1,-2196.7"/>
+<polygon fill="#255017" fill-opacity="0.035294" stroke="#255017" stroke-opacity="0.035294" points="366.49,-2197.57 365.66,-2187.01 359.72,-2195.79 366.49,-2197.57"/>
+</g>
+<!-- program~test_matmul11 -->
+<g id="call~~graph~~CallGraph_node100" class="node">
+<title>program~test_matmul11</title>
+<g id="a_call~~graph~~CallGraph_node100"><a xlink:href="../program/test_matmul11.html" xlink:title="test_matmul11">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="165.5,-2397 73.5,-2397 73.5,-2373 165.5,-2373 165.5,-2397"/>
+<text text-anchor="middle" x="119.5" y="-2382.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul11</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul11&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge98" class="edge">
+<title>program~test_matmul11&#45;&gt;check</title>
+<path fill="none" stroke="#255016" stroke-opacity="0.019608" d="M165.73,-2385.16C189.2,-2383.32 217.4,-2377.93 239,-2364 303.27,-2322.56 344.05,-2236.76 360.37,-2196.61"/>
+<polygon fill="#255016" fill-opacity="0.019608" stroke="#255016" stroke-opacity="0.019608" points="363.66,-2197.8 364.07,-2187.22 357.15,-2195.23 363.66,-2197.8"/>
+</g>
+<!-- program~test_matmul12 -->
+<g id="call~~graph~~CallGraph_node101" class="node">
+<title>program~test_matmul12</title>
+<g id="a_call~~graph~~CallGraph_node101"><a xlink:href="../program/test_matmul12.html" xlink:title="test_matmul12">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="165.5,-2355 73.5,-2355 73.5,-2331 165.5,-2331 165.5,-2355"/>
+<text text-anchor="middle" x="119.5" y="-2340.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul12</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul12&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge99" class="edge">
+<title>program~test_matmul12&#45;&gt;check</title>
+<path fill="none" stroke="#255015" stroke-opacity="0.003922" d="M165.65,-2342.03C188.82,-2339.84 216.78,-2334.49 239,-2322 293.51,-2291.36 336.52,-2228.91 356.43,-2196.15"/>
+<polygon fill="#255015" fill-opacity="0.003922" stroke="#255015" stroke-opacity="0.003922" points="359.54,-2197.76 361.64,-2187.37 353.53,-2194.18 359.54,-2197.76"/>
+</g>
+<!-- program~test_matmul13 -->
+<g id="call~~graph~~CallGraph_node102" class="node">
+<title>program~test_matmul13</title>
+<g id="a_call~~graph~~CallGraph_node102"><a xlink:href="../program/test_matmul13.html" xlink:title="test_matmul13">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="165.5,-2313 73.5,-2313 73.5,-2289 165.5,-2289 165.5,-2313"/>
+<text text-anchor="middle" x="119.5" y="-2298.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul13</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul13&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge100" class="edge">
+<title>program~test_matmul13&#45;&gt;check</title>
+<path fill="none" stroke="#255013" stroke-opacity="0.027451" d="M165.7,-2298.37C188.5,-2295.72 216.1,-2290.46 239,-2280 284.42,-2259.26 327.43,-2218.8 350.65,-2194.61"/>
+<polygon fill="#255013" fill-opacity="0.027451" stroke="#255013" stroke-opacity="0.027451" points="353.43,-2196.76 357.74,-2187.08 348.34,-2191.96 353.43,-2196.76"/>
+</g>
+<!-- program~test_matmul14 -->
+<g id="call~~graph~~CallGraph_node103" class="node">
+<title>program~test_matmul14</title>
+<g id="a_call~~graph~~CallGraph_node103"><a xlink:href="../program/test_matmul14.html" xlink:title="test_matmul14">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="165.5,-2271 73.5,-2271 73.5,-2247 165.5,-2247 165.5,-2271"/>
+<text text-anchor="middle" x="119.5" y="-2256.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul14</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul14&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge101" class="edge">
+<title>program~test_matmul14&#45;&gt;check</title>
+<path fill="none" stroke="#255012" stroke-opacity="0.015686" d="M165.67,-2253.99C188.08,-2250.76 215.35,-2245.68 239,-2238 275,-2226.3 313.72,-2206.41 339.34,-2192.1"/>
+<polygon fill="#255012" fill-opacity="0.015686" stroke="#255012" stroke-opacity="0.015686" points="341.18,-2195.08 348.16,-2187.11 337.73,-2188.99 341.18,-2195.08"/>
+</g>
+<!-- program~test_matmul15 -->
+<g id="call~~graph~~CallGraph_node104" class="node">
+<title>program~test_matmul15</title>
+<g id="a_call~~graph~~CallGraph_node104"><a xlink:href="../program/test_matmul15.html" xlink:title="test_matmul15">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="165.5,-2229 73.5,-2229 73.5,-2205 165.5,-2205 165.5,-2229"/>
+<text text-anchor="middle" x="119.5" y="-2214.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul15</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul15&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge102" class="edge">
+<title>program~test_matmul15&#45;&gt;check</title>
+<path fill="none" stroke="transparent" d="M165.7,-2209.35C213.55,-2201.24 288.15,-2188.61 332.29,-2181.13"/>
+<polygon fill="transparent" stroke="transparent" points="333.01,-2184.56 342.28,-2179.44 331.84,-2177.66 333.01,-2184.56"/>
+</g>
+<!-- program~test_matmul3 -->
+<g id="call~~graph~~CallGraph_node105" class="node">
+<title>program~test_matmul3</title>
+<g id="a_call~~graph~~CallGraph_node105"><a xlink:href="../program/test_matmul3.html" xlink:title="test_matmul3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-2187 77,-2187 77,-2163 162,-2163 162,-2187"/>
+<text text-anchor="middle" x="119.5" y="-2172.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul3</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul3&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge103" class="edge">
+<title>program~test_matmul3&#45;&gt;check</title>
+<path fill="none" stroke="#255096" d="M162.01,-2175C209.63,-2175 286.94,-2175 332.23,-2175"/>
+<polygon fill="#255096" stroke="#255096" points="332.48,-2178.5 342.48,-2175 332.48,-2171.5 332.48,-2178.5"/>
+</g>
+<!-- program~test_matmul4 -->
+<g id="call~~graph~~CallGraph_node106" class="node">
+<title>program~test_matmul4</title>
+<g id="a_call~~graph~~CallGraph_node106"><a xlink:href="../program/test_matmul4.html" xlink:title="test_matmul4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-2145 77,-2145 77,-2121 162,-2121 162,-2145"/>
+<text text-anchor="middle" x="119.5" y="-2130.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul4</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul4&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge104" class="edge">
+<title>program~test_matmul4&#45;&gt;check</title>
+<path fill="none" stroke="#255082" d="M162.01,-2140.03C209.73,-2148.11 287.27,-2161.24 332.52,-2168.91"/>
+<polygon fill="#255082" stroke="#255082" points="332.03,-2172.37 342.48,-2170.59 333.2,-2165.47 332.03,-2172.37"/>
+</g>
+<!-- program~test_matmul5 -->
+<g id="call~~graph~~CallGraph_node107" class="node">
+<title>program~test_matmul5</title>
+<g id="a_call~~graph~~CallGraph_node107"><a xlink:href="../program/test_matmul5.html" xlink:title="test_matmul5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-2103 77,-2103 77,-2079 162,-2079 162,-2103"/>
+<text text-anchor="middle" x="119.5" y="-2088.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul5</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul5&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge105" class="edge">
+<title>program~test_matmul5&#45;&gt;check</title>
+<path fill="none" stroke="#255068" d="M162.04,-2095.49C185.1,-2098.69 214.06,-2103.9 239,-2112 275,-2123.7 313.72,-2143.59 339.34,-2157.9"/>
+<polygon fill="#255068" stroke="#255068" points="337.73,-2161.01 348.16,-2162.89 341.18,-2154.92 337.73,-2161.01"/>
+</g>
+<!-- program~test_matmul6 -->
+<g id="call~~graph~~CallGraph_node108" class="node">
+<title>program~test_matmul6</title>
+<g id="a_call~~graph~~CallGraph_node108"><a xlink:href="../program/test_matmul6.html" xlink:title="test_matmul6">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-2061 77,-2061 77,-2037 162,-2037 162,-2061"/>
+<text text-anchor="middle" x="119.5" y="-2046.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul6</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul6&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge106" class="edge">
+<title>program~test_matmul6&#45;&gt;check</title>
+<path fill="none" stroke="#255055" d="M162.06,-2051.23C185.51,-2053.72 214.86,-2058.98 239,-2070 284.42,-2090.74 327.43,-2131.2 350.65,-2155.39"/>
+<polygon fill="#255055" stroke="#255055" points="348.34,-2158.04 357.74,-2162.92 353.43,-2153.24 348.34,-2158.04"/>
+</g>
+<!-- program~test_matmul7 -->
+<g id="call~~graph~~CallGraph_node109" class="node">
+<title>program~test_matmul7</title>
+<g id="a_call~~graph~~CallGraph_node109"><a xlink:href="../program/test_matmul7.html" xlink:title="test_matmul7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-2019 77,-2019 77,-1995 162,-1995 162,-2019"/>
+<text text-anchor="middle" x="119.5" y="-2004.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul7</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul7&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge107" class="edge">
+<title>program~test_matmul7&#45;&gt;check</title>
+<path fill="none" stroke="#255041" d="M162.26,-2007.67C186.06,-2009.65 215.69,-2014.9 239,-2028 293.51,-2058.64 336.52,-2121.09 356.43,-2153.85"/>
+<polygon fill="#255041" stroke="#255041" points="353.53,-2155.82 361.64,-2162.63 359.54,-2152.24 353.53,-2155.82"/>
+</g>
+<!-- program~test_matmul8 -->
+<g id="call~~graph~~CallGraph_node110" class="node">
+<title>program~test_matmul8</title>
+<g id="a_call~~graph~~CallGraph_node110"><a xlink:href="../program/test_matmul8.html" xlink:title="test_matmul8">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-1977 77,-1977 77,-1953 162,-1953 162,-1977"/>
+<text text-anchor="middle" x="119.5" y="-1962.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul8</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul8&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge108" class="edge">
+<title>program~test_matmul8&#45;&gt;check</title>
+<path fill="none" stroke="#255027" d="M162.05,-1964.57C186.2,-1966.13 216.26,-1971.34 239,-1986 303.27,-2027.44 344.05,-2113.24 360.37,-2153.39"/>
+<polygon fill="#255027" stroke="#255027" points="357.15,-2154.77 364.07,-2162.78 363.66,-2152.2 357.15,-2154.77"/>
+</g>
+<!-- program~test_matmul9 -->
+<g id="call~~graph~~CallGraph_node111" class="node">
+<title>program~test_matmul9</title>
+<g id="a_call~~graph~~CallGraph_node111"><a xlink:href="../program/test_matmul9.html" xlink:title="test_matmul9">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="162,-1935 77,-1935 77,-1911 162,-1911 162,-1935"/>
+<text text-anchor="middle" x="119.5" y="-1920.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul9</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul9&#45;&gt;check -->
+<g id="call~~graph~~CallGraph_edge109" class="edge">
+<title>program~test_matmul9&#45;&gt;check</title>
+<path fill="none" stroke="#255013" d="M162.27,-1921.82C186.64,-1923.1 216.86,-1928.27 239,-1944 313.42,-1996.86 350.3,-2106.66 363.1,-2153.3"/>
+<polygon fill="#255013" stroke="#255013" points="359.72,-2154.21 365.66,-2162.99 366.49,-2152.43 359.72,-2154.21"/>
 </g>
 </g>
 </svg>
@@ -1030,17 +2334,17 @@ author: Seyed Ali Ghasemi</p></td></tr>
                   var pancallgraphCallGraph = svgPanZoom('#callgraphCallGraph',
                     {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
                   );
-                </script>        <div><a type="button" class="graph-help" data-toggle="modal" href="#CallGraph-help-text">Help</a></div>
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="CallGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -1123,7 +2427,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-15T15:16:25.462174             </p>
+ on 2024-01-17T13:27:24.710180             </p>
           </div>
         </div>
         <br>

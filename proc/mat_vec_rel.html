@@ -1,0 +1,867 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for ForMatmul">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>mat_vec_rel &ndash; ForMatmul</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.8.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>mat_vec_rel
+      <small>Function</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.1% of total for procedures.">18 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/formatmul.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/formatmul.f90.html'>formatmul.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/formatmul.html'>formatmul</a></li>
+            <li class="breadcrumb-item active" aria-current="page">mat_vec_rel</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/mat_vec_rel.html#src">mat_vec_rel</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>private pure function mat_vec_rel(A, v, transA, option) result(w)  
+</h2>
+    
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~88"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~24"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~6"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~12"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+      <h3>Return Value
+        <small>
+          <span class="anchor" id="variable-w~24"></span>
+          real(kind=rk), allocatable, (:)
+        </small>
+      </h3>
+      
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~mat_vec_rel~~CallsGraph Pages: 1 -->
+<svg id="procmat_vec_relCallsGraph" width="641pt" height="433pt"
+ viewBox="0.00 0.00 641.00 433.44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~mat_vec_rel~~CallsGraph" class="graph" transform="scale(1.53 1.53) rotate(0) translate(4 658)">
+<title>proc~~mat_vec_rel~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-658 975,-658 975,4 -4,4"/>
+<!-- proc~mat_vec_rel -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node1" class="node">
+<title>proc~mat_vec_rel</title>
+<polygon fill="none" stroke="black" points="140,-276 0,-276 0,-252 140,-252 140,-276"/>
+<text text-anchor="middle" x="70" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul::mat_vec_rel</text>
+</g>
+<!-- proc~mat_vec_rel_atv -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node2" class="node">
+<title>proc~mat_vec_rel_atv</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node2"><a xlink:href="../proc/mat_vec_rel_atv.html" xlink:title="formatmul::mat_vec_rel_ATv">
+<polygon fill="#d9534f" stroke="#d9534f" points="340,-423 176,-423 176,-399 340,-399 340,-423"/>
+<text text-anchor="middle" x="258" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_rel_ATv</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_atv -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge1" class="edge">
+<title>proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_atv</title>
+<path fill="none" stroke="#255000" d="M86.22,-276.03C118.65,-301.66 194.73,-361.79 233.46,-392.39"/>
+<polygon fill="#255000" stroke="#255000" points="231.55,-395.35 241.57,-398.8 235.89,-389.86 231.55,-395.35"/>
+</g>
+<!-- proc~mat_vec_rel_av -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node3" class="node">
+<title>proc~mat_vec_rel_av</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node3"><a xlink:href="../proc/mat_vec_rel_av.html" xlink:title="formatmul::mat_vec_rel_Av">
+<polygon fill="#d9534f" stroke="#d9534f" points="337,-255 179,-255 179,-231 337,-231 337,-255"/>
+<text text-anchor="middle" x="258" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_vec_rel_Av</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_av -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge2" class="edge">
+<title>proc~mat_vec_rel&#45;&gt;proc~mat_vec_rel_av</title>
+<path fill="none" stroke="#255000" d="M140.26,-256.18C149.61,-255.12 159.31,-254.03 168.93,-252.94"/>
+<polygon fill="#255000" stroke="#255000" points="169.38,-256.42 178.92,-251.82 168.59,-249.46 169.38,-256.42"/>
+</g>
+<!-- proc~mat_vec_rel_atv_opt -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node4" class="node">
+<title>proc~mat_vec_rel_atv_opt</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node4"><a xlink:href="../proc/mat_vec_rel_atv_opt.html" xlink:title="formatmul_opts::mat_vec_rel_ATv_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="590,-486 376,-486 376,-462 590,-462 590,-486"/>
+<text text-anchor="middle" x="483" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_vec_rel_ATv_opt</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv&#45;&gt;proc~mat_vec_rel_atv_opt -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge3" class="edge">
+<title>proc~mat_vec_rel_atv&#45;&gt;proc~mat_vec_rel_atv_opt</title>
+<path fill="none" stroke="#255000" d="M301.73,-423.07C338.07,-433.34 390.39,-448.12 429.32,-459.12"/>
+<polygon fill="#255000" stroke="#255000" points="428.84,-462.62 439.41,-461.97 430.74,-455.88 428.84,-462.62"/>
+</g>
+<!-- proc~mat_vec_rel_av_opt -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node5" class="node">
+<title>proc~mat_vec_rel_av_opt</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node5"><a xlink:href="../proc/mat_vec_rel_av_opt.html" xlink:title="formatmul_opts::mat_vec_rel_Av_opt">
+<polygon fill="#d9534f" stroke="#d9534f" points="587,-192 379,-192 379,-168 587,-168 587,-192"/>
+<text text-anchor="middle" x="483" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mat_vec_rel_Av_opt</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av&#45;&gt;proc~mat_vec_rel_av_opt -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge4" class="edge">
+<title>proc~mat_vec_rel_av&#45;&gt;proc~mat_vec_rel_av_opt</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M301.73,-230.93C338.07,-220.66 390.39,-205.88 429.32,-194.88"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="430.74,-198.12 439.41,-192.03 428.84,-191.38 430.74,-198.12"/>
+</g>
+<!-- proc~mv_atv_1 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node6" class="node">
+<title>proc~mv_atv_1</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node6"><a xlink:href="../proc/mv_atv_1.html" xlink:title="formatmul_opts::mv_ATv_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-654 626,-654 626,-630 783,-630 783,-654"/>
+<text text-anchor="middle" x="704.5" y="-639.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_1 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge5" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_1</title>
+<path fill="none" stroke="#255000" d="M492.34,-486.42C512.08,-514.79 564.6,-584.72 626,-621 629.19,-622.88 632.55,-624.6 636.01,-626.17"/>
+<polygon fill="#255000" stroke="#255000" points="634.79,-629.45 645.37,-629.98 637.43,-622.97 634.79,-629.45"/>
+</g>
+<!-- proc~mv_atv_2 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node7" class="node">
+<title>proc~mv_atv_2</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node7"><a xlink:href="../proc/mv_atv_2.html" xlink:title="formatmul_opts::mv_ATv_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-612 626,-612 626,-588 783,-588 783,-612"/>
+<text text-anchor="middle" x="704.5" y="-597.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_2 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge6" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_2</title>
+<path fill="none" stroke="#255000" d="M496.99,-486.28C520.74,-508.08 573.56,-553.63 626,-579 630.25,-581.05 634.73,-582.93 639.3,-584.65"/>
+<polygon fill="#255000" stroke="#255000" points="638.19,-587.96 648.78,-587.93 640.48,-581.35 638.19,-587.96"/>
+</g>
+<!-- proc~mv_atv_3 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node8" class="node">
+<title>proc~mv_atv_3</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node8"><a xlink:href="../proc/mv_atv_3.html" xlink:title="formatmul_opts::mv_ATv_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-570 626,-570 626,-546 783,-546 783,-570"/>
+<text text-anchor="middle" x="704.5" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_3 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge7" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_3</title>
+<path fill="none" stroke="#255000" d="M508.16,-486.09C536.06,-499.71 583.55,-521.93 626,-537 631.95,-539.11 638.22,-541.13 644.51,-543.03"/>
+<polygon fill="#255000" stroke="#255000" points="643.79,-546.47 654.37,-545.9 645.75,-539.75 643.79,-546.47"/>
+</g>
+<!-- proc~mv_atv_4 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node9" class="node">
+<title>proc~mv_atv_4</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node9"><a xlink:href="../proc/mv_atv_4.html" xlink:title="formatmul_opts::mv_ATv_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-528 626,-528 626,-504 783,-504 783,-528"/>
+<text text-anchor="middle" x="704.5" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_4 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge8" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_4</title>
+<path fill="none" stroke="#255000" d="M546.9,-486.04C573.08,-491.04 603.63,-496.89 630.76,-502.08"/>
+<polygon fill="#255000" stroke="#255000" points="630.11,-505.52 640.59,-503.96 631.43,-498.65 630.11,-505.52"/>
+</g>
+<!-- proc~mv_atv_5 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node10" class="node">
+<title>proc~mv_atv_5</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node10"><a xlink:href="../proc/mv_atv_5.html" xlink:title="formatmul_opts::mv_ATv_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-486 626,-486 626,-462 783,-462 783,-486"/>
+<text text-anchor="middle" x="704.5" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_5 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge9" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_5</title>
+<path fill="none" stroke="#255000" d="M590.21,-474C598.77,-474 607.36,-474 615.76,-474"/>
+<polygon fill="#255000" stroke="#255000" points="615.92,-477.5 625.92,-474 615.92,-470.5 615.92,-477.5"/>
+</g>
+<!-- proc~mv_atv_6 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node11" class="node">
+<title>proc~mv_atv_6</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node11"><a xlink:href="../proc/mv_atv_6.html" xlink:title="formatmul_opts::mv_ATv_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-444 626,-444 626,-420 783,-420 783,-444"/>
+<text text-anchor="middle" x="704.5" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_6 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge10" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_6</title>
+<path fill="none" stroke="#255000" d="M546.9,-461.96C573.08,-456.96 603.63,-451.11 630.76,-445.92"/>
+<polygon fill="#255000" stroke="#255000" points="631.43,-449.35 640.59,-444.04 630.11,-442.48 631.43,-449.35"/>
+</g>
+<!-- proc~mv_atv_7 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node12" class="node">
+<title>proc~mv_atv_7</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node12"><a xlink:href="../proc/mv_atv_7.html" xlink:title="formatmul_opts::mv_ATv_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-402 626,-402 626,-378 783,-378 783,-402"/>
+<text text-anchor="middle" x="704.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_7 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge11" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_7</title>
+<path fill="none" stroke="#255000" d="M508.16,-461.91C536.06,-448.29 583.55,-426.07 626,-411 631.95,-408.89 638.22,-406.87 644.51,-404.97"/>
+<polygon fill="#255000" stroke="#255000" points="645.75,-408.25 654.37,-402.1 643.79,-401.53 645.75,-408.25"/>
+</g>
+<!-- proc~mv_atv_8 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node13" class="node">
+<title>proc~mv_atv_8</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node13"><a xlink:href="../proc/mv_atv_8.html" xlink:title="formatmul_opts::mv_ATv_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="783,-360 626,-360 626,-336 783,-336 783,-360"/>
+<text text-anchor="middle" x="704.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_ATv_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_8 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge12" class="edge">
+<title>proc~mat_vec_rel_atv_opt&#45;&gt;proc~mv_atv_8</title>
+<path fill="none" stroke="#255000" d="M496.99,-461.72C520.74,-439.92 573.56,-394.37 626,-369 630.25,-366.95 634.73,-365.07 639.3,-363.35"/>
+<polygon fill="#255000" stroke="#255000" points="640.48,-366.65 648.78,-360.07 638.19,-360.04 640.48,-366.65"/>
+</g>
+<!-- proc~mv_av_1 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node14" class="node">
+<title>proc~mv_av_1</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node14"><a xlink:href="../proc/mv_av_1.html" xlink:title="formatmul_opts::mv_Av_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-318 629,-318 629,-294 780,-294 780,-318"/>
+<text text-anchor="middle" x="704.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_1 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge13" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_1</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M496.99,-192.28C520.74,-214.08 573.56,-259.63 626,-285 630.25,-287.05 634.73,-288.93 639.3,-290.65"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="638.19,-293.96 648.78,-293.93 640.48,-287.35 638.19,-293.96"/>
+</g>
+<!-- proc~mv_av_2 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node15" class="node">
+<title>proc~mv_av_2</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node15"><a xlink:href="../proc/mv_av_2.html" xlink:title="formatmul_opts::mv_Av_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-276 629,-276 629,-252 780,-252 780,-276"/>
+<text text-anchor="middle" x="704.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_2 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge14" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_2</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M508.16,-192.09C536.06,-205.71 583.55,-227.93 626,-243 631.95,-245.11 638.22,-247.13 644.51,-249.03"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="643.79,-252.47 654.37,-251.9 645.75,-245.75 643.79,-252.47"/>
+</g>
+<!-- proc~mv_av_3 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node16" class="node">
+<title>proc~mv_av_3</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node16"><a xlink:href="../proc/mv_av_3.html" xlink:title="formatmul_opts::mv_Av_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-234 629,-234 629,-210 780,-210 780,-234"/>
+<text text-anchor="middle" x="704.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_3 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge15" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_3</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M546.9,-192.04C573.08,-197.04 603.63,-202.89 630.76,-208.08"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="630.11,-211.52 640.59,-209.96 631.43,-204.65 630.11,-211.52"/>
+</g>
+<!-- proc~mv_av_4 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node17" class="node">
+<title>proc~mv_av_4</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node17"><a xlink:href="../proc/mv_av_4.html" xlink:title="formatmul_opts::mv_Av_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-192 629,-192 629,-168 780,-168 780,-192"/>
+<text text-anchor="middle" x="704.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_4 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge16" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_4</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M587,-180C597.61,-180 608.31,-180 618.68,-180"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="618.95,-183.5 628.95,-180 618.95,-176.5 618.95,-183.5"/>
+</g>
+<!-- proc~mv_av_5 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node18" class="node">
+<title>proc~mv_av_5</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node18"><a xlink:href="../proc/mv_av_5.html" xlink:title="formatmul_opts::mv_Av_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-150 629,-150 629,-126 780,-126 780,-150"/>
+<text text-anchor="middle" x="704.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_5 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge17" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_5</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M546.9,-167.96C573.08,-162.96 603.63,-157.11 630.76,-151.92"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="631.43,-155.35 640.59,-150.04 630.11,-148.48 631.43,-155.35"/>
+</g>
+<!-- proc~mv_av_6 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node19" class="node">
+<title>proc~mv_av_6</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node19"><a xlink:href="../proc/mv_av_6.html" xlink:title="formatmul_opts::mv_Av_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-108 629,-108 629,-84 780,-84 780,-108"/>
+<text text-anchor="middle" x="704.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_6 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge18" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_6</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M508.16,-167.91C536.06,-154.29 583.55,-132.07 626,-117 631.95,-114.89 638.22,-112.87 644.51,-110.97"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="645.75,-114.25 654.37,-108.1 643.79,-107.53 645.75,-114.25"/>
+</g>
+<!-- proc~mv_av_7 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node20" class="node">
+<title>proc~mv_av_7</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node20"><a xlink:href="../proc/mv_av_7.html" xlink:title="formatmul_opts::mv_Av_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-66 629,-66 629,-42 780,-42 780,-66"/>
+<text text-anchor="middle" x="704.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_7 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge19" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_7</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M496.99,-167.72C520.74,-145.92 573.56,-100.37 626,-75 630.25,-72.95 634.73,-71.07 639.3,-69.35"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="640.48,-72.65 648.78,-66.07 638.19,-66.04 640.48,-72.65"/>
+</g>
+<!-- proc~mv_av_8 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node21" class="node">
+<title>proc~mv_av_8</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node21"><a xlink:href="../proc/mv_av_8.html" xlink:title="formatmul_opts::mv_Av_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="780,-24 629,-24 629,0 780,0 780,-24"/>
+<text text-anchor="middle" x="704.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mv_Av_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_8 -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge20" class="edge">
+<title>proc~mat_vec_rel_av_opt&#45;&gt;proc~mv_av_8</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M492.34,-167.58C512.08,-139.21 564.6,-69.28 626,-33 629.19,-31.12 632.55,-29.4 636.01,-27.83"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="637.43,-31.03 645.37,-24.02 634.79,-24.55 637.43,-31.03"/>
+</g>
+<!-- interface~gemv -->
+<g id="proc~~mat_vec_rel~~CallsGraph_node22" class="node">
+<title>interface~gemv</title>
+<g id="a_proc~~mat_vec_rel~~CallsGraph_node22"><a xlink:href="../interface/gemv.html" xlink:title="external_interfaces::gemv">
+<polygon fill="#a7506f" stroke="#a7506f" points="971,-444 819,-444 819,-420 971,-420 971,-444"/>
+<text text-anchor="middle" x="895" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces::gemv</text>
+</a>
+</g>
+</g>
+<!-- proc~mv_atv_2&#45;&gt;interface~gemv -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge21" class="edge">
+<title>proc~mv_atv_2&#45;&gt;interface~gemv</title>
+<path fill="none" stroke="#255950" d="M766.07,-587.88C772.04,-585.44 777.8,-582.51 783,-579 831.5,-546.22 867.4,-485.15 883.91,-453.02"/>
+<polygon fill="#255950" stroke="#255950" points="887.06,-454.54 888.41,-444.03 880.8,-451.41 887.06,-454.54"/>
+</g>
+<!-- proc~mv_av_2&#45;&gt;interface~gemv -->
+<g id="proc~~mat_vec_rel~~CallsGraph_edge22" class="edge">
+<title>proc~mv_av_2&#45;&gt;interface~gemv</title>
+<path fill="none" stroke="#015925" stroke-opacity="0.019608" d="M766.07,-276.12C772.04,-278.56 777.8,-281.49 783,-285 831.5,-317.78 867.4,-378.85 883.91,-410.98"/>
+<polygon fill="#015925" fill-opacity="0.019608" stroke="#015925" stroke-opacity="0.019608" points="880.8,-412.59 888.41,-419.97 887.06,-409.46 880.8,-412.59"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocmat_vec_relCallsGraph = svgPanZoom('#procmat_vec_relCallsGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~mat_vec_rel~~CalledByGraph Pages: 1 -->
+<svg id="procmat_vec_relCalledByGraph" width="302pt" height="32pt"
+ viewBox="0.00 0.00 302.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~mat_vec_rel~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>proc~~mat_vec_rel~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 298,-28 298,4 -4,4"/>
+<!-- proc~mat_vec_rel -->
+<g id="proc~~mat_vec_rel~~CalledByGraph_node1" class="node">
+<title>proc~mat_vec_rel</title>
+<polygon fill="none" stroke="black" points="294,-24 154,-24 154,0 294,0 294,-24"/>
+<text text-anchor="middle" x="224" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul::mat_vec_rel</text>
+</g>
+<!-- interface~matmul -->
+<g id="proc~~mat_vec_rel~~CalledByGraph_node2" class="node">
+<title>interface~matmul</title>
+<g id="a_proc~~mat_vec_rel~~CalledByGraph_node2"><a xlink:href="../interface/matmul.html" xlink:title="formatmul::matmul">
+<polygon fill="#a7506f" stroke="#a7506f" points="118,-24 0,-24 0,0 118,0 118,-24"/>
+<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::matmul</text>
+</a>
+</g>
+</g>
+<!-- interface~matmul&#45;&gt;proc~mat_vec_rel -->
+<g id="proc~~mat_vec_rel~~CalledByGraph_edge1" class="edge">
+<title>interface~matmul&#45;&gt;proc~mat_vec_rel</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.39,-12C126.66,-12 135.28,-12 143.86,-12"/>
+<polygon fill="#255000" stroke="#255000" points="143.9,-15.5 153.9,-12 143.9,-8.5 143.9,-15.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">pure function </span><span class="n">mat_vec_rel</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span><span class="w"> </span><span class="k">result</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">contiguous</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="p">(:,:),</span><span class="w"> </span><span class="n">v</span><span class="p">(:)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">allocatable</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">w</span><span class="p">(:)</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">option</span>
+<span class="w">      </span><span class="kt">logical</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">optional</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">transA</span>
+
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">present</span><span class="p">(</span><span class="n">transA</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="n">transA</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">! ATv</span>
+<span class="w">            </span><span class="k">allocate</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">2</span><span class="p">)),</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="mf">0.0_rk</span><span class="p">)</span>
+<span class="w">            </span><span class="k">call </span><span class="n">mat_vec_rel_ATv</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span>
+<span class="w">         </span><span class="k">else if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="n">transA</span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">! Av</span>
+<span class="w">            </span><span class="k">allocate</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="mf">0.0_rk</span><span class="p">)</span>
+<span class="w">            </span><span class="k">call </span><span class="n">mat_vec_rel_Av</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span>
+<span class="w">         </span><span class="k">end if</span>
+<span class="k">      else if</span><span class="w"> </span><span class="p">(.</span><span class="nb">not</span><span class="p">.</span><span class="w"> </span><span class="nb">present</span><span class="p">(</span><span class="n">transA</span><span class="p">))</span><span class="w"> </span><span class="k">then</span>
+<span class="w">         </span><span class="c">! Av</span>
+<span class="w">         </span><span class="k">allocate</span><span class="p">(</span><span class="n">w</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="w"> </span><span class="n">source</span><span class="o">=</span><span class="mf">0.0_rk</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mat_vec_rel_Av</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span>
+<span class="w">      </span><span class="k">end if</span>
+
+<span class="k">   end function </span><span class="n">mat_vec_rel</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-01-17T13:27:24.710180             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

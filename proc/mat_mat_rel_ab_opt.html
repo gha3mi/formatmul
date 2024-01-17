@@ -1,0 +1,791 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="Documentation for ForMatmul">
+    <meta name="author" content="Seyed Ali Ghasemi" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>mat_mat_rel_AB_opt &ndash; ForMatmul</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.8.0</small></a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/programs.html">Programs</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>mat_mat_rel_AB_opt
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+            <li class="list-inline-item" id="meta-author"><i class="fa fa-pencil"></i> Seyed Ali Ghasemi</li>
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.9% of total for procedures.">33 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/formatmul_opts.f90"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/formatmul_opts.html'>formatmul_opts</a></li>
+            <li class="breadcrumb-item active" aria-current="page">mat_mat_rel_AB_opt</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/mat_mat_rel_ab_opt.html#src">mat_mat_rel_AB_opt</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public pure subroutine mat_mat_rel_AB_opt(A, B, C, option)  
+</h2>
+    
+
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~10"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~7"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~7"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option"></span>
+              character(len=*),
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~mat_mat_rel_ab_opt~~CallsGraph Pages: 1 -->
+<svg id="procmat_mat_rel_ab_optCallsGraph" width="614pt" height="536pt"
+ viewBox="0.00 0.00 614.00 536.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 532)">
+<title>proc~~mat_mat_rel_ab_opt~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-532 610,-532 610,4 -4,4"/>
+<!-- proc~mat_mat_rel_ab_opt -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node1" class="node">
+<title>proc~mat_mat_rel_ab_opt</title>
+<polygon fill="none" stroke="black" points="213,-276 0,-276 0,-252 213,-252 213,-276"/>
+<text text-anchor="middle" x="106.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul_opts::mat_mat_rel_AB_opt</text>
+</g>
+<!-- proc~mm_ab_1 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node2" class="node">
+<title>proc~mm_ab_1</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node2"><a xlink:href="../proc/mm_ab_1.html" xlink:title="formatmul_opts::mm_AB_1">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-528 252.5,-528 252.5,-504 409.5,-504 409.5,-528"/>
+<text text-anchor="middle" x="331" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_1</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_1 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge1" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_1</title>
+<path fill="none" stroke="#255000" d="M111.23,-276.05C123.79,-314.49 168.31,-435.24 249,-495 251.09,-496.55 253.29,-497.99 255.57,-499.32"/>
+<polygon fill="#255000" stroke="#255000" points="254.19,-502.54 264.7,-503.94 257.36,-496.3 254.19,-502.54"/>
+</g>
+<!-- proc~mm_ab_10 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node3" class="node">
+<title>proc~mm_ab_10</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node3"><a xlink:href="../proc/mm_ab_10.html" xlink:title="formatmul_opts::mm_AB_10">
+<polygon fill="#d9534f" stroke="#d9534f" points="413,-486 249,-486 249,-462 413,-462 413,-486"/>
+<text text-anchor="middle" x="331" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_10</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_10 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge2" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_10</title>
+<path fill="none" stroke="#255000" d="M113.09,-276.43C129.04,-310.42 178.2,-405.5 249,-453 251.57,-454.72 254.28,-456.31 257.07,-457.76"/>
+<polygon fill="#255000" stroke="#255000" points="255.73,-460.99 266.28,-461.97 258.64,-454.63 255.73,-460.99"/>
+</g>
+<!-- proc~mm_ab_11 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node4" class="node">
+<title>proc~mm_ab_11</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node4"><a xlink:href="../proc/mm_ab_11.html" xlink:title="formatmul_opts::mm_AB_11">
+<polygon fill="#d9534f" stroke="#d9534f" points="413,-444 249,-444 249,-420 413,-420 413,-444"/>
+<text text-anchor="middle" x="331" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_11</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_11 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge3" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_11</title>
+<path fill="none" stroke="#255000" d="M115.49,-276.04C134.84,-304.24 187.23,-374.88 249,-411 252.2,-412.87 255.56,-414.58 259.03,-416.13"/>
+<polygon fill="#255000" stroke="#255000" points="257.81,-419.41 268.4,-419.91 260.43,-412.92 257.81,-419.41"/>
+</g>
+<!-- proc~mm_ab_12 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node5" class="node">
+<title>proc~mm_ab_12</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node5"><a xlink:href="../proc/mm_ab_12.html" xlink:title="formatmul_opts::mm_AB_12">
+<polygon fill="#d9534f" stroke="#d9534f" points="413,-402 249,-402 249,-378 413,-378 413,-402"/>
+<text text-anchor="middle" x="331" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_12</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_12 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge4" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_12</title>
+<path fill="none" stroke="#255000" d="M120.41,-276.34C144.02,-298.23 196.56,-343.93 249,-369 253.28,-371.05 257.79,-372.91 262.39,-374.61"/>
+<polygon fill="#255000" stroke="#255000" points="261.35,-377.95 271.94,-377.87 263.6,-371.33 261.35,-377.95"/>
+</g>
+<!-- proc~mm_ab_13 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node6" class="node">
+<title>proc~mm_ab_13</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node6"><a xlink:href="../proc/mm_ab_13.html" xlink:title="formatmul_opts::mm_AB_13">
+<polygon fill="#d9534f" stroke="#d9534f" points="413,-360 249,-360 249,-336 413,-336 413,-360"/>
+<text text-anchor="middle" x="331" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_13</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_13 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge5" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_13</title>
+<path fill="none" stroke="#255000" d="M131.3,-276.05C159.03,-289.75 206.48,-312.14 249,-327 255.27,-329.19 261.87,-331.27 268.5,-333.2"/>
+<polygon fill="#255000" stroke="#255000" points="267.62,-336.59 278.2,-335.93 269.52,-329.85 267.62,-336.59"/>
+</g>
+<!-- proc~mm_ab_2 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node7" class="node">
+<title>proc~mm_ab_2</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node7"><a xlink:href="../proc/mm_ab_2.html" xlink:title="formatmul_opts::mm_AB_2">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-318 252.5,-318 252.5,-294 409.5,-294 409.5,-318"/>
+<text text-anchor="middle" x="331" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_2</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_2 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge6" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_2</title>
+<path fill="none" stroke="#255000" d="M171.26,-276.04C197.79,-281.04 228.76,-286.89 256.27,-292.08"/>
+<polygon fill="#255000" stroke="#255000" points="255.76,-295.55 266.23,-293.96 257.05,-288.67 255.76,-295.55"/>
+</g>
+<!-- proc~mm_ab_3 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node8" class="node">
+<title>proc~mm_ab_3</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node8"><a xlink:href="../proc/mm_ab_3.html" xlink:title="formatmul_opts::mm_AB_3">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-276 252.5,-276 252.5,-252 409.5,-252 409.5,-276"/>
+<text text-anchor="middle" x="331" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_3</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_3 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge7" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_3</title>
+<path fill="none" stroke="#255000" d="M213.21,-264C222.93,-264 232.7,-264 242.23,-264"/>
+<polygon fill="#255000" stroke="#255000" points="242.47,-267.5 252.47,-264 242.47,-260.5 242.47,-267.5"/>
+</g>
+<!-- proc~mm_ab_4 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node9" class="node">
+<title>proc~mm_ab_4</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node9"><a xlink:href="../proc/mm_ab_4.html" xlink:title="formatmul_opts::mm_AB_4">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-234 252.5,-234 252.5,-210 409.5,-210 409.5,-234"/>
+<text text-anchor="middle" x="331" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_4</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_4 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge8" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_4</title>
+<path fill="none" stroke="#255000" d="M171.26,-251.96C197.79,-246.96 228.76,-241.11 256.27,-235.92"/>
+<polygon fill="#255000" stroke="#255000" points="257.05,-239.33 266.23,-234.04 255.76,-232.45 257.05,-239.33"/>
+</g>
+<!-- proc~mm_ab_5 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node10" class="node">
+<title>proc~mm_ab_5</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node10"><a xlink:href="../proc/mm_ab_5.html" xlink:title="formatmul_opts::mm_AB_5">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-192 252.5,-192 252.5,-168 409.5,-168 409.5,-192"/>
+<text text-anchor="middle" x="331" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_5</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_5 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge9" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_5</title>
+<path fill="none" stroke="#255000" d="M131.3,-251.95C159.03,-238.25 206.48,-215.86 249,-201 255.27,-198.81 261.87,-196.73 268.5,-194.8"/>
+<polygon fill="#255000" stroke="#255000" points="269.52,-198.15 278.2,-192.07 267.62,-191.41 269.52,-198.15"/>
+</g>
+<!-- proc~mm_ab_6 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node11" class="node">
+<title>proc~mm_ab_6</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node11"><a xlink:href="../proc/mm_ab_6.html" xlink:title="formatmul_opts::mm_AB_6">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-150 252.5,-150 252.5,-126 409.5,-126 409.5,-150"/>
+<text text-anchor="middle" x="331" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_6</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_6 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge10" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_6</title>
+<path fill="none" stroke="#255000" d="M120.41,-251.66C144.02,-229.77 196.56,-184.07 249,-159 253.28,-156.95 257.79,-155.09 262.39,-153.39"/>
+<polygon fill="#255000" stroke="#255000" points="263.6,-156.67 271.94,-150.13 261.35,-150.05 263.6,-156.67"/>
+</g>
+<!-- proc~mm_ab_7 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node12" class="node">
+<title>proc~mm_ab_7</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node12"><a xlink:href="../proc/mm_ab_7.html" xlink:title="formatmul_opts::mm_AB_7">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-108 252.5,-108 252.5,-84 409.5,-84 409.5,-108"/>
+<text text-anchor="middle" x="331" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_7</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_7 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge11" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_7</title>
+<path fill="none" stroke="#255000" d="M115.49,-251.96C134.84,-223.76 187.23,-153.12 249,-117 252.2,-115.13 255.56,-113.42 259.03,-111.87"/>
+<polygon fill="#255000" stroke="#255000" points="260.43,-115.08 268.4,-108.09 257.81,-108.59 260.43,-115.08"/>
+</g>
+<!-- proc~mm_ab_8 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node13" class="node">
+<title>proc~mm_ab_8</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node13"><a xlink:href="../proc/mm_ab_8.html" xlink:title="formatmul_opts::mm_AB_8">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-66 252.5,-66 252.5,-42 409.5,-42 409.5,-66"/>
+<text text-anchor="middle" x="331" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_8</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_8 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge12" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_8</title>
+<path fill="none" stroke="#255000" d="M113.09,-251.57C129.04,-217.58 178.2,-122.5 249,-75 251.57,-73.28 254.28,-71.69 257.07,-70.24"/>
+<polygon fill="#255000" stroke="#255000" points="258.64,-73.37 266.28,-66.03 255.73,-67.01 258.64,-73.37"/>
+</g>
+<!-- proc~mm_ab_9 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node14" class="node">
+<title>proc~mm_ab_9</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node14"><a xlink:href="../proc/mm_ab_9.html" xlink:title="formatmul_opts::mm_AB_9">
+<polygon fill="#d9534f" stroke="#d9534f" points="409.5,-24 252.5,-24 252.5,0 409.5,0 409.5,-24"/>
+<text text-anchor="middle" x="331" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts::mm_AB_9</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_9 -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge13" class="edge">
+<title>proc~mat_mat_rel_ab_opt&#45;&gt;proc~mm_ab_9</title>
+<path fill="none" stroke="#255000" d="M111.23,-251.95C123.79,-213.51 168.31,-92.76 249,-33 251.09,-31.45 253.29,-30.01 255.57,-28.68"/>
+<polygon fill="#255000" stroke="#255000" points="257.36,-31.7 264.7,-24.06 254.19,-25.46 257.36,-31.7"/>
+</g>
+<!-- interface~gemm -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_node15" class="node">
+<title>interface~gemm</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CallsGraph_node15"><a xlink:href="../interface/gemm.html" xlink:title="external_interfaces::gemm">
+<polygon fill="#a7506f" stroke="#a7506f" points="606,-318 449,-318 449,-294 606,-294 606,-318"/>
+<text text-anchor="middle" x="527.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces::gemm</text>
+</a>
+</g>
+</g>
+<!-- proc~mm_ab_2&#45;&gt;interface~gemm -->
+<g id="proc~~mat_mat_rel_ab_opt~~CallsGraph_edge14" class="edge">
+<title>proc~mm_ab_2&#45;&gt;interface~gemm</title>
+<path fill="none" stroke="#025578" d="M409.71,-306C419.29,-306 429.14,-306 438.85,-306"/>
+<polygon fill="#025578" stroke="#025578" points="438.91,-309.5 448.91,-306 438.91,-302.5 438.91,-309.5"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~mat_mat_rel_ab_opt~~CalledByGraph Pages: 1 -->
+<svg id="procmat_mat_rel_ab_optCalledByGraph" width="641pt" height="27pt"
+ viewBox="0.00 0.00 641.00 27.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph" class="graph" transform="scale(1.17 1.17) rotate(0) translate(4 28)">
+<title>proc~~mat_mat_rel_ab_opt~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 748,-28 748,4 -4,4"/>
+<!-- proc~mat_mat_rel_ab_opt -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_node1" class="node">
+<title>proc~mat_mat_rel_ab_opt</title>
+<polygon fill="none" stroke="black" points="744,-24 531,-24 531,0 744,0 744,-24"/>
+<text text-anchor="middle" x="637.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul_opts::mat_mat_rel_AB_opt</text>
+</g>
+<!-- proc~mat_mat_rel_ab -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_node2" class="node">
+<title>proc~mat_mat_rel_ab</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CalledByGraph_node2"><a xlink:href="../proc/mat_mat_rel_ab.html" xlink:title="formatmul::mat_mat_rel_AB">
+<polygon fill="#d9534f" stroke="#d9534f" points="495,-24 332,-24 332,0 495,0 495,-24"/>
+<text text-anchor="middle" x="413.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel_AB</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel_ab&#45;&gt;proc~mat_mat_rel_ab_opt -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_edge1" class="edge">
+<title>proc~mat_mat_rel_ab&#45;&gt;proc~mat_mat_rel_ab_opt</title>
+<path fill="none" stroke="#255000" d="M495.28,-12C503.56,-12 512.09,-12 520.66,-12"/>
+<polygon fill="#255000" stroke="#255000" points="520.73,-15.5 530.73,-12 520.73,-8.5 520.73,-15.5"/>
+</g>
+<!-- proc~mat_mat_rel -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_node3" class="node">
+<title>proc~mat_mat_rel</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CalledByGraph_node3"><a xlink:href="../proc/mat_mat_rel.html" xlink:title="formatmul::mat_mat_rel">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="296,-24 154,-24 154,0 296,0 296,-24"/>
+<text text-anchor="middle" x="225" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::mat_mat_rel</text>
+</a>
+</g>
+</g>
+<!-- proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_ab -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_edge2" class="edge">
+<title>proc~mat_mat_rel&#45;&gt;proc~mat_mat_rel_ab</title>
+<path fill="none" stroke="#255000" d="M296.24,-12C304.63,-12 313.28,-12 321.9,-12"/>
+<polygon fill="#255000" stroke="#255000" points="321.99,-15.5 331.99,-12 321.99,-8.5 321.99,-15.5"/>
+</g>
+<!-- interface~matmul -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_node4" class="node">
+<title>interface~matmul</title>
+<g id="a_proc~~mat_mat_rel_ab_opt~~CalledByGraph_node4"><a xlink:href="../interface/matmul.html" xlink:title="formatmul::matmul">
+<polygon fill="#a7506f" stroke="#a7506f" points="118,-24 0,-24 0,0 118,0 118,-24"/>
+<text text-anchor="middle" x="59" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul::matmul</text>
+</a>
+</g>
+</g>
+<!-- interface~matmul&#45;&gt;proc~mat_mat_rel -->
+<g id="proc~~mat_mat_rel_ab_opt~~CalledByGraph_edge3" class="edge">
+<title>interface~matmul&#45;&gt;proc~mat_mat_rel</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.28,-12C126.55,-12 135.18,-12 143.78,-12"/>
+<polygon fill="#255000" stroke="#255000" points="143.83,-15.5 153.83,-12 143.83,-8.5 143.83,-15.5"/>
+</g>
+</g>
+</svg>
+</div>                <script>
+                  var panprocmat_mat_rel_ab_optCalledByGraph = svgPanZoom('#procmat_mat_rel_ab_optCalledByGraph',
+                    {zoomEnabled: true, controlIconsEnabled: true, fit: true, center: true,}
+                  );
+                </script>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ Where possible, edges connecting nodes are
+given different colours to make them easier to distinguish in
+large graphs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="w">   </span><span class="k">pure subroutine </span><span class="n">mat_mat_rel_AB_opt</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="p">)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="w"> </span><span class="k">contiguous</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="p">(:,:),</span><span class="w"> </span><span class="n">B</span><span class="p">(:,:)</span>
+<span class="w">      </span><span class="kt">real</span><span class="p">(</span><span class="n">rk</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">contiguous</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">C</span><span class="p">(:,:)</span>
+<span class="w">      </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">option</span>
+
+<span class="w">      </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">option</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m1&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_1</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m2&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_2</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m3&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_3</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m4&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_4</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m5&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_5</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m6&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_6</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m7&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_7</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m8&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_8</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m9&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_9</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m10&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_10</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m11&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_11</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m12&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_12</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">       </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;m13&#39;</span><span class="p">)</span>
+<span class="w">         </span><span class="k">call </span><span class="n">mm_AB_13</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">C</span><span class="p">)</span>
+<span class="w">      </span><span class="k">end select</span>
+
+<span class="k">   end subroutine </span><span class="n">mat_mat_rel_AB_opt</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-01-17T13:27:24.710180             </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +19,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -26,7 +29,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.7.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.8.0</small></a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -71,7 +74,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="20.0% of total for modules and submodules.">108 statements</a>
+                 title="30.9% of total for modules and submodules.">493 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -131,8 +134,12 @@
       </a>
       <div id="funcs-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat">mat_mat</a>
-            <a class="list-group-item" href="../module/formatmul.html#proc-mat_vec">mat_vec</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_coarray_rel">mat_mat_coarray_rel</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_vec_coarray_rel">mat_vec_coarray_rel</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_block_rel">mat_mat_block_rel</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_vec_block_rel">mat_vec_block_rel</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_rel">mat_mat_rel</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_vec_rel">mat_vec_rel</a>
         </div>
       </div>
     </div>
@@ -145,6 +152,12 @@
       <div id="subs-0" class="collapse">
         <div class="list-group list-group-flush">
             <a class="list-group-item" href="../module/formatmul.html#proc-compute_block_ranges">compute_block_ranges</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_rel_ab">mat_mat_rel_AB</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_rel_atb">mat_mat_rel_ATB</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_rel_abt">mat_mat_rel_ABT</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_mat_rel_atbt">mat_mat_rel_ATBT</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_vec_rel_av">mat_vec_rel_Av</a>
+            <a class="list-group-item" href="../module/formatmul.html#proc-mat_vec_rel_atv">mat_vec_rel_ATv</a>
         </div>
       </div>
     </div>
@@ -163,16 +176,15 @@
     </div>
 
     <div class="col-md-9" id='text'>
-      <p>This module provides matrix and vector multiplication functions using different methods.</p>
-<p>Use the kinds module for real(kind) type.</p>
+      
 <br>          <div class="card mb-4">
       <h3 class="card-header card-title bg-light">Uses</h3>
       <div class="card-body">
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item"><a href='../module/formatmul_opts.html'>formatmul_opts</a></li>
                   <li class="list-inline-item">kinds</li>
+                  <li class="list-inline-item"><a href='formatmul_opts.html'>formatmul_opts</a></li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -208,7 +220,7 @@
 <!-- module~formatmul_opts -->
 <g id="module~~formatmul~~UsesGraph_node3" class="node">
 <title>module~formatmul_opts</title>
-<g id="a_module~~formatmul~~UsesGraph_node3"><a xlink:href=".././module/formatmul_opts.html" xlink:title="formatmul_opts">
+<g id="a_module~~formatmul~~UsesGraph_node3"><a xlink:href="../module/formatmul_opts.html" xlink:title="formatmul_opts">
 <polygon fill="#337ab7" stroke="#337ab7" points="187,-24 90,-24 90,0 187,0 187,-24"/>
 <text text-anchor="middle" x="138.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts</text>
 </a>
@@ -228,17 +240,17 @@
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsesGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsesGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="UsesGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -316,210 +328,225 @@ large graphs.</div>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: module~~formatmul~~UsedByGraph Pages: 1 -->
-<svg id="moduleformatmulUsedByGraph" width="193pt" height="494pt"
- viewBox="0.00 0.00 193.00 494.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~formatmul~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 490)">
+<svg id="moduleformatmulUsedByGraph" width="205pt" height="536pt"
+ viewBox="0.00 0.00 205.00 536.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~formatmul~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 532)">
 <title>module~~formatmul~~UsedByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-490 189,-490 189,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-532 201,-532 201,4 -4,4"/>
 <!-- module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_node1" class="node">
 <title>module~formatmul</title>
-<polygon fill="none" stroke="black" points="69,-255 0,-255 0,-231 69,-231 69,-255"/>
-<text text-anchor="middle" x="34.5" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul</text>
+<polygon fill="none" stroke="black" points="69,-276 0,-276 0,-252 69,-252 69,-276"/>
+<text text-anchor="middle" x="34.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50">formatmul</text>
 </g>
-<!-- program~benchmark1 -->
+<!-- program~test_matmul10 -->
 <g id="module~~formatmul~~UsedByGraph_node2" class="node">
-<title>program~benchmark1</title>
-<g id="a_module~~formatmul~~UsedByGraph_node2"><a xlink:href=".././program/benchmark1.html" xlink:title="benchmark1">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="185,-486 105,-486 105,-462 185,-462 185,-486"/>
-<text text-anchor="middle" x="145" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark1</text>
+<title>program~test_matmul10</title>
+<g id="a_module~~formatmul~~UsedByGraph_node2"><a xlink:href="../program/test_matmul10.html" xlink:title="test_matmul10">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="197,-528 105,-528 105,-504 197,-504 197,-528"/>
+<text text-anchor="middle" x="151" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul10</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark1&#45;&gt;module~formatmul -->
+<!-- program~test_matmul10&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge1" class="edge">
-<title>program~benchmark1&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.24,-461.88C111.44,-459.36 107.87,-456.42 105,-453 57.74,-396.68 42.29,-307.15 37.51,-265.58"/>
-<polygon fill="#255000" stroke="#255000" points="40.97,-265 36.45,-255.42 34.01,-265.73 40.97,-265"/>
+<title>program~test_matmul10&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.85,-503.99C111.81,-501.49 108.05,-498.52 105,-495 51.45,-433.1 39.16,-331.08 36.34,-286.27"/>
+<polygon fill="#255000" stroke="#255000" points="39.83,-285.98 35.81,-276.18 32.84,-286.35 39.83,-285.98"/>
 </g>
-<!-- program~benchmark2 -->
+<!-- program~test_matmul11 -->
 <g id="module~~formatmul~~UsedByGraph_node3" class="node">
-<title>program~benchmark2</title>
-<g id="a_module~~formatmul~~UsedByGraph_node3"><a xlink:href=".././program/benchmark2.html" xlink:title="benchmark2">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="185,-444 105,-444 105,-420 185,-420 185,-444"/>
-<text text-anchor="middle" x="145" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark2</text>
+<title>program~test_matmul11</title>
+<g id="a_module~~formatmul~~UsedByGraph_node3"><a xlink:href="../program/test_matmul11.html" xlink:title="test_matmul11">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="197,-486 105,-486 105,-462 197,-462 197,-486"/>
+<text text-anchor="middle" x="151" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul11</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark2&#45;&gt;module~formatmul -->
+<!-- program~test_matmul11&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge2" class="edge">
-<title>program~benchmark2&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.86,-419.94C111.88,-417.4 108.09,-414.42 105,-411 66.06,-367.88 47.18,-299.91 39.65,-265.12"/>
-<polygon fill="#255000" stroke="#255000" points="43.03,-264.16 37.6,-255.06 36.17,-265.56 43.03,-264.16"/>
+<title>program~test_matmul11&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.05,-461.81C111.97,-459.34 108.15,-456.43 105,-453 60.43,-404.51 43.82,-325.02 38.16,-286.43"/>
+<polygon fill="#255000" stroke="#255000" points="41.59,-285.71 36.78,-276.27 34.65,-286.64 41.59,-285.71"/>
 </g>
-<!-- program~benchmark3 -->
+<!-- program~test_matmul12 -->
 <g id="module~~formatmul~~UsedByGraph_node4" class="node">
-<title>program~benchmark3</title>
-<g id="a_module~~formatmul~~UsedByGraph_node4"><a xlink:href=".././program/benchmark3.html" xlink:title="benchmark3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="185,-402 105,-402 105,-378 185,-378 185,-402"/>
-<text text-anchor="middle" x="145" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3</text>
+<title>program~test_matmul12</title>
+<g id="a_module~~formatmul~~UsedByGraph_node4"><a xlink:href="../program/test_matmul12.html" xlink:title="test_matmul12">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="197,-444 105,-444 105,-420 197,-420 197,-444"/>
+<text text-anchor="middle" x="151" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul12</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark3&#45;&gt;module~formatmul -->
+<!-- program~test_matmul12&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge3" class="edge">
-<title>program~benchmark3&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.59,-377.88C112.42,-375.32 108.39,-372.35 105,-369 74.44,-338.74 53.55,-292.2 43.15,-264.96"/>
-<polygon fill="#255000" stroke="#255000" points="46.3,-263.39 39.56,-255.22 39.73,-265.81 46.3,-263.39"/>
+<title>program~test_matmul12&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.78,-419.81C112.5,-417.33 108.42,-414.41 105,-411 69.2,-375.38 49.49,-317.75 40.87,-286.27"/>
+<polygon fill="#255000" stroke="#255000" points="44.18,-285.1 38.28,-276.31 37.41,-286.87 44.18,-285.1"/>
 </g>
-<!-- program~benchmark4 -->
+<!-- program~test_matmul13 -->
 <g id="module~~formatmul~~UsedByGraph_node5" class="node">
-<title>program~benchmark4</title>
-<g id="a_module~~formatmul~~UsedByGraph_node5"><a xlink:href=".././program/benchmark4.html" xlink:title="benchmark4">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="185,-360 105,-360 105,-336 185,-336 185,-360"/>
-<text text-anchor="middle" x="145" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark4</text>
+<title>program~test_matmul13</title>
+<g id="a_module~~formatmul~~UsedByGraph_node5"><a xlink:href="../program/test_matmul13.html" xlink:title="test_matmul13">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="197,-402 105,-402 105,-378 197,-378 197,-402"/>
+<text text-anchor="middle" x="151" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul13</text>
 </a>
 </g>
 </g>
-<!-- program~benchmark4&#45;&gt;module~formatmul -->
+<!-- program~test_matmul13&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge4" class="edge">
-<title>program~benchmark4&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.93,-335.79C113.42,-333.17 108.92,-330.22 105,-327 82.46,-308.52 61.89,-281.88 49.08,-263.58"/>
-<polygon fill="#255000" stroke="#255000" points="51.81,-261.38 43.27,-255.1 46.03,-265.33 51.81,-261.38"/>
+<title>program~test_matmul13&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.15,-377.86C113.47,-375.32 108.92,-372.38 105,-369 77.74,-345.5 56.8,-308.8 45.32,-285.6"/>
+<polygon fill="#255000" stroke="#255000" points="48.33,-283.78 40.86,-276.27 42.02,-286.8 48.33,-283.78"/>
 </g>
-<!-- program~example1 -->
+<!-- program~test_matmul14 -->
 <g id="module~~formatmul~~UsedByGraph_node6" class="node">
-<title>program~example1</title>
-<g id="a_module~~formatmul~~UsedByGraph_node6"><a xlink:href=".././program/example1.html" xlink:title="example1">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="177.5,-318 112.5,-318 112.5,-294 177.5,-294 177.5,-318"/>
-<text text-anchor="middle" x="145" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example1</text>
+<title>program~test_matmul14</title>
+<g id="a_module~~formatmul~~UsedByGraph_node6"><a xlink:href="../program/test_matmul14.html" xlink:title="test_matmul14">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="197,-360 105,-360 105,-336 197,-336 197,-360"/>
+<text text-anchor="middle" x="151" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul14</text>
 </a>
 </g>
 </g>
-<!-- program~example1&#45;&gt;module~formatmul -->
+<!-- program~test_matmul14&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge5" class="edge">
-<title>program~example1&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M121.21,-293.97C115.86,-291.09 110.21,-287.97 105,-285 91.21,-277.13 76.09,-268.05 63.5,-260.35"/>
-<polygon fill="#255000" stroke="#255000" points="65.17,-257.27 54.82,-255.03 61.51,-263.24 65.17,-257.27"/>
+<title>program~test_matmul14&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M120.74,-335.91C115.35,-333.25 109.88,-330.24 105,-327 86.18,-314.49 67.34,-297.03 54.03,-283.67"/>
+<polygon fill="#255000" stroke="#255000" points="56.37,-281.05 46.88,-276.34 51.36,-285.94 56.37,-281.05"/>
 </g>
-<!-- program~example2 -->
+<!-- program~test_matmul15 -->
 <g id="module~~formatmul~~UsedByGraph_node7" class="node">
-<title>program~example2</title>
-<g id="a_module~~formatmul~~UsedByGraph_node7"><a xlink:href=".././program/example2.html" xlink:title="example2">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="177.5,-276 112.5,-276 112.5,-252 177.5,-252 177.5,-276"/>
-<text text-anchor="middle" x="145" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example2</text>
+<title>program~test_matmul15</title>
+<g id="a_module~~formatmul~~UsedByGraph_node7"><a xlink:href="../program/test_matmul15.html" xlink:title="test_matmul15">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="197,-318 105,-318 105,-294 197,-294 197,-318"/>
+<text text-anchor="middle" x="151" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul15</text>
 </a>
 </g>
 </g>
-<!-- program~example2&#45;&gt;module~formatmul -->
+<!-- program~test_matmul15&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge6" class="edge">
-<title>program~example2&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M112.33,-257.87C101.98,-255.87 90.3,-253.61 79.24,-251.46"/>
-<polygon fill="#255000" stroke="#255000" points="79.78,-248.01 69.3,-249.54 78.45,-254.88 79.78,-248.01"/>
+<title>program~test_matmul15&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.19,-293.96C104.97,-289.48 90.93,-284.33 77.97,-279.58"/>
+<polygon fill="#255000" stroke="#255000" points="78.91,-276.2 68.32,-276.04 76.5,-282.77 78.91,-276.2"/>
 </g>
-<!-- program~example3 -->
+<!-- program~test_matmul3 -->
 <g id="module~~formatmul~~UsedByGraph_node8" class="node">
-<title>program~example3</title>
-<g id="a_module~~formatmul~~UsedByGraph_node8"><a xlink:href=".././program/example3.html" xlink:title="example3">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="177.5,-234 112.5,-234 112.5,-210 177.5,-210 177.5,-234"/>
-<text text-anchor="middle" x="145" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example3</text>
+<title>program~test_matmul3</title>
+<g id="a_module~~formatmul~~UsedByGraph_node8"><a xlink:href="../program/test_matmul3.html" xlink:title="test_matmul3">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-276 108.5,-276 108.5,-252 193.5,-252 193.5,-276"/>
+<text text-anchor="middle" x="151" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul3</text>
 </a>
 </g>
 </g>
-<!-- program~example3&#45;&gt;module~formatmul -->
+<!-- program~test_matmul3&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge7" class="edge">
-<title>program~example3&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M112.33,-228.13C101.98,-230.13 90.3,-232.39 79.24,-234.54"/>
-<polygon fill="#255000" stroke="#255000" points="78.45,-231.12 69.3,-236.46 79.78,-237.99 78.45,-231.12"/>
+<title>program~test_matmul3&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M108.34,-264C98.85,-264 88.75,-264 79.18,-264"/>
+<polygon fill="#255000" stroke="#255000" points="79.07,-260.5 69.07,-264 79.07,-267.5 79.07,-260.5"/>
 </g>
-<!-- program~example4 -->
+<!-- program~test_matmul4 -->
 <g id="module~~formatmul~~UsedByGraph_node9" class="node">
-<title>program~example4</title>
-<g id="a_module~~formatmul~~UsedByGraph_node9"><a xlink:href=".././program/example4.html" xlink:title="example4">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="177.5,-192 112.5,-192 112.5,-168 177.5,-168 177.5,-192"/>
-<text text-anchor="middle" x="145" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example4</text>
+<title>program~test_matmul4</title>
+<g id="a_module~~formatmul~~UsedByGraph_node9"><a xlink:href="../program/test_matmul4.html" xlink:title="test_matmul4">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-234 108.5,-234 108.5,-210 193.5,-210 193.5,-234"/>
+<text text-anchor="middle" x="151" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul4</text>
 </a>
 </g>
 </g>
-<!-- program~example4&#45;&gt;module~formatmul -->
+<!-- program~test_matmul4&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge8" class="edge">
-<title>program~example4&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M121.21,-192.03C115.86,-194.91 110.21,-198.03 105,-201 91.21,-208.87 76.09,-217.95 63.5,-225.65"/>
-<polygon fill="#255000" stroke="#255000" points="61.51,-222.76 54.82,-230.97 65.17,-228.73 61.51,-222.76"/>
+<title>program~test_matmul4&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.19,-234.04C104.97,-238.52 90.93,-243.67 77.97,-248.42"/>
+<polygon fill="#255000" stroke="#255000" points="76.5,-245.23 68.32,-251.96 78.91,-251.8 76.5,-245.23"/>
 </g>
-<!-- program~example6 -->
+<!-- program~test_matmul5 -->
 <g id="module~~formatmul~~UsedByGraph_node10" class="node">
-<title>program~example6</title>
-<g id="a_module~~formatmul~~UsedByGraph_node10"><a xlink:href=".././program/example6.html" xlink:title="example6">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="177.5,-150 112.5,-150 112.5,-126 177.5,-126 177.5,-150"/>
-<text text-anchor="middle" x="145" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example6</text>
+<title>program~test_matmul5</title>
+<g id="a_module~~formatmul~~UsedByGraph_node10"><a xlink:href="../program/test_matmul5.html" xlink:title="test_matmul5">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-192 108.5,-192 108.5,-168 193.5,-168 193.5,-192"/>
+<text text-anchor="middle" x="151" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul5</text>
 </a>
 </g>
 </g>
-<!-- program~example6&#45;&gt;module~formatmul -->
+<!-- program~test_matmul5&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge9" class="edge">
-<title>program~example6&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.93,-150.21C113.42,-152.83 108.92,-155.78 105,-159 82.46,-177.48 61.89,-204.12 49.08,-222.42"/>
-<polygon fill="#255000" stroke="#255000" points="46.03,-220.67 43.27,-230.9 51.81,-224.62 46.03,-220.67"/>
+<title>program~test_matmul5&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M120.74,-192.09C115.35,-194.75 109.88,-197.76 105,-201 86.18,-213.51 67.34,-230.97 54.03,-244.33"/>
+<polygon fill="#255000" stroke="#255000" points="51.36,-242.06 46.88,-251.66 56.37,-246.95 51.36,-242.06"/>
 </g>
-<!-- program~example8 -->
+<!-- program~test_matmul6 -->
 <g id="module~~formatmul~~UsedByGraph_node11" class="node">
-<title>program~example8</title>
-<g id="a_module~~formatmul~~UsedByGraph_node11"><a xlink:href=".././program/example8.html" xlink:title="example8">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="177.5,-108 112.5,-108 112.5,-84 177.5,-84 177.5,-108"/>
-<text text-anchor="middle" x="145" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example8</text>
+<title>program~test_matmul6</title>
+<g id="a_module~~formatmul~~UsedByGraph_node11"><a xlink:href="../program/test_matmul6.html" xlink:title="test_matmul6">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-150 108.5,-150 108.5,-126 193.5,-126 193.5,-150"/>
+<text text-anchor="middle" x="151" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul6</text>
 </a>
 </g>
 </g>
-<!-- program~example8&#45;&gt;module~formatmul -->
+<!-- program~test_matmul6&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge10" class="edge">
-<title>program~example8&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.59,-108.12C112.42,-110.68 108.39,-113.65 105,-117 74.44,-147.26 53.55,-193.8 43.15,-221.04"/>
-<polygon fill="#255000" stroke="#255000" points="39.73,-220.19 39.56,-230.78 46.3,-222.61 39.73,-220.19"/>
+<title>program~test_matmul6&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.15,-150.14C113.47,-152.68 108.92,-155.62 105,-159 77.74,-182.5 56.8,-219.2 45.32,-242.4"/>
+<polygon fill="#255000" stroke="#255000" points="42.02,-241.2 40.86,-251.73 48.33,-244.22 42.02,-241.2"/>
 </g>
-<!-- program~mat_mat -->
+<!-- program~test_matmul7 -->
 <g id="module~~formatmul~~UsedByGraph_node12" class="node">
-<title>program~mat_mat</title>
-<g id="a_module~~formatmul~~UsedByGraph_node12"><a xlink:href=".././program/mat_mat.html" xlink:title="mat_mat">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="175,-66 115,-66 115,-42 175,-42 175,-66"/>
-<text text-anchor="middle" x="145" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mat_mat</text>
+<title>program~test_matmul7</title>
+<g id="a_module~~formatmul~~UsedByGraph_node12"><a xlink:href="../program/test_matmul7.html" xlink:title="test_matmul7">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-108 108.5,-108 108.5,-84 193.5,-84 193.5,-108"/>
+<text text-anchor="middle" x="151" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul7</text>
 </a>
 </g>
 </g>
-<!-- program~mat_mat&#45;&gt;module~formatmul -->
+<!-- program~test_matmul7&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge11" class="edge">
-<title>program~mat_mat&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.86,-66.06C111.88,-68.6 108.09,-71.58 105,-75 66.06,-118.12 47.18,-186.09 39.65,-220.88"/>
-<polygon fill="#255000" stroke="#255000" points="36.17,-220.44 37.6,-230.94 43.03,-221.84 36.17,-220.44"/>
+<title>program~test_matmul7&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.78,-108.19C112.5,-110.67 108.42,-113.59 105,-117 69.2,-152.62 49.49,-210.25 40.87,-241.73"/>
+<polygon fill="#255000" stroke="#255000" points="37.41,-241.13 38.28,-251.69 44.18,-242.9 37.41,-241.13"/>
 </g>
-<!-- program~mat_vec -->
+<!-- program~test_matmul8 -->
 <g id="module~~formatmul~~UsedByGraph_node13" class="node">
-<title>program~mat_vec</title>
-<g id="a_module~~formatmul~~UsedByGraph_node13"><a xlink:href=".././program/mat_vec.html" xlink:title="mat_vec">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="174,-24 116,-24 116,0 174,0 174,-24"/>
-<text text-anchor="middle" x="145" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mat_vec</text>
+<title>program~test_matmul8</title>
+<g id="a_module~~formatmul~~UsedByGraph_node13"><a xlink:href="../program/test_matmul8.html" xlink:title="test_matmul8">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-66 108.5,-66 108.5,-42 193.5,-42 193.5,-66"/>
+<text text-anchor="middle" x="151" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul8</text>
 </a>
 </g>
 </g>
-<!-- program~mat_vec&#45;&gt;module~formatmul -->
+<!-- program~test_matmul8&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge12" class="edge">
-<title>program~mat_vec&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.64,-23.86C111.68,-26.43 107.97,-29.47 105,-33 57.74,-89.32 42.29,-178.85 37.51,-220.42"/>
-<polygon fill="#255000" stroke="#255000" points="34.01,-220.27 36.45,-230.58 40.97,-221 34.01,-220.27"/>
+<title>program~test_matmul8&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.05,-66.19C111.97,-68.66 108.15,-71.57 105,-75 60.43,-123.49 43.82,-202.98 38.16,-241.57"/>
+<polygon fill="#255000" stroke="#255000" points="34.65,-241.36 36.78,-251.73 41.59,-242.29 34.65,-241.36"/>
+</g>
+<!-- program~test_matmul9 -->
+<g id="module~~formatmul~~UsedByGraph_node14" class="node">
+<title>program~test_matmul9</title>
+<g id="a_module~~formatmul~~UsedByGraph_node14"><a xlink:href="../program/test_matmul9.html" xlink:title="test_matmul9">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="193.5,-24 108.5,-24 108.5,0 193.5,0 193.5,-24"/>
+<text text-anchor="middle" x="151" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test_matmul9</text>
+</a>
+</g>
+</g>
+<!-- program~test_matmul9&#45;&gt;module~formatmul -->
+<g id="module~~formatmul~~UsedByGraph_edge13" class="edge">
+<title>program~test_matmul9&#45;&gt;module~formatmul</title>
+<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.85,-24.01C111.81,-26.51 108.05,-29.48 105,-33 51.45,-94.9 39.16,-196.92 36.34,-241.73"/>
+<polygon fill="#255000" stroke="#255000" points="32.84,-241.65 35.81,-251.82 39.83,-242.02 32.84,-241.65"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#UsedByGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#UsedByGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="UsedByGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -599,18 +626,17 @@ large graphs.</div>
       <h3>public        interface <a href='../interface/matmul.html'>matmul</a> 
       </h3>
     </div>
-      <div class="card-body">
-        <p>Interface for matrix multiplication functions.</p>
-      </div>
     <ul class="list-group">
           <li class="list-group-item">
                 <h3>
-    private impure function <a href='../proc/mat_mat.html'>mat_mat</a>(A, B, method, option) result(C)  
+    private pure function <a href='../proc/mat_mat_rel.html'>mat_mat_rel</a>(A, B, transA, transB, option) result(C)  
 
     </h3>
-    
-  <p>Matrix-matrix multiplication using coarray parallelism.
-author: Seyed Ali Ghasemi</p>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -625,7 +651,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a"></span>
+              <span class="anchor" id="variable-a~87"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -635,12 +661,12 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-<p>Input matrices A and B.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b"></span>
+              <span class="anchor" id="variable-b~64"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -650,27 +676,42 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>B</strong>(:,:)</td>
             <td>
-<p>Input matrices A and B.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-method"></span>
-              character(len=*),
+              <span class="anchor" id="variable-transa~5"></span>
+              logical,
             </td>
-<td>intent(in)</td>
-              <td></td>            <td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>method</strong></td>
+            <td><strong>transA</strong></td>
             <td>
-<p>Multiplication method ('coarray').</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-option"></span>
+              <span class="anchor" id="variable-transb~3"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transB</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~11"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -680,7 +721,7 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-<p>Optional method-specific option.</p>
+
             </td>
         </tr>
     </tbody>
@@ -688,19 +729,21 @@ author: Seyed Ali Ghasemi</p>
 
     <h4>
     Return Value
-    <small>real(kind=rk), (size(A,1),size(B,2))</small>
+    <small>real(kind=rk), allocatable, (:,:)</small>
     </h4>
-    <p>Result matrix C.</p>
+    
 
           </li>
           <li class="list-group-item">
                 <h3>
-    private impure function <a href='../proc/mat_vec.html'>mat_vec</a>(A, v, method, option) result(w)  
+    private pure function <a href='../proc/mat_mat_block_rel.html'>mat_mat_block_rel</a>(a, b, transA, transB, option, nblock) result(c)  
 
     </h3>
-    
-  <p>Matrix-vector multiplication using coarray parallelism.
-author: Seyed Ali Ghasemi</p>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -715,7 +758,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~2"></span>
+              <span class="anchor" id="variable-a~10"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -723,14 +766,14 @@ author: Seyed Ali Ghasemi</p>
               contiguous
             </td>
             <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
+            <td><strong>a</strong>(:,:)</td>
             <td>
-<p>Input matrix A and vector v.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v"></span>
+              <span class="anchor" id="variable-b~10"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -738,29 +781,44 @@ author: Seyed Ali Ghasemi</p>
               contiguous
             </td>
             <td>::</td>
-            <td><strong>v</strong>(:)</td>
+            <td><strong>b</strong>(:,:)</td>
             <td>
-<p>Input matrix A and vector v.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-method~2"></span>
-              character(len=*),
+              <span class="anchor" id="variable-transa~3"></span>
+              logical,
             </td>
-<td>intent(in)</td>
-              <td></td>            <td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>method</strong></td>
+            <td><strong>transA</strong></td>
             <td>
-<p>Multiplication method ('coarray').</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-option~2"></span>
+              <span class="anchor" id="variable-transb~2"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transB</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~9"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -770,7 +828,22 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-<p>Optional method-specific option.</p>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nblock"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nblock</strong></td>
+            <td>
+
             </td>
         </tr>
     </tbody>
@@ -778,9 +851,437 @@ author: Seyed Ali Ghasemi</p>
 
     <h4>
     Return Value
-    <small>real(kind=rk), (size(A,1))</small>
+    <small>real(kind=rk), allocatable, (:,:)</small>
     </h4>
-    <p>Result vector w.</p>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private impure function <a href='../proc/mat_mat_coarray_rel.html'>mat_mat_coarray_rel</a>(a, b, transA, transB, option, coarray) result(c)  
+
+    </h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~9"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>a</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~9"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>b</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transb"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transB</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~7"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-coarray"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>coarray</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:,:)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function <a href='../proc/mat_vec_rel.html'>mat_vec_rel</a>(A, v, transA, option) result(w)  
+
+    </h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~88"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~24"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~6"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~12"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private pure function <a href='../proc/mat_vec_block_rel.html'>mat_vec_block_rel</a>(A, v, transA, option, nblock) result(w)  
+
+    </h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~86"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~23"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~4"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~10"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nblock~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nblock</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:)</small>
+    </h4>
+    
+
+          </li>
+          <li class="list-group-item">
+                <h3>
+    private impure function <a href='../proc/mat_vec_coarray_rel.html'>mat_vec_coarray_rel</a>(A, v, transA, option, coarray) result(w)  
+
+    </h3>
+        <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~85"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~22"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~2"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~8"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-coarray~2"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>coarray</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:)</small>
+    </h4>
+    
 
           </li>
     </ul>
@@ -794,12 +1295,14 @@ author: Seyed Ali Ghasemi</p>
         <section>
           <h2>Functions</h2>
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat"></span><h3>private impure function <a href='../proc/mat_mat.html'>mat_mat</a>(A, B, method, option) result(C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_coarray_rel"></span> <h3>private impure function <a href='../proc/mat_mat_coarray_rel.html'>mat_mat_coarray_rel</a>(a, b, transA, transB, option, coarray) result(c)  
 </h3></div>
     <div class="card-body">
-          
-  <p>Matrix-matrix multiplication using coarray parallelism.
-author: Seyed Ali Ghasemi</p>
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -814,7 +1317,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a"></span>
+              <span class="anchor" id="variable-a~9"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -822,14 +1325,14 @@ author: Seyed Ali Ghasemi</p>
               contiguous
             </td>
             <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
+            <td><strong>a</strong>(:,:)</td>
             <td>
-<p>Input matrices A and B.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b"></span>
+              <span class="anchor" id="variable-b~9"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -837,29 +1340,44 @@ author: Seyed Ali Ghasemi</p>
               contiguous
             </td>
             <td>::</td>
-            <td><strong>B</strong>(:,:)</td>
+            <td><strong>b</strong>(:,:)</td>
             <td>
-<p>Input matrices A and B.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-method"></span>
-              character(len=*),
+              <span class="anchor" id="variable-transa"></span>
+              logical,
             </td>
-<td>intent(in)</td>
-              <td></td>            <td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>method</strong></td>
+            <td><strong>transA</strong></td>
             <td>
-<p>Multiplication method ('coarray').</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-option"></span>
+              <span class="anchor" id="variable-transb"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transB</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~7"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -869,7 +1387,22 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-<p>Optional method-specific option.</p>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-coarray"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>coarray</strong></td>
+            <td>
+
             </td>
         </tr>
     </tbody>
@@ -877,20 +1410,22 @@ author: Seyed Ali Ghasemi</p>
 
     <h4>
     Return Value
-    <small>real(kind=rk), (size(A,1),size(B,2))</small>
+    <small>real(kind=rk), allocatable, (:,:)</small>
     </h4>
-    <p>Result matrix C.</p>
+    
 
     </div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mat_vec"></span><h3>private impure function <a href='../proc/mat_vec.html'>mat_vec</a>(A, v, method, option) result(w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_vec_coarray_rel"></span> <h3>private impure function <a href='../proc/mat_vec_coarray_rel.html'>mat_vec_coarray_rel</a>(A, v, transA, option, coarray) result(w)  
 </h3></div>
     <div class="card-body">
-          
-  <p>Matrix-vector multiplication using coarray parallelism.
-author: Seyed Ali Ghasemi</p>
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
 
   <h4>Arguments</h4>
       <table class="table table-striped varlist">
@@ -905,7 +1440,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~2"></span>
+              <span class="anchor" id="variable-a~85"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -915,12 +1450,12 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>A</strong>(:,:)</td>
             <td>
-<p>Input matrix A and vector v.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v"></span>
+              <span class="anchor" id="variable-v~22"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -930,27 +1465,27 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>v</strong>(:)</td>
             <td>
-<p>Input matrix A and vector v.</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-method~2"></span>
-              character(len=*),
+              <span class="anchor" id="variable-transa~2"></span>
+              logical,
             </td>
-<td>intent(in)</td>
-              <td></td>            <td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
               
             </td>
             <td>::</td>
-            <td><strong>method</strong></td>
+            <td><strong>transA</strong></td>
             <td>
-<p>Multiplication method ('coarray').</p>
+
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-option~2"></span>
+              <span class="anchor" id="variable-option~8"></span>
               character(len=*),
             </td>
 <td>intent(in),</td>
@@ -960,7 +1495,22 @@ author: Seyed Ali Ghasemi</p>
             <td>::</td>
             <td><strong>option</strong></td>
             <td>
-<p>Optional method-specific option.</p>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-coarray~2"></span>
+              logical,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>coarray</strong></td>
+            <td>
+
             </td>
         </tr>
     </tbody>
@@ -968,9 +1518,441 @@ author: Seyed Ali Ghasemi</p>
 
     <h4>
     Return Value
-    <small>real(kind=rk), (size(A,1))</small>
+    <small>real(kind=rk), allocatable, (:)</small>
     </h4>
-    <p>Result vector w.</p>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_block_rel"></span> <h3>private pure function <a href='../proc/mat_mat_block_rel.html'>mat_mat_block_rel</a>(a, b, transA, transB, option, nblock) result(c)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~10"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>a</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~10"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>b</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~3"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transb~2"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transB</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~9"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nblock"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nblock</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:,:)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_vec_block_rel"></span> <h3>private pure function <a href='../proc/mat_vec_block_rel.html'>mat_vec_block_rel</a>(A, v, transA, option, nblock) result(w)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~86"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~23"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~4"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~10"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nblock~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nblock</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_rel"></span> <h3>private pure function <a href='../proc/mat_mat_rel.html'>mat_mat_rel</a>(A, B, transA, transB, option) result(C)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~87"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~64"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~5"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transb~3"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transB</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~11"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:,:)</small>
+    </h4>
+    
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_vec_rel"></span> <h3>private pure function <a href='../proc/mat_vec_rel.html'>mat_vec_rel</a>(A, v, transA, option) result(w)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~88"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~24"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-transa~6"></span>
+              logical,
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>transA</strong></td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~12"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <h4>
+    Return Value
+    <small>real(kind=rk), allocatable, (:)</small>
+    </h4>
+    
 
     </div>
   </div>
@@ -981,7 +1963,7 @@ author: Seyed Ali Ghasemi</p>
         <section>
           <h2>Subroutines</h2>
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-compute_block_ranges"></span><h3>private pure subroutine <a href='../proc/compute_block_ranges.html'>compute_block_ranges</a>(d, nimg, block_size, start_elem, end_elem)  
+    <div class="card-header codesum"><span class="anchor" id="proc-compute_block_ranges"></span> <h3>private pure subroutine <a href='../proc/compute_block_ranges.html'>compute_block_ranges</a>(d, nimg, block_size, start_elem, end_elem)  
 </h3></div>
     <div class="card-body">
           
@@ -1016,7 +1998,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nimg"></span>
+              <span class="anchor" id="variable-nimg~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -1031,7 +2013,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-block_size"></span>
+              <span class="anchor" id="variable-block_size~3"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -1046,7 +2028,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-start_elem"></span>
+              <span class="anchor" id="variable-start_elem~3"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -1061,7 +2043,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-end_elem"></span>
+              <span class="anchor" id="variable-end_elem~3"></span>
               integer,
             </td>
 <td>intent(out)</td>
@@ -1070,6 +2052,534 @@ author: Seyed Ali Ghasemi</p>
             </td>
             <td>::</td>
             <td><strong>end_elem</strong>(nimg)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_rel_ab"></span> <h3>private pure subroutine <a href='../proc/mat_mat_rel_ab.html'>mat_mat_rel_AB</a>(A, B, C, option)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~89"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~65"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~65"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~13"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_rel_atb"></span> <h3>private pure subroutine <a href='../proc/mat_mat_rel_atb.html'>mat_mat_rel_ATB</a>(A, B, C, option)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~90"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~66"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~66"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~14"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_rel_abt"></span> <h3>private pure subroutine <a href='../proc/mat_mat_rel_abt.html'>mat_mat_rel_ABT</a>(A, B, C, option)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~91"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~67"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~67"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~15"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_mat_rel_atbt"></span> <h3>private pure subroutine <a href='../proc/mat_mat_rel_atbt.html'>mat_mat_rel_ATBT</a>(A, B, C, option)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~92"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~68"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~68"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~16"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_vec_rel_av"></span> <h3>private pure subroutine <a href='../proc/mat_vec_rel_av.html'>mat_vec_rel_Av</a>(A, v, w, option)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~93"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~25"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~25"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>w</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~17"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mat_vec_rel_atv"></span> <h3>private pure subroutine <a href='../proc/mat_vec_rel_atv.html'>mat_vec_rel_ATv</a>(A, v, w, option)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~94"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~26"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~26"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>w</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-option~18"></span>
+              character(len=*),
+            </td>
+<td>intent(in),</td>
+              <td>optional</td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>option</strong></td>
             <td>
 
             </td>
@@ -1101,7 +2611,7 @@ author: Seyed Ali Ghasemi</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-15T15:16:25.462174             </p>
+ on 2024-01-17T13:27:24.710180             </p>
           </div>
         </div>
         <br>

@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +20,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -27,7 +30,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.7.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.8.0</small></a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -65,20 +68,71 @@
 			 <table class="table table-striped nostretch">
 			 <thead><tr><th>Program</th><th>Source File</th><th>Description</th></tr></thead>
 			 <tbody>
-			   <tr><td><a href='../program/benchmark1.html'>benchmark1</a></td><td><a href='../sourcefile/benchmark1.f90.html'>benchmark1.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/benchmark2.html'>benchmark2</a></td><td><a href='../sourcefile/benchmark2.f90.html'>benchmark2.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/benchmark3.html'>benchmark3</a></td><td><a href='../sourcefile/benchmark3.f90.html'>benchmark3.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/benchmark4.html'>benchmark4</a></td><td><a href='../sourcefile/benchmark4.f90.html'>benchmark4.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example1.html'>example1</a></td><td><a href='../sourcefile/example1.f90.html'>example1.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example2.html'>example2</a></td><td><a href='../sourcefile/example2.f90.html'>example2.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example3.html'>example3</a></td><td><a href='../sourcefile/example3.f90.html'>example3.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example4.html'>example4</a></td><td><a href='../sourcefile/example4.f90.html'>example4.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example5.html'>example5</a></td><td><a href='../sourcefile/example5.f90.html'>example5.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example6.html'>example6</a></td><td><a href='../sourcefile/example6.f90.html'>example6.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example7.html'>example7</a></td><td><a href='../sourcefile/example7.f90.html'>example7.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/example8.html'>example8</a></td><td><a href='../sourcefile/example8.f90.html'>example8.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/mat_mat.html'>mat_mat</a></td><td><a href='../sourcefile/test1.f90.html'>test1.f90</a></td><td></td></tr>
-			   <tr><td><a href='../program/mat_vec.html'>mat_vec</a></td><td><a href='../sourcefile/test2.f90.html'>test2.f90</a></td><td></td></tr>
+			   <tr>
+                 <td><a href='../program/test_matmul10.html'>test_matmul10</a></td>
+                 <td><a href='../sourcefile/test8.f90.html'>test8.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul11.html'>test_matmul11</a></td>
+                 <td><a href='../sourcefile/test9.f90.html'>test9.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul12.html'>test_matmul12</a></td>
+                 <td><a href='../sourcefile/test10.f90.html'>test10.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul13.html'>test_matmul13</a></td>
+                 <td><a href='../sourcefile/test11.f90.html'>test11.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul14.html'>test_matmul14</a></td>
+                 <td><a href='../sourcefile/test12.f90.html'>test12.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul15.html'>test_matmul15</a></td>
+                 <td><a href='../sourcefile/test13.f90.html'>test13.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul3.html'>test_matmul3</a></td>
+                 <td><a href='../sourcefile/test1.f90.html'>test1.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul4.html'>test_matmul4</a></td>
+                 <td><a href='../sourcefile/test2.f90.html'>test2.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul5.html'>test_matmul5</a></td>
+                 <td><a href='../sourcefile/test3.f90.html'>test3.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul6.html'>test_matmul6</a></td>
+                 <td><a href='../sourcefile/test4.f90.html'>test4.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul7.html'>test_matmul7</a></td>
+                 <td><a href='../sourcefile/test5.f90.html'>test5.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul8.html'>test_matmul8</a></td>
+                 <td><a href='../sourcefile/test6.f90.html'>test6.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../program/test_matmul9.html'>test_matmul9</a></td>
+                 <td><a href='../sourcefile/test7.f90.html'>test7.f90</a></td>
+                 <td></td>
+               </tr>
 			 </tbody></table>
         </div>
       </div>
@@ -94,7 +148,7 @@
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-15T15:16:25.462174             </p>
+ on 2024-01-17T13:27:24.710180             </p>
           </div>
         </div>
         <br>

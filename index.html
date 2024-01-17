@@ -17,7 +17,8 @@
     <link href="./css/local.css" rel="stylesheet">
       <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="./js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -26,7 +27,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">ForMatmul <small>0.7.0</small></a>
+          <a class="navbar-brand" href="./index.html">ForMatmul <small>0.8.0</small></a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -80,7 +81,7 @@
 <h2>Usage</h2>
 <div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">formatmul</span>
 
-<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s1">&#39;coarray&#39;</span><span class="p">,</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">)</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="n">coarray</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
 </code></pre></div>
 
 <h2>fpm dependency</h2>
@@ -90,7 +91,7 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 <span class="n">formatmul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="p">=</span><span class="s2">&quot;https://github.com/gha3mi/formatmul.git&quot;</span><span class="p">}</span>
 </code></pre></div>
 
-<h2>How to run tests and examples</h2>
+<h2>How to run tests</h2>
 <p><strong>Clone the repository:</strong></p>
 <p>You can clone the <code>ForMatmul</code> repository from GitHub using the following command:</p>
 <div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gha3mi/formatmul.git
@@ -99,7 +100,6 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 <div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>formatmul
 </code></pre></div>
 
-<p><strong>Run tests:</strong></p>
 <p>Tested with Intel compiler: ifort (IFORT) 2021.10.0 20230609</p>
 <div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifort-test
 </code></pre></div>
@@ -118,69 +118,8 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 <div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@nvfortran-test
 </code></pre></div>
 
-<p><strong>Run examples:</strong></p>
-<p>To set the stack size to unlimited, use the following command: <code>ulimit -s unlimited</code>.</p>
-<p>You have the option to modify the number of images in the <code>fpm.rsp</code> file by using the flag <code>-coarray-num-images=N</code>.</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifort-example
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifort-example-coarray
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifx-example
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifx-example-coarray
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@nvfortran-example
-</code></pre></div>
-
-<p>Results with <code>-coarray-num-images=4</code>:</p>
-<div class="codehilite"><pre><span></span><code>Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example1:<span class="w"> </span>mat_mat<span class="o">)</span>:<span class="w">  </span><span class="m">1</span>.175<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example2:<span class="w"> </span>mat_mat,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.269<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example2:<span class="w"> </span>mat_mat,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.272<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example2:<span class="w"> </span>mat_mat,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.274<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example2:<span class="w"> </span>mat_mat,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.275<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example3:<span class="w"> </span>mat_vec<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.047<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example4:<span class="w"> </span>mat_vec,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.012<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example4:<span class="w"> </span>mat_vec,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.012<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example4:<span class="w"> </span>mat_vec,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.012<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-Elapsed<span class="w"> </span><span class="nb">time</span><span class="w"> </span><span class="o">(</span>example4:<span class="w"> </span>mat_vec,<span class="w"> </span>coarray<span class="o">)</span>:<span class="w">  </span><span class="m">0</span>.012<span class="w"> </span><span class="o">[</span>s<span class="o">]</span>
-</code></pre></div>
-
-<p><strong>Benchmark:</strong></p>
-<p>To set the stack size to unlimited, use the following command: <code>ulimit -s unlimited</code>.</p>
-<p><strong>Intel Fortran Compiler (ifort)</strong></p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>benchmark3<span class="w"> </span>--compiler<span class="w"> </span>ifort<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY&quot;</span>
-</code></pre></div>
-
-<p><strong>Intel Fortran Compiler (ifx)</strong></p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>run<span class="w"> </span>--example<span class="w"> </span>--all<span class="w"> </span>--compiler<span class="w"> </span>ifx<span class="w"> </span>--flag<span class="w"> </span><span class="s2">&quot;-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY&quot;</span>
-</code></pre></div>
-
-<p>You can then use the provided Python script to generate visual plots for the benchmark3 data:</p>
-<div class="codehilite"><pre><span></span><code>python<span class="w"> </span>benchmark/benchmark3_co.py
-</code></pre></div>
-
-<p>Results obtained on an <code>Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz</code> using <code>ifort (IFORT) 2021.11.0 20231010</code> are as follows:</p>
-<ul>
-<li>with <code>-coarray-num-images=4</code>, <code>MKL_NUM_THREADS=1</code> and <code>OMP_NUM_THREADS=1</code>:</li>
-</ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim4.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim4.png" width="350"></p>
-<ul>
-<li>with <code>-coarray-num-images=4</code> and Multithread:</li>
-</ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim4.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim4.png" width="350"></p>
-<ul>
-<li>with <code>-coarray-num-images=5</code>, <code>MKL_NUM_THREADS=1</code> and <code>OMP_NUM_THREADS=1</code>:</li>
-</ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3t_nim5.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/singlethread/benchmark3p_nim5.png" width="350"></p>
-<ul>
-<li>with <code>-coarray-num-images=5</code> and Multithread:</li>
-</ul>
-<p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3t_nim5.png" width="350"><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/benchmark/multithread/benchmark3p_nim5.png" width="350"></p>
+<h2>Benchmarks</h2>
+<p>You can find benchmark results on <a href="https://github.com/gha3mi/forbenchmark">ForBenchmark</a>.</p>
 <h2>API documentation</h2>
 <p>The most up-to-date API documentation for the master branch is available
 <a href="https://gha3mi.github.io/formatmul/">here</a>.
@@ -211,7 +150,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Source Files</h3>
-              <ul><li><a href='./sourcefile/benchmark1.f90.html'>benchmark1.f90</a></li><li><a href='./sourcefile/benchmark2.f90.html'>benchmark2.f90</a></li><li><a href='./sourcefile/benchmark3.f90.html'>benchmark3.f90</a></li><li><a href='./sourcefile/benchmark4.f90.html'>benchmark4.f90</a></li><li><a href='./sourcefile/example1.f90.html'>example1.f90</a></li><li><a href='./sourcefile/example2.f90.html'>example2.f90</a></li><li><a href='./sourcefile/example3.f90.html'>example3.f90</a></li><li><a href='./sourcefile/example4.f90.html'>example4.f90</a></li><li><a href='./sourcefile/example5.f90.html'>example5.f90</a></li><li><a href='./sourcefile/example6.f90.html'>example6.f90</a></li></ul>
+              <ul><li><a href='sourcefile/external_interfaces.f90.html'>external_interfaces.f90</a></li><li><a href='sourcefile/formatmul.f90.html'>formatmul.f90</a></li><li><a href='sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></li><li><a href='sourcefile/test1.f90.html'>test1.f90</a></li><li><a href='sourcefile/test10.f90.html'>test10.f90</a></li><li><a href='sourcefile/test11.f90.html'>test11.f90</a></li><li><a href='sourcefile/test12.f90.html'>test12.f90</a></li><li><a href='sourcefile/test13.f90.html'>test13.f90</a></li><li><a href='sourcefile/test2.f90.html'>test2.f90</a></li><li><a href='sourcefile/test3.f90.html'>test3.f90</a></li></ul>
             </div>
             <div>
               <ul>
@@ -222,7 +161,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Modules</h3>
-              <ul><li><a href='./module/formatmul.html'>formatmul</a></li><li><a href='./module/formatmul_benchmark.html'>formatmul_benchmark</a></li><li><a href='./module/formatmul_opts.html'>formatmul_opts</a></li></ul>
+              <ul><li><a href='module/external_interfaces.html'>external_interfaces</a></li><li><a href='module/formatmul.html'>formatmul</a></li><li><a href='module/formatmul_opts.html'>formatmul_opts</a></li></ul>
             </div>
             <div>
               <ul>
@@ -233,7 +172,7 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col-xs-6 col-sm-4">
             <div>
               <h3>Procedures</h3>
-              <ul><li><a href='./proc/compute_block_ranges.html'>compute_block_ranges</a></li><li><a href='./proc/gemm_mat_mat_rel.html'>gemm_mat_mat_rel</a></li><li><a href='./proc/gemv_mat_vec_rel.html'>gemv_mat_vec_rel</a></li><li><a href='./proc/impure_mm_12.html'>impure_mm_12</a></li><li><a href='./proc/impure_mm_13.html'>impure_mm_13</a></li><li><a href='./proc/mat_mat.html'>mat_mat</a></li><li><a href='./proc/mat_vec.html'>mat_vec</a></li><li><a href='./interface/matmul.html'>matmul</a></li><li><a href='./interface/matmul_blas.html'>matmul_blas</a></li><li><a href='./proc/matmul_mat_mat_rel_opts.html'>matmul_mat_mat_rel_opts</a></li></ul>
+              <ul><li><a href='proc/compute_block_ranges.html'>compute_block_ranges</a></li><li><a href='interface/gemm.html'>gemm</a></li><li><a href='interface/gemv.html'>gemv</a></li><li><a href='proc/impure_mm_ab_12.html'>impure_mm_AB_12</a></li><li><a href='proc/impure_mm_ab_13.html'>impure_mm_AB_13</a></li><li><a href='proc/impure_mm_abt_12.html'>impure_mm_ABT_12</a></li><li><a href='proc/impure_mm_abt_13.html'>impure_mm_ABT_13</a></li><li><a href='proc/impure_mm_atb_12.html'>impure_mm_ATB_12</a></li><li><a href='proc/impure_mm_atb_13.html'>impure_mm_ATB_13</a></li><li><a href='proc/impure_mm_atbt_12.html'>impure_mm_ATBT_12</a></li></ul>
             </div>
             <div>
               <ul>
@@ -254,7 +193,7 @@ If you find any issues or would like to suggest improvements, please open an iss
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-15T15:16:25.462174             </p>
+ on 2024-01-17T13:27:24.710180             </p>
           </div>
         </div>
         <br>

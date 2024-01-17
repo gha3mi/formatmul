@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,7 +20,8 @@
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
@@ -27,7 +30,7 @@
     <div class="container-fluid mb-sm-4 mb-xl-2">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.7.0</small></a>
+          <a class="navbar-brand" href="../index.html">ForMatmul <small>0.8.0</small></a>
           <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
                   aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon">
@@ -65,23 +68,70 @@
 			 <table class="table table-striped">
 			 <thead><tr><th>File</th><th>Description</th></tr></thead>
 			 <tbody>
-			   <tr><td><a href='../sourcefile/benchmark1.f90.html'>benchmark1.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/benchmark2.f90.html'>benchmark2.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/benchmark3.f90.html'>benchmark3.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/benchmark4.f90.html'>benchmark4.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example1.f90.html'>example1.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example2.f90.html'>example2.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example3.f90.html'>example3.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example4.f90.html'>example4.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example5.f90.html'>example5.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example6.f90.html'>example6.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example7.f90.html'>example7.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/example8.f90.html'>example8.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/formatmul.f90.html'>formatmul.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/formatmul_benchmark.f90.html'>formatmul_benchmark.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/test1.f90.html'>test1.f90</a></td><td></td></tr>
-			   <tr><td><a href='../sourcefile/test2.f90.html'>test2.f90</a></td><td></td></tr>
+			   <tr>
+                 <td><a href='../sourcefile/external_interfaces.f90.html'>external_interfaces.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/formatmul.f90.html'>formatmul.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/formatmul_opts.f90.html'>formatmul_opts.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test1.f90.html'>test1.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test10.f90.html'>test10.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test11.f90.html'>test11.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test12.f90.html'>test12.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test13.f90.html'>test13.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test2.f90.html'>test2.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test3.f90.html'>test3.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test4.f90.html'>test4.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test5.f90.html'>test5.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test6.f90.html'>test6.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test7.f90.html'>test7.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test8.f90.html'>test8.f90</a></td>
+                 <td></td>
+               </tr>
+			   <tr>
+                 <td><a href='../sourcefile/test9.f90.html'>test9.f90</a></td>
+                 <td></td>
+               </tr>
 			 </tbody></table>
 			 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -89,292 +139,258 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: file~~graph~~FileGraph Pages: 1 -->
-<svg id="filegraphFileGraph" width="452pt" height="555pt"
- viewBox="0.00 0.00 452.00 555.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="file~~graph~~FileGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 551)">
+<svg id="filegraphFileGraph" width="523pt" height="536pt"
+ viewBox="0.00 0.00 523.00 536.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="file~~graph~~FileGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 532)">
 <title>file~~graph~~FileGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-551 448,-551 448,4 -4,4"/>
-<!-- sourcefile~benchmark1.f90 -->
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-532 519,-532 519,4 -4,4"/>
+<!-- sourcefile~external_interfaces.f90 -->
 <g id="file~~graph~~FileGraph_node1" class="node">
-<title>sourcefile~benchmark1.f90</title>
-<g id="a_file~~graph~~FileGraph_node1"><a xlink:href=".././sourcefile/benchmark1.f90.html" xlink:title="benchmark1.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="100,-486 0,-486 0,-462 100,-462 100,-486"/>
-<text text-anchor="middle" x="50" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark1.f90</text>
+<title>sourcefile~external_interfaces.f90</title>
+<g id="a_file~~graph~~FileGraph_node1"><a xlink:href="../sourcefile/external_interfaces.f90.html" xlink:title="external_interfaces.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="515,-276 380,-276 380,-252 515,-252 515,-276"/>
+<text text-anchor="middle" x="447.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">external_interfaces.f90</text>
 </a>
 </g>
 </g>
-<!-- sourcefile~benchmark2.f90 -->
-<g id="file~~graph~~FileGraph_node2" class="node">
-<title>sourcefile~benchmark2.f90</title>
-<g id="a_file~~graph~~FileGraph_node2"><a xlink:href=".././sourcefile/benchmark2.f90.html" xlink:title="benchmark2.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="100,-444 0,-444 0,-420 100,-420 100,-444"/>
-<text text-anchor="middle" x="50" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark2.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~benchmark3.f90 -->
+<!-- sourcefile~formatmul_opts.f90 -->
 <g id="file~~graph~~FileGraph_node3" class="node">
-<title>sourcefile~benchmark3.f90</title>
-<g id="a_file~~graph~~FileGraph_node3"><a xlink:href=".././sourcefile/benchmark3.f90.html" xlink:title="benchmark3.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="100,-66 0,-66 0,-42 100,-42 100,-66"/>
-<text text-anchor="middle" x="50" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark3.f90</text>
+<title>sourcefile~formatmul_opts.f90</title>
+<g id="a_file~~graph~~FileGraph_node3"><a xlink:href="../sourcefile/formatmul_opts.f90.html" xlink:title="formatmul_opts.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="344,-276 227,-276 227,-252 344,-252 344,-276"/>
+<text text-anchor="middle" x="285.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90</text>
 </a>
 </g>
 </g>
-<!-- sourcefile~benchmark4.f90 -->
-<g id="file~~graph~~FileGraph_node4" class="node">
-<title>sourcefile~benchmark4.f90</title>
-<g id="a_file~~graph~~FileGraph_node4"><a xlink:href=".././sourcefile/benchmark4.f90.html" xlink:title="benchmark4.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="100,-24 0,-24 0,0 100,0 100,-24"/>
-<text text-anchor="middle" x="50" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">benchmark4.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example1.f90 -->
-<g id="file~~graph~~FileGraph_node5" class="node">
-<title>sourcefile~example1.f90</title>
-<g id="a_file~~graph~~FileGraph_node5"><a xlink:href=".././sourcefile/example1.f90.html" xlink:title="example1.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="92.5,-402 7.5,-402 7.5,-378 92.5,-378 92.5,-402"/>
-<text text-anchor="middle" x="50" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example1.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example2.f90 -->
-<g id="file~~graph~~FileGraph_node6" class="node">
-<title>sourcefile~example2.f90</title>
-<g id="a_file~~graph~~FileGraph_node6"><a xlink:href=".././sourcefile/example2.f90.html" xlink:title="example2.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="92.5,-360 7.5,-360 7.5,-336 92.5,-336 92.5,-360"/>
-<text text-anchor="middle" x="50" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example2.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example3.f90 -->
-<g id="file~~graph~~FileGraph_node7" class="node">
-<title>sourcefile~example3.f90</title>
-<g id="a_file~~graph~~FileGraph_node7"><a xlink:href=".././sourcefile/example3.f90.html" xlink:title="example3.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="92.5,-318 7.5,-318 7.5,-294 92.5,-294 92.5,-318"/>
-<text text-anchor="middle" x="50" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example3.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example4.f90 -->
-<g id="file~~graph~~FileGraph_node8" class="node">
-<title>sourcefile~example4.f90</title>
-<g id="a_file~~graph~~FileGraph_node8"><a xlink:href=".././sourcefile/example4.f90.html" xlink:title="example4.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="92.5,-276 7.5,-276 7.5,-252 92.5,-252 92.5,-276"/>
-<text text-anchor="middle" x="50" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example4.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example5.f90 -->
-<g id="file~~graph~~FileGraph_node9" class="node">
-<title>sourcefile~example5.f90</title>
-<g id="a_file~~graph~~FileGraph_node9"><a xlink:href=".././sourcefile/example5.f90.html" xlink:title="example5.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="256,-547 171,-547 171,-523 256,-523 256,-547"/>
-<text text-anchor="middle" x="213.5" y="-532.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example5.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example6.f90 -->
-<g id="file~~graph~~FileGraph_node10" class="node">
-<title>sourcefile~example6.f90</title>
-<g id="a_file~~graph~~FileGraph_node10"><a xlink:href=".././sourcefile/example6.f90.html" xlink:title="example6.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="92.5,-234 7.5,-234 7.5,-210 92.5,-210 92.5,-234"/>
-<text text-anchor="middle" x="50" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example6.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example7.f90 -->
-<g id="file~~graph~~FileGraph_node11" class="node">
-<title>sourcefile~example7.f90</title>
-<g id="a_file~~graph~~FileGraph_node11"><a xlink:href=".././sourcefile/example7.f90.html" xlink:title="example7.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="256,-505 171,-505 171,-481 256,-481 256,-505"/>
-<text text-anchor="middle" x="213.5" y="-490.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example7.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~example8.f90 -->
-<g id="file~~graph~~FileGraph_node12" class="node">
-<title>sourcefile~example8.f90</title>
-<g id="a_file~~graph~~FileGraph_node12"><a xlink:href=".././sourcefile/example8.f90.html" xlink:title="example8.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="92.5,-192 7.5,-192 7.5,-168 92.5,-168 92.5,-192"/>
-<text text-anchor="middle" x="50" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">example8.f90</text>
-</a>
-</g>
+<!-- sourcefile~external_interfaces.f90&#45;&gt;sourcefile~formatmul_opts.f90 -->
+<g id="file~~graph~~FileGraph_edge2" class="edge">
+<title>sourcefile~external_interfaces.f90&#45;&gt;sourcefile~formatmul_opts.f90</title>
+<path fill="none" stroke="transparent" d="M379.57,-264C371.17,-264 362.57,-264 354.16,-264"/>
+<polygon fill="transparent" stroke="transparent" points="354.02,-260.5 344.02,-264 354.02,-267.5 354.02,-260.5"/>
 </g>
 <!-- sourcefile~formatmul.f90 -->
-<g id="file~~graph~~FileGraph_node13" class="node">
+<g id="file~~graph~~FileGraph_node2" class="node">
 <title>sourcefile~formatmul.f90</title>
-<g id="a_file~~graph~~FileGraph_node13"><a xlink:href=".././sourcefile/formatmul.f90.html" xlink:title="formatmul.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="258,-276 169,-276 169,-252 258,-252 258,-276"/>
-<text text-anchor="middle" x="213.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul.f90</text>
+<g id="a_file~~graph~~FileGraph_node2"><a xlink:href="../sourcefile/formatmul.f90.html" xlink:title="formatmul.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="191,-276 102,-276 102,-252 191,-252 191,-276"/>
+<text text-anchor="middle" x="146.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul.f90</text>
 </a>
 </g>
 </g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark1.f90 -->
-<g id="file~~graph~~FileGraph_edge1" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark1.f90</title>
-<path fill="none" stroke="#255000" d="M208.25,-276.4C196.32,-309.49 159.46,-400.92 100,-453 98.51,-454.3 96.93,-455.54 95.28,-456.7"/>
-<polygon fill="#255000" stroke="#255000" points="93.34,-453.79 86.6,-461.96 96.97,-459.77 93.34,-453.79"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark2.f90 -->
-<g id="file~~graph~~FileGraph_edge3" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark2.f90</title>
-<path fill="none" stroke="#255890" d="M205.99,-276.36C190.86,-304.01 150.73,-371.53 100,-411 98.22,-412.39 96.33,-413.7 94.38,-414.94"/>
-<polygon fill="#255890" stroke="#255890" points="92.5,-411.98 85.48,-419.92 95.92,-418.09 92.5,-411.98"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark3.f90 -->
-<g id="file~~graph~~FileGraph_edge5" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark3.f90</title>
-<path fill="none" stroke="transparent" d="M208.25,-251.6C196.32,-218.51 159.46,-127.08 100,-75 98.51,-73.7 96.93,-72.46 95.28,-71.3"/>
-<polygon fill="transparent" stroke="transparent" points="96.97,-68.23 86.6,-66.04 93.34,-74.21 96.97,-68.23"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark4.f90 -->
-<g id="file~~graph~~FileGraph_edge7" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~benchmark4.f90</title>
-<path fill="none" stroke="transparent" d="M209.8,-251.92C200.84,-214.39 168.63,-98.39 100,-33 98.76,-31.81 97.44,-30.69 96.05,-29.63"/>
-<polygon fill="transparent" stroke="transparent" points="97.91,-26.66 87.62,-24.15 94.1,-32.53 97.91,-26.66"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~example1.f90 -->
-<g id="file~~graph~~FileGraph_edge9" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~example1.f90</title>
-<path fill="none" stroke="transparent" d="M202.11,-276.14C183.46,-297.33 142.29,-341.42 100,-369 97.6,-370.56 95.07,-372.06 92.46,-373.47"/>
-<polygon fill="transparent" stroke="transparent" points="90.83,-370.38 83.45,-377.98 93.96,-376.64 90.83,-370.38"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~example2.f90 -->
-<g id="file~~graph~~FileGraph_edge10" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~example2.f90</title>
-<path fill="none" stroke="#602550" d="M192.52,-276.04C170.29,-289.23 133.13,-310.68 100,-327 96.69,-328.63 93.23,-330.26 89.73,-331.85"/>
-<polygon fill="#602550" stroke="#602550" points="88.23,-328.69 80.51,-335.95 91.07,-335.09 88.23,-328.69"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~example3.f90 -->
-<g id="file~~graph~~FileGraph_edge11" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~example3.f90</title>
-<path fill="none" stroke="#025530" d="M168.8,-275.37C148.31,-280.69 123.77,-287.08 102.4,-292.63"/>
-<polygon fill="#025530" stroke="#025530" points="101.31,-289.3 92.51,-295.2 103.07,-296.07 101.31,-289.3"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~example4.f90 -->
-<g id="file~~graph~~FileGraph_edge12" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~example4.f90</title>
-<path fill="none" stroke="transparent" d="M168.8,-264C148.4,-264 123.99,-264 102.69,-264"/>
-<polygon fill="transparent" stroke="transparent" points="102.51,-260.5 92.51,-264 102.51,-267.5 102.51,-260.5"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~example6.f90 -->
-<g id="file~~graph~~FileGraph_edge14" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~example6.f90</title>
-<path fill="none" stroke="#020925" stroke-opacity="0.019608" d="M168.8,-252.63C148.31,-247.31 123.77,-240.92 102.4,-235.37"/>
-<polygon fill="#020925" fill-opacity="0.019608" stroke="#020925" stroke-opacity="0.019608" points="103.07,-231.93 92.51,-232.8 101.31,-238.7 103.07,-231.93"/>
-</g>
-<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~example8.f90 -->
-<g id="file~~graph~~FileGraph_edge16" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~example8.f90</title>
-<path fill="none" stroke="#029255" d="M192.52,-251.96C170.29,-238.77 133.13,-217.32 100,-201 96.69,-199.37 93.23,-197.74 89.73,-196.15"/>
-<polygon fill="#029255" stroke="#029255" points="91.07,-192.91 80.51,-192.05 88.23,-199.31 91.07,-192.91"/>
-</g>
 <!-- sourcefile~test1.f90 -->
-<g id="file~~graph~~FileGraph_node16" class="node">
+<g id="file~~graph~~FileGraph_node4" class="node">
 <title>sourcefile~test1.f90</title>
-<g id="a_file~~graph~~FileGraph_node16"><a xlink:href=".././sourcefile/test1.f90.html" xlink:title="test1.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="79.5,-150 20.5,-150 20.5,-126 79.5,-126 79.5,-150"/>
-<text text-anchor="middle" x="50" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1.f90</text>
+<g id="a_file~~graph~~FileGraph_node4"><a xlink:href="../sourcefile/test1.f90.html" xlink:title="test1.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-528 3.5,-528 3.5,-504 62.5,-504 62.5,-528"/>
+<text text-anchor="middle" x="33" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test1.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test1.f90 -->
-<g id="file~~graph~~FileGraph_edge18" class="edge">
+<g id="file~~graph~~FileGraph_edge3" class="edge">
 <title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test1.f90</title>
-<path fill="none" stroke="transparent" d="M202.11,-251.86C183.46,-230.67 142.29,-186.58 100,-159 96.47,-156.7 92.64,-154.55 88.74,-152.57"/>
-<polygon fill="transparent" stroke="transparent" points="90.12,-149.36 79.58,-148.28 87.15,-155.7 90.12,-149.36"/>
+<path fill="none" stroke="transparent" d="M144.12,-276.09C139.4,-312.71 121.05,-424.18 66,-495 65.43,-495.73 64.82,-496.45 64.19,-497.15"/>
+<polygon fill="transparent" stroke="transparent" points="61.71,-494.67 56.6,-503.95 66.38,-499.89 61.71,-494.67"/>
+</g>
+<!-- sourcefile~test10.f90 -->
+<g id="file~~graph~~FileGraph_node5" class="node">
+<title>sourcefile~test10.f90</title>
+<g id="a_file~~graph~~FileGraph_node5"><a xlink:href="../sourcefile/test10.f90.html" xlink:title="test10.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="66,-486 0,-486 0,-462 66,-462 66,-486"/>
+<text text-anchor="middle" x="33" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test10.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test10.f90 -->
+<g id="file~~graph~~FileGraph_edge4" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test10.f90</title>
+<path fill="none" stroke="transparent" d="M142.95,-276.36C135.8,-308.6 112.91,-396.64 66,-453 65.4,-453.72 64.78,-454.41 64.13,-455.1"/>
+<polygon fill="transparent" stroke="transparent" points="61.67,-452.6 56.41,-461.8 66.26,-457.89 61.67,-452.6"/>
+</g>
+<!-- sourcefile~test11.f90 -->
+<g id="file~~graph~~FileGraph_node6" class="node">
+<title>sourcefile~test11.f90</title>
+<g id="a_file~~graph~~FileGraph_node6"><a xlink:href="../sourcefile/test11.f90.html" xlink:title="test11.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="66,-444 0,-444 0,-420 66,-420 66,-444"/>
+<text text-anchor="middle" x="33" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test11.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test11.f90 -->
+<g id="file~~graph~~FileGraph_edge5" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test11.f90</title>
+<path fill="none" stroke="#312550" d="M141.24,-276.29C131.43,-303.24 105.06,-368.48 66,-411 65.26,-411.81 64.48,-412.6 63.67,-413.37"/>
+<polygon fill="#312550" stroke="#312550" points="61.33,-410.76 55.81,-419.81 65.77,-416.18 61.33,-410.76"/>
+</g>
+<!-- sourcefile~test12.f90 -->
+<g id="file~~graph~~FileGraph_node7" class="node">
+<title>sourcefile~test12.f90</title>
+<g id="a_file~~graph~~FileGraph_node7"><a xlink:href="../sourcefile/test12.f90.html" xlink:title="test12.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="66,-402 0,-402 0,-378 66,-378 66,-402"/>
+<text text-anchor="middle" x="33" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test12.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test12.f90 -->
+<g id="file~~graph~~FileGraph_edge6" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test12.f90</title>
+<path fill="none" stroke="#025563" d="M138.3,-276.08C125.56,-296.78 97.4,-339.64 66,-369 65.04,-369.89 64.05,-370.77 63.02,-371.64"/>
+<polygon fill="#025563" stroke="#025563" points="60.62,-369.06 54.75,-377.88 64.84,-374.65 60.62,-369.06"/>
+</g>
+<!-- sourcefile~test13.f90 -->
+<g id="file~~graph~~FileGraph_node8" class="node">
+<title>sourcefile~test13.f90</title>
+<g id="a_file~~graph~~FileGraph_node8"><a xlink:href="../sourcefile/test13.f90.html" xlink:title="test13.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="66,-360 0,-360 0,-336 66,-336 66,-360"/>
+<text text-anchor="middle" x="33" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test13.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test13.f90 -->
+<g id="file~~graph~~FileGraph_edge7" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test13.f90</title>
+<path fill="none" stroke="#025515" stroke-opacity="0.035294" d="M131.15,-276.01C115.46,-288.99 89.41,-310.09 66,-327 64.59,-328.02 63.14,-329.04 61.66,-330.07"/>
+<polygon fill="#025515" fill-opacity="0.035294" stroke="#025515" stroke-opacity="0.035294" points="59.46,-327.33 53.14,-335.84 63.38,-333.13 59.46,-327.33"/>
 </g>
 <!-- sourcefile~test2.f90 -->
-<g id="file~~graph~~FileGraph_node17" class="node">
+<g id="file~~graph~~FileGraph_node9" class="node">
 <title>sourcefile~test2.f90</title>
-<g id="a_file~~graph~~FileGraph_node17"><a xlink:href=".././sourcefile/test2.f90.html" xlink:title="test2.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="79.5,-108 20.5,-108 20.5,-84 79.5,-84 79.5,-108"/>
-<text text-anchor="middle" x="50" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2.f90</text>
+<g id="a_file~~graph~~FileGraph_node9"><a xlink:href="../sourcefile/test2.f90.html" xlink:title="test2.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-318 3.5,-318 3.5,-294 62.5,-294 62.5,-318"/>
+<text text-anchor="middle" x="33" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test2.f90</text>
 </a>
 </g>
 </g>
 <!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test2.f90 -->
-<g id="file~~graph~~FileGraph_edge19" class="edge">
-<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test2.f90</title>
-<path fill="none" stroke="#255090" d="M205.99,-251.64C190.86,-223.99 150.73,-156.47 100,-117 96.59,-114.35 92.79,-111.96 88.87,-109.84"/>
-<polygon fill="#255090" stroke="#255090" points="90.11,-106.55 79.58,-105.35 87.06,-112.85 90.11,-106.55"/>
-</g>
-<!-- sourcefile~formatmul_benchmark.f90 -->
-<g id="file~~graph~~FileGraph_node14" class="node">
-<title>sourcefile~formatmul_benchmark.f90</title>
-<g id="a_file~~graph~~FileGraph_node14"><a xlink:href=".././sourcefile/formatmul_benchmark.f90.html" xlink:title="formatmul_benchmark.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="291,-45 136,-45 136,-21 291,-21 291,-45"/>
-<text text-anchor="middle" x="213.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_benchmark.f90</text>
-</a>
-</g>
-</g>
-<!-- sourcefile~formatmul_benchmark.f90&#45;&gt;sourcefile~benchmark3.f90 -->
-<g id="file~~graph~~FileGraph_edge6" class="edge">
-<title>sourcefile~formatmul_benchmark.f90&#45;&gt;sourcefile~benchmark3.f90</title>
-<path fill="none" stroke="transparent" d="M135.53,-43.01C127.08,-44.11 118.57,-45.21 110.38,-46.28"/>
-<polygon fill="transparent" stroke="transparent" points="109.66,-42.84 100.2,-47.6 110.56,-49.78 109.66,-42.84"/>
-</g>
-<!-- sourcefile~formatmul_benchmark.f90&#45;&gt;sourcefile~benchmark4.f90 -->
 <g id="file~~graph~~FileGraph_edge8" class="edge">
-<title>sourcefile~formatmul_benchmark.f90&#45;&gt;sourcefile~benchmark4.f90</title>
-<path fill="none" stroke="transparent" d="M135.53,-22.99C127.08,-21.89 118.57,-20.79 110.38,-19.72"/>
-<polygon fill="transparent" stroke="transparent" points="110.56,-16.22 100.2,-18.4 109.66,-23.16 110.56,-16.22"/>
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test2.f90</title>
+<path fill="none" stroke="#025525" stroke-opacity="0.019608" d="M113.55,-276.04C100.6,-280.91 85.55,-286.58 72.04,-291.67"/>
+<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="70.66,-288.45 62.53,-295.25 73.13,-295 70.66,-288.45"/>
 </g>
-<!-- sourcefile~formatmul_opts.f90 -->
-<g id="file~~graph~~FileGraph_node15" class="node">
-<title>sourcefile~formatmul_opts.f90</title>
-<g id="a_file~~graph~~FileGraph_node15"><a xlink:href=".././sourcefile/formatmul_opts.f90.html" xlink:title="formatmul_opts.f90">
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="444,-485 327,-485 327,-461 444,-461 444,-485"/>
-<text text-anchor="middle" x="385.5" y="-470.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">formatmul_opts.f90</text>
+<!-- sourcefile~test3.f90 -->
+<g id="file~~graph~~FileGraph_node10" class="node">
+<title>sourcefile~test3.f90</title>
+<g id="a_file~~graph~~FileGraph_node10"><a xlink:href="../sourcefile/test3.f90.html" xlink:title="test3.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-276 3.5,-276 3.5,-252 62.5,-252 62.5,-276"/>
+<text text-anchor="middle" x="33" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test3.f90</text>
 </a>
 </g>
 </g>
-<!-- sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~benchmark1.f90 -->
-<g id="file~~graph~~FileGraph_edge2" class="edge">
-<title>sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~benchmark1.f90</title>
-<path fill="none" stroke="#255000" d="M212.5,-453C178.52,-451.03 140.78,-455.56 110.33,-460.91"/>
-<polygon fill="#255000" stroke="#255000" points="109.51,-457.5 100.31,-462.74 110.77,-464.39 109.51,-457.5"/>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test3.f90 -->
+<g id="file~~graph~~FileGraph_edge9" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test3.f90</title>
+<path fill="none" stroke="#015925" stroke-opacity="0.019608" d="M101.75,-264C92.18,-264 82.11,-264 72.74,-264"/>
+<polygon fill="#015925" fill-opacity="0.019608" stroke="#015925" stroke-opacity="0.019608" points="72.54,-260.5 62.54,-264 72.54,-267.5 72.54,-260.5"/>
 </g>
-<!-- sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~benchmark2.f90 -->
-<g id="file~~graph~~FileGraph_edge4" class="edge">
-<title>sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~benchmark2.f90</title>
-<path fill="none" stroke="#255890" d="M326.82,-464.49C293.98,-460.08 252.03,-455.17 214.5,-453"/>
-<path fill="none" stroke="#255890" d="M212.5,-453C178.52,-451.03 140.78,-446.27 110.33,-441.78"/>
-<polygon fill="#255890" stroke="#255890" points="110.71,-438.3 100.31,-440.27 109.67,-445.22 110.71,-438.3"/>
+<!-- sourcefile~test4.f90 -->
+<g id="file~~graph~~FileGraph_node11" class="node">
+<title>sourcefile~test4.f90</title>
+<g id="a_file~~graph~~FileGraph_node11"><a xlink:href="../sourcefile/test4.f90.html" xlink:title="test4.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-234 3.5,-234 3.5,-210 62.5,-210 62.5,-234"/>
+<text text-anchor="middle" x="33" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test4.f90</text>
+</a>
 </g>
-<!-- sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~example5.f90 -->
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test4.f90 -->
+<g id="file~~graph~~FileGraph_edge10" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test4.f90</title>
+<path fill="none" stroke="#063255" d="M113.55,-251.96C100.6,-247.09 85.55,-241.42 72.04,-236.33"/>
+<polygon fill="#063255" stroke="#063255" points="73.13,-233 62.53,-232.75 70.66,-239.55 73.13,-233"/>
+</g>
+<!-- sourcefile~test5.f90 -->
+<g id="file~~graph~~FileGraph_node12" class="node">
+<title>sourcefile~test5.f90</title>
+<g id="a_file~~graph~~FileGraph_node12"><a xlink:href="../sourcefile/test5.f90.html" xlink:title="test5.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-192 3.5,-192 3.5,-168 62.5,-168 62.5,-192"/>
+<text text-anchor="middle" x="33" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test5.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test5.f90 -->
+<g id="file~~graph~~FileGraph_edge11" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test5.f90</title>
+<path fill="none" stroke="#310255" d="M131.15,-251.99C115.46,-239.01 89.41,-217.91 66,-201 64.59,-199.98 63.14,-198.96 61.66,-197.93"/>
+<polygon fill="#310255" stroke="#310255" points="63.38,-194.87 53.14,-192.16 59.46,-200.67 63.38,-194.87"/>
+</g>
+<!-- sourcefile~test6.f90 -->
+<g id="file~~graph~~FileGraph_node13" class="node">
+<title>sourcefile~test6.f90</title>
+<g id="a_file~~graph~~FileGraph_node13"><a xlink:href="../sourcefile/test6.f90.html" xlink:title="test6.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-150 3.5,-150 3.5,-126 62.5,-126 62.5,-150"/>
+<text text-anchor="middle" x="33" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test6.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test6.f90 -->
+<g id="file~~graph~~FileGraph_edge12" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test6.f90</title>
+<path fill="none" stroke="#127025" stroke-opacity="0.019608" d="M138.3,-251.92C125.56,-231.22 97.4,-188.36 66,-159 65.04,-158.11 64.05,-157.23 63.02,-156.36"/>
+<polygon fill="#127025" fill-opacity="0.019608" stroke="#127025" stroke-opacity="0.019608" points="64.84,-153.35 54.75,-150.12 60.62,-158.94 64.84,-153.35"/>
+</g>
+<!-- sourcefile~test7.f90 -->
+<g id="file~~graph~~FileGraph_node14" class="node">
+<title>sourcefile~test7.f90</title>
+<g id="a_file~~graph~~FileGraph_node14"><a xlink:href="../sourcefile/test7.f90.html" xlink:title="test7.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-108 3.5,-108 3.5,-84 62.5,-84 62.5,-108"/>
+<text text-anchor="middle" x="33" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test7.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test7.f90 -->
 <g id="file~~graph~~FileGraph_edge13" class="edge">
-<title>sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~example5.f90</title>
-<path fill="none" stroke="#025520" stroke-opacity="0.035294" d="M359.5,-485.15C340.9,-493.9 314.72,-505.59 291,-514 282.98,-516.84 274.37,-519.54 265.92,-521.99"/>
-<polygon fill="#025520" fill-opacity="0.035294" stroke="#025520" stroke-opacity="0.035294" points="264.81,-518.67 256.13,-524.75 266.71,-525.41 264.81,-518.67"/>
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test7.f90</title>
+<path fill="none" stroke="#223025" stroke-opacity="0.019608" d="M141.24,-251.71C131.43,-224.76 105.06,-159.52 66,-117 65.26,-116.19 64.48,-115.4 63.67,-114.63"/>
+<polygon fill="#223025" fill-opacity="0.019608" stroke="#223025" stroke-opacity="0.019608" points="65.77,-111.82 55.81,-108.19 61.33,-117.24 65.77,-111.82"/>
 </g>
-<!-- sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~example7.f90 -->
+<!-- sourcefile~test8.f90 -->
+<g id="file~~graph~~FileGraph_node15" class="node">
+<title>sourcefile~test8.f90</title>
+<g id="a_file~~graph~~FileGraph_node15"><a xlink:href="../sourcefile/test8.f90.html" xlink:title="test8.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-66 3.5,-66 3.5,-42 62.5,-42 62.5,-66"/>
+<text text-anchor="middle" x="33" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test8.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test8.f90 -->
+<g id="file~~graph~~FileGraph_edge14" class="edge">
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test8.f90</title>
+<path fill="none" stroke="#255019" stroke-opacity="0.003922" d="M142.95,-251.64C135.8,-219.4 112.91,-131.36 66,-75 65.4,-74.28 64.78,-73.59 64.13,-72.9"/>
+<polygon fill="#255019" fill-opacity="0.003922" stroke="#255019" stroke-opacity="0.003922" points="66.26,-70.11 56.41,-66.2 61.67,-75.4 66.26,-70.11"/>
+</g>
+<!-- sourcefile~test9.f90 -->
+<g id="file~~graph~~FileGraph_node16" class="node">
+<title>sourcefile~test9.f90</title>
+<g id="a_file~~graph~~FileGraph_node16"><a xlink:href="../sourcefile/test9.f90.html" xlink:title="test9.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="62.5,-24 3.5,-24 3.5,0 62.5,0 62.5,-24"/>
+<text text-anchor="middle" x="33" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">test9.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~formatmul.f90&#45;&gt;sourcefile~test9.f90 -->
 <g id="file~~graph~~FileGraph_edge15" class="edge">
-<title>sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~example7.f90</title>
-<path fill="none" stroke="#012025" stroke-opacity="0.019608" d="M326.95,-479.77C307.27,-482.09 285.39,-484.66 266.2,-486.92"/>
-<polygon fill="#012025" fill-opacity="0.019608" stroke="#012025" stroke-opacity="0.019608" points="265.67,-483.46 256.15,-488.1 266.49,-490.41 265.67,-483.46"/>
+<title>sourcefile~formatmul.f90&#45;&gt;sourcefile~test9.f90</title>
+<path fill="none" stroke="#255095" d="M144.12,-251.91C139.4,-215.29 121.05,-103.82 66,-33 65.43,-32.27 64.82,-31.55 64.19,-30.85"/>
+<polygon fill="#255095" stroke="#255095" points="66.38,-28.11 56.6,-24.05 61.71,-33.33 66.38,-28.11"/>
 </g>
 <!-- sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~formatmul.f90 -->
-<g id="file~~graph~~FileGraph_edge17" class="edge">
+<g id="file~~graph~~FileGraph_edge1" class="edge">
 <title>sourcefile~formatmul_opts.f90&#45;&gt;sourcefile~formatmul.f90</title>
-<path fill="none" stroke="#600255" d="M374.63,-460.86C346.46,-426.23 265.51,-326.71 230.72,-283.94"/>
-<polygon fill="#600255" stroke="#600255" points="233.43,-281.72 224.4,-276.17 228,-286.14 233.43,-281.72"/>
+<path fill="none" stroke="#255950" d="M226.8,-264C218.47,-264 209.92,-264 201.66,-264"/>
+<polygon fill="#255950" stroke="#255950" points="201.4,-260.5 191.4,-264 201.4,-267.5 201.4,-260.5"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#FileGraph-help-text">Help</a></div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#FileGraph-help-text">Help</a>
+          </div>
           <div class="modal fade" id="FileGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -426,7 +442,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-12-15T15:16:25.462174             </p>
+ on 2024-01-17T13:27:24.710180             </p>
           </div>
         </div>
         <br>
