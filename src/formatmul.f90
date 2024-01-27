@@ -296,13 +296,13 @@ contains
       remainder = mod(d, nimg)
       block_size(1:remainder) = block_size(1:remainder) + 1
       start_elem(1) = 1
-      end_elem(1) = block_size(1)
       do i = 2, nimg
          start_elem(i) = start_elem(i - 1) + block_size(i - 1)
-         end_elem(i) = start_elem(i) + block_size(i) - 1
       end do
+      end_elem(1) = block_size(1)
+      end_elem(2:) = start_elem(2:) + block_size(2:) - 1
       ! Check if the block sizes are valid.
-      if (minval(block_size) <= 0) error stop 'ForMatmul: reduce the number of images of coarray.'
+      if (minval(block_size) <= 0) error stop 'ForDot: reduce the number of images of coarray.'
    end subroutine compute_block_ranges
    !===============================================================================
 
