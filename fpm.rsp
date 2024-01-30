@@ -1,17 +1,35 @@
 @ifort-test
-options test --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -ipo"
+options test
+options --compiler ifort
+options --profile release
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -ipo"
 
 @ifort-test-coarray
-options test --compiler ifort --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options test
+options --compiler ifort
+options --profile release
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY"
 
 @ifx-test
-options test --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp"
+options test
+options --compiler ifx
+options --profile release
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp"
 
 @ifx-test-coarray
-options test --compiler ifx --flag "-Ofast -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options test
+options --compiler ifx
+options --profile release
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
 
 @nvfortran-test
-options test --compiler nvfortran --flag "-Ofast -fast -march=native -mtune=native -stdpar=gpu,multicore -llapack -lblas -openmp"
+options test
+options --compiler nvfortran
+options --profile release
+options --flag "-O3 -fast -march=native -mtune=native -stdpar=gpu,multicore -lblas -openmp"
 
-#@gfortran-test
-#options test --compiler gfortran --flag "-Ofast -march=native -llapack -lblas -fopenmp -flto"
+@gfortran-test
+options test
+options --compiler gfortran
+options --profile release
+options --flag "-O3 -march=native -lblas -fopenmp -flto"
