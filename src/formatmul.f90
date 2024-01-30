@@ -311,11 +311,11 @@ contains
    !> author: Seyed Ali Ghasemi
    pure function mat_mat_block_rel(a, b, transA, transB, option, nblock) result(c)
       real(rk), intent(in), contiguous :: a(:,:), b(:,:)
-      character(*), intent(in), optional :: option
       logical, intent(in), optional :: transA, transB
-      real(rk), allocatable :: c(:,:)
-      integer               :: ib
+      character(*), intent(in), optional :: option
       integer, intent(in)   :: nblock
+      real(rk), allocatable :: c(:,:)
+      integer               :: ib, se, ee
       integer :: block_size(nblock), start_elem(nblock), end_elem(nblock)
 
       if (present(transA) .and. present(transB)) then
@@ -323,37 +323,41 @@ contains
             ! AB
             allocate(C(size(A,1), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
-            c = 0.0_rk
             do ib = 1, nblock
-               C(:, start_elem(ib):end_elem(ib)) = &
-                  C(:, start_elem(ib):end_elem(ib)) + matmul(A, B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(:, se:ee) = &
+                  C(:, se:ee) + matmul(A, B(:,se:ee), transA, transB, option)
             end do
          else if (transA .and. transB) then
             ! ATBT
             allocate(C(size(A,2), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-            c = 0.0_rk
             do ib = 1, nblock
-               C(start_elem(ib):end_elem(ib), :) = &
-                  C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(se:ee, :) = &
+                  C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
             end do
          else if (transA .and. .not.transB) then
             ! ATB
             allocate(C(size(A,2), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-            c = 0.0_rk
             do ib = 1, nblock
-               C(start_elem(ib):end_elem(ib), :) = &
-                  C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(se:ee, :) = &
+                  C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
             end do
          else if (.not.transA .and. transB) then
             ! ABT
             allocate(C(size(A,1), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-            c = 0.0_rk
             do ib = 1, nblock
+               se = start_elem(ib)
+               ee = end_elem(ib)
                C(:, :) = C(:, :) + &
-                  matmul(A(:, start_elem(ib):end_elem(ib)), B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+                  matmul(A(:, se:ee), B(:,se:ee), transA, transB, option)
             end do
          end if
       else if (present(transA) .or. present(transB)) then
@@ -362,19 +366,21 @@ contains
                ! ATB
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-               c = 0.0_rk
                do ib = 1, nblock
-                  C(start_elem(ib):end_elem(ib), :) = &
-                     C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
+                  C(se:ee, :) = &
+                     C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
                end do
             else if (.not.transA) then
                ! ABT
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-               c = 0.0_rk
                do ib = 1, nblock
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
                   C(:, :) = C(:, :) + &
-                     matmul(A(:, start_elem(ib):end_elem(ib)), B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+                     matmul(A(:, se:ee), B(:,se:ee), transA, transB, option)
                end do
             end if
          else if (present(transB)) then
@@ -382,19 +388,21 @@ contains
                ! ABT
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-               c = 0.0_rk
                do ib = 1, nblock
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
                   C(:, :) = C(:, :) + &
-                     matmul(A(:, start_elem(ib):end_elem(ib)), B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+                     matmul(A(:, se:ee), B(:,se:ee), transA, transB, option)
                end do
             else if (.not.transB) then
                ! ATB
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-               c = 0.0_rk
                do ib = 1, nblock
-                  C(start_elem(ib):end_elem(ib), :) = &
-                     C(start_elem(ib):end_elem(ib), :) + matmul(A(:, start_elem(ib):end_elem(ib)), B, transA, transB, option)
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
+                  C(se:ee, :) = &
+                     C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
                end do
             end if
          end if
@@ -402,10 +410,11 @@ contains
          ! AB
          allocate(C(size(A,1), size(B,2)), source=0.0_rk)
          call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
-         c = 0.0_rk
          do ib = 1, nblock
-            C(:, start_elem(ib):end_elem(ib)) = &
-               C(:, start_elem(ib):end_elem(ib)) + matmul(A, B(:,start_elem(ib):end_elem(ib)), transA, transB, option)
+            se = start_elem(ib)
+            ee = end_elem(ib)
+            C(:, se:ee) = &
+               C(:, se:ee) + matmul(A, B(:,se:ee), transA, transB, option)
          end do
       end if
 
@@ -417,11 +426,11 @@ contains
    !> author: Seyed Ali Ghasemi
    pure function mat_vec_block_rel(A, v, transA, option, nblock) result(w)
       real(rk), intent(in), contiguous :: A(:,:), v(:)
-      character(*), intent(in), optional :: option
       logical, intent(in), optional :: transA
-      real(rk), allocatable :: w(:)
-      integer               :: ib
+      character(*), intent(in), optional :: option
       integer, intent(in)   :: nblock
+      real(rk), allocatable :: w(:)
+      integer               :: ib, se, ee
       integer :: block_size(nblock), start_elem(nblock), end_elem(nblock)
 
 
@@ -430,29 +439,32 @@ contains
             ! ATv
             allocate(w(size(A,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-            w = 0.0_rk
             do ib = 1, nblock
-               w(start_elem(ib):end_elem(ib)) = &
-                  w(start_elem(ib):end_elem(ib)) + matmul(A(:,start_elem(ib):end_elem(ib)), v, transA, option)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               w(se:ee) = &
+                  w(se:ee) + matmul(A(:,se:ee), v, transA, option)
             end do
          else if (.not. transA) then
             ! Av
             allocate(w(size(A,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-            w = 0.0_rk
             do ib = 1, nblock
+               se = start_elem(ib)
+               ee = end_elem(ib)
                w(:) = &
-                  w(:) + matmul(A(:,start_elem(ib):end_elem(ib)), v(start_elem(ib):end_elem(ib)), transA, option)
+                  w(:) + matmul(A(:,se:ee), v(se:ee), transA, option)
             end do
          end if
       else if (.not. present(transA)) then
          ! Av
          allocate(w(size(A,1)), source=0.0_rk)
          call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-         w = 0.0_rk
          do ib = 1, nblock
+            se = start_elem(ib)
+            ee = end_elem(ib)
             w(:) = &
-               w(:) + matmul(A(:,start_elem(ib):end_elem(ib)), v(start_elem(ib):end_elem(ib)), transA, option)
+               w(:) + matmul(A(:,se:ee), v(se:ee), transA, option)
          end do
       end if
 
