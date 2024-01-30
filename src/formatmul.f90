@@ -47,7 +47,7 @@ contains
             call compute_block_ranges(size(B,2), nimg, block_size, start_elem, end_elem)
             allocate(B_block(n, block_size(im))[*], C_block(m, block_size(im))[*])
             B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
-            C_block(:,:)[im] = matmul(A, B_block(:,:)[im], transA, transB, option)
+            C_block(:,:)[im] = matmul(A, B_block(:,:)[im], transA=.false., transB=.false., option=option)
             sync all
             if (im == 1) then
                do i = 1, nimg
@@ -64,7 +64,7 @@ contains
             call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
             allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,1))[*])
             A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
-            C_block(:,:)[im] = matmul(A_block(:,:)[im], B, transA, transB, option)
+            C_block(:,:)[im] = matmul(A_block(:,:)[im], B, transA=.true., transB=.true., option=option)
             sync all
             if (im == 1) then
                do i = 1, nimg
@@ -81,7 +81,7 @@ contains
             call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
             allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,2))[*])
             A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
-            C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA, transB, option)
+            C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA=.true., transB=.false., option=option)
             sync all
             if (im == 1) then
                do i = 1, nimg
@@ -100,7 +100,7 @@ contains
             allocate(C_block(m, size(B,1))[*])
             A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
             B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
-            C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA, transB, option)
+            C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA=.false., transB=.true., option=option)
             sync all
             if (im == 1) then
                do i = 1, nimg
@@ -120,7 +120,7 @@ contains
                call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
                allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,2))[*])
                A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
-               C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA, transB, option)
+               C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA=.true., transB=.false., option=option)
                sync all
                if (im == 1) then
                   do i = 1, nimg
@@ -139,7 +139,7 @@ contains
                allocate(C_block(m, size(B,1))[*])
                A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
                B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
-               C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA, transB, option)
+               C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA=.false., transB=.true., option=option)
                sync all
                if (im == 1) then
                   do i = 1, nimg
@@ -160,7 +160,7 @@ contains
                allocate(C_block(m, size(B,1))[*])
                A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
                B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
-               C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA, transB, option)
+               C_block(:,:)[im] = matmul(A_block(:,:)[im], B_block(:,:)[im], transA=.false., transB=.true., option=option)
                sync all
                if (im == 1) then
                   do i = 1, nimg
@@ -177,7 +177,7 @@ contains
                call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
                allocate(A_block(m, block_size(im))[*], C_block(block_size(im), size(B,2))[*])
                A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
-               C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA, transB, option)
+               C_block(:,:)[im] = matmul(A_block(:, :)[im], B, transA=.true., transB=.false., option=option)
                sync all
                if (im == 1) then
                   do i = 1, nimg
@@ -196,7 +196,7 @@ contains
          call compute_block_ranges(size(B,2), nimg, block_size, start_elem, end_elem)
          allocate(B_block(n, block_size(im))[*], C_block(m, block_size(im))[*])
          B_block(:,:)[im] = B(:, start_elem(im):end_elem(im))
-         C_block(:,:)[im] = matmul(A, B_block(:,:)[im], transA, transB, option)
+         C_block(:,:)[im] = matmul(A, B_block(:,:)[im], transA=.false., transB=.false., option=option)
          sync all
          if (im == 1) then
             do i = 1, nimg
@@ -206,7 +206,7 @@ contains
       end if
 
 #else
-      C = matmul(A, B, transA, transB, option)
+      C = matmul(A, B, transA=transA, transB=transB, option=option)
 #endif
 
    end function mat_mat_coarray_rel
@@ -235,7 +235,7 @@ contains
             call compute_block_ranges(size(A,2), nimg, block_size, start_elem, end_elem)
             allocate(w_block(block_size(im))[*], A_block(size(A,1), block_size(im))[*])
             A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
-            w_block(:)[im] = matmul(A_block(:, :)[im], v, transA, option)
+            w_block(:)[im] = matmul(A_block(:, :)[im], v, transA=.true., option=option)
             sync all
             if (im == 1) then
                do i = 1, nimg
@@ -251,7 +251,7 @@ contains
             allocate(w_block(size(A,1))[*], v_block(block_size(im))[*], A_block(size(A,1), block_size(im))[*])
             A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
             v_block(:)[im]   = v(start_elem(im):end_elem(im))
-            w_block(:)[im]   = matmul(A_block(:,:)[im], v_block(:)[im], transA, option)
+            w_block(:)[im]   = matmul(A_block(:,:)[im], v_block(:)[im], transA=.false., option=option)
             sync all
             if (im == 1) then
                do i = 1, nimg
@@ -268,7 +268,7 @@ contains
          allocate(w_block(size(A,1))[*], v_block(block_size(im))[*], A_block(size(A,1), block_size(im))[*])
          A_block(:,:)[im] = A(:, start_elem(im):end_elem(im))
          v_block(:)[im]   = v(start_elem(im):end_elem(im))
-         w_block(:)[im]   = matmul(A_block(:,:)[im], v_block(:)[im], transA, option)
+         w_block(:)[im]   = matmul(A_block(:,:)[im], v_block(:)[im], transA=.false., option=option)
          sync all
          if (im == 1) then
             do i = 1, nimg
@@ -278,7 +278,7 @@ contains
       end if
 
 #else
-      w = matmul(A, v, transA, option)
+      w = matmul(A, v, transA=transA, option=option)
 #endif
 
    end function mat_vec_coarray_rel
@@ -323,42 +323,78 @@ contains
             ! AB
             allocate(C(size(A,1), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)            
+            do concurrent (ib = 1: nblock) reduce(+:C)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(:, se:ee) = &
+                  C(:, se:ee) + matmul(A, B(:,se:ee), transA=.false., transB=.false., option=option)
+            end do
+#else
             do ib = 1, nblock
                se = start_elem(ib)
                ee = end_elem(ib)
                C(:, se:ee) = &
-                  C(:, se:ee) + matmul(A, B(:,se:ee), transA, transB, option)
+                  C(:, se:ee) + matmul(A, B(:,se:ee), transA=.false., transB=.false., option=option)
             end do
+#endif
          else if (transA .and. transB) then
             ! ATBT
             allocate(C(size(A,2), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)            
+            do concurrent (ib = 1: nblock) reduce(+:C)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(se:ee, :) = &
+                  C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.true., option=option)
+            end do
+#else
             do ib = 1, nblock
                se = start_elem(ib)
                ee = end_elem(ib)
                C(se:ee, :) = &
-                  C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
+                  C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.true., option=option)
             end do
+#endif
          else if (transA .and. .not.transB) then
             ! ATB
             allocate(C(size(A,2), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)            
+            do concurrent (ib = 1: nblock) reduce(+:C)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(se:ee, :) = &
+                  C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.false., option=option)
+            end do
+#else
             do ib = 1, nblock
                se = start_elem(ib)
                ee = end_elem(ib)
                C(se:ee, :) = &
-                  C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
+                  C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.false., option=option)
             end do
+#endif
          else if (.not.transA .and. transB) then
             ! ABT
             allocate(C(size(A,1), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)            
+            do concurrent (ib = 1: nblock) reduce(+:C)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               C(:, :) = C(:, :) + &
+                  matmul(A(:, se:ee), B(:,se:ee), transA=.false., transB=.true., option=option)
+            end do
+#else
             do ib = 1, nblock
                se = start_elem(ib)
                ee = end_elem(ib)
                C(:, :) = C(:, :) + &
-                  matmul(A(:, se:ee), B(:,se:ee), transA, transB, option)
+                  matmul(A(:, se:ee), B(:,se:ee), transA=.false., transB=.true., option=option)
             end do
+#endif
          end if
       else if (present(transA) .or. present(transB)) then
          if (present(transA)) then
@@ -366,56 +402,101 @@ contains
                ! ATB
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)               
+               do concurrent (ib = 1: nblock) reduce(+:C)
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
+                  C(se:ee, :) = &
+                     C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.false., option=option)
+               end do
+#else
                do ib = 1, nblock
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(se:ee, :) = &
-                     C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
+                     C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.false., option=option)
                end do
+#endif
             else if (.not.transA) then
                ! ABT
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)               
+               do concurrent (ib = 1: nblock) reduce(+:C)
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
+                  C(:, :) = C(:, :) + &
+                     matmul(A(:, se:ee), B(:,se:ee), transA=.false., transB=.true., option=option)
+               end do
+#else
                do ib = 1, nblock
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(:, :) = C(:, :) + &
-                     matmul(A(:, se:ee), B(:,se:ee), transA, transB, option)
+                     matmul(A(:, se:ee), B(:,se:ee), transA=.false., transB=.true., option=option)
                end do
+#endif
             end if
          else if (present(transB)) then
             if (transB) then
                ! ABT
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)               
+               do concurrent (ib = 1: nblock) reduce(+:C)
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
+                  C(:, :) = C(:, :) + &
+                     matmul(A(:, se:ee), B(:,se:ee), transA=.false., transB=.true., option=option)
+               end do
+#else
                do ib = 1, nblock
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(:, :) = C(:, :) + &
-                     matmul(A(:, se:ee), B(:,se:ee), transA, transB, option)
+                     matmul(A(:, se:ee), B(:,se:ee), transA=.false., transB=.true., option=option)
                end do
+#endif
             else if (.not.transB) then
                ! ATB
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)               
+               do concurrent (ib = 1: nblock) reduce(+:C)
+                  se = start_elem(ib)
+                  ee = end_elem(ib)
+                  C(se:ee, :) = &
+                     C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.false., option=option)
+               end do
+#else
                do ib = 1, nblock
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(se:ee, :) = &
-                     C(se:ee, :) + matmul(A(:, se:ee), B, transA, transB, option)
+                     C(se:ee, :) + matmul(A(:, se:ee), B, transA=.true., transB=.false., option=option)
                end do
+#endif
             end if
          end if
       else if (.not.present(transA) .and. .not.present(transB)) then
          ! AB
          allocate(C(size(A,1), size(B,2)), source=0.0_rk)
          call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)         
+         do concurrent (ib = 1: nblock) reduce(+:C)
+            se = start_elem(ib)
+            ee = end_elem(ib)
+            C(:, se:ee) = &
+               C(:, se:ee) + matmul(A, B(:,se:ee), transA=.false., transB=.false., option=option)
+         end do
+#else
          do ib = 1, nblock
             se = start_elem(ib)
             ee = end_elem(ib)
             C(:, se:ee) = &
-               C(:, se:ee) + matmul(A, B(:,se:ee), transA, transB, option)
+               C(:, se:ee) + matmul(A, B(:,se:ee), transA=.false., transB=.false., option=option)
          end do
+#endif
       end if
 
    end function mat_mat_block_rel
@@ -439,33 +520,60 @@ contains
             ! ATv
             allocate(w(size(A,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)
+            do concurrent (ib = 1: nblock) reduce(+:w)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               w(se:ee) = &
+                  w(se:ee) + matmul(A(:,se:ee), v, transA=.true., option=option)
+            end do
+#else
             do ib = 1, nblock
                se = start_elem(ib)
                ee = end_elem(ib)
                w(se:ee) = &
-                  w(se:ee) + matmul(A(:,se:ee), v, transA, option)
+                  w(se:ee) + matmul(A(:,se:ee), v, transA=.true., option=option)
             end do
+#endif
          else if (.not. transA) then
             ! Av
             allocate(w(size(A,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)
+            do concurrent (ib = 1: nblock) reduce(+:w)
+               se = start_elem(ib)
+               ee = end_elem(ib)
+               w(:) = &
+                  w(:) + matmul(A(:,se:ee), v(se:ee), transA=.false., option=option)
+            end do
+#else
             do ib = 1, nblock
                se = start_elem(ib)
                ee = end_elem(ib)
                w(:) = &
-                  w(:) + matmul(A(:,se:ee), v(se:ee), transA, option)
+                  w(:) + matmul(A(:,se:ee), v(se:ee), transA=.false., option=option)
             end do
+#endif
          end if
       else if (.not. present(transA)) then
          ! Av
          allocate(w(size(A,1)), source=0.0_rk)
          call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
+#if defined(USE_DO_CONCURRENT)
+         do concurrent (ib = 1: nblock) reduce(+:w)
+            se = start_elem(ib)
+            ee = end_elem(ib)
+            w(:) = &
+               w(:) + matmul(A(:,se:ee), v(se:ee), transA=.false., option=option)
+         end do
+#else
          do ib = 1, nblock
             se = start_elem(ib)
             ee = end_elem(ib)
             w(:) = &
-               w(:) + matmul(A(:,se:ee), v(se:ee), transA, option)
+               w(:) + matmul(A(:,se:ee), v(se:ee), transA=.false., option=option)
          end do
+#endif
       end if
 
    end function mat_vec_block_rel

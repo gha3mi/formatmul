@@ -14,13 +14,13 @@ options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-n
 options test
 options --compiler ifx
 options --profile release
-options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp"
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -DUSE_DO_CONCURRENT"
 
 @ifx-test-coarray
 options test
 options --compiler ifx
 options --profile release
-options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -DUSE_DO_CONCURRENT -coarray -coarray-num-images=4 -DUSE_COARRAY"
 
 @nvfortran-test
 options test
