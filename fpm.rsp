@@ -8,7 +8,7 @@ options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -ipo"
 options test
 options --compiler ifort
 options --profile release
-options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY"
+options --flag "-O3 -mtune=native -xHost -qmkl -qopenmp -DUSE_DO_CONCURRENT -ipo -coarray -coarray-num-images=4 -DUSE_COARRAY"
 
 @ifx-test
 options test
@@ -32,4 +32,4 @@ options --flag "-O3 -fast -march=native -mtune=native -stdpar=gpu,multicore -lbl
 options test
 options --compiler gfortran
 options --profile release
-options --flag "-O3 -march=native -lblas -fopenmp -flto"
+options --flag "-O3 -march=native -lblas -fopenmp -DUSE_DO_CONCURRENT -flto"
