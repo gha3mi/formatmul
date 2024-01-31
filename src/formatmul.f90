@@ -324,7 +324,7 @@ contains
             allocate(C(size(A,1), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)            
-            do concurrent (ib = 1: nblock) reduce(+:C)
+            do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
                C(:, se:ee) = &
@@ -343,7 +343,7 @@ contains
             allocate(C(size(A,2), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)            
-            do concurrent (ib = 1: nblock) reduce(+:C)
+            do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
                C(se:ee, :) = &
@@ -362,7 +362,7 @@ contains
             allocate(C(size(A,2), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)            
-            do concurrent (ib = 1: nblock) reduce(+:C)
+            do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
                C(se:ee, :) = &
@@ -381,7 +381,7 @@ contains
             allocate(C(size(A,1), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)            
-            do concurrent (ib = 1: nblock) reduce(+:C)
+            do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
                C(:, :) = C(:, :) + &
@@ -403,7 +403,7 @@ contains
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)               
-               do concurrent (ib = 1: nblock) reduce(+:C)
+               do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(se:ee, :) = &
@@ -422,7 +422,7 @@ contains
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)               
-               do concurrent (ib = 1: nblock) reduce(+:C)
+               do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(:, :) = C(:, :) + &
@@ -443,7 +443,7 @@ contains
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)               
-               do concurrent (ib = 1: nblock) reduce(+:C)
+               do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(:, :) = C(:, :) + &
@@ -462,7 +462,7 @@ contains
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)               
-               do concurrent (ib = 1: nblock) reduce(+:C)
+               do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
                   C(se:ee, :) = &
@@ -483,7 +483,7 @@ contains
          allocate(C(size(A,1), size(B,2)), source=0.0_rk)
          call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)         
-         do concurrent (ib = 1: nblock) reduce(+:C)
+         do concurrent (ib = 1: nblock)
             se = start_elem(ib)
             ee = end_elem(ib)
             C(:, se:ee) = &
@@ -521,7 +521,7 @@ contains
             allocate(w(size(A,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)
-            do concurrent (ib = 1: nblock) reduce(+:w)
+            do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
                w(se:ee) = &
@@ -540,7 +540,7 @@ contains
             allocate(w(size(A,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)
-            do concurrent (ib = 1: nblock) reduce(+:w)
+            do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
                w(:) = &
@@ -560,7 +560,7 @@ contains
          allocate(w(size(A,1)), source=0.0_rk)
          call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
 #if defined(USE_DO_CONCURRENT)
-         do concurrent (ib = 1: nblock) reduce(+:w)
+         do concurrent (ib = 1: nblock)
             se = start_elem(ib)
             ee = end_elem(ib)
             w(:) = &
