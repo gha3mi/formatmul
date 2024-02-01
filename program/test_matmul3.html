@@ -73,7 +73,7 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title="10.2% of total for programs.">67 statements</a>
+                 title="13.7% of total for programs.">113 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
@@ -112,14 +112,14 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-a~78">A</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-b~60">B</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-c_ref~4">C_ref</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-c~60">C</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-m~64">m</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-n~45">n</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-o~4">o</a>
-            <a class="list-group-item" href="../program/test_matmul3.html#variable-ut~4">ut</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-a">A</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-b">B</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-c_ref">C_ref</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-c">C</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-m">m</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-n">n</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-o">o</a>
+            <a class="list-group-item" href="../program/test_matmul3.html#variable-ut">ut</a>
         </div>
       </div>
     </div>
@@ -162,8 +162,8 @@
             <li class="list-group-item">
               <ul class="list-inline">
                   <li class="list-inline-item"><a href='../module/formatmul.html'>formatmul</a></li>
-                  <li class="list-inline-item">forunittest</li>
                   <li class="list-inline-item">kinds</li>
+                  <li class="list-inline-item">forunittest</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -464,7 +464,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~78"></span>
+              <span class="anchor" id="variable-a"></span>
               real(kind=rk),
             </td>
             <td>
@@ -480,7 +480,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~60"></span>
+              <span class="anchor" id="variable-b"></span>
               real(kind=rk),
             </td>
             <td>
@@ -496,7 +496,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c_ref~4"></span>
+              <span class="anchor" id="variable-c_ref"></span>
               real(kind=rk),
             </td>
             <td>
@@ -512,7 +512,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~60"></span>
+              <span class="anchor" id="variable-c"></span>
               real(kind=rk),
             </td>
             <td>
@@ -528,7 +528,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~64"></span>
+              <span class="anchor" id="variable-m"></span>
               integer
             </td>
             <td>
@@ -544,7 +544,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~45"></span>
+              <span class="anchor" id="variable-n"></span>
               integer
             </td>
             <td>
@@ -560,7 +560,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-o~4"></span>
+              <span class="anchor" id="variable-o"></span>
               integer
             </td>
             <td>
@@ -576,7 +576,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ut~4"></span>
+              <span class="anchor" id="variable-ut"></span>
               type(unit_test)
             </td>
             <td>
@@ -717,6 +717,90 @@ large graphs.</div>
 <span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m13&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.28&#39;</span><span class="p">)</span>
 
+
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.29&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m2&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.30&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m3&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.31&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m4&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.32&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m5&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.33&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m6&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.34&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m7&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.35&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m8&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.36&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m9&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.37&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="c">! C = matmul(A,B, option=&#39;m10&#39;, transA=.false., transB=.false.)</span>
+<span class="w">   </span><span class="c">! call ut%check(C, C_ref, tol=1e-5_rk, msg=&#39;test_matmul3.38&#39;)</span>
+
+<span class="w">   </span><span class="c">! C = matmul(A,B, option=&#39;m11&#39;, transA=.false., transB=.false.)</span>
+<span class="w">   </span><span class="c">! call ut%check(C, C_ref, tol=1e-5_rk, msg=&#39;test_matmul3.39&#39;)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m12&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.40&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m13&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.41&#39;</span><span class="p">)</span>
+
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.42&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.43&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m2&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.44&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m3&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.45&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m4&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.46&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m5&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.47&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m6&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.48&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m7&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.49&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m8&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.50&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m9&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.51&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="c">! C = matmul(A,B, option=&#39;m10&#39;, nblock=4, transA=.false., transB=.false.)</span>
+<span class="w">   </span><span class="c">! call ut%check(C, C_ref, tol=1e-5_rk, msg=&#39;test_matmul3.52&#39;)</span>
+
+<span class="w">   </span><span class="c">! C = matmul(A,B, option=&#39;m11&#39;, nblock=4, transA=.false., transB=.false.)</span>
+<span class="w">   </span><span class="c">! call ut%check(C, C_ref, tol=1e-5_rk, msg=&#39;test_matmul3.53&#39;)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m12&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.54&#39;</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m13&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">nblock</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">ut</span><span class="p">%</span><span class="n">check</span><span class="p">(</span><span class="n">C</span><span class="p">,</span><span class="w"> </span><span class="n">C_ref</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-5_rk</span><span class="p">,</span><span class="w"> </span><span class="n">msg</span><span class="o">=</span><span class="s1">&#39;test_matmul3.55&#39;</span><span class="p">)</span>
+
 <span class="k">end program </span><span class="n">test_matmul3</span>
 </pre></div>
 
@@ -737,7 +821,7 @@ large graphs.</div>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-01-31T09:42:40.327475             </p>
+ on 2024-02-01T20:30:30.967067             </p>
           </div>
         </div>
         <br>

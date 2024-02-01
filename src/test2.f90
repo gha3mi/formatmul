@@ -112,5 +112,96 @@ program test_matmul4
    C = matmul(A,B, option='m13', transA=.true., nblock=4)
    call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.28')
 
+
+
+
+   C = matmul(A,B, transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.29')
+
+   C = matmul(A,B, option='m1', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.30')
+
+   C = matmul(A,B, option='m2', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.31')
+
+   C = matmul(A,B, option='m3', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.32')
+
+   C = matmul(A,B, option='m4', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.33')
+
+   C = matmul(A,B, option='m5', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.34')
+
+   C = matmul(A,B, option='m6', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.35')
+
+   C = matmul(A,B, option='m7', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.36')
+
+   C = matmul(A,B, option='m8', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.37')
+
+   C = matmul(A,B, option='m9', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.38')
+
+   ! C = matmul(A,B, option='m10', transA=.true., transB=.false.)
+   ! call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.39')
+
+   ! C = matmul(A,B, option='m11', transA=.true., transB=.false.)
+   ! call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.40')
+
+   C = matmul(A,B, option='m12', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.41')
+
+   C = matmul(A,B, option='m13', transA=.true., transB=.false.)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.42')
+
+
+
+
+
+   C = matmul(A,B, transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.43')
+
+   C = matmul(A,B, option='m1', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.44')
+
+   C = matmul(A,B, option='m2', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.45')
+
+   C = matmul(A,B, option='m3', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.46')
+
+   C = matmul(A,B, option='m4', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.47')
+
+   C = matmul(A,B, option='m5', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.48')
+
+   C = matmul(A,B, option='m6', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.49')
+
+   C = matmul(A,B, option='m7', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.50')
+
+   C = matmul(A,B, option='m8', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.51')
+
+   C = matmul(A,B, option='m9', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.52')
+
+   ! C = matmul(A,B, option='m10', transA=.true., transB=.false., nblock=4)
+   ! call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.53')
+
+   ! C = matmul(A,B, option='m11', transA=.true., transB=.false., nblock=4)
+   ! call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.54')
+
+   C = matmul(A,B, option='m12', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.55')
+
+   C = matmul(A,B, option='m13', transA=.true., transB=.false., nblock=4)
+   call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.56')
+   
 end program test_matmul4
 
