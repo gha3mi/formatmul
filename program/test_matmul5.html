@@ -12,14 +12,29 @@
 
     <title>test_matmul5 &ndash; ForMatmul</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -71,8 +86,7 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title="14.0% of total for programs.">115 statements</a>
             </li>
 
@@ -93,9 +107,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -112,14 +128,14 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-a~81">A</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-b~62">B</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-c_ref~6">C_ref</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-c~62">C</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-m~67">m</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-n~48">n</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-o~6">o</a>
-            <a class="list-group-item" href="../program/test_matmul5.html#variable-ut~7">ut</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-a~97">A</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-b~69">B</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-c_ref~8">C_ref</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-c~69">C</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-m~75">m</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-n~56">n</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-o~8">o</a>
+            <a class="list-group-item" href="../program/test_matmul5.html#variable-ut~13">ut</a>
         </div>
       </div>
     </div>
@@ -161,9 +177,9 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
+                  <li class="list-inline-item">forunittest</li>
                   <li class="list-inline-item"><a href='../module/formatmul.html'>formatmul</a></li>
                   <li class="list-inline-item">kinds</li>
-                  <li class="list-inline-item">forunittest</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -193,8 +209,8 @@
 <!-- program~test_matmul5&#45;&gt;forunittest -->
 <g id="program~~test_matmul5~~UsesGraph_edge1" class="edge">
 <title>program~test_matmul5&#45;&gt;forunittest</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M336.2,-64C325.02,-68.03 312.41,-72.57 300.65,-76.81"/>
-<polygon fill="#255000" stroke="#255000" points="299.24,-73.6 291.02,-80.28 301.61,-80.18 299.24,-73.6"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M336.2,-64C325.02,-68.03 312.41,-72.57 300.65,-76.81"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="299.24,-73.6 291.02,-80.28 301.61,-80.18 299.24,-73.6"/>
 </g>
 <!-- kinds -->
 <g id="program~~test_matmul5~~UsesGraph_node3" class="node">
@@ -205,7 +221,7 @@
 <!-- program~test_matmul5&#45;&gt;kinds -->
 <g id="program~~test_matmul5~~UsesGraph_edge2" class="edge">
 <title>program~test_matmul5&#45;&gt;kinds</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M327.95,-52.14C281.89,-52.26 205.38,-52.36 139.5,-52"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M327.95,-52.14C281.89,-52.26 205.38,-52.36 139.5,-52"/>
 </g>
 <!-- module~formatmul -->
 <g id="program~~test_matmul5~~UsesGraph_node4" class="node">
@@ -219,15 +235,15 @@
 <!-- program~test_matmul5&#45;&gt;module~formatmul -->
 <g id="program~~test_matmul5~~UsesGraph_edge3" class="edge">
 <title>program~test_matmul5&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M336.2,-40C325.32,-36.08 313.08,-31.67 301.59,-27.53"/>
-<polygon fill="#255000" stroke="#255000" points="302.76,-24.23 292.16,-24.13 300.39,-30.81 302.76,-24.23"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M336.2,-40C325.32,-36.08 313.08,-31.67 301.59,-27.53"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="302.76,-24.23 292.16,-24.13 300.39,-30.81 302.76,-24.23"/>
 </g>
 <!-- module~formatmul&#45;&gt;kinds -->
 <g id="program~~test_matmul5~~UsesGraph_edge4" class="edge">
 <title>module~formatmul&#45;&gt;kinds</title>
-<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M235.25,-24.08C212.36,-35.92 174.49,-52.19 139.5,-52"/>
-<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M137.5,-52C112.76,-51.86 85.37,-46.86 64.18,-41.89"/>
-<polygon fill="#002505" stroke="#002505" points="64.85,-38.46 54.31,-39.48 63.19,-45.25 64.85,-38.46"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M235.25,-24.08C212.36,-35.92 174.49,-52.19 139.5,-52"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M137.5,-52C112.76,-51.86 85.37,-46.86 64.18,-41.89"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="64.85,-38.46 54.31,-39.48 63.19,-45.25 64.85,-38.46"/>
 </g>
 <!-- module~formatmul_opts -->
 <g id="program~~test_matmul5~~UsesGraph_node5" class="node">
@@ -241,14 +257,14 @@
 <!-- module~formatmul&#45;&gt;module~formatmul_opts -->
 <g id="program~~test_matmul5~~UsesGraph_edge5" class="edge">
 <title>module~formatmul&#45;&gt;module~formatmul_opts</title>
-<path fill="none" stroke="#002505" stroke-dasharray="5,2" d="M222.97,-12C215.01,-12 206.29,-12 197.59,-12"/>
-<polygon fill="#002505" stroke="#002505" points="197.42,-8.5 187.42,-12 197.42,-15.5 197.42,-8.5"/>
+<path fill="none" stroke="#0000ff" stroke-dasharray="5,2" d="M222.97,-12C215.01,-12 206.29,-12 197.59,-12"/>
+<polygon fill="#0000ff" stroke="#0000ff" points="197.42,-8.5 187.42,-12 197.42,-15.5 197.42,-8.5"/>
 </g>
 <!-- module~formatmul_opts&#45;&gt;kinds -->
 <g id="program~~test_matmul5~~UsesGraph_edge6" class="edge">
 <title>module~formatmul_opts&#45;&gt;kinds</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M89.79,-20.71C81.2,-22.28 72.37,-23.9 64.18,-25.39"/>
-<polygon fill="#255000" stroke="#255000" points="63.41,-21.98 54.2,-27.22 64.66,-28.86 63.41,-21.98"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M89.79,-20.71C81.2,-22.28 72.37,-23.9 64.18,-25.39"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="63.41,-21.98 54.2,-27.22 64.66,-28.86 63.41,-21.98"/>
 </g>
 </g>
 </svg>
@@ -362,8 +378,8 @@ large graphs.</div>
 <!-- program~test_matmul5&#45;&gt;check -->
 <g id="program~~test_matmul5~~CallsGraph_edge1" class="edge">
 <title>program~test_matmul5&#45;&gt;check</title>
-<path fill="none" stroke="#255000" d="M85,-12C93.54,-12 102.47,-12 110.81,-12"/>
-<polygon fill="#255000" stroke="#255000" points="110.97,-15.5 120.97,-12 110.97,-8.5 110.97,-15.5"/>
+<path fill="none" stroke="#ff0000" d="M85,-12C93.54,-12 102.47,-12 110.81,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="110.97,-15.5 120.97,-12 110.97,-8.5 110.97,-15.5"/>
 </g>
 </g>
 </svg>
@@ -387,7 +403,7 @@ large graphs.</div>
 <!-- Title: Graph Key Pages: 1 -->
 <svg width="641pt" height="28pt"
  viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<g id="graph0" class="graph" transform="scale(0.86 0.86) rotate(0) translate(4 28)">
 <title>Graph Key</title>
 <polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
@@ -464,7 +480,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~81"></span>
+              <span class="anchor" id="variable-a~97"></span>
               real(kind=rk),
             </td>
             <td>
@@ -480,7 +496,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~62"></span>
+              <span class="anchor" id="variable-b~69"></span>
               real(kind=rk),
             </td>
             <td>
@@ -496,7 +512,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c_ref~6"></span>
+              <span class="anchor" id="variable-c_ref~8"></span>
               real(kind=rk),
             </td>
             <td>
@@ -512,7 +528,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~62"></span>
+              <span class="anchor" id="variable-c~69"></span>
               real(kind=rk),
             </td>
             <td>
@@ -528,7 +544,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~67"></span>
+              <span class="anchor" id="variable-m~75"></span>
               integer
             </td>
             <td>
@@ -544,7 +560,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~48"></span>
+              <span class="anchor" id="variable-n~56"></span>
               integer
             </td>
             <td>
@@ -560,7 +576,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-o~6"></span>
+              <span class="anchor" id="variable-o~8"></span>
               integer
             </td>
             <td>
@@ -576,7 +592,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ut~7"></span>
+              <span class="anchor" id="variable-ut~13"></span>
               type(unit_test)
             </td>
             <td>
@@ -610,7 +626,7 @@ large graphs.</div>
 
 <span class="w">   </span><span class="k">use </span><span class="n">kinds</span>
 <span class="w">   </span><span class="k">use </span><span class="n">formatmul</span>
-<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span>
+<span class="w">   </span><span class="k">use </span><span class="n">forunittest</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">unit_test</span>
 
 <span class="w">   </span><span class="k">implicit none</span>
 
@@ -822,40 +838,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForMatmul
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-02-01T20:30:30.967067             </p>
+ on 2025-07-18T08:57:05.994850+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

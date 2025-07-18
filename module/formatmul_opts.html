@@ -12,14 +12,29 @@
 
     <title>formatmul_opts &ndash; ForMatmul</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -72,8 +87,7 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title="60.2% of total for modules and submodules.">1002 statements</a>
             </li>
 
@@ -94,9 +108,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -276,8 +292,8 @@
 <!-- module~formatmul_opts&#45;&gt;kinds -->
 <g id="module~~formatmul_opts~~UsesGraph_edge1" class="edge">
 <title>module~formatmul_opts&#45;&gt;kinds</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M89.79,-12C81.29,-12 72.57,-12 64.45,-12"/>
-<polygon fill="#255000" stroke="#255000" points="64.2,-8.5 54.2,-12 64.2,-15.5 64.2,-8.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M89.79,-12C81.29,-12 72.57,-12 64.45,-12"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.2,-8.5 54.2,-12 64.2,-15.5 64.2,-8.5"/>
 </g>
 </g>
 </svg>
@@ -392,8 +408,8 @@ large graphs.</div>
 <!-- module~formatmul&#45;&gt;module~formatmul_opts -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge1" class="edge">
 <title>module~formatmul&#45;&gt;module~formatmul_opts</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M132.97,-264C125.01,-264 116.29,-264 107.59,-264"/>
-<polygon fill="#255000" stroke="#255000" points="107.42,-260.5 97.42,-264 107.42,-267.5 107.42,-260.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M132.97,-264C125.01,-264 116.29,-264 107.59,-264"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="107.42,-260.5 97.42,-264 107.42,-267.5 107.42,-260.5"/>
 </g>
 <!-- program~test_matmul10 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node3" class="node">
@@ -407,8 +423,8 @@ large graphs.</div>
 <!-- program~test_matmul10&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge2" class="edge">
 <title>program~test_matmul10&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M248.85,-503.99C244.81,-501.49 241.05,-498.52 238,-495 184.45,-433.1 172.16,-331.08 169.34,-286.27"/>
-<polygon fill="#255000" stroke="#255000" points="172.83,-285.98 168.81,-276.18 165.84,-286.35 172.83,-285.98"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M248.85,-503.99C244.81,-501.49 241.05,-498.52 238,-495 184.45,-433.1 172.16,-331.08 169.34,-286.27"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="172.83,-285.98 168.81,-276.18 165.84,-286.35 172.83,-285.98"/>
 </g>
 <!-- program~test_matmul11 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node4" class="node">
@@ -422,8 +438,8 @@ large graphs.</div>
 <!-- program~test_matmul11&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge3" class="edge">
 <title>program~test_matmul11&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M249.05,-461.81C244.97,-459.34 241.15,-456.43 238,-453 193.43,-404.51 176.82,-325.02 171.16,-286.43"/>
-<polygon fill="#255000" stroke="#255000" points="174.59,-285.71 169.78,-276.27 167.65,-286.64 174.59,-285.71"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M249.05,-461.81C244.97,-459.34 241.15,-456.43 238,-453 193.43,-404.51 176.82,-325.02 171.16,-286.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="174.59,-285.71 169.78,-276.27 167.65,-286.64 174.59,-285.71"/>
 </g>
 <!-- program~test_matmul12 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node5" class="node">
@@ -437,8 +453,8 @@ large graphs.</div>
 <!-- program~test_matmul12&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge4" class="edge">
 <title>program~test_matmul12&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M249.78,-419.81C245.5,-417.33 241.42,-414.41 238,-411 202.2,-375.38 182.49,-317.75 173.87,-286.27"/>
-<polygon fill="#255000" stroke="#255000" points="177.18,-285.1 171.28,-276.31 170.41,-286.87 177.18,-285.1"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M249.78,-419.81C245.5,-417.33 241.42,-414.41 238,-411 202.2,-375.38 182.49,-317.75 173.87,-286.27"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="177.18,-285.1 171.28,-276.31 170.41,-286.87 177.18,-285.1"/>
 </g>
 <!-- program~test_matmul13 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node6" class="node">
@@ -452,8 +468,8 @@ large graphs.</div>
 <!-- program~test_matmul13&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge5" class="edge">
 <title>program~test_matmul13&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M251.15,-377.86C246.47,-375.32 241.92,-372.38 238,-369 210.74,-345.5 189.8,-308.8 178.32,-285.6"/>
-<polygon fill="#255000" stroke="#255000" points="181.33,-283.78 173.86,-276.27 175.02,-286.8 181.33,-283.78"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M251.15,-377.86C246.47,-375.32 241.92,-372.38 238,-369 210.74,-345.5 189.8,-308.8 178.32,-285.6"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="181.33,-283.78 173.86,-276.27 175.02,-286.8 181.33,-283.78"/>
 </g>
 <!-- program~test_matmul14 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node7" class="node">
@@ -467,8 +483,8 @@ large graphs.</div>
 <!-- program~test_matmul14&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge6" class="edge">
 <title>program~test_matmul14&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M253.74,-335.91C248.35,-333.25 242.88,-330.24 238,-327 219.18,-314.49 200.34,-297.03 187.03,-283.67"/>
-<polygon fill="#255000" stroke="#255000" points="189.37,-281.05 179.88,-276.34 184.36,-285.94 189.37,-281.05"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M253.74,-335.91C248.35,-333.25 242.88,-330.24 238,-327 219.18,-314.49 200.34,-297.03 187.03,-283.67"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="189.37,-281.05 179.88,-276.34 184.36,-285.94 189.37,-281.05"/>
 </g>
 <!-- program~test_matmul15 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node8" class="node">
@@ -482,8 +498,8 @@ large graphs.</div>
 <!-- program~test_matmul15&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge7" class="edge">
 <title>program~test_matmul15&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M250.19,-293.96C237.97,-289.48 223.93,-284.33 210.97,-279.58"/>
-<polygon fill="#255000" stroke="#255000" points="211.91,-276.2 201.32,-276.04 209.5,-282.77 211.91,-276.2"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M250.19,-293.96C237.97,-289.48 223.93,-284.33 210.97,-279.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="211.91,-276.2 201.32,-276.04 209.5,-282.77 211.91,-276.2"/>
 </g>
 <!-- program~test_matmul3 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node9" class="node">
@@ -497,8 +513,8 @@ large graphs.</div>
 <!-- program~test_matmul3&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge8" class="edge">
 <title>program~test_matmul3&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M241.34,-264C231.85,-264 221.75,-264 212.18,-264"/>
-<polygon fill="#255000" stroke="#255000" points="212.07,-260.5 202.07,-264 212.07,-267.5 212.07,-260.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M241.34,-264C231.85,-264 221.75,-264 212.18,-264"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="212.07,-260.5 202.07,-264 212.07,-267.5 212.07,-260.5"/>
 </g>
 <!-- program~test_matmul4 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node10" class="node">
@@ -512,8 +528,8 @@ large graphs.</div>
 <!-- program~test_matmul4&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge9" class="edge">
 <title>program~test_matmul4&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M250.19,-234.04C237.97,-238.52 223.93,-243.67 210.97,-248.42"/>
-<polygon fill="#255000" stroke="#255000" points="209.5,-245.23 201.32,-251.96 211.91,-251.8 209.5,-245.23"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M250.19,-234.04C237.97,-238.52 223.93,-243.67 210.97,-248.42"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="209.5,-245.23 201.32,-251.96 211.91,-251.8 209.5,-245.23"/>
 </g>
 <!-- program~test_matmul5 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node11" class="node">
@@ -527,8 +543,8 @@ large graphs.</div>
 <!-- program~test_matmul5&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge10" class="edge">
 <title>program~test_matmul5&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M253.74,-192.09C248.35,-194.75 242.88,-197.76 238,-201 219.18,-213.51 200.34,-230.97 187.03,-244.33"/>
-<polygon fill="#255000" stroke="#255000" points="184.36,-242.06 179.88,-251.66 189.37,-246.95 184.36,-242.06"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M253.74,-192.09C248.35,-194.75 242.88,-197.76 238,-201 219.18,-213.51 200.34,-230.97 187.03,-244.33"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="184.36,-242.06 179.88,-251.66 189.37,-246.95 184.36,-242.06"/>
 </g>
 <!-- program~test_matmul6 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node12" class="node">
@@ -542,8 +558,8 @@ large graphs.</div>
 <!-- program~test_matmul6&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge11" class="edge">
 <title>program~test_matmul6&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M251.15,-150.14C246.47,-152.68 241.92,-155.62 238,-159 210.74,-182.5 189.8,-219.2 178.32,-242.4"/>
-<polygon fill="#255000" stroke="#255000" points="175.02,-241.2 173.86,-251.73 181.33,-244.22 175.02,-241.2"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M251.15,-150.14C246.47,-152.68 241.92,-155.62 238,-159 210.74,-182.5 189.8,-219.2 178.32,-242.4"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="175.02,-241.2 173.86,-251.73 181.33,-244.22 175.02,-241.2"/>
 </g>
 <!-- program~test_matmul7 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node13" class="node">
@@ -557,8 +573,8 @@ large graphs.</div>
 <!-- program~test_matmul7&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge12" class="edge">
 <title>program~test_matmul7&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M249.78,-108.19C245.5,-110.67 241.42,-113.59 238,-117 202.2,-152.62 182.49,-210.25 173.87,-241.73"/>
-<polygon fill="#255000" stroke="#255000" points="170.41,-241.13 171.28,-251.69 177.18,-242.9 170.41,-241.13"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M249.78,-108.19C245.5,-110.67 241.42,-113.59 238,-117 202.2,-152.62 182.49,-210.25 173.87,-241.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="170.41,-241.13 171.28,-251.69 177.18,-242.9 170.41,-241.13"/>
 </g>
 <!-- program~test_matmul8 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node14" class="node">
@@ -572,8 +588,8 @@ large graphs.</div>
 <!-- program~test_matmul8&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge13" class="edge">
 <title>program~test_matmul8&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M249.05,-66.19C244.97,-68.66 241.15,-71.57 238,-75 193.43,-123.49 176.82,-202.98 171.16,-241.57"/>
-<polygon fill="#255000" stroke="#255000" points="167.65,-241.36 169.78,-251.73 174.59,-242.29 167.65,-241.36"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M249.05,-66.19C244.97,-68.66 241.15,-71.57 238,-75 193.43,-123.49 176.82,-202.98 171.16,-241.57"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="167.65,-241.36 169.78,-251.73 174.59,-242.29 167.65,-241.36"/>
 </g>
 <!-- program~test_matmul9 -->
 <g id="module~~formatmul_opts~~UsedByGraph_node15" class="node">
@@ -587,8 +603,8 @@ large graphs.</div>
 <!-- program~test_matmul9&#45;&gt;module~formatmul -->
 <g id="module~~formatmul_opts~~UsedByGraph_edge14" class="edge">
 <title>program~test_matmul9&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M248.85,-24.01C244.81,-26.51 241.05,-29.48 238,-33 184.45,-94.9 172.16,-196.92 169.34,-241.73"/>
-<polygon fill="#255000" stroke="#255000" points="165.84,-241.65 168.81,-251.82 172.83,-242.02 165.84,-241.65"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M248.85,-24.01C244.81,-26.51 241.05,-29.48 238,-33 184.45,-94.9 172.16,-196.92 169.34,-241.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="165.84,-241.65 168.81,-251.82 172.83,-242.02 165.84,-241.65"/>
 </g>
 </g>
 </svg>
@@ -703,7 +719,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~7"></span>
+              <span class="anchor" id="variable-a~2"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -718,7 +734,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~6"></span>
+              <span class="anchor" id="variable-b~2"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -733,7 +749,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~6"></span>
+              <span class="anchor" id="variable-c~2"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -791,7 +807,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~8"></span>
+              <span class="anchor" id="variable-a~3"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -806,7 +822,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~7"></span>
+              <span class="anchor" id="variable-b~3"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -821,7 +837,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~7"></span>
+              <span class="anchor" id="variable-c~3"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -879,7 +895,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~9"></span>
+              <span class="anchor" id="variable-a~4"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -894,7 +910,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~8"></span>
+              <span class="anchor" id="variable-b~4"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -909,7 +925,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~8"></span>
+              <span class="anchor" id="variable-c~4"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -967,7 +983,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~10"></span>
+              <span class="anchor" id="variable-a~5"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -982,7 +998,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~9"></span>
+              <span class="anchor" id="variable-b~5"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -997,7 +1013,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~9"></span>
+              <span class="anchor" id="variable-c~5"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -1055,7 +1071,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~11"></span>
+              <span class="anchor" id="variable-a~6"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1070,7 +1086,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~2"></span>
+              <span class="anchor" id="variable-v"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1085,7 +1101,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-w~2"></span>
+              <span class="anchor" id="variable-w"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -1143,7 +1159,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~12"></span>
+              <span class="anchor" id="variable-a~7"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1158,7 +1174,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~3"></span>
+              <span class="anchor" id="variable-v~2"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1173,7 +1189,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-w~3"></span>
+              <span class="anchor" id="variable-w~2"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -1231,7 +1247,299 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~13"></span>
+              <span class="anchor" id="variable-a~8"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~6"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~6"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_2"></span> <h3>private pure subroutine <a href='../proc/mm_ab_2.html'>mm_AB_2</a>(A, B, C)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~9"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~7"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~7"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_3"></span> <h3>private pure subroutine <a href='../proc/mm_ab_3.html'>mm_AB_3</a>(A, B, C)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~10"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~8"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~8"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_4"></span> <h3>private pure subroutine <a href='../proc/mm_ab_4.html'>mm_AB_4</a>(A, B, C)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~11"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~9"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~9"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>C</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_5"></span> <h3>private pure subroutine <a href='../proc/mm_ab_5.html'>mm_AB_5</a>(A, B, C)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~12"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1282,7 +1590,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_2"></span> <h3>private pure subroutine <a href='../proc/mm_ab_2.html'>mm_AB_2</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_6"></span> <h3>private pure subroutine <a href='../proc/mm_ab_6.html'>mm_AB_6</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1304,7 +1612,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~14"></span>
+              <span class="anchor" id="variable-a~13"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1355,7 +1663,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_3"></span> <h3>private pure subroutine <a href='../proc/mm_ab_3.html'>mm_AB_3</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_7"></span> <h3>private pure subroutine <a href='../proc/mm_ab_7.html'>mm_AB_7</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1377,7 +1685,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~15"></span>
+              <span class="anchor" id="variable-a~14"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1428,7 +1736,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_4"></span> <h3>private pure subroutine <a href='../proc/mm_ab_4.html'>mm_AB_4</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_8"></span> <h3>private pure subroutine <a href='../proc/mm_ab_8.html'>mm_AB_8</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1450,7 +1758,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~16"></span>
+              <span class="anchor" id="variable-a~15"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1501,7 +1809,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_5"></span> <h3>private pure subroutine <a href='../proc/mm_ab_5.html'>mm_AB_5</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_9"></span> <h3>private pure subroutine <a href='../proc/mm_ab_9.html'>mm_AB_9</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1523,7 +1831,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~17"></span>
+              <span class="anchor" id="variable-a~16"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1574,7 +1882,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_6"></span> <h3>private pure subroutine <a href='../proc/mm_ab_6.html'>mm_AB_6</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_10"></span> <h3>private pure subroutine <a href='../proc/mm_ab_10.html'>mm_AB_10</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1596,7 +1904,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~18"></span>
+              <span class="anchor" id="variable-a~17"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1647,7 +1955,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_7"></span> <h3>private pure subroutine <a href='../proc/mm_ab_7.html'>mm_AB_7</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_11"></span> <h3>private pure subroutine <a href='../proc/mm_ab_11.html'>mm_AB_11</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1669,7 +1977,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~19"></span>
+              <span class="anchor" id="variable-a~18"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1720,7 +2028,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_8"></span> <h3>private pure subroutine <a href='../proc/mm_ab_8.html'>mm_AB_8</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_12"></span> <h3>private pure subroutine <a href='../proc/mm_ab_12.html'>mm_AB_12</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1742,7 +2050,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~20"></span>
+              <span class="anchor" id="variable-a~19"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1793,7 +2101,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_9"></span> <h3>private pure subroutine <a href='../proc/mm_ab_9.html'>mm_AB_9</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_13"></span> <h3>private pure subroutine <a href='../proc/mm_ab_13.html'>mm_AB_13</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1815,7 +2123,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~21"></span>
+              <span class="anchor" id="variable-a~20"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1866,7 +2174,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_10"></span> <h3>private pure subroutine <a href='../proc/mm_ab_10.html'>mm_AB_10</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_1"></span> <h3>private pure subroutine <a href='../proc/mm_atb_1.html'>mm_ATB_1</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1888,7 +2196,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~22"></span>
+              <span class="anchor" id="variable-a~21"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1939,7 +2247,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_11"></span> <h3>private pure subroutine <a href='../proc/mm_ab_11.html'>mm_AB_11</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_2"></span> <h3>private pure subroutine <a href='../proc/mm_atb_2.html'>mm_ATB_2</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -1961,7 +2269,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~23"></span>
+              <span class="anchor" id="variable-a~22"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2012,7 +2320,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_12"></span> <h3>private pure subroutine <a href='../proc/mm_ab_12.html'>mm_AB_12</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_3"></span> <h3>private pure subroutine <a href='../proc/mm_atb_3.html'>mm_ATB_3</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2034,7 +2342,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~24"></span>
+              <span class="anchor" id="variable-a~23"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2085,7 +2393,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_ab_13"></span> <h3>private pure subroutine <a href='../proc/mm_ab_13.html'>mm_AB_13</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_4"></span> <h3>private pure subroutine <a href='../proc/mm_atb_4.html'>mm_ATB_4</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2107,7 +2415,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~25"></span>
+              <span class="anchor" id="variable-a~24"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2158,7 +2466,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_1"></span> <h3>private pure subroutine <a href='../proc/mm_atb_1.html'>mm_ATB_1</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_5"></span> <h3>private pure subroutine <a href='../proc/mm_atb_5.html'>mm_ATB_5</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2180,7 +2488,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~26"></span>
+              <span class="anchor" id="variable-a~25"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2231,7 +2539,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_2"></span> <h3>private pure subroutine <a href='../proc/mm_atb_2.html'>mm_ATB_2</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_6"></span> <h3>private pure subroutine <a href='../proc/mm_atb_6.html'>mm_ATB_6</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2253,7 +2561,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~27"></span>
+              <span class="anchor" id="variable-a~26"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2304,7 +2612,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_3"></span> <h3>private pure subroutine <a href='../proc/mm_atb_3.html'>mm_ATB_3</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_7"></span> <h3>private pure subroutine <a href='../proc/mm_atb_7.html'>mm_ATB_7</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2326,7 +2634,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~28"></span>
+              <span class="anchor" id="variable-a~27"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2377,7 +2685,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_4"></span> <h3>private pure subroutine <a href='../proc/mm_atb_4.html'>mm_ATB_4</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_8"></span> <h3>private pure subroutine <a href='../proc/mm_atb_8.html'>mm_ATB_8</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2399,7 +2707,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~29"></span>
+              <span class="anchor" id="variable-a~28"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2450,7 +2758,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_5"></span> <h3>private pure subroutine <a href='../proc/mm_atb_5.html'>mm_ATB_5</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_9"></span> <h3>private pure subroutine <a href='../proc/mm_atb_9.html'>mm_ATB_9</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2472,7 +2780,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~30"></span>
+              <span class="anchor" id="variable-a~29"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2523,7 +2831,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_6"></span> <h3>private pure subroutine <a href='../proc/mm_atb_6.html'>mm_ATB_6</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_10"></span> <h3>private pure subroutine <a href='../proc/mm_atb_10.html'>mm_ATB_10</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2545,7 +2853,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~31"></span>
+              <span class="anchor" id="variable-a~30"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2596,7 +2904,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_7"></span> <h3>private pure subroutine <a href='../proc/mm_atb_7.html'>mm_ATB_7</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_11"></span> <h3>private pure subroutine <a href='../proc/mm_atb_11.html'>mm_ATB_11</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2618,7 +2926,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~32"></span>
+              <span class="anchor" id="variable-a~31"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2669,7 +2977,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_8"></span> <h3>private pure subroutine <a href='../proc/mm_atb_8.html'>mm_ATB_8</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_12"></span> <h3>private pure subroutine <a href='../proc/mm_atb_12.html'>mm_ATB_12</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2691,7 +2999,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~33"></span>
+              <span class="anchor" id="variable-a~32"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2742,7 +3050,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_9"></span> <h3>private pure subroutine <a href='../proc/mm_atb_9.html'>mm_ATB_9</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_13"></span> <h3>private pure subroutine <a href='../proc/mm_atb_13.html'>mm_ATB_13</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2764,7 +3072,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~34"></span>
+              <span class="anchor" id="variable-a~33"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2815,7 +3123,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_10"></span> <h3>private pure subroutine <a href='../proc/mm_atb_10.html'>mm_ATB_10</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_1"></span> <h3>private pure subroutine <a href='../proc/mm_abt_1.html'>mm_ABT_1</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2837,7 +3145,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~35"></span>
+              <span class="anchor" id="variable-a~34"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2888,7 +3196,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_11"></span> <h3>private pure subroutine <a href='../proc/mm_atb_11.html'>mm_ATB_11</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_2"></span> <h3>private pure subroutine <a href='../proc/mm_abt_2.html'>mm_ABT_2</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2910,7 +3218,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~36"></span>
+              <span class="anchor" id="variable-a~35"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2961,7 +3269,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_12"></span> <h3>private pure subroutine <a href='../proc/mm_atb_12.html'>mm_ATB_12</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_3"></span> <h3>private pure subroutine <a href='../proc/mm_abt_3.html'>mm_ABT_3</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -2983,7 +3291,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~37"></span>
+              <span class="anchor" id="variable-a~36"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3034,7 +3342,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atb_13"></span> <h3>private pure subroutine <a href='../proc/mm_atb_13.html'>mm_ATB_13</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_4"></span> <h3>private pure subroutine <a href='../proc/mm_abt_4.html'>mm_ABT_4</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3056,7 +3364,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~38"></span>
+              <span class="anchor" id="variable-a~37"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3107,7 +3415,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_1"></span> <h3>private pure subroutine <a href='../proc/mm_abt_1.html'>mm_ABT_1</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_5"></span> <h3>private pure subroutine <a href='../proc/mm_abt_5.html'>mm_ABT_5</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3129,7 +3437,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~39"></span>
+              <span class="anchor" id="variable-a~38"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3180,7 +3488,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_2"></span> <h3>private pure subroutine <a href='../proc/mm_abt_2.html'>mm_ABT_2</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_6"></span> <h3>private pure subroutine <a href='../proc/mm_abt_6.html'>mm_ABT_6</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3202,7 +3510,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~40"></span>
+              <span class="anchor" id="variable-a~39"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3253,7 +3561,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_3"></span> <h3>private pure subroutine <a href='../proc/mm_abt_3.html'>mm_ABT_3</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_7"></span> <h3>private pure subroutine <a href='../proc/mm_abt_7.html'>mm_ABT_7</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3275,7 +3583,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~41"></span>
+              <span class="anchor" id="variable-a~40"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3326,7 +3634,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_4"></span> <h3>private pure subroutine <a href='../proc/mm_abt_4.html'>mm_ABT_4</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_8"></span> <h3>private pure subroutine <a href='../proc/mm_abt_8.html'>mm_ABT_8</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3348,7 +3656,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~42"></span>
+              <span class="anchor" id="variable-a~41"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3399,7 +3707,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_5"></span> <h3>private pure subroutine <a href='../proc/mm_abt_5.html'>mm_ABT_5</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_9"></span> <h3>private pure subroutine <a href='../proc/mm_abt_9.html'>mm_ABT_9</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3421,7 +3729,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~43"></span>
+              <span class="anchor" id="variable-a~42"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3472,7 +3780,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_6"></span> <h3>private pure subroutine <a href='../proc/mm_abt_6.html'>mm_ABT_6</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_10"></span> <h3>private pure subroutine <a href='../proc/mm_abt_10.html'>mm_ABT_10</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3494,7 +3802,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~44"></span>
+              <span class="anchor" id="variable-a~43"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3545,7 +3853,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_7"></span> <h3>private pure subroutine <a href='../proc/mm_abt_7.html'>mm_ABT_7</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_11"></span> <h3>private pure subroutine <a href='../proc/mm_abt_11.html'>mm_ABT_11</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3567,7 +3875,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~45"></span>
+              <span class="anchor" id="variable-a~44"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3618,7 +3926,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_8"></span> <h3>private pure subroutine <a href='../proc/mm_abt_8.html'>mm_ABT_8</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_12"></span> <h3>private pure subroutine <a href='../proc/mm_abt_12.html'>mm_ABT_12</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3640,7 +3948,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~46"></span>
+              <span class="anchor" id="variable-a~45"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3691,7 +3999,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_9"></span> <h3>private pure subroutine <a href='../proc/mm_abt_9.html'>mm_ABT_9</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_13"></span> <h3>private pure subroutine <a href='../proc/mm_abt_13.html'>mm_ABT_13</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3713,7 +4021,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~47"></span>
+              <span class="anchor" id="variable-a~46"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3764,7 +4072,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_10"></span> <h3>private pure subroutine <a href='../proc/mm_abt_10.html'>mm_ABT_10</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_1"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_1.html'>mm_ATBT_1</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3786,7 +4094,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~48"></span>
+              <span class="anchor" id="variable-a~47"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3837,7 +4145,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_11"></span> <h3>private pure subroutine <a href='../proc/mm_abt_11.html'>mm_ABT_11</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_2"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_2.html'>mm_ATBT_2</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3859,7 +4167,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~49"></span>
+              <span class="anchor" id="variable-a~48"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3910,7 +4218,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_12"></span> <h3>private pure subroutine <a href='../proc/mm_abt_12.html'>mm_ABT_12</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_3"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_3.html'>mm_ATBT_3</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -3932,7 +4240,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~50"></span>
+              <span class="anchor" id="variable-a~49"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -3983,7 +4291,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_abt_13"></span> <h3>private pure subroutine <a href='../proc/mm_abt_13.html'>mm_ABT_13</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_4"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_4.html'>mm_ATBT_4</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4005,7 +4313,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~51"></span>
+              <span class="anchor" id="variable-a~50"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4056,7 +4364,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_1"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_1.html'>mm_ATBT_1</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_5"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_5.html'>mm_ATBT_5</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4078,7 +4386,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~52"></span>
+              <span class="anchor" id="variable-a~51"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4129,7 +4437,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_2"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_2.html'>mm_ATBT_2</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_6"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_6.html'>mm_ATBT_6</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4151,7 +4459,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~53"></span>
+              <span class="anchor" id="variable-a~52"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4202,7 +4510,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_3"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_3.html'>mm_ATBT_3</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_7"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_7.html'>mm_ATBT_7</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4224,7 +4532,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~54"></span>
+              <span class="anchor" id="variable-a~53"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4275,7 +4583,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_4"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_4.html'>mm_ATBT_4</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_8"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_8.html'>mm_ATBT_8</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4297,7 +4605,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~55"></span>
+              <span class="anchor" id="variable-a~54"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4348,7 +4656,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_5"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_5.html'>mm_ATBT_5</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_9"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_9.html'>mm_ATBT_9</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4370,7 +4678,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~56"></span>
+              <span class="anchor" id="variable-a~55"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4421,7 +4729,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_6"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_6.html'>mm_ATBT_6</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_10"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_10.html'>mm_ATBT_10</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4443,7 +4751,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~57"></span>
+              <span class="anchor" id="variable-a~56"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4494,7 +4802,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_7"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_7.html'>mm_ATBT_7</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_11"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_11.html'>mm_ATBT_11</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4516,7 +4824,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~58"></span>
+              <span class="anchor" id="variable-a~57"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4567,7 +4875,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_8"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_8.html'>mm_ATBT_8</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_12"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_12.html'>mm_ATBT_12</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4589,7 +4897,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~59"></span>
+              <span class="anchor" id="variable-a~58"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4640,7 +4948,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_9"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_9.html'>mm_ATBT_9</a>(A, B, C)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_13"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_13.html'>mm_ATBT_13</a>(A, B, C)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -4662,7 +4970,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~60"></span>
+              <span class="anchor" id="variable-a~59"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -4713,298 +5021,6 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_10"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_10.html'>mm_ATBT_10</a>(A, B, C)  
-</h3></div>
-    <div class="card-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-a~61"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-b~58"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>B</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-c~58"></span>
-              real(kind=rk),
-            </td>
-<td>intent(inout),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>C</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_11"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_11.html'>mm_ATBT_11</a>(A, B, C)  
-</h3></div>
-    <div class="card-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-a~62"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-b~59"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>B</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-c~59"></span>
-              real(kind=rk),
-            </td>
-<td>intent(inout),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>C</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_12"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_12.html'>mm_ATBT_12</a>(A, B, C)  
-</h3></div>
-    <div class="card-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-a~63"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-b~60"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>B</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-c~60"></span>
-              real(kind=rk),
-            </td>
-<td>intent(inout),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>C</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mm_atbt_13"></span> <h3>private pure subroutine <a href='../proc/mm_atbt_13.html'>mm_ATBT_13</a>(A, B, C)  
-</h3></div>
-    <div class="card-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-a~64"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-b~61"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>B</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-c~61"></span>
-              real(kind=rk),
-            </td>
-<td>intent(inout),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>C</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
-              <div class="card">
     <div class="card-header codesum"><span class="anchor" id="proc-mv_av_1"></span> <h3>private pure subroutine <a href='../proc/mv_av_1.html'>mv_Av_1</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
@@ -5027,7 +5043,80 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~65"></span>
+              <span class="anchor" id="variable-a~60"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>A</strong>(:,:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~3"></span>
+              real(kind=rk),
+            </td>
+<td>intent(in),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>v</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w~3"></span>
+              real(kind=rk),
+            </td>
+<td>intent(inout),</td>
+              <td></td>            <td>
+              contiguous
+            </td>
+            <td>::</td>
+            <td><strong>w</strong>(:)</td>
+            <td>
+
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+
+    </div>
+  </div>
+
+              <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_2"></span> <h3>private pure subroutine <a href='../proc/mv_av_2.html'>mv_Av_2</a>(A, v, w)  
+</h3></div>
+    <div class="card-body">
+              <dl class="dl-horizontal">
+        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
+    </dl>
+
+  
+
+  <h4>Arguments</h4>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-a~61"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5078,7 +5167,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_2"></span> <h3>private pure subroutine <a href='../proc/mv_av_2.html'>mv_Av_2</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_3"></span> <h3>private pure subroutine <a href='../proc/mv_av_3.html'>mv_Av_3</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5100,7 +5189,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~66"></span>
+              <span class="anchor" id="variable-a~62"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5151,7 +5240,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_3"></span> <h3>private pure subroutine <a href='../proc/mv_av_3.html'>mv_Av_3</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_4"></span> <h3>private pure subroutine <a href='../proc/mv_av_4.html'>mv_Av_4</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5173,7 +5262,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~67"></span>
+              <span class="anchor" id="variable-a~63"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5224,7 +5313,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_4"></span> <h3>private pure subroutine <a href='../proc/mv_av_4.html'>mv_Av_4</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_5"></span> <h3>private pure subroutine <a href='../proc/mv_av_5.html'>mv_Av_5</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5246,7 +5335,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~68"></span>
+              <span class="anchor" id="variable-a~64"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5297,7 +5386,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_5"></span> <h3>private pure subroutine <a href='../proc/mv_av_5.html'>mv_Av_5</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_6"></span> <h3>private pure subroutine <a href='../proc/mv_av_6.html'>mv_Av_6</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5319,7 +5408,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~69"></span>
+              <span class="anchor" id="variable-a~65"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5370,7 +5459,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_6"></span> <h3>private pure subroutine <a href='../proc/mv_av_6.html'>mv_Av_6</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_7"></span> <h3>private pure subroutine <a href='../proc/mv_av_7.html'>mv_Av_7</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5392,7 +5481,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~70"></span>
+              <span class="anchor" id="variable-a~66"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5443,7 +5532,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_7"></span> <h3>private pure subroutine <a href='../proc/mv_av_7.html'>mv_Av_7</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_8"></span> <h3>private pure subroutine <a href='../proc/mv_av_8.html'>mv_Av_8</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5465,7 +5554,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~71"></span>
+              <span class="anchor" id="variable-a~67"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5516,7 +5605,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_av_8"></span> <h3>private pure subroutine <a href='../proc/mv_av_8.html'>mv_Av_8</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_1"></span> <h3>private pure subroutine <a href='../proc/mv_atv_1.html'>mv_ATv_1</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5538,7 +5627,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~72"></span>
+              <span class="anchor" id="variable-a~68"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5589,7 +5678,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_1"></span> <h3>private pure subroutine <a href='../proc/mv_atv_1.html'>mv_ATv_1</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_2"></span> <h3>private pure subroutine <a href='../proc/mv_atv_2.html'>mv_ATv_2</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5611,7 +5700,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~73"></span>
+              <span class="anchor" id="variable-a~69"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5662,7 +5751,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_2"></span> <h3>private pure subroutine <a href='../proc/mv_atv_2.html'>mv_ATv_2</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_3"></span> <h3>private pure subroutine <a href='../proc/mv_atv_3.html'>mv_ATv_3</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5684,7 +5773,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~74"></span>
+              <span class="anchor" id="variable-a~70"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5735,7 +5824,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_3"></span> <h3>private pure subroutine <a href='../proc/mv_atv_3.html'>mv_ATv_3</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_4"></span> <h3>private pure subroutine <a href='../proc/mv_atv_4.html'>mv_ATv_4</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5757,7 +5846,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~75"></span>
+              <span class="anchor" id="variable-a~71"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5808,7 +5897,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_4"></span> <h3>private pure subroutine <a href='../proc/mv_atv_4.html'>mv_ATv_4</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_5"></span> <h3>private pure subroutine <a href='../proc/mv_atv_5.html'>mv_ATv_5</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5830,7 +5919,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~76"></span>
+              <span class="anchor" id="variable-a~72"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5881,7 +5970,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_5"></span> <h3>private pure subroutine <a href='../proc/mv_atv_5.html'>mv_ATv_5</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_6"></span> <h3>private pure subroutine <a href='../proc/mv_atv_6.html'>mv_ATv_6</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5903,7 +5992,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~77"></span>
+              <span class="anchor" id="variable-a~73"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -5954,7 +6043,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_6"></span> <h3>private pure subroutine <a href='../proc/mv_atv_6.html'>mv_ATv_6</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_7"></span> <h3>private pure subroutine <a href='../proc/mv_atv_7.html'>mv_ATv_7</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -5976,7 +6065,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~78"></span>
+              <span class="anchor" id="variable-a~74"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -6027,7 +6116,7 @@ large graphs.</div>
   </div>
 
               <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_7"></span> <h3>private pure subroutine <a href='../proc/mv_atv_7.html'>mv_ATv_7</a>(A, v, w)  
+    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_8"></span> <h3>private pure subroutine <a href='../proc/mv_atv_8.html'>mv_ATv_8</a>(A, v, w)  
 </h3></div>
     <div class="card-body">
               <dl class="dl-horizontal">
@@ -6049,7 +6138,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~79"></span>
+              <span class="anchor" id="variable-a~75"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -6099,79 +6188,6 @@ large graphs.</div>
     </div>
   </div>
 
-              <div class="card">
-    <div class="card-header codesum"><span class="anchor" id="proc-mv_atv_8"></span> <h3>private pure subroutine <a href='../proc/mv_atv_8.html'>mv_ATv_8</a>(A, v, w)  
-</h3></div>
-    <div class="card-body">
-              <dl class="dl-horizontal">
-        <dt>Author</dt><dd>Seyed Ali Ghasemi</dd>
-    </dl>
-
-  
-
-  <h4>Arguments</h4>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-a~80"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>A</strong>(:,:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-v~19"></span>
-              real(kind=rk),
-            </td>
-<td>intent(in),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>v</strong>(:)</td>
-            <td>
-
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-w~19"></span>
-              real(kind=rk),
-            </td>
-<td>intent(inout),</td>
-              <td></td>            <td>
-              contiguous
-            </td>
-            <td>::</td>
-            <td><strong>w</strong>(:)</td>
-            <td>
-
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-
-    </div>
-  </div>
-
         </section>
         <br>
 
@@ -6185,40 +6201,21 @@ large graphs.</div>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForMatmul
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-02-01T20:30:30.967067             </p>
+ on 2025-07-18T08:57:05.994850+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

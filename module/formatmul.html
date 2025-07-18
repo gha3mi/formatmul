@@ -12,14 +12,29 @@
 
     <title>formatmul &ndash; ForMatmul</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="../css/pygments.css" rel="stylesheet">
-    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Font Awesome -->
+    <link href="../css/fontawesome.min.css" rel="stylesheet">
+    <link href="../css/brands.min.css" rel="stylesheet">
+    <link href="../css/regular.min.css" rel="stylesheet">
+    <link href="../css/solid.min.css" rel="stylesheet">
+    <link href="../css/v4-font-face.min.css" rel="stylesheet">
+    <link href="../css/v4-shims.min.css" rel="stylesheet">
+    <!-- MathJax -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" } }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async
+            integrity="sha256-DViIOMYdwlM/axqoGDPeUyf0urLoHMN4QACBKyB58Uw=" crossorigin="anonymous"></script>
+    <!-- Other scripts and stylesheets -->
     <link href="../css/local.css" rel="stylesheet">
-      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <link href="../css/pygments.css" rel="stylesheet">
     <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
@@ -72,8 +87,7 @@
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
-              <a data-bs-toggle="tooltip"
-                 data-bs-placement="bottom" data-html="true"
+              <a data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-html="true"
                  title="33.9% of total for modules and submodules.">565 statements</a>
             </li>
 
@@ -94,9 +108,11 @@
     </div>
   </div>
   <script>
-    $(function () {
-    $('[data-bs-toggle="tooltip"]').tooltip()
-    })
+    // Enable Bootstrap tooltips
+    (function () {
+      const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    })();
   </script>
 
   </div>
@@ -183,8 +199,8 @@
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
               <ul class="list-inline">
-                  <li class="list-inline-item">kinds</li>
                   <li class="list-inline-item"><a href='formatmul_opts.html'>formatmul_opts</a></li>
+                  <li class="list-inline-item">kinds</li>
               </ul>
             </li>
             <li class="list-group-item">
@@ -214,8 +230,8 @@
 <!-- module~formatmul&#45;&gt;kinds -->
 <g id="module~~formatmul~~UsesGraph_edge1" class="edge">
 <title>module~formatmul&#45;&gt;kinds</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M222.92,-32.58C211.52,-32.75 198.7,-32.92 187,-33 143.89,-33.31 133.11,-33.35 90,-33 81.75,-32.93 72.88,-32.82 64.51,-32.69"/>
-<polygon fill="#255000" stroke="#255000" points="64.3,-29.18 54.24,-32.52 64.19,-36.18 64.3,-29.18"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M222.92,-32.58C211.52,-32.75 198.7,-32.92 187,-33 143.89,-33.31 133.11,-33.35 90,-33 81.75,-32.93 72.88,-32.82 64.51,-32.69"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="64.3,-29.18 54.24,-32.52 64.19,-36.18 64.3,-29.18"/>
 </g>
 <!-- module~formatmul_opts -->
 <g id="module~~formatmul~~UsesGraph_node3" class="node">
@@ -229,14 +245,14 @@
 <!-- module~formatmul&#45;&gt;module~formatmul_opts -->
 <g id="module~~formatmul~~UsesGraph_edge2" class="edge">
 <title>module~formatmul&#45;&gt;module~formatmul_opts</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M222.97,-26.27C214.93,-24.89 206.1,-23.39 197.3,-21.88"/>
-<polygon fill="#255000" stroke="#255000" points="197.86,-18.43 187.42,-20.19 196.69,-25.33 197.86,-18.43"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M222.97,-26.27C214.93,-24.89 206.1,-23.39 197.3,-21.88"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="197.86,-18.43 187.42,-20.19 196.69,-25.33 197.86,-18.43"/>
 </g>
 <!-- module~formatmul_opts&#45;&gt;kinds -->
 <g id="module~~formatmul~~UsesGraph_edge3" class="edge">
 <title>module~formatmul_opts&#45;&gt;kinds</title>
-<path fill="none" stroke="#025525" stroke-dasharray="5,2" stroke-opacity="0.019608" d="M89.79,-20.71C81.2,-22.28 72.37,-23.9 64.18,-25.39"/>
-<polygon fill="#025525" fill-opacity="0.019608" stroke="#025525" stroke-opacity="0.019608" points="63.41,-21.98 54.2,-27.22 64.66,-28.86 63.41,-21.98"/>
+<path fill="none" stroke="#00ffff" stroke-dasharray="5,2" d="M89.79,-20.71C81.2,-22.28 72.37,-23.9 64.18,-25.39"/>
+<polygon fill="#00ffff" stroke="#00ffff" points="63.41,-21.98 54.2,-27.22 64.66,-28.86 63.41,-21.98"/>
 </g>
 </g>
 </svg>
@@ -351,8 +367,8 @@ large graphs.</div>
 <!-- program~test_matmul10&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge1" class="edge">
 <title>program~test_matmul10&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.85,-503.99C111.81,-501.49 108.05,-498.52 105,-495 51.45,-433.1 39.16,-331.08 36.34,-286.27"/>
-<polygon fill="#255000" stroke="#255000" points="39.83,-285.98 35.81,-276.18 32.84,-286.35 39.83,-285.98"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M115.85,-503.99C111.81,-501.49 108.05,-498.52 105,-495 51.45,-433.1 39.16,-331.08 36.34,-286.27"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="39.83,-285.98 35.81,-276.18 32.84,-286.35 39.83,-285.98"/>
 </g>
 <!-- program~test_matmul11 -->
 <g id="module~~formatmul~~UsedByGraph_node3" class="node">
@@ -366,8 +382,8 @@ large graphs.</div>
 <!-- program~test_matmul11&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge2" class="edge">
 <title>program~test_matmul11&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.05,-461.81C111.97,-459.34 108.15,-456.43 105,-453 60.43,-404.51 43.82,-325.02 38.16,-286.43"/>
-<polygon fill="#255000" stroke="#255000" points="41.59,-285.71 36.78,-276.27 34.65,-286.64 41.59,-285.71"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M116.05,-461.81C111.97,-459.34 108.15,-456.43 105,-453 60.43,-404.51 43.82,-325.02 38.16,-286.43"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="41.59,-285.71 36.78,-276.27 34.65,-286.64 41.59,-285.71"/>
 </g>
 <!-- program~test_matmul12 -->
 <g id="module~~formatmul~~UsedByGraph_node4" class="node">
@@ -381,8 +397,8 @@ large graphs.</div>
 <!-- program~test_matmul12&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge3" class="edge">
 <title>program~test_matmul12&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.78,-419.81C112.5,-417.33 108.42,-414.41 105,-411 69.2,-375.38 49.49,-317.75 40.87,-286.27"/>
-<polygon fill="#255000" stroke="#255000" points="44.18,-285.1 38.28,-276.31 37.41,-286.87 44.18,-285.1"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M116.78,-419.81C112.5,-417.33 108.42,-414.41 105,-411 69.2,-375.38 49.49,-317.75 40.87,-286.27"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="44.18,-285.1 38.28,-276.31 37.41,-286.87 44.18,-285.1"/>
 </g>
 <!-- program~test_matmul13 -->
 <g id="module~~formatmul~~UsedByGraph_node5" class="node">
@@ -396,8 +412,8 @@ large graphs.</div>
 <!-- program~test_matmul13&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge4" class="edge">
 <title>program~test_matmul13&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.15,-377.86C113.47,-375.32 108.92,-372.38 105,-369 77.74,-345.5 56.8,-308.8 45.32,-285.6"/>
-<polygon fill="#255000" stroke="#255000" points="48.33,-283.78 40.86,-276.27 42.02,-286.8 48.33,-283.78"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M118.15,-377.86C113.47,-375.32 108.92,-372.38 105,-369 77.74,-345.5 56.8,-308.8 45.32,-285.6"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="48.33,-283.78 40.86,-276.27 42.02,-286.8 48.33,-283.78"/>
 </g>
 <!-- program~test_matmul14 -->
 <g id="module~~formatmul~~UsedByGraph_node6" class="node">
@@ -411,8 +427,8 @@ large graphs.</div>
 <!-- program~test_matmul14&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge5" class="edge">
 <title>program~test_matmul14&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M120.74,-335.91C115.35,-333.25 109.88,-330.24 105,-327 86.18,-314.49 67.34,-297.03 54.03,-283.67"/>
-<polygon fill="#255000" stroke="#255000" points="56.37,-281.05 46.88,-276.34 51.36,-285.94 56.37,-281.05"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M120.74,-335.91C115.35,-333.25 109.88,-330.24 105,-327 86.18,-314.49 67.34,-297.03 54.03,-283.67"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="56.37,-281.05 46.88,-276.34 51.36,-285.94 56.37,-281.05"/>
 </g>
 <!-- program~test_matmul15 -->
 <g id="module~~formatmul~~UsedByGraph_node7" class="node">
@@ -426,8 +442,8 @@ large graphs.</div>
 <!-- program~test_matmul15&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge6" class="edge">
 <title>program~test_matmul15&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.19,-293.96C104.97,-289.48 90.93,-284.33 77.97,-279.58"/>
-<polygon fill="#255000" stroke="#255000" points="78.91,-276.2 68.32,-276.04 76.5,-282.77 78.91,-276.2"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M117.19,-293.96C104.97,-289.48 90.93,-284.33 77.97,-279.58"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="78.91,-276.2 68.32,-276.04 76.5,-282.77 78.91,-276.2"/>
 </g>
 <!-- program~test_matmul3 -->
 <g id="module~~formatmul~~UsedByGraph_node8" class="node">
@@ -441,8 +457,8 @@ large graphs.</div>
 <!-- program~test_matmul3&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge7" class="edge">
 <title>program~test_matmul3&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M108.34,-264C98.85,-264 88.75,-264 79.18,-264"/>
-<polygon fill="#255000" stroke="#255000" points="79.07,-260.5 69.07,-264 79.07,-267.5 79.07,-260.5"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M108.34,-264C98.85,-264 88.75,-264 79.18,-264"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="79.07,-260.5 69.07,-264 79.07,-267.5 79.07,-260.5"/>
 </g>
 <!-- program~test_matmul4 -->
 <g id="module~~formatmul~~UsedByGraph_node9" class="node">
@@ -456,8 +472,8 @@ large graphs.</div>
 <!-- program~test_matmul4&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge8" class="edge">
 <title>program~test_matmul4&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M117.19,-234.04C104.97,-238.52 90.93,-243.67 77.97,-248.42"/>
-<polygon fill="#255000" stroke="#255000" points="76.5,-245.23 68.32,-251.96 78.91,-251.8 76.5,-245.23"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M117.19,-234.04C104.97,-238.52 90.93,-243.67 77.97,-248.42"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="76.5,-245.23 68.32,-251.96 78.91,-251.8 76.5,-245.23"/>
 </g>
 <!-- program~test_matmul5 -->
 <g id="module~~formatmul~~UsedByGraph_node10" class="node">
@@ -471,8 +487,8 @@ large graphs.</div>
 <!-- program~test_matmul5&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge9" class="edge">
 <title>program~test_matmul5&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M120.74,-192.09C115.35,-194.75 109.88,-197.76 105,-201 86.18,-213.51 67.34,-230.97 54.03,-244.33"/>
-<polygon fill="#255000" stroke="#255000" points="51.36,-242.06 46.88,-251.66 56.37,-246.95 51.36,-242.06"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M120.74,-192.09C115.35,-194.75 109.88,-197.76 105,-201 86.18,-213.51 67.34,-230.97 54.03,-244.33"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="51.36,-242.06 46.88,-251.66 56.37,-246.95 51.36,-242.06"/>
 </g>
 <!-- program~test_matmul6 -->
 <g id="module~~formatmul~~UsedByGraph_node11" class="node">
@@ -486,8 +502,8 @@ large graphs.</div>
 <!-- program~test_matmul6&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge10" class="edge">
 <title>program~test_matmul6&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M118.15,-150.14C113.47,-152.68 108.92,-155.62 105,-159 77.74,-182.5 56.8,-219.2 45.32,-242.4"/>
-<polygon fill="#255000" stroke="#255000" points="42.02,-241.2 40.86,-251.73 48.33,-244.22 42.02,-241.2"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M118.15,-150.14C113.47,-152.68 108.92,-155.62 105,-159 77.74,-182.5 56.8,-219.2 45.32,-242.4"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="42.02,-241.2 40.86,-251.73 48.33,-244.22 42.02,-241.2"/>
 </g>
 <!-- program~test_matmul7 -->
 <g id="module~~formatmul~~UsedByGraph_node12" class="node">
@@ -501,8 +517,8 @@ large graphs.</div>
 <!-- program~test_matmul7&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge11" class="edge">
 <title>program~test_matmul7&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.78,-108.19C112.5,-110.67 108.42,-113.59 105,-117 69.2,-152.62 49.49,-210.25 40.87,-241.73"/>
-<polygon fill="#255000" stroke="#255000" points="37.41,-241.13 38.28,-251.69 44.18,-242.9 37.41,-241.13"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M116.78,-108.19C112.5,-110.67 108.42,-113.59 105,-117 69.2,-152.62 49.49,-210.25 40.87,-241.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="37.41,-241.13 38.28,-251.69 44.18,-242.9 37.41,-241.13"/>
 </g>
 <!-- program~test_matmul8 -->
 <g id="module~~formatmul~~UsedByGraph_node13" class="node">
@@ -516,8 +532,8 @@ large graphs.</div>
 <!-- program~test_matmul8&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge12" class="edge">
 <title>program~test_matmul8&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M116.05,-66.19C111.97,-68.66 108.15,-71.57 105,-75 60.43,-123.49 43.82,-202.98 38.16,-241.57"/>
-<polygon fill="#255000" stroke="#255000" points="34.65,-241.36 36.78,-251.73 41.59,-242.29 34.65,-241.36"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M116.05,-66.19C111.97,-68.66 108.15,-71.57 105,-75 60.43,-123.49 43.82,-202.98 38.16,-241.57"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="34.65,-241.36 36.78,-251.73 41.59,-242.29 34.65,-241.36"/>
 </g>
 <!-- program~test_matmul9 -->
 <g id="module~~formatmul~~UsedByGraph_node14" class="node">
@@ -531,8 +547,8 @@ large graphs.</div>
 <!-- program~test_matmul9&#45;&gt;module~formatmul -->
 <g id="module~~formatmul~~UsedByGraph_edge13" class="edge">
 <title>program~test_matmul9&#45;&gt;module~formatmul</title>
-<path fill="none" stroke="#255000" stroke-dasharray="5,2" d="M115.85,-24.01C111.81,-26.51 108.05,-29.48 105,-33 51.45,-94.9 39.16,-196.92 36.34,-241.73"/>
-<polygon fill="#255000" stroke="#255000" points="32.84,-241.65 35.81,-251.82 39.83,-242.02 32.84,-241.65"/>
+<path fill="none" stroke="#ff0000" stroke-dasharray="5,2" d="M115.85,-24.01C111.81,-26.51 108.05,-29.48 105,-33 51.45,-94.9 39.16,-196.92 36.34,-241.73"/>
+<polygon fill="#ff0000" stroke="#ff0000" points="32.84,-241.65 35.81,-251.82 39.83,-242.02 32.84,-241.65"/>
 </g>
 </g>
 </svg>
@@ -651,7 +667,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~84"></span>
+              <span class="anchor" id="variable-a~89"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -666,7 +682,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~63"></span>
+              <span class="anchor" id="variable-b~64"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1002,7 +1018,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~85"></span>
+              <span class="anchor" id="variable-a~90"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1017,7 +1033,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~22"></span>
+              <span class="anchor" id="variable-v~26"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1094,7 +1110,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~83"></span>
+              <span class="anchor" id="variable-a~88"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1109,7 +1125,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~21"></span>
+              <span class="anchor" id="variable-v~25"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1201,7 +1217,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~82"></span>
+              <span class="anchor" id="variable-a~87"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1216,7 +1232,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~20"></span>
+              <span class="anchor" id="variable-v~24"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1440,7 +1456,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~82"></span>
+              <span class="anchor" id="variable-a~87"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1455,7 +1471,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~20"></span>
+              <span class="anchor" id="variable-v~24"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1671,7 +1687,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~83"></span>
+              <span class="anchor" id="variable-a~88"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1686,7 +1702,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~21"></span>
+              <span class="anchor" id="variable-v~25"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1779,7 +1795,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~84"></span>
+              <span class="anchor" id="variable-a~89"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1794,7 +1810,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~63"></span>
+              <span class="anchor" id="variable-b~64"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1887,7 +1903,7 @@ large graphs.</div>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~85"></span>
+              <span class="anchor" id="variable-a~90"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -1902,7 +1918,7 @@ large graphs.</div>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~22"></span>
+              <span class="anchor" id="variable-v~26"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2086,7 +2102,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~86"></span>
+              <span class="anchor" id="variable-a~91"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2101,7 +2117,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~64"></span>
+              <span class="anchor" id="variable-b~65"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2116,7 +2132,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~64"></span>
+              <span class="anchor" id="variable-c~65"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -2174,7 +2190,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~87"></span>
+              <span class="anchor" id="variable-a~92"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2189,7 +2205,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~65"></span>
+              <span class="anchor" id="variable-b~66"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2204,7 +2220,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~65"></span>
+              <span class="anchor" id="variable-c~66"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -2262,7 +2278,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~88"></span>
+              <span class="anchor" id="variable-a~93"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2277,7 +2293,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~66"></span>
+              <span class="anchor" id="variable-b~67"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2292,7 +2308,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~66"></span>
+              <span class="anchor" id="variable-c~67"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -2350,7 +2366,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~89"></span>
+              <span class="anchor" id="variable-a~94"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2365,7 +2381,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~67"></span>
+              <span class="anchor" id="variable-b~68"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2380,7 +2396,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~67"></span>
+              <span class="anchor" id="variable-c~68"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -2438,7 +2454,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~90"></span>
+              <span class="anchor" id="variable-a~95"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2453,7 +2469,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~23"></span>
+              <span class="anchor" id="variable-v~27"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2468,7 +2484,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-w~23"></span>
+              <span class="anchor" id="variable-w~27"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -2526,7 +2542,7 @@ author: Seyed Ali Ghasemi</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~91"></span>
+              <span class="anchor" id="variable-a~96"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2541,7 +2557,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-v~24"></span>
+              <span class="anchor" id="variable-v~28"></span>
               real(kind=rk),
             </td>
 <td>intent(in),</td>
@@ -2556,7 +2572,7 @@ author: Seyed Ali Ghasemi</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-w~24"></span>
+              <span class="anchor" id="variable-w~28"></span>
               real(kind=rk),
             </td>
 <td>intent(inout),</td>
@@ -2604,40 +2620,21 @@ author: Seyed Ali Ghasemi</p>
     <footer>
       <div class="container">
         <div class="row justify-content-between">
-          <div class="col"><p>ForMatmul was developed by Seyed Ali Ghasemi<br>&copy; 2023 
+          <div class="col">
+            <p>
+              ForMatmul
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-02-01T20:30:30.967067             </p>
+ on 2025-07-18T08:57:05.994850+0000             </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
-
-    <!-- Bootstrap core JavaScript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
-
-    <!-- MathJax JavaScript
-             ================================================== -->
-             <!-- Placed at the end of the document so the pages load faster -->
-        <script type="text/x-mathjax-config">
-          MathJax.Hub.Config({
-          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-          });
-        </script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-          <script src="../tipuesearch/tipuesearch_content.js"></script>
-          <script src="../tipuesearch/tipuesearch_set.js"></script>
-          <script src="../tipuesearch/tipuesearch.js"></script>
-
   </body>
 </html>

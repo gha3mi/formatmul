@@ -2,7 +2,7 @@ program test_matmul5
 
    use kinds
    use formatmul
-   use forunittest
+   use forunittest, only: unit_test
 
    implicit none
 
