@@ -78,7 +78,7 @@ To generate the API documentation for `ForMatmul` using
 command:
 
 ```shell
-ford ford.yml
+ford README.md
 ```
 
 ## Contributing

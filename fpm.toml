@@ -1,8 +1,8 @@
 name       = "formatmul"
-version    = "VERSION"
+version    = "0.8.0"
 author     = "Seyed Ali Ghasemi"
 maintainer = "info@gha3mi.com"
-copyright  = "Copyright 2023, Seyed Ali Ghasemi"
+copyright  = "Copyright 2023-2025, Seyed Ali Ghasemi"
 license    = "LICENSE"
 
 [preprocess]
@@ -92,3 +92,29 @@ main       = "test12.f90"
 name       = "test13"
 source-dir = "test"
 main       = "test13.f90"
+
+
+
+[extra.ford]
+project             = "ForMatmul"
+version             = "0.8.0"
+year                = "2023-2025"
+project_github      = "https://github.com/gha3mi/formatmul"
+author              = "Seyed Ali Ghasemi"
+email               = "info@gha3mi.com"
+github              = "https://github.com/gha3mi"
+license             = "BSD 3-Clause"
+src_dir             = ["src", "test"]
+output_dir          = "doc"
+source              = true
+incl_src            = true
+graph               = true
+coloured_edges      = true
+search              = true
+print_creation_date = true
+sort                = "permission-alpha"
+display             = ["public", "private", "protected"]
+
+
+[extra.fortitude.check]
+ignore = ["S001", "S061", "C003", "C121", "C092", "C071"]

@@ -494,6 +494,7 @@ contains
       interface
          pure subroutine impure_mm_AB_12(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_AB_12
@@ -514,6 +515,7 @@ contains
       interface
          pure subroutine impure_mm_AB_13(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_AB_13
@@ -784,6 +786,7 @@ contains
       interface
          pure subroutine impure_mm_ATB_12(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_ATB_12
@@ -804,6 +807,7 @@ contains
       interface
          pure subroutine impure_mm_ATB_13(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_ATB_13
@@ -1073,6 +1077,7 @@ contains
       interface
          pure subroutine impure_mm_ABT_12(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_ABT_12
@@ -1093,6 +1098,7 @@ contains
       interface
          pure subroutine impure_mm_ABT_13(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_ABT_13
@@ -1365,6 +1371,7 @@ contains
       interface
          pure subroutine impure_mm_ATBT_12(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_ATBT_12
@@ -1385,6 +1392,7 @@ contains
       interface
          pure subroutine impure_mm_ATBT_13(f_a, f_b, f_c)
             import rk
+            implicit none
             real(rk), intent(in) :: f_a(:,:), f_b(:,:)
             real(rk), intent(inout) :: f_c(:,:)
          end subroutine impure_mm_ATBT_13

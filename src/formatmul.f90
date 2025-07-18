@@ -323,7 +323,7 @@ contains
             ! AB
             allocate(C(size(A,1), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)            
+#if defined(USE_DO_CONCURRENT)
             do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
@@ -342,7 +342,7 @@ contains
             ! ATBT
             allocate(C(size(A,2), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)            
+#if defined(USE_DO_CONCURRENT)
             do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
@@ -361,7 +361,7 @@ contains
             ! ATB
             allocate(C(size(A,2), size(B,2)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)            
+#if defined(USE_DO_CONCURRENT)
             do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
@@ -380,7 +380,7 @@ contains
             ! ABT
             allocate(C(size(A,1), size(B,1)), source=0.0_rk)
             call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)            
+#if defined(USE_DO_CONCURRENT)
             do concurrent (ib = 1: nblock)
                se = start_elem(ib)
                ee = end_elem(ib)
@@ -402,7 +402,7 @@ contains
                ! ATB
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)               
+#if defined(USE_DO_CONCURRENT)
                do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
@@ -421,7 +421,7 @@ contains
                ! ABT
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)               
+#if defined(USE_DO_CONCURRENT)
                do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
@@ -442,7 +442,7 @@ contains
                ! ABT
                allocate(C(size(A,1), size(B,1)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)               
+#if defined(USE_DO_CONCURRENT)
                do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
@@ -461,7 +461,7 @@ contains
                ! ATB
                allocate(C(size(A,2), size(B,2)), source=0.0_rk)
                call compute_block_ranges(size(A,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)               
+#if defined(USE_DO_CONCURRENT)
                do concurrent (ib = 1: nblock)
                   se = start_elem(ib)
                   ee = end_elem(ib)
@@ -482,7 +482,7 @@ contains
          ! AB
          allocate(C(size(A,1), size(B,2)), source=0.0_rk)
          call compute_block_ranges(size(B,2), nblock, block_size, start_elem, end_elem)
-#if defined(USE_DO_CONCURRENT)         
+#if defined(USE_DO_CONCURRENT)
          do concurrent (ib = 1: nblock)
             se = start_elem(ib)
             ee = end_elem(ib)
