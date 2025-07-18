@@ -202,6 +202,6 @@ program test_matmul4
 
    C = matmul(A,B, option='m13', transA=.true., transB=.false., nblock=4)
    call ut%check(C, C_ref, tol=1e-5_rk, msg='test_matmul4.56')
-   
+
 end program test_matmul4
 

@@ -100,43 +100,43 @@
 <p><img alt="ForMatmul" src="https://github.com/gha3mi/formatmul/raw/main/media/logo.png" width="750"></p>
 <p><strong>ForMatmul</strong>: A Fortran library that overloads the <code>matmul</code> function to enable efficient matrix multiplication with/without coarray.</p>
 <h2>Usage</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">formatmul</span>
+<div class="codehilite"><pre><span></span><code><span class="k">use </span><span class="n">formatmul</span><span class="w"></span>
 
-<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="n">coarray</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;m1&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">transA</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="n">transB</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span><span class="w"> </span><span class="n">coarray</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span><span class="w"></span>
 </code></pre></div>
 
 <h2>fpm dependency</h2>
 <p>If you want to use <code>ForMatmul</code> as a dependency in your own fpm project,
 you can easily include it by adding the following line to your <code>fpm.toml</code> file:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span>
-<span class="n">formatmul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="p">=</span><span class="s2">&quot;https://github.com/gha3mi/formatmul.git&quot;</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><code><span class="k">[dependencies]</span><span class="w"></span>
+<span class="n">formatmul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">git</span><span class="o">=</span><span class="s">&quot;https://github.com/gha3mi/formatmul.git&quot;</span><span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
 <h2>How to run tests</h2>
 <p><strong>Clone the repository:</strong></p>
 <p>You can clone the <code>ForMatmul</code> repository from GitHub using the following command:</p>
-<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gha3mi/formatmul.git
+<div class="codehilite"><pre><span></span><code>git clone https://github.com/gha3mi/formatmul.git
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>formatmul
+<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> formatmul
 </code></pre></div>
 
 <p>Tested with Intel compiler: ifort (IFORT) 2021.10.0 20230609</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifort-test
+<div class="codehilite"><pre><span></span><code>fpm @ifort-test
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifort-test-coarray
+<div class="codehilite"><pre><span></span><code>fpm @ifort-test-coarray
 </code></pre></div>
 
 <p>Tested with Intel compiler: ifx (IFX) 2023.2.0 20230622</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifx-test
+<div class="codehilite"><pre><span></span><code>fpm @ifx-test
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@ifx-test-coarray
+<div class="codehilite"><pre><span></span><code>fpm @ifx-test-coarray
 </code></pre></div>
 
 <p>Tested with NVIDIA compiler: nvfortran 23.11-0 64-bit target on x86-64 Linux</p>
-<div class="codehilite"><pre><span></span><code>fpm<span class="w"> </span>@nvfortran-test
+<div class="codehilite"><pre><span></span><code>fpm @nvfortran-test
 </code></pre></div>
 
 <h2>Benchmarks</h2>
@@ -147,7 +147,7 @@ you can easily include it by adding the following line to your <code>fpm.toml</c
 To generate the API documentation for <code>ForMatmul</code> using
 <a href="https://github.com/Fortran-FOSS-Programmers/ford">ford</a> run the following
 command:</p>
-<div class="codehilite"><pre><span></span><code>ford<span class="w"> </span>ford.yml
+<div class="codehilite"><pre><span></span><code>ford README.md
 </code></pre></div>
 
 <h2>Contributing</h2>
@@ -217,14 +217,14 @@ If you find any issues or would like to suggest improvements, please open an iss
           <div class="col">
             <p>
               ForMatmul
- was developed by Seyed Ali Ghasemi<br>              &copy; 2023 
+ was developed by Seyed Ali Ghasemi<br>              &copy; 2023-2025 BSD 3-Clause
 </p>
           </div>
           <div class="col">
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2025-07-18T08:57:05.994850+0000             </p>
+ on 2025-07-18T09:13:08.115080+0000             </p>
           </div>
         </div>
         <br>

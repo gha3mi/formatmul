@@ -4,6 +4,8 @@ module external_interfaces_matmul
 
    implicit none
 
+   private
+   public :: gemm, gemv
    interface gemm
 #if defined(REAL64)
       pure subroutine dgemm(f_transa, f_transb, f_m, f_n, f_k, f_alpha, f_a, f_lda, f_b, f_ldb, f_beta, f_c, f_ldc)
