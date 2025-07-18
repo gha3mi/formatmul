@@ -33,3 +33,192 @@ options test
 options --compiler gfortran
 options --profile release
 options --flag "-O3 -march=native -lblas -fopenmp -DUSE_DO_CONCURRENT -flto"
+
+
+
+@ubuntu-latest_gfortran_debug
+options test
+options --compiler gfortran
+options --profile debug
+options --flag "-lblas"
+
+@ubuntu-latest_gfortran_release
+options test
+options --compiler gfortran
+options --profile release
+options --flag "-lblas"
+
+@ubuntu-latest_ifx_debug
+options test
+options --compiler ifx
+options --profile debug
+options --flag "-lblas"
+
+@ubuntu-latest_ifx_release
+options test
+options --compiler ifx
+options --profile release
+options --flag "-lblas"
+
+@ubuntu-latest_nvfortran_debug
+options test
+options --compiler nvfortran
+options --profile debug
+options --flag "-lblas"
+
+@ubuntu-latest_nvfortran_release
+options test
+options --compiler nvfortran
+options --profile release
+options --flag "-lblas"
+
+@ubuntu-latest_flang-new_debug
+options test
+options --compiler flang-new
+options --profile debug
+options --flag "-cpp"
+options --link-flag "-lblas"
+
+@ubuntu-latest_flang-new_release
+options test
+options --compiler flang-new
+options --profile release
+options --flag "-cpp"
+options --link-flag "-lblas"
+
+@ubuntu-latest_lfortran_debug
+options test
+options --compiler lfortran
+options --profile debug
+options --flag "--cpp -lblas"
+
+@ubuntu-latest_lfortran_release
+options test
+options --compiler lfortran
+options --profile release
+options --flag "--cpp -lblas"
+
+
+
+@macos-latest_gfortran_debug
+options test
+options --compiler gfortran
+options --profile debug
+options --flag "-lblas"
+
+@macos-latest_gfortran_release
+options test
+options --compiler gfortran
+options --profile release
+options --flag "-lblas"
+
+@macos-latest_ifx_debug
+options test
+options --compiler ifx
+options --profile debug
+options --flag "-lblas"
+
+@macos-latest_ifx_release
+options test
+options --compiler ifx
+options --profile release
+options --flag "-lblas"
+
+@macos-latest_nvfortran_debug
+options test
+options --compiler nvfortran
+options --profile debug
+options --flag "-lblas"
+
+@macos-latest_nvfortran_release
+options test
+options --compiler nvfortran
+options --profile release
+options --flag "-lblas"
+
+@macos-latest_flang-new_debug
+options test
+options --compiler flang-new
+options --profile debug
+options --link-flag "-lblas"
+
+@macos-latest_flang-new_release
+options test
+options --compiler flang-new
+options --profile release
+options --link-flag "-lblas"
+
+@macos-latest_lfortran_debug
+options test
+options --compiler lfortran
+options --profile debug
+options --flag "--cpp -lblas"
+
+@macos-latest_lfortran_release
+options test
+options --compiler lfortran
+options --profile release
+options --flag "--cpp -lblas"
+
+
+
+@windows-latest_gfortran_debug
+options test
+options --compiler gfortran
+options --profile debug
+options --link-flag "-lopenblas"
+
+@windows-latest_gfortran_release
+options test
+options --compiler gfortran
+options --profile release
+options --link-flag "-lopenblas"
+
+@windows-latest_ifx_debug
+options test
+options --compiler ifx
+options --profile debug
+options --flag "-Qmkl"
+
+@windows-latest_ifx_release
+options test
+options --compiler ifx
+options --profile release
+options --flag "-Qmkl"
+
+@windows-latest_nvfortran_debug
+options test
+options --compiler nvfortran
+options --profile debug
+options --flag "-lopenblas"
+
+@windows-latest_nvfortran_release
+options test
+options --compiler nvfortran
+options --profile release
+options --flag "-lopenblas"
+
+@windows-latest_flang-new_debug
+options test
+options --compiler flang-new
+options --flag "-cpp"
+options --link-flag "-lopenblas"
+
+@windows-latest_flang-new_release
+options test
+options --compiler flang-new
+options --flag "-cpp"
+options --link-flag "-lopenblas"
+
+@windows-latest_lfortran_debug
+options test
+options --compiler lfortran
+options --profile debug
+options --flag "--cpp -lopenblas"
+
+@windows-latest_lfortran_release
+options test
+options --compiler lfortran
+options --profile release
+options --flag "--cpp -lopenblas"
+
